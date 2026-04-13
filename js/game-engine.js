@@ -78,76 +78,91 @@ const el = {
 };
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
+function showError(msg) {
+  document.body.innerHTML = `
+    <div style="color:#ff6060;background:#1a0000;padding:32px;font-family:monospace;white-space:pre-wrap;font-size:14px;">
+      <b>🐱 遊戲初始化失敗</b><br><br>${msg}<br><br>
+      <a href="index.html" style="color:#f5c842">← 返回選關</a>
+    </div>`;
+}
+
 async function init() {
-  const stageId = sessionStorage.getItem('currentStageId');
-  if (!stageId) { location.href = 'index.html'; return; }
+  try {
+    // 允許直接開啟 game.html 測試（預設台灣第一關）
+    let stageId = sessionStorage.getItem('currentStageId') || 'taiwan_1';
 
-  document.getElementById('btn-back').addEventListener('click', () => {
-    cancelAnimationFrame(state.rafId);
-    clearInterval(state.autoGoldTimer);
-    location.href = 'index.html';
-  });
-  document.getElementById('btn-retry').addEventListener('click', () => location.reload());
-  document.getElementById('btn-result-back').addEventListener('click', () => { location.href = 'index.html'; });
+    document.getElementById('btn-back').addEventListener('click', () => {
+      cancelAnimationFrame(state.rafId);
+      clearInterval(state.autoGoldTimer);
+      location.href = 'index.html';
+    });
+    document.getElementById('btn-retry').addEventListener('click', () => location.reload());
+    document.getElementById('btn-result-back').addEventListener('click', () => { location.href = 'index.html'; });
 
-  const [stages, heroes, enemies, config] = await Promise.all([
-    fetch('data/stages.json').then(r => r.json()),
-    fetch('data/heroes.json').then(r => r.json()),
-    fetch('data/enemies.json').then(r => r.json()),
-    fetch('data/config.json').then(r => r.json()),
-    loadQuestions(),
-    loadDialogs()
-  ]);
+    const [stages, heroes, enemies, config] = await Promise.all([
+      fetch('data/stages.json').then(r => r.json()),
+      fetch('data/heroes.json').then(r => r.json()),
+      fetch('data/enemies.json').then(r => r.json()),
+      fetch('data/config.json').then(r => r.json()),
+      loadQuestions(),
+      loadDialogs()
+    ]);
 
-  state.stageData   = stages.find(s => s.id === stageId);
-  state.heroesData  = heroes;
-  state.enemiesData = enemies;
-  state.config      = config;
+    state.stageData   = stages.find(s => s.id === stageId);
+    state.heroesData  = heroes;
+    state.enemiesData = enemies;
+    state.config      = config;
 
-  if (!state.stageData) { alert('關卡資料缺失！'); return; }
+    if (!state.stageData) { showError(`找不到關卡：${stageId}`); return; }
 
-  el.stageName().textContent = state.stageData.name;
+    el.stageName().textContent = state.stageData.name;
 
-  // Setup battlefield size
-  const bf = el.bf();
-  state.battlefieldW = bf.clientWidth;
-  state.playerBaseX  = 10;
-  state.enemyBaseX   = state.battlefieldW - 90;
+    // Setup battlefield size
+    const bf = el.bf();
+    state.battlefieldW = bf.clientWidth;
+    state.playerBaseX  = 10;
+    state.enemyBaseX   = state.battlefieldW - 90;
 
-  // Set base HP
-  state.playerBaseHp    = state.stageData.playerBaseHp;
-  state.playerBaseHpMax = state.stageData.playerBaseHp;
-  state.enemyBaseHp     = state.stageData.enemyBaseHp;
-  state.enemyBaseHpMax  = state.stageData.enemyBaseHp;
+    // Set base HP
+    state.playerBaseHp    = state.stageData.playerBaseHp;
+    state.playerBaseHpMax = state.stageData.playerBaseHp;
+    state.enemyBaseHp     = state.stageData.enemyBaseHp;
+    state.enemyBaseHpMax  = state.stageData.enemyBaseHp;
 
-  // Set backgrounds & base images
-  if (state.stageData.background) {
-    bf.style.backgroundImage = `url('${state.stageData.background}')`;
+    // Set backgrounds & base images
+    if (state.stageData.background) {
+      bf.style.backgroundImage = `url('${state.stageData.background}')`;
+      bf.style.backgroundSize  = 'cover';
+    }
+    const pImg = document.getElementById('player-base-img');
+    const eImg = document.getElementById('enemy-base-img');
+    if (pImg) pImg.src = state.stageData.playerBase;
+    if (eImg) eImg.src = state.stageData.enemyBase;
+
+    // Build spawn queue (time-based)
+    state.spawnQueue = state.stageData.spawnSchedule
+      .filter(e => e.time !== undefined)
+      .sort((a, b) => a.time - b.time);
+
+    // Setup hero summon buttons
+    buildSummonPanel(heroes);
+
+    // Setup math answer buttons
+    el.choiceBtns().forEach(btn => {
+      btn.addEventListener('click', () => onAnswer(parseInt(btn.textContent)));
+    });
+
+    // Show dialog then start
+    const choice = await showDialog(state.stageData.dialogId);
+    state.dialogChoice = choice;
+    applyDialogBuff(choice);
+
+    startGame();
+
+  } catch (err) {
+    console.error('[game-engine] init() 失敗：', err);
+    showError(err.message + '\n\n' + err.stack);
   }
-  const pImg = document.getElementById('player-base-img');
-  const eImg = document.getElementById('enemy-base-img');
-  pImg.src = state.stageData.playerBase;
-  eImg.src = state.stageData.enemyBase;
-
-  // Build spawn queue (time-based)
-  state.spawnQueue = state.stageData.spawnSchedule
-    .filter(e => e.time !== undefined)
-    .sort((a, b) => a.time - b.time);
-
-  // Setup hero summon buttons
-  buildSummonPanel(heroes);
-
-  // Setup math answer buttons
-  el.choiceBtns().forEach(btn => {
-    btn.addEventListener('click', () => onAnswer(parseInt(btn.textContent)));
-  });
-
-  // Show dialog then start
-  const choice = await showDialog(state.stageData.dialogId);
-  state.dialogChoice = choice;
-  applyDialogBuff(choice);
-
-  startGame();
 }
 
 // ── Dialog Buff ───────────────────────────────────────────────────────────────
@@ -453,14 +468,17 @@ function onAnswer(chosen) {
     addGold(gain);
     state.score += state.config.score.correctAnswer;
 
-    // EXP → most expensive deployed hero (simplified: all heroes)
+    // EXP → most expensive deployed hero
     const userId = getUserId();
     if (userId) {
-      const mainHero = expHero();
-      if (mainHero) addHeroExp(userId, mainHero.heroId, result.type === 'multiplication'
-        ? state.config.exp.correctMultiplication
-        : state.config.exp.correctAddition);
-      recordMathStat(userId, result.type, true);
+      try {
+        const mainHero = expHero();
+        const expGain  = result.type === 'multiplication'
+          ? state.config.exp.correctMultiplication
+          : state.config.exp.correctAddition;
+        if (mainHero) addHeroExp(userId, mainHero.heroId, expGain);
+        recordMathStat(userId, result.type, true);
+      } catch (e) { console.warn('Firebase EXP 更新失敗', e); }
     }
 
     // Combo
@@ -482,9 +500,11 @@ function onAnswer(chosen) {
 
     const userId = getUserId();
     if (userId) {
-      recordMathStat(userId, result.type, false);
-      const mainHero = expHero();
-      if (mainHero) recordWrongAnswer(userId, mainHero.heroId);
+      try {
+        recordMathStat(userId, result.type, false);
+        const mainHero = expHero();
+        if (mainHero) recordWrongAnswer(userId, mainHero.heroId);
+      } catch (e) { console.warn('Firebase 答錯記錄失敗', e); }
     }
 
     // Reset combo (but keep streak count if < 3)
@@ -625,28 +645,23 @@ async function endGame(win) {
     state.score += state.config.score.stageBase;
   }
 
-  // Save to Firebase
+  // Save to Firebase（失敗不影響遊戲結果顯示）
   const userId = getUserId();
   if (userId && win) {
-    await saveStageResult(userId, state.stageData.id, {
-      score: state.score,
-      time:  elapsed,
-      perfect,
-      dialogChoice: state.dialogChoice?.label || null
-    });
-    await addScore(userId, state.score);
-
-    // Update leaderboard
-    const parts = userId.split('_');
-    const nick  = parts.slice(0,-1).join('_');
-    await updateLeaderboard(userId, {
-      nickname:        nick,
-      totalScore:      state.score,
-      weeklyScore:     state.score,
-      farthestStage:   state.stageData.id,
-      farthestCountry: state.stageData.country,
-      title:           '初出茅廬'
-    });
+    try {
+      await saveStageResult(userId, state.stageData.id, {
+        score: state.score, time: elapsed, perfect,
+        dialogChoice: state.dialogChoice?.label || null
+      });
+      await addScore(userId, state.score);
+      const parts = userId.split('_');
+      const nick  = parts.slice(0, -1).join('_');
+      await updateLeaderboard(userId, {
+        nickname: nick, totalScore: state.score, weeklyScore: state.score,
+        farthestStage: state.stageData.id, farthestCountry: state.stageData.country,
+        title: '初出茅廬'
+      });
+    } catch (e) { console.warn('Firebase 存檔失敗', e); }
   }
 
   // Show result

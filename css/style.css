@@ -226,15 +226,17 @@ img { display: block; }
   border-radius: 4px;
   margin-top: 4px;
   overflow: hidden;
+  --pct: 100%;
 }
 .base-hp-bar::after {
   content: '';
   display: block;
   height: 100%;
-  width: 100%;
+  width: var(--pct);
   background: var(--green);
   transition: width .3s;
 }
+.base-hp-bar.enemy { --pct: 100%; }
 .base-hp-bar.enemy::after { background: var(--red); }
 
 /* Units */
