@@ -170,8 +170,8 @@ img { display: block; }
 .stage-card .stage-num     { font-size: .95rem;  color: #3a2000; font-weight: 600; }
 .stage-card .stage-title   { font-size: 1.25rem; color: #3a2000; font-weight: bold; text-align: center; line-height: 1.3; }
 .stage-card .stage-story   { font-size: .88rem;  color: #5a3510; text-align: center; line-height: 1.6; }
-.stage-card .stage-cleared { font-size: .82rem;  color: #1a6b30; margin-top: auto; }
-.stage-card .stage-lock    { font-size: .88rem;  color: #3a2000; margin-top: auto; }
+.stage-card .stage-cleared { font-size: .82rem;  color: #1a6b30; margin-top: 10px; }
+.stage-card .stage-lock    { font-size: .88rem;  color: #3a2000; margin-top: 10px; }
 
 /* ============================================
    Game Page Layout
