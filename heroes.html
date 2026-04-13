@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, orientation=landscape">
+  <title>英雄圖鑑 — 三國喵喵</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/heroes.css">
+</head>
+<body class="heroes-page">
+
+  <!-- Navbar -->
+  <header class="top-bar heroes-topbar">
+    <button class="btn-ghost" onclick="location.href='index.html'">← 返回</button>
+    <span class="heroes-topbar-title">📖 英雄圖鑑</span>
+    <div class="heroes-filter" id="heroes-filter">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="owned">已擁有</button>
+      <button class="filter-btn" data-filter="locked">未擁有</button>
+    </div>
+  </header>
+
+  <!-- Loading -->
+  <div id="heroes-loading" class="heroes-loading">
+    <span>⚙️ 載入中…</span>
+  </div>
+
+  <!-- Hero list -->
+  <main id="heroes-main" class="heroes-main hidden">
+    <div class="heroes-grid" id="heroes-grid">
+      <!-- Populated by JS -->
+    </div>
+  </main>
+
+  <!-- Detail panel (slide-in from right) -->
+  <div id="detail-backdrop" class="detail-backdrop hidden"></div>
+  <aside id="detail-panel" class="detail-panel hidden">
+    <button class="detail-close" id="btn-detail-close">✕</button>
+
+    <!-- Hero large image + basic info -->
+    <div class="detail-hero-header">
+      <div class="detail-img-wrap">
+        <img id="detail-img" src="" alt="" onerror="this.outerHTML='<div class=detail-img-fallback>🐱</div>'">
+      </div>
+      <div class="detail-hero-info">
+        <div class="detail-form-name" id="detail-form-name"></div>
+        <div class="detail-hero-name" id="detail-hero-name"></div>
+        <div class="detail-level-row">
+          <span id="detail-level" class="detail-level"></span>
+          <div class="detail-exp-bar-bg">
+            <div class="detail-exp-bar-fill" id="detail-exp-fill"></div>
+          </div>
+          <span id="detail-exp-text" class="detail-exp-text"></span>
+        </div>
+        <div class="detail-role" id="detail-role"></div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="detail-stats" id="detail-stats">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Special ability -->
+    <div class="detail-special" id="detail-special"></div>
+
+    <!-- Evolution path -->
+    <div class="detail-section">
+      <div class="detail-section-title">進化路線</div>
+      <div class="detail-evo-path" id="detail-evo-path">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Soul fragments (only for gacha heroes) -->
+    <div class="detail-section" id="detail-frag-section">
+      <div class="detail-section-title">將魂碎片</div>
+      <div class="detail-frag-row">
+        <div class="detail-frag-bar-bg">
+          <div class="detail-frag-bar-fill" id="detail-frag-fill"></div>
+        </div>
+        <span id="detail-frag-text" class="detail-frag-text"></span>
+      </div>
+      <div id="detail-frag-note" class="detail-frag-note"></div>
+    </div>
+  </aside>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/heroes.js"></script>
+</body>
+</html>
