@@ -65,7 +65,7 @@ const el = {
   enemyBase:   () => document.getElementById('enemy-base'),
   playerHpBar: () => document.querySelector('#player-base .base-hp-bar'),
   enemyHpBar:  () => document.querySelector('#enemy-base .base-hp-bar'),
-  qText:       () => document.getElementById('question-text'),
+  qDisplay:    () => document.getElementById('question-display'),
   choiceBtns:  () => document.querySelectorAll('.choice-btn'),
   feedback:    () => document.getElementById('answer-feedback'),
   combo:       () => document.getElementById('combo-display'),
@@ -301,7 +301,7 @@ function spawnEnemies(enemyId, count) {
   if (eData.type === 'boss') sfxBossAppear();
   for (let i = 0; i < count; i++) {
     const enemy  = new Enemy(eData, {});
-    enemy.x      = state.enemyBaseX - 90 - i * 20;
+    enemy.x      = state.enemyBaseX - 90 - i * 110;
     const eEl    = enemy.createElement();
     el.units().appendChild(eEl);
     state.enemies.push(enemy);
@@ -461,7 +461,24 @@ function showNextQuestion() {
   const result = nextQuestion(types);
   if (!result) return;
   _currentChoices = result.choices;
-  el.qText().textContent = questionText(result.question);
+
+  // 直式格式
+  const q  = result.question;
+  const op = q.type === 'multiplication' ? '×'
+           : q.type === 'addition'       ? '+'
+           : '−';
+  const qDisplay = document.getElementById('question-display');
+  if (qDisplay) {
+    qDisplay.innerHTML = `
+      <div class="question-vertical">
+        <div class="q-num q-top">${q.a}</div>
+        <div class="q-op-row"><span class="q-op">${op}</span><span class="q-num q-bot">${q.b}</span></div>
+        <div class="q-divider"></div>
+        <div class="q-num q-ans">？</div>
+      </div>
+    `;
+  }
+
   el.choiceBtns().forEach((btn, i) => {
     btn.textContent = result.choices[i];
     btn.className   = 'choice-btn';

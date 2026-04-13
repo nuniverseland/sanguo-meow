@@ -61,10 +61,10 @@ export class Enemy {
     avatar.style.transform = 'scaleX(-1)'; // face left
 
     const img = document.createElement('img');
-    img.src    = this.imgSrc;
-    img.width  = this.isBoss() ? 130 : 90;
-    img.height = this.isBoss() ? 130 : 90;
-    img.alt    = this.name;
+    img.src   = this.imgSrc;
+    img.alt   = this.name;
+    const w   = this.isBoss() ? 130 : 90;
+    img.style.cssText = `width:${w}px;height:auto;max-height:${w+40}px;object-fit:contain;display:block;image-rendering:pixelated;`;
     img.onerror = () => {
       avatar.style.fontSize = '3rem';
       avatar.textContent = ENEMY_EMOJIS[this.enemyId] || '👾';

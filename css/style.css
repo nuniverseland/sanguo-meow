@@ -385,14 +385,44 @@ img { display: block; }
   background: rgba(255,255,255,.06);
   border: 2px solid var(--border);
   border-radius: 10px;
-  padding: 10px 24px;
-  text-align: center;
+  padding: 14px 28px;
+  text-align: right;
+  min-width: 130px;
 }
-.question-text {
-  font-size: 1.8rem;
+
+/* 直式排版 */
+.question-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.q-num {
+  font-size: 2rem;
   font-weight: bold;
   color: var(--text-main);
-  letter-spacing: .05em;
+  letter-spacing: .02em;
+  line-height: 1.2;
+}
+.q-op-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.q-op {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--gold);
+}
+.q-divider {
+  width: 100%;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  margin: 4px 0;
+}
+.q-ans {
+  color: var(--gold);
 }
 
 .choices-grid {

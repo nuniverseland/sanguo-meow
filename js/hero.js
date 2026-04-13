@@ -68,10 +68,9 @@ export class Hero {
     avatar.className = 'unit-img';
 
     const img = document.createElement('img');
-    img.src    = this.imgSrc;
-    img.width  = 90;
-    img.height = 90;
-    img.alt    = this.name;
+    img.src   = this.imgSrc;
+    img.alt   = this.name;
+    img.style.cssText = 'width:90px;height:auto;max-height:120px;object-fit:contain;display:block;image-rendering:pixelated;';
     img.onerror = () => {
       avatar.style.fontSize = '3rem';
       avatar.textContent = HERO_EMOJIS[this.heroId] || '🐾';
