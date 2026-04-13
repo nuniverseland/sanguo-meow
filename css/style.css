@@ -229,16 +229,16 @@ img { display: block; }
 .enemy-base  { right: 8px; }
 
 .base-img-wrap {
-  width: 90px;
-  height: 150px;
+  width: 130px;
+  height: 210px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 5rem;
 }
 .base-img-wrap img {
-  width: 90px;
-  height: 150px;
+  width: 130px;
+  height: 210px;
   object-fit: contain;
   image-rendering: pixelated;
   display: block;

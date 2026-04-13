@@ -85,7 +85,7 @@ function loadBaseImg(wrapId, src) {
   const img = new Image();
   img.onload = () => {
     wrap.textContent = '';   // 清掉 emoji
-    img.style.cssText = 'width:90px;height:150px;object-fit:contain;image-rendering:pixelated;display:block;';
+    img.style.cssText = 'width:130px;height:210px;object-fit:contain;image-rendering:pixelated;display:block;';
     wrap.appendChild(img);
   };
   img.onerror = () => { /* 保留 emoji fallback */ };
@@ -135,7 +135,7 @@ async function init() {
     const bf = el.bf();
     state.battlefieldW = bf.clientWidth;
     state.playerBaseX  = 10;
-    state.enemyBaseX   = state.battlefieldW - 90;
+    state.enemyBaseX   = state.battlefieldW - 140;
 
     // Set base HP
     state.playerBaseHp    = state.stageData.playerBaseHp;
@@ -245,7 +245,7 @@ function summonHero(heroId) {
   sfxSummon();
 
   const hero = new Hero(hData, 0, 1, state.buff);
-  hero.x = state.playerBaseX + 85;
+  hero.x = state.playerBaseX + 140;
   const heroEl = hero.createElement();
   el.units().appendChild(heroEl);
   state.heroes.push(hero);

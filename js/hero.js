@@ -70,7 +70,7 @@ export class Hero {
     const img = document.createElement('img');
     img.src   = this.imgSrc;
     img.alt   = this.name;
-    img.style.cssText = 'width:90px;height:auto;max-height:120px;object-fit:contain;display:block;image-rendering:pixelated;';
+    img.style.cssText = 'width:110px;height:auto;max-height:150px;object-fit:contain;display:block;image-rendering:pixelated;';
     img.onerror = () => {
       avatar.style.fontSize = '3rem';
       avatar.textContent = HERO_EMOJIS[this.heroId] || '🐾';
