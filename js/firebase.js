@@ -137,6 +137,15 @@ export async function fetchLeaderboard(scoreField = 'totalScore', count = 50) {
   return snap.docs.map((d, i) => ({ rank: i + 1, id: d.id, ...d.data() }));
 }
 
+// ── Owned Heroes ─────────────────────────────────────────────────────────────
+/** 回傳 { heroId: heroData } 的 map，只含玩家已擁有（有 doc）的英雄 */
+export async function loadOwnedHeroes(userId) {
+  const snap = await getDocs(collection(db, 'sanguo_users', userId, 'heroes'));
+  const map  = {};
+  snap.forEach(d => { map[d.id] = d.data(); });
+  return map;
+}
+
 // ── Scrolls ───────────────────────────────────────────────────────────────────
 export async function loadUserScrolls(userId) {
   const ref  = doc(db, 'sanguo_users', userId);

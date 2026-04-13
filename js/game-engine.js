@@ -1,5 +1,5 @@
 // game-engine.js — Core game loop
-import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls } from './firebase.js';
+import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes } from './firebase.js';
 import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
 import { loadQuestions, nextQuestion, checkAnswer, questionText } from './question.js';
@@ -114,11 +114,16 @@ async function init() {
     document.getElementById('btn-retry').addEventListener('click', () => location.reload());
     document.getElementById('btn-result-back').addEventListener('click', () => { location.href = 'index.html'; });
 
-    const [stages, heroes, enemies, config] = await Promise.all([
+    // 初始英雄（大耳喵、小兵喵）不需要抽卡
+    const INITIAL_HEROES = new Set(['liubei', 'soldier']);
+
+    const userId = getUserId();
+    const [stages, heroes, enemies, config, ownedMap] = await Promise.all([
       fetch('data/stages.json').then(r => r.json()),
       fetch('data/heroes.json').then(r => r.json()),
       fetch('data/enemies.json').then(r => r.json()),
       fetch('data/config.json').then(r => r.json()),
+      userId ? loadOwnedHeroes(userId).catch(() => ({})) : Promise.resolve({}),
       loadQuestions(),
       loadDialogs()
     ]);
@@ -157,8 +162,11 @@ async function init() {
       .filter(e => e.time !== undefined)
       .sort((a, b) => a.time - b.time);
 
-    // Setup hero summon buttons
-    buildSummonPanel(heroes);
+    // 只顯示初始英雄 + 已抽到的英雄
+    const availableHeroes = heroes.filter(h =>
+      INITIAL_HEROES.has(h.id) || !!ownedMap[h.id]
+    );
+    buildSummonPanel(availableHeroes);
 
     // Setup math answer buttons
     el.choiceBtns().forEach(btn => {
