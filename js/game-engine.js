@@ -14,6 +14,7 @@ const state = {
   heroesData: [],
   enemiesData: [],
   config:     null,
+  ownedMap:   {},   // { heroId: { exp, ... } } from Firebase
 
   heroes:     [],   // active Hero instances
   enemies:    [],   // active Enemy instances
@@ -86,7 +87,7 @@ function loadBaseImg(wrapId, src) {
   const img = new Image();
   img.onload = () => {
     wrap.textContent = '';   // 清掉 emoji
-    img.style.cssText = 'width:200px;height:320px;object-fit:contain;image-rendering:pixelated;display:block;';
+    img.style.cssText = 'width:400px;height:auto;object-fit:contain;image-rendering:pixelated;display:block;';
     wrap.appendChild(img);
   };
   img.onerror = () => { /* 保留 emoji fallback */ };
@@ -132,6 +133,7 @@ async function init() {
     state.heroesData  = heroes;
     state.enemiesData = enemies;
     state.config      = config;
+    state.ownedMap    = ownedMap;
 
     if (!state.stageData) { showError(`找不到關卡：${stageId}`); return; }
 
@@ -253,7 +255,11 @@ function summonHero(heroId) {
   state.heroCount[heroId]++;
   sfxSummon();
 
-  const hero = new Hero(hData, 0, 1, state.buff);
+  // 從已儲存的 ownedMap 算出英雄等級，套入加成
+  const owned   = state.ownedMap[heroId];
+  const heroExp = owned?.exp ?? 0;
+  const heroLv  = Math.floor(heroExp / (state.config?.exp?.perLevel ?? 1000)) + 1;
+  const hero = new Hero(hData, 0, heroLv, state.buff, state.config?.levelUp ?? {});
   hero.x = state.playerBaseX + 140;
   const heroEl = hero.createElement();
   el.units().appendChild(heroEl);
@@ -509,17 +515,11 @@ function onAnswer(chosen) {
     addGold(gain);
     state.score += state.config.score.correctAnswer;
 
-    // EXP → most expensive deployed hero
+    // 記錄數學統計（EXP 改成通關後手動分配）
     const userId = getUserId();
     if (userId) {
-      try {
-        const mainHero = expHero();
-        const expGain  = result.type === 'multiplication'
-          ? state.config.exp.correctMultiplication
-          : state.config.exp.correctAddition;
-        if (mainHero) addHeroExp(userId, mainHero.heroId, expGain);
-        recordMathStat(userId, result.type, true);
-      } catch (e) { console.warn('Firebase EXP 更新失敗', e); }
+      try { recordMathStat(userId, result.type, true); }
+      catch (e) { console.warn('Firebase 統計失敗', e); }
     }
 
     // Combo
@@ -728,7 +728,6 @@ async function endGame(win) {
   }
 
   // Show result
-  const overlay = el.resultOverlay();
   win ? sfxVictory() : sfxDefeat();
   el.resultTitle().textContent = win ? '🎉 勝利！' : '💀 失敗';
   el.resultTitle().className   = `result-title ${win ? 'win' : 'lose'}`;
@@ -738,7 +737,95 @@ async function endGame(win) {
     ${perfect ? '✨ 完美通關（不失血）<br>' : ''}
     ${win && elapsed < state.stageData.speedBonusTarget ? '⚡ 速通獎勵！<br>' : ''}
   `;
-  overlay.classList.remove('hidden');
+
+  if (win) {
+    // 隱藏 retry/back，先讓玩家分配 EXP
+    document.getElementById('btn-retry').classList.add('hidden');
+    document.getElementById('btn-result-back').classList.add('hidden');
+    buildExpDistributeUI(getUserId());
+  }
+
+  el.resultOverlay().classList.remove('hidden');
+}
+
+// ── EXP Distribution UI ───────────────────────────────────────────────────────
+const STAGE_EXP = 50;  // 每次通關得到的 EXP 總量
+
+function buildExpDistributeUI(userId) {
+  const section  = document.getElementById('exp-distribute-section');
+  const heroGrid = document.getElementById('exp-hero-grid');
+  const poolEl   = document.getElementById('exp-pool');
+  if (!section || !heroGrid) return;
+
+  const EXP_PER_LEVEL = state.config?.exp?.perLevel ?? 1000;
+  const assignments   = {};  // heroId → expAssigned
+  let pool = STAGE_EXP;
+
+  // 取得可分配英雄（初始 + 已擁有）
+  const INITIAL = new Set(['liubei', 'soldier']);
+  const availHeroes = state.heroesData.filter(h =>
+    INITIAL.has(h.id) || !!state.ownedMap[h.id]
+  );
+
+  heroGrid.innerHTML = '';
+  availHeroes.forEach(h => {
+    assignments[h.id] = 0;
+    const owned   = state.ownedMap[h.id] || {};
+    const curExp  = owned.exp ?? 0;
+    const curLv   = Math.floor(curExp / EXP_PER_LEVEL) + 1;
+    const inLvExp = curExp % EXP_PER_LEVEL;
+
+    const item = document.createElement('div');
+    item.className = 'exp-hero-item';
+    item.innerHTML = `
+      <img src="assets/heroes/hero_${h.id}_base.png"
+           onerror="this.outerHTML='<div style=font-size:1.6rem>🐱</div>'"
+           class="exp-hero-img" alt="${h.nameLine[0]}">
+      <div class="exp-hero-name">${h.nameLine[0]}</div>
+      <div class="exp-hero-lv" id="exp_lv_${h.id}">Lv.${curLv}</div>
+      <div class="exp-bar-bg"><div class="exp-bar-fill" id="exp_bar_${h.id}"
+        style="width:${(inLvExp/EXP_PER_LEVEL*100).toFixed(1)}%"></div></div>
+      <div class="exp-hero-assign" id="exp_assign_${h.id}">+0</div>
+      <button class="exp-add-btn" data-hero="${h.id}">+10</button>
+    `;
+    heroGrid.appendChild(item);
+  });
+
+  poolEl.textContent = pool;
+
+  // +10 click handler
+  heroGrid.querySelectorAll('.exp-add-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (pool < 10) return;
+      const hid = btn.dataset.hero;
+      assignments[hid] = (assignments[hid] || 0) + 10;
+      pool -= 10;
+      poolEl.textContent = pool;
+      document.getElementById(`exp_assign_${hid}`).textContent = `+${assignments[hid]}`;
+      if (pool <= 0) heroGrid.querySelectorAll('.exp-add-btn').forEach(b => b.disabled = true);
+    });
+  });
+
+  // Confirm button
+  document.getElementById('btn-exp-confirm').addEventListener('click', async () => {
+    if (!userId) { finishExpDistribute(); return; }
+    document.getElementById('btn-exp-confirm').disabled = true;
+    document.getElementById('btn-exp-confirm').textContent = '儲存中…';
+    try {
+      for (const [hid, expGain] of Object.entries(assignments)) {
+        if (expGain > 0) await addHeroExp(userId, hid, expGain);
+      }
+    } catch (e) { console.warn('EXP 儲存失敗', e); }
+    finishExpDistribute();
+  });
+
+  section.classList.remove('hidden');
+}
+
+function finishExpDistribute() {
+  document.getElementById('exp-distribute-section').classList.add('hidden');
+  document.getElementById('btn-retry').classList.remove('hidden');
+  document.getElementById('btn-result-back').classList.remove('hidden');
 }
 
 // ── Start ─────────────────────────────────────────────────────────────────────

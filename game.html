@@ -110,6 +110,16 @@
     <div class="result-box">
       <div id="result-title" class="result-title"></div>
       <div id="result-stats" class="result-stats"></div>
+
+      <!-- EXP 分配區（勝利才顯示） -->
+      <div id="exp-distribute-section" class="exp-distribute-section hidden">
+        <div class="exp-distribute-title">🌟 獲得 <span id="exp-pool">50</span> EXP，分配給英雄：</div>
+        <div class="exp-hero-grid" id="exp-hero-grid">
+          <!-- Populated by JS -->
+        </div>
+        <button id="btn-exp-confirm" class="btn-primary exp-confirm-btn">✅ 確認分配</button>
+      </div>
+
       <button id="btn-retry" class="btn-primary">再挑戰</button>
       <button id="btn-result-back" class="btn-secondary">返回選關</button>
     </div>

@@ -11,7 +11,14 @@ export const HERO_EMOJIS = {
 let _nextId = 1;
 
 export class Hero {
-  constructor(data, formIndex, levelMult = 1, buffs = {}) {
+  /**
+   * @param data      - heroes.json 單筆資料
+   * @param formIndex - 0/1/2 形態索引
+   * @param level     - 英雄目前等級（預設 1）
+   * @param buffs     - 對話 buff 物件
+   * @param lvConfig  - config.levelUp（含 hpRate / atkRate）
+   */
+  constructor(data, formIndex, level = 1, buffs = {}, lvConfig = {}) {
     this.id       = `hero_${_nextId++}`;
     this.heroId   = data.id;
     this.name     = data.nameLine[formIndex];
@@ -22,15 +29,20 @@ export class Hero {
         ? `assets/heroes/hero_${data.id}_max.png`
         : `assets/heroes/hero_${data.id}.png`;
 
-    // Stats with level multiplier & buffs
+    // 等級加成
+    const lvBonus = Math.max(0, level - 1);
+    const hpRate  = lvConfig.hpRate  ?? 0.10;
+    const atkRate = lvConfig.atkRate  ?? 0.08;
+
+    // Stats with level bonus & buffs
     const f = this.formData;
     const hpBuff  = buffs.hp_boost  || 1;
     const atkBuff = buffs.atk_boost || 1;
     const spdBuff = buffs.spd_boost || 1;
 
-    this.maxHp    = Math.round(f.hp  * levelMult * hpBuff);
+    this.maxHp    = Math.round(f.hp  * (1 + lvBonus * hpRate)  * hpBuff);
     this.hp       = this.maxHp;
-    this.atk      = Math.round(f.atk * levelMult * atkBuff);
+    this.atk      = Math.round(f.atk * (1 + lvBonus * atkRate) * atkBuff);
     this.range    = f.range;
     this.spd      = f.spd * spdBuff;
     this.attackInterval = f.attackInterval;
