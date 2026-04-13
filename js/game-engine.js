@@ -1,5 +1,5 @@
 // game-engine.js — Core game loop
-import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard } from './firebase.js';
+import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls } from './firebase.js';
 import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
 import { loadQuestions, nextQuestion, checkAnswer, questionText } from './question.js';
@@ -32,7 +32,8 @@ const state = {
   spawnQueue:   [],   // time-based entries remaining
   triggersDone: new Set(),
 
-  combo:         0,
+  combo:           0,
+  correctTotal:    0,   // 累計答對題數（用於每10題+1卷軸）
   comboBoostActive: false,
   comboBoostEnd:    0,
   jinangActive:     false,
@@ -517,6 +518,14 @@ function onAnswer(chosen) {
     state.combo++;
     updateComboUI();
 
+    // 卷軸：每答對 10 題 +1 卷
+    state.correctTotal++;
+    if (state.correctTotal % 10 === 0) {
+      const uid = getUserId();
+      if (uid) addScrolls(uid, 1).catch(() => {});
+      spawnFx('🎴+1', state.battlefieldW / 2, 80, 'gold');
+    }
+
     sfxCorrect();
     fb.textContent = `✓ 答對！+${gain} 💰`;
     fb.className   = 'answer-feedback correct';
@@ -686,7 +695,7 @@ async function endGame(win) {
   const userId = getUserId();
   if (userId && win) {
     try {
-      await saveStageResult(userId, state.stageData.id, {
+      const prevResult = await saveStageResult(userId, state.stageData.id, {
         score: state.score, time: elapsed, perfect,
         dialogChoice: state.dialogChoice?.label || null
       });
@@ -698,6 +707,11 @@ async function endGame(win) {
         farthestStage: state.stageData.id, farthestCountry: state.stageData.country,
         title: '初出茅廬'
       });
+      // 卷軸獎勵：首次通關+3、重複通關+1、完美+1
+      const isFirst = prevResult?.firstClear ?? false;
+      let scrollReward = isFirst ? 3 : 1;
+      if (perfect) scrollReward += 1;
+      await addScrolls(userId, scrollReward).catch(() => {});
     } catch (e) { console.warn('Firebase 存檔失敗', e); }
   }
 

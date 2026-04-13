@@ -2,7 +2,8 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import {
   getFirestore, doc, getDoc, setDoc, updateDoc, increment,
-  collection, getDocs, orderBy, query, limit, serverTimestamp
+  collection, getDocs, orderBy, query, limit, serverTimestamp,
+  runTransaction
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -36,11 +37,16 @@ export async function loadOrCreateUser(userId, nickname, birthday) {
     await setDoc(ref, {
       nickname,
       birthday,
-      totalScore:  0,
-      weeklyScore: 0,
-      title:       '新手喵',
-      createdAt:   serverTimestamp(),
-      lastLoginAt: serverTimestamp()
+      totalScore:    0,
+      weeklyScore:   0,
+      scrolls:       5,   // 新用戶初始 5 卷，讓努努一進來就能抽
+      pityCount:     0,
+      totalDraws:    0,
+      milestoneQ100: false,
+      milestoneQ500: false,
+      title:         '新手喵',
+      createdAt:     serverTimestamp(),
+      lastLoginAt:   serverTimestamp()
     });
   } else {
     await updateDoc(ref, { lastLoginAt: serverTimestamp() });
@@ -66,9 +72,10 @@ export async function getProgress(userId) {
 }
 
 export async function saveStageResult(userId, stageId, { score, time, perfect, dialogChoice }) {
-  const ref  = doc(db, 'sanguo_users', userId, 'progress', stageId);
-  const snap = await getDoc(ref);
-  const best = snap.exists() ? snap.data().bestScore || 0 : 0;
+  const ref      = doc(db, 'sanguo_users', userId, 'progress', stageId);
+  const snap     = await getDoc(ref);
+  const existed  = snap.exists() && snap.data().completed;
+  const best     = existed ? snap.data().bestScore || 0 : 0;
   await setDoc(ref, {
     stageId,
     completed:    true,
@@ -78,6 +85,7 @@ export async function saveStageResult(userId, stageId, { score, time, perfect, d
     dialogChoice: dialogChoice,
     completedAt:  serverTimestamp()
   }, { merge: true });
+  return { firstClear: !existed };
 }
 
 // ── Hero Data ─────────────────────────────────────────────────────────────────
@@ -127,4 +135,118 @@ export async function fetchLeaderboard(scoreField = 'totalScore', count = 50) {
   const q    = query(collection(db, 'sanguo_leaderboard'), orderBy(scoreField, 'desc'), limit(count));
   const snap = await getDocs(q);
   return snap.docs.map((d, i) => ({ rank: i + 1, id: d.id, ...d.data() }));
+}
+
+// ── Scrolls ───────────────────────────────────────────────────────────────────
+export async function loadUserScrolls(userId) {
+  const ref  = doc(db, 'sanguo_users', userId);
+  const snap = await getDoc(ref);
+  return snap.exists() ? snap.data() : { scrolls: 0 };
+}
+
+export async function addScrolls(userId, amount) {
+  if (!userId || amount <= 0) return;
+  const ref = doc(db, 'sanguo_users', userId);
+  await updateDoc(ref, { scrolls: increment(amount) });
+}
+
+// ── Gacha ─────────────────────────────────────────────────────────────────────
+export async function loadGachaState(userId) {
+  const userSnap   = await getDoc(doc(db, 'sanguo_users', userId));
+  const userData   = userSnap.data() || {};
+  const heroesSnap = await getDocs(collection(db, 'sanguo_users', userId, 'heroes'));
+  const heroes     = {};
+  heroesSnap.forEach(d => { heroes[d.id] = d.data(); });
+  return {
+    scrolls:       userData.scrolls       ?? 0,
+    pityCount:     userData.pityCount     ?? 0,
+    totalDraws:    userData.totalDraws    ?? 0,
+    milestoneQ100: userData.milestoneQ100 ?? false,
+    milestoneQ500: userData.milestoneQ500 ?? false,
+    heroes
+  };
+}
+
+// Atomic draw: deduct scrolls + record results in a single transaction
+export async function executeGachaDraw(userId, drawCount, pool, currentState) {
+  const cost    = drawCount === 10 ? 45 : 5;
+  const userRef = doc(db, 'sanguo_users', userId);
+
+  return await runTransaction(db, async tx => {
+    const snap = await tx.get(userRef);
+    const data = snap.data() || {};
+    if ((data.scrolls ?? 0) < cost) throw new Error('卷軸不足');
+
+    // Perform draws
+    const owned    = Object.entries(currentState.heroes)
+      .filter(([, v]) => v.currentForm !== undefined || v.soulFragments !== undefined)
+      .map(([k]) => k);
+    let pity       = data.pityCount ?? 0;
+    const results  = [];
+    let scrollBack = 0;
+
+    for (let i = 0; i < drawCount; i++) {
+      let heroId;
+      const unowned = pool.filter(h => !owned.includes(h));
+
+      // Pity: every 10th draw guarantees a new hero (if available)
+      if (pity >= 9 && unowned.length > 0) {
+        heroId = unowned[Math.floor(Math.random() * unowned.length)];
+        pity   = 0;
+      } else {
+        heroId = pool[Math.floor(Math.random() * pool.length)];
+        if (heroId === heroId) pity++; // always increment; reset below on new
+      }
+
+      const isNew = !owned.includes(heroId);
+      if (isNew) {
+        owned.push(heroId);
+        pity = 0;
+      }
+      results.push({ heroId, isNew });
+    }
+
+    // Build hero updates
+    const heroUpdates = {};
+    const fragCounts  = {};
+    for (const r of results) {
+      if (r.isNew) {
+        heroUpdates[r.heroId] = { heroId: r.heroId, currentForm: 0, exp: 0, level: 1, soulFragments: 0, maxUnlocked: false };
+      } else {
+        fragCounts[r.heroId] = (fragCounts[r.heroId] || 0) + 1;
+      }
+    }
+
+    // Apply frag counts, check MAX unlock
+    for (const [hId, fragGain] of Object.entries(fragCounts)) {
+      const heroRef  = doc(db, 'sanguo_users', userId, 'heroes', hId);
+      const heroSnap = await tx.get(heroRef);
+      const hData    = heroSnap.exists() ? heroSnap.data() : { soulFragments: 0, maxUnlocked: false };
+      const newFrag  = (hData.soulFragments ?? 0) + fragGain;
+
+      if (hData.maxUnlocked) {
+        scrollBack += fragGain * 2;
+        heroUpdates[hId] = { ...hData };
+      } else if (newFrag >= 10) {
+        heroUpdates[hId] = { ...hData, soulFragments: newFrag, maxUnlocked: true };
+      } else {
+        heroUpdates[hId] = { ...hData, soulFragments: newFrag };
+      }
+    }
+
+    // Write hero docs
+    for (const [hId, hData] of Object.entries(heroUpdates)) {
+      const heroRef = doc(db, 'sanguo_users', userId, 'heroes', hId);
+      tx.set(heroRef, hData, { merge: true });
+    }
+
+    // Write user doc
+    tx.update(userRef, {
+      scrolls:    increment(-(cost - scrollBack)),
+      pityCount:  pity,
+      totalDraws: increment(drawCount)
+    });
+
+    return { results, scrollBack, newScrolls: (data.scrolls ?? 0) - cost + scrollBack };
+  });
 }

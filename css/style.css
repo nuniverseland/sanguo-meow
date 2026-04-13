@@ -120,19 +120,100 @@ img { display: block; }
   gap: 12px;
   padding: 0 16px;
 }
-.player-name { font-weight: bold; color: var(--gold); }
-.score-display { margin-left: auto; color: var(--text-dim); font-size: .9rem; }
+.player-name  { font-weight: bold; color: var(--gold); }
+.score-display { color: var(--text-dim); font-size: .9rem; }
+.scroll-display { color: #b8e0ff; font-size: .9rem; font-weight: bold; }
 
-/* Stage Select */
+.btn-gacha {
+  background: linear-gradient(135deg, #7b2ff7, #b44fff);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 16px;
+  font-size: .85rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
+  transition: opacity .15s;
+}
+.btn-gacha:hover { opacity: .85; }
+
+/* ── 篇章 / 國家 Tabs ─────────────────────────────────────── */
+.chapter-tabs {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(20, 10, 0, 0.82);
+  border-bottom: 1px solid rgba(200, 160, 80, 0.3);
+  flex-shrink: 0;
+}
+.chapter-tab {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(200, 160, 80, 0.5);
+  background: transparent;
+  color: #d4a84b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.chapter-tab.active {
+  background: rgba(200, 160, 80, 0.2);
+  border-color: #d4a84b;
+  color: #f5c842;
+}
+.chapter-tab.locked {
+  color: #555;
+  border-color: #333;
+  cursor: not-allowed;
+}
+.chapter-tab.locked:hover { opacity: 1; }
+
+.country-tabs-wrap {
+  width: 100%;
+  flex-shrink: 0;
+}
+.country-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 6px 20px;
+  background: rgba(10, 5, 0, 0.72);
+  border-bottom: 1px solid rgba(200, 160, 80, 0.15);
+}
+.country-tab {
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(200, 160, 80, 0.4);
+  background: transparent;
+  color: #b8924a;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.country-tab.active {
+  background: rgba(200, 160, 80, 0.15);
+  border-color: #d4a84b;
+  color: #f5c842;
+}
+.country-tab.locked {
+  color: #444;
+  border-color: #2a2a2a;
+  cursor: not-allowed;
+}
+.country-tab.locked:hover { opacity: 1; }
+
+/* Stage Select world-map */
 .world-map {
   flex: 1;
   width: 100%;
   position: relative;
+  background-color: #f5e8c8; /* JS 會設定 bg_main.jpg */
 }
 
-/* 背景由 JS 設定，路徑從 HTML 算才正確 */
 #stage-screen {
-  background-color: #f5e8c8; /* 載入中的過渡色 */
+  background-color: #1a0d00;
 }
 
 /* 卡片容器佔滿整個 world-map */
