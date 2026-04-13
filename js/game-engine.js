@@ -79,6 +79,19 @@ const el = {
 };
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
+function loadBaseImg(wrapId, src) {
+  const wrap = document.getElementById(wrapId);
+  if (!wrap) return;
+  const img = new Image();
+  img.onload = () => {
+    wrap.textContent = '';   // 清掉 emoji
+    img.style.cssText = 'width:90px;height:150px;object-fit:contain;image-rendering:pixelated;display:block;';
+    wrap.appendChild(img);
+  };
+  img.onerror = () => { /* 保留 emoji fallback */ };
+  img.src = src;
+}
+
 function showError(msg) {
   document.body.innerHTML = `
     <div style="color:#ff6060;background:#1a0000;padding:32px;font-family:monospace;white-space:pre-wrap;font-size:14px;">
@@ -135,10 +148,8 @@ async function init() {
       bf.style.backgroundImage = `url('${state.stageData.background}')`;
       bf.style.backgroundSize  = 'cover';
     }
-    const pImg = document.getElementById('player-base-img');
-    const eImg = document.getElementById('enemy-base-img');
-    if (pImg) pImg.src = state.stageData.playerBase;
-    if (eImg) eImg.src = state.stageData.enemyBase;
+    loadBaseImg('player-base-img-wrap', state.stageData.playerBase);
+    loadBaseImg('enemy-base-img-wrap', state.stageData.enemyBase);
 
     // Build spawn queue (time-based)
     state.spawnQueue = state.stageData.spawnSchedule

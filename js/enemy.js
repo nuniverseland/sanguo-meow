@@ -62,8 +62,8 @@ export class Enemy {
 
     const img = document.createElement('img');
     img.src    = this.imgSrc;
-    img.width  = this.isBoss() ? 120 : 80;
-    img.height = this.isBoss() ? 120 : 80;
+    img.width  = this.isBoss() ? 130 : 90;
+    img.height = this.isBoss() ? 130 : 90;
     img.alt    = this.name;
     img.onerror = () => {
       avatar.style.fontSize = '3rem';

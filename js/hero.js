@@ -69,8 +69,8 @@ export class Hero {
 
     const img = document.createElement('img');
     img.src    = this.imgSrc;
-    img.width  = 80;
-    img.height = 80;
+    img.width  = 90;
+    img.height = 90;
     img.alt    = this.name;
     img.onerror = () => {
       avatar.style.fontSize = '3rem';
