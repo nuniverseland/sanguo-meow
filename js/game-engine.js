@@ -86,7 +86,7 @@ function loadBaseImg(wrapId, src) {
   const img = new Image();
   img.onload = () => {
     wrap.textContent = '';   // 清掉 emoji
-    img.style.cssText = 'width:130px;height:210px;object-fit:contain;image-rendering:pixelated;display:block;';
+    img.style.cssText = 'width:160px;height:260px;object-fit:contain;image-rendering:pixelated;display:block;';
     wrap.appendChild(img);
   };
   img.onerror = () => { /* 保留 emoji fallback */ };
@@ -662,11 +662,15 @@ function updateUI() {
   el.score().textContent    = `⭐ ${state.score}`;
   el.baseHp().textContent   = `🏯 HP: ${state.playerBaseHp}`;
 
-  // HP bars
-  const pBar = el.playerHpBar();
-  const eBar = el.enemyHpBar();
-  if (pBar) pBar.style.setProperty('--pct', `${state.playerBaseHp / state.playerBaseHpMax * 100}%`);
-  if (eBar) eBar.style.setProperty('--pct', `${state.enemyBaseHp  / state.enemyBaseHpMax  * 100}%`);
+  // HP bars + HP text
+  const pBar  = el.playerHpBar();
+  const eBar  = el.enemyHpBar();
+  const pText = document.getElementById('player-base-hp-text');
+  const eText = document.getElementById('enemy-base-hp-text');
+  if (pBar)  pBar.style.setProperty('--pct', `${state.playerBaseHp / state.playerBaseHpMax * 100}%`);
+  if (eBar)  eBar.style.setProperty('--pct', `${state.enemyBaseHp  / state.enemyBaseHpMax  * 100}%`);
+  if (pText) pText.textContent = `🏯 ${state.playerBaseHp} / ${state.playerBaseHpMax}`;
+  if (eText) eText.textContent = `🗼 ${state.enemyBaseHp}  / ${state.enemyBaseHpMax}`;
 
   // Cooldown bars
   const now = Date.now();
