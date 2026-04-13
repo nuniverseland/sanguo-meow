@@ -69,10 +69,11 @@ export class Hero {
 
     const img = document.createElement('img');
     img.src    = this.imgSrc;
-    img.width  = 48;
-    img.height = 48;
+    img.width  = 80;
+    img.height = 80;
     img.alt    = this.name;
     img.onerror = () => {
+      avatar.style.fontSize = '3rem';
       avatar.textContent = HERO_EMOJIS[this.heroId] || '🐾';
       img.remove();
     };

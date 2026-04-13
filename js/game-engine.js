@@ -4,6 +4,7 @@ import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
 import { loadQuestions, nextQuestion, checkAnswer, questionText } from './question.js';
 import { loadDialogs, showDialog } from './dialog.js';
+import { sfxCorrect, sfxWrong, sfxSummon, sfxKill, sfxCombo, sfxJinang, sfxVictory, sfxDefeat, sfxBaseHit, sfxBossAppear } from './audio.js';
 
 // ── State ─────────────────────────────────────────────────────────────────────
 const state = {
@@ -230,6 +231,7 @@ function summonHero(heroId) {
   state.gold -= form.cost;
   state.cooldowns[heroId] = now + form.cooldown;
   state.heroCount[heroId]++;
+  sfxSummon();
 
   const hero = new Hero(hData, 0, 1, state.buff);
   hero.x = state.playerBaseX + 85;
@@ -285,6 +287,7 @@ function processSpawns() {
 function spawnEnemies(enemyId, count) {
   const eData = state.enemiesData.find(e => e.id === enemyId);
   if (!eData) return;
+  if (eData.type === 'boss') sfxBossAppear();
   for (let i = 0; i < count; i++) {
     const enemy  = new Enemy(eData, {});
     enemy.x      = state.enemyBaseX - 90 - i * 20;
@@ -399,6 +402,7 @@ function damageHero(hero, atk) {
 }
 
 function onEnemyKilled(enemy) {
+  sfxKill();
   addGold(enemy.reward);
   const scoreGain = enemy.type === 'boss'  ? state.config.score.killBoss
                   : enemy.type === 'flying' ? state.config.score.killFlying
@@ -485,6 +489,7 @@ function onAnswer(chosen) {
     state.combo++;
     updateComboUI();
 
+    sfxCorrect();
     fb.textContent = `✓ 答對！+${gain} 💰`;
     fb.className   = 'answer-feedback correct';
     fb.classList.remove('hidden');
@@ -511,6 +516,8 @@ function onAnswer(chosen) {
     if (state.combo < state.config.combo.level1) state.combo = 0;
     updateComboUI();
 
+    sfxWrong();
+    sfxBaseHit();
     fb.textContent = `✗ 答錯！正確答案是 ${result.correctAnswer}　-1 ❤️`;
     fb.className   = 'answer-feedback wrong';
     fb.classList.remove('hidden');
@@ -545,9 +552,11 @@ function updateComboUI() {
 
     if (state.combo >= cfg.level2 && !state.jinangActive) {
       activateJinang();
+      sfxJinang();
       el.comboEffect().textContent = '⚡ 錦囊！全軍強化';
     } else if (state.combo >= cfg.level1 && !state.comboBoostActive) {
       activateGoldBoost();
+      sfxCombo();
       el.comboEffect().textContent = '💰 ×1.5';
     }
   } else {
@@ -666,6 +675,7 @@ async function endGame(win) {
 
   // Show result
   const overlay = el.resultOverlay();
+  win ? sfxVictory() : sfxDefeat();
   el.resultTitle().textContent = win ? '🎉 勝利！' : '💀 失敗';
   el.resultTitle().className   = `result-title ${win ? 'win' : 'lose'}`;
   el.resultStats().innerHTML   = `

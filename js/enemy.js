@@ -62,10 +62,11 @@ export class Enemy {
 
     const img = document.createElement('img');
     img.src    = this.imgSrc;
-    img.width  = this.isBoss() ? 72 : 48;
-    img.height = this.isBoss() ? 72 : 48;
+    img.width  = this.isBoss() ? 120 : 80;
+    img.height = this.isBoss() ? 120 : 80;
     img.alt    = this.name;
     img.onerror = () => {
+      avatar.style.fontSize = '3rem';
       avatar.textContent = ENEMY_EMOJIS[this.enemyId] || '👾';
       img.remove();
     };
