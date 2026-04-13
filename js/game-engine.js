@@ -86,7 +86,7 @@ function loadBaseImg(wrapId, src) {
   const img = new Image();
   img.onload = () => {
     wrap.textContent = '';   // 清掉 emoji
-    img.style.cssText = 'width:160px;height:260px;object-fit:contain;image-rendering:pixelated;display:block;';
+    img.style.cssText = 'width:200px;height:320px;object-fit:contain;image-rendering:pixelated;display:block;';
     wrap.appendChild(img);
   };
   img.onerror = () => { /* 保留 emoji fallback */ };
