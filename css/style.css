@@ -144,34 +144,34 @@ img { display: block; }
 /* 每張卡片絕對定位對齊 bg_main.jpg 的金色框 */
 .stage-card {
   position: absolute;
-  top: 36%;
-  height: 44%;
+  top: 30%;
+  height: 48%;
   background: transparent;
   border: none;
   box-shadow: none;
   border-radius: 8px;
-  padding: 10% 8% 0;   /* 文字從框頂部 10% 開始，保持對齊 */
+  padding: 6% 5% 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 5px;
+  gap: 6px;
   transition: transform .15s;
 }
-.stage-card:nth-child(1) { left: 11%; width: 19%; }
-.stage-card:nth-child(2) { left: 39%; width: 19%; }
-.stage-card:nth-child(3) { left: 67%; width: 19%; }
+.stage-card:nth-child(1) { left: 11%; width: 18%; }
+.stage-card:nth-child(2) { left: 40%; width: 18%; }
+.stage-card:nth-child(3) { left: 71%; width: 18%; }
 
 .stage-card:hover:not(.locked)   { transform: translateY(-4px); }
 .stage-card.locked                { opacity: .6; cursor: not-allowed; }
 .stage-card.locked:hover          { transform: none; }
 
-.stage-card .stage-num     { font-size: .75rem;  color: #3a2000; font-weight: 600; }
-.stage-card .stage-title   { font-size: 1rem;    color: #3a2000; font-weight: bold; text-align: center; }
-.stage-card .stage-story   { font-size: .72rem;  color: #5a3510; text-align: center; line-height: 1.5; }
-.stage-card .stage-cleared { font-size: .72rem;  color: #1a6b30; margin-top: auto; }
-.stage-card .stage-lock    { font-size: .78rem;  color: #3a2000; margin-top: auto; }
+.stage-card .stage-num     { font-size: .95rem;  color: #3a2000; font-weight: 600; }
+.stage-card .stage-title   { font-size: 1.25rem; color: #3a2000; font-weight: bold; text-align: center; line-height: 1.3; }
+.stage-card .stage-story   { font-size: .88rem;  color: #5a3510; text-align: center; line-height: 1.6; }
+.stage-card .stage-cleared { font-size: .82rem;  color: #1a6b30; margin-top: auto; }
+.stage-card .stage-lock    { font-size: .88rem;  color: #3a2000; margin-top: auto; }
 
 /* ============================================
    Game Page Layout
