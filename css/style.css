@@ -144,24 +144,24 @@ img { display: block; }
 /* 每張卡片絕對定位對齊 bg_main.jpg 的金色框 */
 .stage-card {
   position: absolute;
-  top: 44%;
-  height: 40%;
+  top: 36%;
+  height: 44%;
   background: transparent;
   border: none;
   box-shadow: none;
   border-radius: 8px;
-  padding: 16px 12px;
+  padding: 10% 8% 0;   /* 文字從框頂部 10% 開始，保持對齊 */
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
+  justify-content: flex-start;
+  gap: 5px;
   transition: transform .15s;
 }
-.stage-card:nth-child(1) { left: 13%; width: 22%; }
-.stage-card:nth-child(2) { left: 39%; width: 22%; }
-.stage-card:nth-child(3) { left: 65%; width: 22%; }
+.stage-card:nth-child(1) { left: 11%; width: 19%; }
+.stage-card:nth-child(2) { left: 39%; width: 19%; }
+.stage-card:nth-child(3) { left: 67%; width: 19%; }
 
 .stage-card:hover:not(.locked)   { transform: translateY(-4px); }
 .stage-card.locked                { opacity: .6; cursor: not-allowed; }
