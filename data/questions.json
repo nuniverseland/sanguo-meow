@@ -1,0 +1,8615 @@
+{
+  "multiplication": [
+    {
+      "a": 2,
+      "b": 2,
+      "answer": 4,
+      "difficulty": 1
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "answer": 6,
+      "difficulty": 1
+    },
+    {
+      "a": 2,
+      "b": 4,
+      "answer": 8,
+      "difficulty": 1
+    },
+    {
+      "a": 2,
+      "b": 5,
+      "answer": 10,
+      "difficulty": 1
+    },
+    {
+      "a": 2,
+      "b": 6,
+      "answer": 12,
+      "difficulty": 2
+    },
+    {
+      "a": 2,
+      "b": 7,
+      "answer": 14,
+      "difficulty": 2
+    },
+    {
+      "a": 2,
+      "b": 8,
+      "answer": 16,
+      "difficulty": 2
+    },
+    {
+      "a": 2,
+      "b": 9,
+      "answer": 18,
+      "difficulty": 2
+    },
+    {
+      "a": 3,
+      "b": 2,
+      "answer": 6,
+      "difficulty": 1
+    },
+    {
+      "a": 3,
+      "b": 3,
+      "answer": 9,
+      "difficulty": 1
+    },
+    {
+      "a": 3,
+      "b": 4,
+      "answer": 12,
+      "difficulty": 1
+    },
+    {
+      "a": 3,
+      "b": 5,
+      "answer": 15,
+      "difficulty": 1
+    },
+    {
+      "a": 3,
+      "b": 6,
+      "answer": 18,
+      "difficulty": 2
+    },
+    {
+      "a": 3,
+      "b": 7,
+      "answer": 21,
+      "difficulty": 2
+    },
+    {
+      "a": 3,
+      "b": 8,
+      "answer": 24,
+      "difficulty": 2
+    },
+    {
+      "a": 3,
+      "b": 9,
+      "answer": 27,
+      "difficulty": 2
+    },
+    {
+      "a": 4,
+      "b": 2,
+      "answer": 8,
+      "difficulty": 1
+    },
+    {
+      "a": 4,
+      "b": 3,
+      "answer": 12,
+      "difficulty": 1
+    },
+    {
+      "a": 4,
+      "b": 4,
+      "answer": 16,
+      "difficulty": 1
+    },
+    {
+      "a": 4,
+      "b": 5,
+      "answer": 20,
+      "difficulty": 1
+    },
+    {
+      "a": 4,
+      "b": 6,
+      "answer": 24,
+      "difficulty": 2
+    },
+    {
+      "a": 4,
+      "b": 7,
+      "answer": 28,
+      "difficulty": 2
+    },
+    {
+      "a": 4,
+      "b": 8,
+      "answer": 32,
+      "difficulty": 2
+    },
+    {
+      "a": 4,
+      "b": 9,
+      "answer": 36,
+      "difficulty": 2
+    },
+    {
+      "a": 5,
+      "b": 2,
+      "answer": 10,
+      "difficulty": 1
+    },
+    {
+      "a": 5,
+      "b": 3,
+      "answer": 15,
+      "difficulty": 1
+    },
+    {
+      "a": 5,
+      "b": 4,
+      "answer": 20,
+      "difficulty": 1
+    },
+    {
+      "a": 5,
+      "b": 5,
+      "answer": 25,
+      "difficulty": 1
+    },
+    {
+      "a": 5,
+      "b": 6,
+      "answer": 30,
+      "difficulty": 2
+    },
+    {
+      "a": 5,
+      "b": 7,
+      "answer": 35,
+      "difficulty": 2
+    },
+    {
+      "a": 5,
+      "b": 8,
+      "answer": 40,
+      "difficulty": 2
+    },
+    {
+      "a": 5,
+      "b": 9,
+      "answer": 45,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 2,
+      "answer": 12,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 3,
+      "answer": 18,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 4,
+      "answer": 24,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 5,
+      "answer": 30,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 6,
+      "answer": 36,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 7,
+      "answer": 42,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 8,
+      "answer": 48,
+      "difficulty": 2
+    },
+    {
+      "a": 6,
+      "b": 9,
+      "answer": 54,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 2,
+      "answer": 14,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 3,
+      "answer": 21,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 4,
+      "answer": 28,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 5,
+      "answer": 35,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 6,
+      "answer": 42,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 7,
+      "answer": 49,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 8,
+      "answer": 56,
+      "difficulty": 2
+    },
+    {
+      "a": 7,
+      "b": 9,
+      "answer": 63,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 2,
+      "answer": 16,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 3,
+      "answer": 24,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 4,
+      "answer": 32,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 5,
+      "answer": 40,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 6,
+      "answer": 48,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 7,
+      "answer": 56,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 8,
+      "answer": 64,
+      "difficulty": 2
+    },
+    {
+      "a": 8,
+      "b": 9,
+      "answer": 72,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 2,
+      "answer": 18,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 3,
+      "answer": 27,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 4,
+      "answer": 36,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 5,
+      "answer": 45,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 6,
+      "answer": 54,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 7,
+      "answer": 63,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 8,
+      "answer": 72,
+      "difficulty": 2
+    },
+    {
+      "a": 9,
+      "b": 9,
+      "answer": 81,
+      "difficulty": 2
+    }
+  ],
+  "addition": [
+    {
+      "a": 10,
+      "b": 10,
+      "answer": 20,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 11,
+      "answer": 21,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 12,
+      "answer": 22,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 13,
+      "answer": 23,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 14,
+      "answer": 24,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 15,
+      "answer": 25,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 16,
+      "answer": 26,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 17,
+      "answer": 27,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 18,
+      "answer": 28,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 19,
+      "answer": 29,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 20,
+      "answer": 30,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 21,
+      "answer": 31,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 22,
+      "answer": 32,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 23,
+      "answer": 33,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 24,
+      "answer": 34,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 25,
+      "answer": 35,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 26,
+      "answer": 36,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 27,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 28,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 29,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 30,
+      "answer": 40,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 31,
+      "answer": 41,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 32,
+      "answer": 42,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 33,
+      "answer": 43,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 34,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 35,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 36,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 37,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 38,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 39,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 40,
+      "answer": 50,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 41,
+      "answer": 51,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 42,
+      "answer": 52,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 43,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 44,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 45,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 46,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 47,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 48,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 49,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 50,
+      "answer": 60,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 51,
+      "answer": 61,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 52,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 53,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 54,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 55,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 56,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 57,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 58,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 10,
+      "b": 59,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 11,
+      "answer": 22,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 12,
+      "answer": 23,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 13,
+      "answer": 24,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 14,
+      "answer": 25,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 15,
+      "answer": 26,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 16,
+      "answer": 27,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 17,
+      "answer": 28,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 18,
+      "answer": 29,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 19,
+      "answer": 30,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 11,
+      "b": 20,
+      "answer": 31,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 21,
+      "answer": 32,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 22,
+      "answer": 33,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 23,
+      "answer": 34,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 24,
+      "answer": 35,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 25,
+      "answer": 36,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 26,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 27,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 28,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 29,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 11,
+      "b": 30,
+      "answer": 41,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 31,
+      "answer": 42,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 32,
+      "answer": 43,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 33,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 34,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 35,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 36,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 37,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 38,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 39,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 11,
+      "b": 40,
+      "answer": 51,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 41,
+      "answer": 52,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 42,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 43,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 44,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 45,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 46,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 47,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 48,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 49,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 11,
+      "b": 50,
+      "answer": 61,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 51,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 52,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 53,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 54,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 55,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 56,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 57,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 58,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 11,
+      "b": 59,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 12,
+      "answer": 24,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 13,
+      "answer": 25,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 14,
+      "answer": 26,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 15,
+      "answer": 27,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 16,
+      "answer": 28,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 17,
+      "answer": 29,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 18,
+      "answer": 30,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 19,
+      "answer": 31,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 20,
+      "answer": 32,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 21,
+      "answer": 33,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 22,
+      "answer": 34,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 23,
+      "answer": 35,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 24,
+      "answer": 36,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 25,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 26,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 27,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 28,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 29,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 30,
+      "answer": 42,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 31,
+      "answer": 43,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 32,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 33,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 34,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 35,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 36,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 37,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 38,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 39,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 40,
+      "answer": 52,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 41,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 42,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 43,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 44,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 45,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 46,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 47,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 48,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 49,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 50,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 51,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 52,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 53,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 54,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 55,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 56,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 57,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 12,
+      "b": 58,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 12,
+      "b": 59,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 13,
+      "answer": 26,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 14,
+      "answer": 27,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 15,
+      "answer": 28,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 16,
+      "answer": 29,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 17,
+      "answer": 30,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 18,
+      "answer": 31,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 19,
+      "answer": 32,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 20,
+      "answer": 33,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 21,
+      "answer": 34,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 22,
+      "answer": 35,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 23,
+      "answer": 36,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 24,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 25,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 26,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 27,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 28,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 29,
+      "answer": 42,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 30,
+      "answer": 43,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 31,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 32,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 33,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 34,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 35,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 36,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 37,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 38,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 39,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 40,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 41,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 42,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 43,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 44,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 45,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 46,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 47,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 48,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 49,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 50,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 51,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 52,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 53,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 54,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 55,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 56,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 13,
+      "b": 57,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 58,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 13,
+      "b": 59,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 14,
+      "answer": 28,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 15,
+      "answer": 29,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 16,
+      "answer": 30,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 17,
+      "answer": 31,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 18,
+      "answer": 32,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 19,
+      "answer": 33,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 20,
+      "answer": 34,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 21,
+      "answer": 35,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 22,
+      "answer": 36,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 23,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 24,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 25,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 26,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 27,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 28,
+      "answer": 42,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 29,
+      "answer": 43,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 30,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 31,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 32,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 33,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 34,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 35,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 36,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 37,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 38,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 39,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 40,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 41,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 42,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 43,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 44,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 45,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 46,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 47,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 48,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 49,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 50,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 51,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 52,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 53,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 54,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 55,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 14,
+      "b": 56,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 57,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 58,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 14,
+      "b": 59,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 15,
+      "answer": 30,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 16,
+      "answer": 31,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 17,
+      "answer": 32,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 18,
+      "answer": 33,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 19,
+      "answer": 34,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 20,
+      "answer": 35,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 21,
+      "answer": 36,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 22,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 23,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 24,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 25,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 26,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 27,
+      "answer": 42,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 28,
+      "answer": 43,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 29,
+      "answer": 44,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 30,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 31,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 32,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 33,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 34,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 35,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 36,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 37,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 38,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 39,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 40,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 41,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 42,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 43,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 44,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 45,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 46,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 47,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 48,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 49,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 50,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 51,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 52,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 53,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 54,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 15,
+      "b": 55,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 56,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 57,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 58,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 15,
+      "b": 59,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 16,
+      "answer": 32,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 17,
+      "answer": 33,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 18,
+      "answer": 34,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 19,
+      "answer": 35,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 20,
+      "answer": 36,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 21,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 22,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 23,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 24,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 25,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 26,
+      "answer": 42,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 27,
+      "answer": 43,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 28,
+      "answer": 44,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 29,
+      "answer": 45,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 30,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 31,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 32,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 33,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 34,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 35,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 36,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 37,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 38,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 39,
+      "answer": 55,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 40,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 41,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 42,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 43,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 44,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 45,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 46,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 47,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 48,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 49,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 50,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 51,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 52,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 53,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 16,
+      "b": 54,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 55,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 56,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 57,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 58,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 16,
+      "b": 59,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 17,
+      "answer": 34,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 18,
+      "answer": 35,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 19,
+      "answer": 36,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 20,
+      "answer": 37,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 21,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 22,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 23,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 24,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 25,
+      "answer": 42,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 26,
+      "answer": 43,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 27,
+      "answer": 44,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 28,
+      "answer": 45,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 29,
+      "answer": 46,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 30,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 31,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 32,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 33,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 34,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 35,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 36,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 37,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 38,
+      "answer": 55,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 39,
+      "answer": 56,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 40,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 41,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 42,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 43,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 44,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 45,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 46,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 47,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 48,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 49,
+      "answer": 66,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 50,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 51,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 52,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 17,
+      "b": 53,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 54,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 55,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 56,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 57,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 58,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 17,
+      "b": 59,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 18,
+      "answer": 36,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 19,
+      "answer": 37,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 20,
+      "answer": 38,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 21,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 22,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 23,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 24,
+      "answer": 42,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 25,
+      "answer": 43,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 26,
+      "answer": 44,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 27,
+      "answer": 45,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 28,
+      "answer": 46,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 29,
+      "answer": 47,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 30,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 31,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 32,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 33,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 34,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 35,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 36,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 37,
+      "answer": 55,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 38,
+      "answer": 56,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 39,
+      "answer": 57,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 40,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 41,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 42,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 43,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 44,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 45,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 46,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 47,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 48,
+      "answer": 66,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 49,
+      "answer": 67,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 50,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 51,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 18,
+      "b": 52,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 53,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 54,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 55,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 56,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 57,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 58,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 18,
+      "b": 59,
+      "answer": 77,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 19,
+      "answer": 38,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 20,
+      "answer": 39,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 19,
+      "b": 21,
+      "answer": 40,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 22,
+      "answer": 41,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 23,
+      "answer": 42,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 24,
+      "answer": 43,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 25,
+      "answer": 44,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 26,
+      "answer": 45,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 27,
+      "answer": 46,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 28,
+      "answer": 47,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 29,
+      "answer": 48,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 30,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 19,
+      "b": 31,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 32,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 33,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 34,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 35,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 36,
+      "answer": 55,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 37,
+      "answer": 56,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 38,
+      "answer": 57,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 39,
+      "answer": 58,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 40,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 19,
+      "b": 41,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 42,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 43,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 44,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 45,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 46,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 47,
+      "answer": 66,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 48,
+      "answer": 67,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 49,
+      "answer": 68,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 50,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 19,
+      "b": 51,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 52,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 53,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 54,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 55,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 56,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 57,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 58,
+      "answer": 77,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 19,
+      "b": 59,
+      "answer": 78,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 20,
+      "b": 20,
+      "answer": 40,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 21,
+      "answer": 41,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 22,
+      "answer": 42,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 23,
+      "answer": 43,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 24,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 25,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 26,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 27,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 28,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 29,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 30,
+      "answer": 50,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 31,
+      "answer": 51,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 32,
+      "answer": 52,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 33,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 34,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 35,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 36,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 37,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 38,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 39,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 40,
+      "answer": 60,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 41,
+      "answer": 61,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 42,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 43,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 44,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 45,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 46,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 47,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 48,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 49,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 50,
+      "answer": 70,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 51,
+      "answer": 71,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 52,
+      "answer": 72,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 53,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 54,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 55,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 56,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 57,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 58,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 20,
+      "b": 59,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 21,
+      "answer": 42,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 22,
+      "answer": 43,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 23,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 24,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 25,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 26,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 27,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 28,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 29,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 21,
+      "b": 30,
+      "answer": 51,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 31,
+      "answer": 52,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 32,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 33,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 34,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 35,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 36,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 37,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 38,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 39,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 21,
+      "b": 40,
+      "answer": 61,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 41,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 42,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 43,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 44,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 45,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 46,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 47,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 48,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 49,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 21,
+      "b": 50,
+      "answer": 71,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 51,
+      "answer": 72,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 52,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 53,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 54,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 55,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 56,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 57,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 58,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 21,
+      "b": 59,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 22,
+      "answer": 44,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 23,
+      "answer": 45,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 24,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 25,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 26,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 27,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 28,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 29,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 30,
+      "answer": 52,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 31,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 32,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 33,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 34,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 35,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 36,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 37,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 38,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 39,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 40,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 41,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 42,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 43,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 44,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 45,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 46,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 47,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 48,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 49,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 50,
+      "answer": 72,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 51,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 52,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 53,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 54,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 55,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 56,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 57,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 22,
+      "b": 58,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 22,
+      "b": 59,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 23,
+      "answer": 46,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 24,
+      "answer": 47,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 25,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 26,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 27,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 28,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 29,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 30,
+      "answer": 53,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 31,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 32,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 33,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 34,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 35,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 36,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 37,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 38,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 39,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 40,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 41,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 42,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 43,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 44,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 45,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 46,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 47,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 48,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 49,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 50,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 51,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 52,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 53,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 54,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 55,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 56,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 23,
+      "b": 57,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 58,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 23,
+      "b": 59,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 24,
+      "answer": 48,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 25,
+      "answer": 49,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 26,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 27,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 28,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 29,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 30,
+      "answer": 54,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 31,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 32,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 33,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 34,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 35,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 36,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 37,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 38,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 39,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 40,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 41,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 42,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 43,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 44,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 45,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 46,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 47,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 48,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 49,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 50,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 51,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 52,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 53,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 54,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 55,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 24,
+      "b": 56,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 57,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 58,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 24,
+      "b": 59,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 25,
+      "answer": 50,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 26,
+      "answer": 51,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 27,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 28,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 29,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 30,
+      "answer": 55,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 31,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 32,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 33,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 34,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 35,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 36,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 37,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 38,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 39,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 40,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 41,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 42,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 43,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 44,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 45,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 46,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 47,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 48,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 49,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 50,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 51,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 52,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 53,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 54,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 25,
+      "b": 55,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 56,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 57,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 58,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 25,
+      "b": 59,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 26,
+      "answer": 52,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 27,
+      "answer": 53,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 28,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 29,
+      "answer": 55,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 30,
+      "answer": 56,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 31,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 32,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 33,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 34,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 35,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 36,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 37,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 38,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 39,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 40,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 41,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 42,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 43,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 44,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 45,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 46,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 47,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 48,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 49,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 50,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 51,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 52,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 53,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 26,
+      "b": 54,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 55,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 56,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 57,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 58,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 26,
+      "b": 59,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 27,
+      "answer": 54,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 28,
+      "answer": 55,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 29,
+      "answer": 56,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 30,
+      "answer": 57,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 31,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 32,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 33,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 34,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 35,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 36,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 37,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 38,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 39,
+      "answer": 66,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 40,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 41,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 42,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 43,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 44,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 45,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 46,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 47,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 48,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 49,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 50,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 51,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 52,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 27,
+      "b": 53,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 54,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 55,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 56,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 57,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 58,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 27,
+      "b": 59,
+      "answer": 86,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 28,
+      "answer": 56,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 29,
+      "answer": 57,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 30,
+      "answer": 58,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 28,
+      "b": 31,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 28,
+      "b": 32,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 33,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 34,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 35,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 36,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 37,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 38,
+      "answer": 66,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 39,
+      "answer": 67,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 40,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 28,
+      "b": 41,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 28,
+      "b": 42,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 43,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 44,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 45,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 46,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 47,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 48,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 49,
+      "answer": 77,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 50,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 28,
+      "b": 51,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 28,
+      "b": 52,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 53,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 54,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 55,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 56,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 57,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 58,
+      "answer": 86,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 28,
+      "b": 59,
+      "answer": 87,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 29,
+      "answer": 58,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 30,
+      "answer": 59,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 29,
+      "b": 31,
+      "answer": 60,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 32,
+      "answer": 61,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 33,
+      "answer": 62,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 34,
+      "answer": 63,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 35,
+      "answer": 64,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 36,
+      "answer": 65,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 37,
+      "answer": 66,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 38,
+      "answer": 67,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 39,
+      "answer": 68,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 40,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 29,
+      "b": 41,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 42,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 43,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 44,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 45,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 46,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 47,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 48,
+      "answer": 77,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 49,
+      "answer": 78,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 50,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 29,
+      "b": 51,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 52,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 53,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 54,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 55,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 56,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 57,
+      "answer": 86,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 58,
+      "answer": 87,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 29,
+      "b": 59,
+      "answer": 88,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 30,
+      "b": 30,
+      "answer": 60,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 31,
+      "answer": 61,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 32,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 33,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 34,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 35,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 36,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 37,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 38,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 39,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 40,
+      "answer": 70,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 41,
+      "answer": 71,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 42,
+      "answer": 72,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 43,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 44,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 45,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 46,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 47,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 48,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 49,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 50,
+      "answer": 80,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 51,
+      "answer": 81,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 52,
+      "answer": 82,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 53,
+      "answer": 83,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 54,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 55,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 56,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 57,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 58,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 30,
+      "b": 59,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 31,
+      "answer": 62,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 32,
+      "answer": 63,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 33,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 34,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 35,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 36,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 37,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 38,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 39,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 31,
+      "b": 40,
+      "answer": 71,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 41,
+      "answer": 72,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 42,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 43,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 44,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 45,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 46,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 47,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 48,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 49,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 31,
+      "b": 50,
+      "answer": 81,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 51,
+      "answer": 82,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 52,
+      "answer": 83,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 53,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 54,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 55,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 56,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 57,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 58,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 31,
+      "b": 59,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 32,
+      "b": 32,
+      "answer": 64,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 33,
+      "answer": 65,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 34,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 35,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 36,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 37,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 38,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 32,
+      "b": 39,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 32,
+      "b": 40,
+      "answer": 72,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 41,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 42,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 43,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 44,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 45,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 46,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 47,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 48,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 32,
+      "b": 49,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 32,
+      "b": 50,
+      "answer": 82,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 51,
+      "answer": 83,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 52,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 53,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 54,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 55,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 56,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 57,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 32,
+      "b": 58,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 32,
+      "b": 59,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 33,
+      "answer": 66,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 34,
+      "answer": 67,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 35,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 36,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 37,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 38,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 39,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 40,
+      "answer": 73,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 41,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 42,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 43,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 44,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 45,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 46,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 47,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 48,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 49,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 50,
+      "answer": 83,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 51,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 52,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 53,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 54,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 55,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 56,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 33,
+      "b": 57,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 58,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 33,
+      "b": 59,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 34,
+      "answer": 68,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 35,
+      "answer": 69,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 36,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 37,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 38,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 39,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 40,
+      "answer": 74,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 41,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 42,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 43,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 44,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 45,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 46,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 47,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 48,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 49,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 50,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 51,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 52,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 53,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 54,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 55,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 34,
+      "b": 56,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 57,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 58,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 34,
+      "b": 59,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 35,
+      "answer": 70,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 36,
+      "answer": 71,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 37,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 38,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 39,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 40,
+      "answer": 75,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 41,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 42,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 43,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 44,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 45,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 46,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 47,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 48,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 49,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 50,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 51,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 52,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 53,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 54,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 35,
+      "b": 55,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 56,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 57,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 58,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 35,
+      "b": 59,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 36,
+      "answer": 72,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 37,
+      "answer": 73,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 38,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 39,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 40,
+      "answer": 76,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 41,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 42,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 43,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 44,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 45,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 46,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 47,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 48,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 49,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 50,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 51,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 52,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 53,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 36,
+      "b": 54,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 55,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 56,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 57,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 58,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 36,
+      "b": 59,
+      "answer": 95,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 37,
+      "answer": 74,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 38,
+      "answer": 75,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 39,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 40,
+      "answer": 77,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 37,
+      "b": 41,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 37,
+      "b": 42,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 37,
+      "b": 43,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 44,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 45,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 46,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 47,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 48,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 49,
+      "answer": 86,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 50,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 37,
+      "b": 51,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 37,
+      "b": 52,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 37,
+      "b": 53,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 54,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 55,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 56,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 57,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 58,
+      "answer": 95,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 37,
+      "b": 59,
+      "answer": 96,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 38,
+      "answer": 76,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 39,
+      "answer": 77,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 40,
+      "answer": 78,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 38,
+      "b": 41,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 38,
+      "b": 42,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 43,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 44,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 45,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 46,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 47,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 48,
+      "answer": 86,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 49,
+      "answer": 87,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 50,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 38,
+      "b": 51,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 38,
+      "b": 52,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 53,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 54,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 55,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 56,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 57,
+      "answer": 95,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 58,
+      "answer": 96,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 38,
+      "b": 59,
+      "answer": 97,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 39,
+      "answer": 78,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 40,
+      "answer": 79,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 39,
+      "b": 41,
+      "answer": 80,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 42,
+      "answer": 81,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 43,
+      "answer": 82,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 44,
+      "answer": 83,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 45,
+      "answer": 84,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 46,
+      "answer": 85,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 47,
+      "answer": 86,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 48,
+      "answer": 87,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 49,
+      "answer": 88,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 50,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 39,
+      "b": 51,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 52,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 53,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 54,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 55,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 56,
+      "answer": 95,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 57,
+      "answer": 96,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 58,
+      "answer": 97,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 39,
+      "b": 59,
+      "answer": 98,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 40,
+      "b": 40,
+      "answer": 80,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 41,
+      "answer": 81,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 42,
+      "answer": 82,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 43,
+      "answer": 83,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 44,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 45,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 46,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 47,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 48,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 49,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 50,
+      "answer": 90,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 51,
+      "answer": 91,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 52,
+      "answer": 92,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 53,
+      "answer": 93,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 54,
+      "answer": 94,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 55,
+      "answer": 95,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 56,
+      "answer": 96,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 57,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 58,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 40,
+      "b": 59,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 41,
+      "answer": 82,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 42,
+      "answer": 83,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 43,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 44,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 45,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 46,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 47,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 48,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 49,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 41,
+      "b": 50,
+      "answer": 91,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 51,
+      "answer": 92,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 52,
+      "answer": 93,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 53,
+      "answer": 94,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 54,
+      "answer": 95,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 55,
+      "answer": 96,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 56,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 57,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 41,
+      "b": 58,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 42,
+      "answer": 84,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 43,
+      "answer": 85,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 44,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 45,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 46,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 47,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 48,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 42,
+      "b": 49,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 42,
+      "b": 50,
+      "answer": 92,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 51,
+      "answer": 93,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 52,
+      "answer": 94,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 53,
+      "answer": 95,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 54,
+      "answer": 96,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 55,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 56,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 42,
+      "b": 57,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 43,
+      "answer": 86,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 44,
+      "answer": 87,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 45,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 46,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 47,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 43,
+      "b": 48,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 43,
+      "b": 49,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 43,
+      "b": 50,
+      "answer": 93,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 51,
+      "answer": 94,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 52,
+      "answer": 95,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 53,
+      "answer": 96,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 54,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 55,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 43,
+      "b": 56,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 44,
+      "answer": 88,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 45,
+      "answer": 89,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 46,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 44,
+      "b": 47,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 44,
+      "b": 48,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 44,
+      "b": 49,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 44,
+      "b": 50,
+      "answer": 94,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 51,
+      "answer": 95,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 52,
+      "answer": 96,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 53,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 54,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 44,
+      "b": 55,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 45,
+      "b": 45,
+      "answer": 90,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 45,
+      "b": 46,
+      "answer": 91,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 45,
+      "b": 47,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 45,
+      "b": 48,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 45,
+      "b": 49,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 45,
+      "b": 50,
+      "answer": 95,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 45,
+      "b": 51,
+      "answer": 96,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 45,
+      "b": 52,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 45,
+      "b": 53,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 45,
+      "b": 54,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 46,
+      "b": 46,
+      "answer": 92,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 46,
+      "b": 47,
+      "answer": 93,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 46,
+      "b": 48,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 46,
+      "b": 49,
+      "answer": 95,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 46,
+      "b": 50,
+      "answer": 96,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 46,
+      "b": 51,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 46,
+      "b": 52,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 46,
+      "b": 53,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 47,
+      "b": 47,
+      "answer": 94,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 47,
+      "b": 48,
+      "answer": 95,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 47,
+      "b": 49,
+      "answer": 96,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 47,
+      "b": 50,
+      "answer": 97,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 47,
+      "b": 51,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 47,
+      "b": 52,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 48,
+      "b": 48,
+      "answer": 96,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 48,
+      "b": 49,
+      "answer": 97,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 48,
+      "b": 50,
+      "answer": 98,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 48,
+      "b": 51,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    },
+    {
+      "a": 49,
+      "b": 49,
+      "answer": 98,
+      "type": "carry",
+      "difficulty": 3
+    },
+    {
+      "a": 49,
+      "b": 50,
+      "answer": 99,
+      "type": "no_carry",
+      "difficulty": 2
+    }
+  ]
+}

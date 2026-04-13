@@ -1,0 +1,78 @@
+[
+  {
+    "id": "liubei",
+    "nameLine": ["大耳喵", "劉備喵", "劉備喵MAX"],
+    "role": "仁義肉盾",
+    "chengyu": "臥薪嘗膽",
+    "special": "charge",
+    "specialDesc": "仁義衝鋒：衝刺並擊退前方敵人",
+    "traitBonus": "tyrant",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "attack": 3, "defense": 3, "speed": 3, "cost": 80,  "cooldown": 6000, "hp": 300, "atk": 60,  "range": 110, "spd": 1.2, "attackInterval": 2000, "attackType": "single" },
+      { "form": "mid",  "attack": 4, "defense": 4, "speed": 4, "cost": 100, "cooldown": 7000, "hp": 450, "atk": 85,  "range": 120, "spd": 1.4, "attackInterval": 1800, "attackType": "single" },
+      { "form": "max",  "attack": 8, "defense": 8, "speed": 8, "cost": 150, "cooldown": 9000, "hp": 800, "atk": 150, "range": 130, "spd": 1.8, "attackInterval": 1600, "attackType": "area"   }
+    ]
+  },
+  {
+    "id": "guanyu",
+    "nameLine": ["紳士喵", "關羽喵", "關羽喵MAX"],
+    "role": "遠程輸出",
+    "chengyu": "過五關斬六將",
+    "special": "sweep",
+    "specialDesc": "青龍偃月掃射：長範圍掃射攻擊",
+    "traitBonus": null,
+    "unlockStage": "taiwan_1",
+    "forms": [
+      { "form": "base", "attack": 2, "defense": 3, "speed": 2, "cost": 100, "cooldown": 8000,  "hp": 250, "atk": 55,  "range": 200, "spd": 1.0, "attackInterval": 2500, "attackType": "single" },
+      { "form": "mid",  "attack": 3, "defense": 4, "speed": 3, "cost": 130, "cooldown": 9000,  "hp": 380, "atk": 80,  "range": 240, "spd": 1.2, "attackInterval": 2200, "attackType": "single" },
+      { "form": "max",  "attack": 7, "defense": 8, "speed": 7, "cost": 180, "cooldown": 11000, "hp": 700, "atk": 140, "range": 300, "spd": 1.5, "attackInterval": 2000, "attackType": "area"   }
+    ]
+  },
+  {
+    "id": "zhangfei",
+    "nameLine": ["重擊喵", "張飛喵", "張飛喵MAX"],
+    "role": "近戰暴力",
+    "chengyu": "當陽橋一聲吼",
+    "special": "shockwave",
+    "specialDesc": "震波吼叫：發出衝擊波使敵人短暫停頓",
+    "traitBonus": null,
+    "unlockStage": "taiwan_1",
+    "forms": [
+      { "form": "base", "attack": 4, "defense": 2, "speed": 2, "cost": 90,  "cooldown": 7000,  "hp": 280, "atk": 90,  "range": 90,  "spd": 1.3, "attackInterval": 1500, "attackType": "area" },
+      { "form": "mid",  "attack": 5, "defense": 3, "speed": 3, "cost": 120, "cooldown": 8000,  "hp": 420, "atk": 130, "range": 100, "spd": 1.5, "attackInterval": 1400, "attackType": "area" },
+      { "form": "max",  "attack": 8, "defense": 6, "speed": 6, "cost": 170, "cooldown": 10000, "hp": 750, "atk": 220, "range": 110, "spd": 1.8, "attackInterval": 1200, "attackType": "area" }
+    ]
+  },
+  {
+    "id": "zhangjiu",
+    "nameLine": ["強壯喵", "張九喵", "張九喵MAX"],
+    "role": "鐵壁肉盾",
+    "chengyu": "負荊請罪",
+    "special": "chest_bump",
+    "specialDesc": "胸肌彈飛：用胸部撞擊把敵人彈飛（擊退距離×2）",
+    "traitBonus": null,
+    "backstory": "小時候欺負劉備，後來被劉備所救，背著荊條道歉，從此死心塌地跟隨。弟弟尚九以後也會出現。",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "attack": 1, "defense": 4, "speed": 1, "cost": 70,  "cooldown": 5000, "hp": 500,  "atk": 30, "range": 80, "spd": 0.8, "attackInterval": 2500, "attackType": "single" },
+      { "form": "mid",  "attack": 3, "defense": 6, "speed": 3, "cost": 100, "cooldown": 6000, "hp": 750,  "atk": 55, "range": 85, "spd": 1.0, "attackInterval": 2300, "attackType": "single" },
+      { "form": "max",  "attack": 4, "defense": 9, "speed": 4, "cost": 140, "cooldown": 8000, "hp": 1200, "atk": 90, "range": 90, "spd": 1.2, "attackInterval": 2000, "attackType": "area"   }
+    ]
+  },
+  {
+    "id": "soldier",
+    "nameLine": ["小兵喵", "士兵喵", "軍官喵"],
+    "role": "量產基礎",
+    "chengyu": null,
+    "special": null,
+    "specialDesc": null,
+    "traitBonus": null,
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "attack": 2, "defense": 2, "speed": 2, "cost": 40, "cooldown": 3000, "hp": 150, "atk": 35, "range": 95,  "spd": 1.5, "attackInterval": 2000, "attackType": "single" },
+      { "form": "mid",  "attack": 3, "defense": 3, "speed": 3, "cost": 60, "cooldown": 4000, "hp": 240, "atk": 55, "range": 100, "spd": 1.6, "attackInterval": 1800, "attackType": "single" },
+      { "form": "max",  "attack": 4, "defense": 4, "speed": 4, "cost": 90, "cooldown": 5000, "hp": 360, "atk": 80, "range": 110, "spd": 1.8, "attackInterval": 1600, "attackType": "single" }
+    ]
+  }
+]

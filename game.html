@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, orientation=landscape">
+  <title>三國喵喵 — 戰鬥</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="game-page">
+
+  <!-- RPG Dialog Overlay (shown before battle starts) -->
+  <div id="dialog-overlay" class="dialog-overlay hidden">
+    <div class="dialog-box">
+      <div class="dialog-speaker">
+        <img id="dialog-avatar" src="" alt="" onerror="this.style.display='none'">
+        <span id="dialog-speaker-name"></span>
+      </div>
+      <div class="dialog-chengyu-block">
+        <span id="dialog-chengyu" class="chengyu-tag"></span>
+        <span id="dialog-chengyu-meaning" class="chengyu-meaning"></span>
+      </div>
+      <p id="dialog-text" class="dialog-text"></p>
+      <div id="dialog-choices" class="dialog-choices">
+        <!-- Populated by dialog.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Status Bar (5vh) -->
+  <header class="game-topbar">
+    <button id="btn-back" class="btn-ghost">← 返回</button>
+    <span id="stage-name" class="stage-name"></span>
+    <div class="topbar-stats">
+      <span id="display-gold">💰 0</span>
+      <span id="display-score-game">⭐ 0</span>
+      <span id="display-base-hp">🏯 HP: 20</span>
+    </div>
+  </header>
+
+  <!-- Battlefield (55vh) -->
+  <div id="battlefield" class="battlefield">
+    <!-- Player Base -->
+    <div id="player-base" class="base player-base">
+      <img src="" id="player-base-img" alt="我方基地" onerror="this.outerHTML='<div class=\'base-emoji\'>🏯</div>'">
+      <div id="player-base-hp-bar" class="base-hp-bar"></div>
+    </div>
+
+    <!-- Enemy Base -->
+    <div id="enemy-base" class="base enemy-base">
+      <img src="" id="enemy-base-img" alt="敵方基地" onerror="this.outerHTML='<div class=\'base-emoji\'>🗼</div>'">
+      <div id="enemy-base-hp-bar" class="base-hp-bar enemy"></div>
+    </div>
+
+    <!-- Units are inserted here dynamically -->
+    <div id="units-layer" class="units-layer"></div>
+
+    <!-- Floating damage/gold text layer -->
+    <div id="fx-layer" class="fx-layer"></div>
+  </div>
+
+  <!-- Gold Bar + Combo (5vh) -->
+  <div class="combo-bar">
+    <div class="gold-progress-wrap">
+      <span class="gold-label">金幣</span>
+      <div class="gold-progress-bg">
+        <div id="gold-progress-fill" class="gold-progress-fill"></div>
+      </div>
+      <span id="gold-amount">0</span>
+    </div>
+    <div id="combo-display" class="combo-display hidden">
+      <span id="combo-count">0</span> 連答！
+      <span id="combo-effect"></span>
+    </div>
+  </div>
+
+  <!-- Bottom Panel (35vh): Math + Hero Summon -->
+  <div class="bottom-panel">
+
+    <!-- Math Panel (left) -->
+    <div class="math-panel" id="math-panel">
+      <div id="question-display" class="question-display">
+        <span id="question-text" class="question-text">準備中…</span>
+      </div>
+      <div id="choices-grid" class="choices-grid">
+        <button class="choice-btn" data-idx="0"></button>
+        <button class="choice-btn" data-idx="1"></button>
+        <button class="choice-btn" data-idx="2"></button>
+        <button class="choice-btn" data-idx="3"></button>
+      </div>
+      <div id="answer-feedback" class="answer-feedback hidden"></div>
+    </div>
+
+    <!-- Hero Summon Panel (right) -->
+    <div class="summon-panel" id="summon-panel">
+      <!-- Populated by game-engine.js -->
+    </div>
+
+  </div>
+
+  <!-- Win / Lose Overlay -->
+  <div id="result-overlay" class="result-overlay hidden">
+    <div class="result-box">
+      <div id="result-title" class="result-title"></div>
+      <div id="result-stats" class="result-stats"></div>
+      <button id="btn-retry" class="btn-primary">再挑戰</button>
+      <button id="btn-result-back" class="btn-secondary">返回選關</button>
+    </div>
+  </div>
+
+  <!-- Firebase + Game Scripts -->
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/hero.js"></script>
+  <script type="module" src="js/enemy.js"></script>
+  <script type="module" src="js/question.js"></script>
+  <script type="module" src="js/dialog.js"></script>
+  <script type="module" src="js/game-engine.js"></script>
+</body>
+</html>

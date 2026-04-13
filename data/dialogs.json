@@ -1,0 +1,90 @@
+[
+  {
+    "id": "taiwan_1_intro",
+    "speaker": "liubei",
+    "speakerName": "劉備喵",
+    "chengyu": "臥薪嘗膽",
+    "chengyuMeaning": "忍受艱苦、磨練意志，最終達成目標。出自越王勾踐復國的故事。",
+    "text": "前方就是台灣了！聽說這裡的動物很護家，連黑熊都會出來守護山林。\n當年越王勾踐被打敗後，每天睡在柴草上、嚐苦膽——就是要提醒自己不能忘記目標。\n我們也要有這種精神！你覺得我們應該怎麼準備？",
+    "choices": [
+      {
+        "text": "先觀察地形，謹慎行動",
+        "effect": "speed_boost",
+        "value": 0.20,
+        "hint": "本關速度 +20%"
+      },
+      {
+        "text": "仁義之師，正面突破！",
+        "effect": "hp_boost",
+        "value": 0.25,
+        "hint": "劉備喵本關 HP +25%"
+      },
+      {
+        "text": "管他的，直接衝！",
+        "effect": "gold_boost",
+        "value": 0.30,
+        "hint": "金幣速率 +30%，但基地初始 HP -2"
+      }
+    ]
+  },
+  {
+    "id": "taiwan_2_intro",
+    "speaker": "zhangjiu",
+    "speakerName": "張九喵",
+    "chengyu": "負荊請罪",
+    "chengyuMeaning": "主動承認錯誤、誠心道歉。出自廉頗向藺相如負荊請罪的故事。",
+    "text": "……主公，我要說一件事。\n小時候你家裡窮、個子小，是我欺負過你的。\n後來是你救了我，我才知道自己有多混蛋。\n所以我背著荊條去找你道歉——你還是原諒了我。\n這一關讓我衝最前面！讓我用這身肌肉替你擋下所有攻擊！",
+    "choices": [
+      {
+        "text": "張九，你去最前面！",
+        "effect": "zhangjiu_hp",
+        "value": 0.30,
+        "hint": "張九喵本關 HP +30%"
+      },
+      {
+        "text": "我們一起上！",
+        "effect": "all_atk",
+        "value": 0.15,
+        "hint": "全軍攻擊 +15%"
+      },
+      {
+        "text": "先補充糧草再說",
+        "effect": "gold_start",
+        "value": 200,
+        "hint": "開場額外 +200 金幣"
+      }
+    ]
+  },
+  {
+    "id": "taiwan_boss_intro",
+    "speaker": "liubei",
+    "speakerName": "劉備喵",
+    "chengyu": "臥薪嘗膽",
+    "chengyuMeaning": "忍受艱苦、磨練意志，最終達成目標。",
+    "bossLine": {
+      "speaker": "石虎王",
+      "text": "喵喵軍……你們一路打敗我的子民，還以為可以輕鬆通過台灣嗎？\n我是守護這片土地千年的石虎王。\n你們想走，先從我身上踏過去！"
+    },
+    "text": "來了……大家，這是台灣的最終考驗。我們一起面對牠！",
+    "choices": [
+      {
+        "text": "關羽，用青龍偃月對付牠！",
+        "effect": "boss_atk_boost",
+        "value": 0.50,
+        "hint": "對 Boss 傷害 +50%"
+      },
+      {
+        "text": "穩住！先守後攻",
+        "effect": "hp_boost",
+        "value": 0.30,
+        "hint": "全軍 HP +30%"
+      },
+      {
+        "text": "全力衝鋒，速戰速決！",
+        "effect": "speed_boost",
+        "value": 0.30,
+        "hint": "速度 +30%，但答錯傷害 ×2"
+      }
+    ]
+  }
+]

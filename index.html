@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, orientation=landscape">
+  <title>三國喵喵統治世界</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="index-page">
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen active">
+    <div class="logo-wrap">
+      <img src="assets/ui/logo_title.png" alt="三國喵喵統治世界" class="logo"
+           onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block'">
+      <h1 id="logo-text" style="display:none">三國喵喵統治世界</h1>
+    </div>
+
+    <div class="login-box">
+      <h2>登入</h2>
+      <input type="text" id="input-nickname" placeholder="暱稱（例：努努）" maxlength="10">
+      <input type="text" id="input-birthday" placeholder="生日 MMDD（例：0301）" maxlength="4" pattern="\d{4}">
+      <button id="btn-login" class="btn-primary">出發！🐾</button>
+      <p class="login-hint">暱稱 + 生日會自動產生你的遊戲帳號</p>
+    </div>
+  </div>
+
+  <!-- Stage Select Screen -->
+  <div id="stage-screen" class="screen">
+    <header class="top-bar">
+      <span id="display-nickname" class="player-name"></span>
+      <span id="display-score" class="score-display">總分：0</span>
+      <a href="leaderboard.html" class="btn-secondary">排行榜 🏆</a>
+      <button id="btn-logout" class="btn-ghost">登出</button>
+    </header>
+
+    <div class="world-map">
+      <h2 class="chapter-title">🌏 亞洲篇 — 台灣</h2>
+
+      <div class="stage-list" id="stage-list">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="coming-soon">
+        <p>🚧 更多國家即將到來：日本 / 印度 / 英國 / 法國…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>

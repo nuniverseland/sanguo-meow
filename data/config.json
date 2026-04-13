@@ -1,0 +1,47 @@
+{
+  "gold": {
+    "autoRate": 30,
+    "autoInterval": 4000,
+    "correctMultiplication": 80,
+    "correctAddition": 200,
+    "correctSubtraction": 200,
+    "comboMultiplier": 1.5,
+    "comboDuration": 15000
+  },
+  "combo": {
+    "level1": 3,
+    "level2": 5,
+    "level1Effect": "gold_boost",
+    "level2Effect": "jinang"
+  },
+  "jinang": {
+    "attackBoost": 0.5,
+    "duration": 8000
+  },
+  "exp": {
+    "correctMultiplication": 15,
+    "correctAddition": 30,
+    "correctSubtraction": 30,
+    "perLevel": 1000
+  },
+  "levelUp": {
+    "hpRate": 0.10,
+    "atkRate": 0.08,
+    "branchAttack": 0.15,
+    "branchDefense": 0.20,
+    "branchSpeed": 0.15
+  },
+  "penalty": {
+    "wrongAnswer": 1
+  },
+  "score": {
+    "killNormal": 100,
+    "killFlying": 80,
+    "killBoss": 1000,
+    "correctAnswer": 50,
+    "stageBase": 1000,
+    "stagePerfect": 500,
+    "stageSpeed": 200,
+    "dailyLogin": 100
+  }
+}
