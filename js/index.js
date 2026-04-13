@@ -69,6 +69,10 @@ async function enterGame(userId) {
     location.reload();
   });
 
+  // 背景圖：路徑從 HTML 算，不從 CSS 算
+  document.getElementById('stage-screen').style.cssText +=
+    ';background:url("assets/backgrounds/bg_main.jpg") center top / cover no-repeat;';
+
   renderStages();
 }
 
