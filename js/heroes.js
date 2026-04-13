@@ -3,9 +3,10 @@ import { getUserId, loadOwnedHeroes } from './firebase.js';
 
 // 初始英雄（不需抽卡）
 const INITIAL_HEROES = new Set(['liubei', 'soldier']);
-const EXP_PER_LEVEL  = 1000;
-const FORM_UNLOCK_LEVEL = 10; // 中間形態解鎖等級
-const FRAG_TO_MAX    = 10;    // 幾片碎片解鎖 MAX
+const EXP_PER_LEVEL     = 1000;
+const FORM_MID_LEVEL    = 10;  // Lv10 → 進化形態
+const FORM_MAX_LEVEL    = 30;  // Lv30 → MAX 形態
+const FRAG_PER_LEVEL    = 10;  // 10 碎片 = +1 等級
 
 let heroesJson = [];   // heroes.json 靜態資料
 let ownedMap   = {};   // Firebase：{ heroId: { level, exp, currentForm, soulFragments, maxUnlocked } }
@@ -87,7 +88,7 @@ function renderGrid(filter) {
                alt="${h.nameLine[0]}"
                onerror="this.outerHTML='<div class=hlc-emoji>🐱</div>'">
           ${INITIAL_HEROES.has(h.id) ? '<span class="hlc-badge initial">初始</span>' : ''}
-          ${fireData.maxUnlocked ? '<span class="hlc-badge max">MAX</span>' : ''}
+          ${level >= FORM_MAX_LEVEL ? '<span class="hlc-badge max">MAX</span>' : ''}
         </div>
         <div class="hlc-info">
           <div class="hlc-name">${h.nameLine[formIdx]}</div>
@@ -192,16 +193,14 @@ function openDetail(heroId) {
   const fragSection = document.getElementById('detail-frag-section');
   if (!INITIAL_HEROES.has(heroId) && owned) {
     fragSection.style.display = '';
-    const fragPct = Math.min((frags / FRAG_TO_MAX) * 100, 100);
+    const fragPct = Math.min((frags / FRAG_PER_LEVEL) * 100, 100);
     document.getElementById('detail-frag-fill').style.width = `${fragPct}%`;
-    document.getElementById('detail-frag-text').textContent = `${frags} / ${FRAG_TO_MAX}`;
+    document.getElementById('detail-frag-text').textContent = `${frags} / ${FRAG_PER_LEVEL}`;
     const noteEl = document.getElementById('detail-frag-note');
-    if (fireData.maxUnlocked) {
-      noteEl.innerHTML = '<span class="frag-maxed">✨ MAX 形態已解鎖！</span>';
-    } else if (frags >= FRAG_TO_MAX) {
-      noteEl.innerHTML = '<span class="frag-ready">✨ 碎片已集滿！下次抽到會自動解鎖 MAX</span>';
+    if (frags >= FRAG_PER_LEVEL) {
+      noteEl.innerHTML = `<span class="frag-ready">⚡ 碎片已集滿！再次抽到會自動升一等</span>`;
     } else {
-      noteEl.textContent = `再集 ${FRAG_TO_MAX - frags} 片可解鎖 MAX 形態`;
+      noteEl.textContent = `再集 ${FRAG_PER_LEVEL - frags} 片可升一等（集滿自動 +1 Lv）`;
     }
   } else {
     fragSection.style.display = 'none';
@@ -232,9 +231,9 @@ function calcLevel(exp) {
 }
 
 function resolveFormIdx(h, fireData) {
-  if (fireData.maxUnlocked) return 2;
   const lv = calcLevel(fireData.exp ?? 0);
-  if (lv >= FORM_UNLOCK_LEVEL && h.forms.length > 1) return 1;
+  if (lv >= FORM_MAX_LEVEL && h.forms.length > 2) return 2;
+  if (lv >= FORM_MID_LEVEL && h.forms.length > 1) return 1;
   return fireData.currentForm ?? 0;
 }
 
@@ -245,8 +244,8 @@ function formName(idx) {
 
 function evoHint(h, idx) {
   if (idx === 0) return '初始';
-  if (idx === 1) return `Lv.${FORM_UNLOCK_LEVEL} 解鎖`;
-  return '集滿碎片解鎖';
+  if (idx === 1) return `Lv.${FORM_MID_LEVEL} 解鎖`;
+  return `Lv.${FORM_MAX_LEVEL} 解鎖`;
 }
 
 init();

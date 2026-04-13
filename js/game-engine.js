@@ -255,11 +255,14 @@ function summonHero(heroId) {
   state.heroCount[heroId]++;
   sfxSummon();
 
-  // 從已儲存的 ownedMap 算出英雄等級，套入加成
+  // 從已儲存的 ownedMap 算出英雄等級與形態索引
   const owned   = state.ownedMap[heroId];
   const heroExp = owned?.exp ?? 0;
   const heroLv  = Math.floor(heroExp / (state.config?.exp?.perLevel ?? 1000)) + 1;
-  const hero = new Hero(hData, 0, heroLv, state.buff, state.config?.levelUp ?? {});
+  const formIdx = heroLv >= 30 && hData.forms.length > 2 ? 2
+                : heroLv >= 10 && hData.forms.length > 1 ? 1
+                : 0;
+  const hero = new Hero(hData, formIdx, heroLv, state.buff, state.config?.levelUp ?? {});
   hero.x = state.playerBaseX + 140;
   const heroEl = hero.createElement();
   el.units().appendChild(heroEl);

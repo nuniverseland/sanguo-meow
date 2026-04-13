@@ -1,12 +1,26 @@
 // gacha.js — Gacha page logic
 import { getUserId, loadGachaState, executeGachaDraw } from './firebase.js';
 
-// 抽卡池（不含初始解鎖英雄）
-const GACHA_POOL    = ['guanyu', 'zhangfei', 'zhangjiu'];
+// 抽卡池 — 稀有度分層
+// 普通 (common): 70% 機率；稀有 (rare): 30% 機率
+const GACHA_POOL = {
+  common: ['guanyu'],               // 普通
+  rare:   ['zhangfei', 'zhangjiu'] // 稀有
+};
 // 初始英雄（不進抽卡池，但顯示在圖鑑）
 const INITIAL_HEROES = ['liubei', 'soldier'];
 // 所有英雄（抽卡頁展示順序）
 const ALL_HEROES = ['liubei', 'soldier', 'guanyu', 'zhangfei', 'zhangjiu'];
+// 稀有度標籤
+const RARITY_LABEL = { common: '普通', rare: '⭐ 稀有' };
+const RARITY_META  = {
+  guanyu:   'common',
+  zhangfei: 'rare',
+  zhangjiu: 'rare'
+};
+// 保底說明
+const PITY_MAX      = 20; // 每 20 抽保底未擁有英雄
+const RARE_PITY_MAX = 40; // 每 40 抽保底未擁有稀有英雄
 
 // Hero static info（不從 JSON 載就不需 async）
 const HERO_META = {
@@ -66,13 +80,13 @@ function renderHeroPool() {
   grid.innerHTML = '';
 
   ALL_HEROES.forEach(heroId => {
-    const meta    = HERO_META[heroId];
+    const meta     = HERO_META[heroId];
     const heroData = gachaState.heroes[heroId];
-    const isOwned = meta.initial || !!heroData;
-    const isMax   = heroData?.maxUnlocked;
+    const isOwned  = meta.initial || !!heroData;
+    const rarity   = RARITY_META[heroId];
 
     const card = document.createElement('div');
-    card.className = `hero-card ${isOwned ? 'owned' : 'not-owned'}`;
+    card.className = `hero-card ${isOwned ? 'owned' : 'not-owned'}${rarity === 'rare' ? ' rarity-rare' : ''}`;
 
     const imgEl = isOwned
       ? `<img class="hero-card-img" src="assets/heroes/hero_${heroId}_base.png"
@@ -80,10 +94,13 @@ function renderHeroPool() {
               alt="${meta.name}">`
       : `<div class="hero-card-shadow">❓</div>`;
 
+    const rarityTag = rarity
+      ? `<span class="hero-card-rarity ${rarity}">${RARITY_LABEL[rarity]}</span>`
+      : '';
+
     card.innerHTML = `
-      ${meta.initial ? '<span class="hero-card-initial">初始</span>' : ''}
-      ${isOwned && isMax ? '<span class="hero-card-badge max">MAX</span>' : ''}
-      ${isOwned && !isMax && !meta.initial ? '<span class="hero-card-badge">已擁有</span>' : ''}
+      ${meta.initial ? '<span class="hero-card-initial">初始</span>' : rarityTag}
+      ${isOwned && !meta.initial ? '<span class="hero-card-badge">已擁有</span>' : ''}
       ${imgEl}
       <div class="hero-card-name">${isOwned ? meta.name : '???'}</div>
       <div class="hero-card-role">${isOwned ? meta.role : '未解鎖'}</div>
@@ -93,36 +110,40 @@ function renderHeroPool() {
 }
 
 function renderPity() {
-  const pity    = gachaState.pityCount ?? 0;
-  const remain  = 10 - pity;
-  const fillPct = (pity / 10) * 100;
+  const pity     = gachaState.pityCount    ?? 0;
+  const rarePity = gachaState.rarePityCount ?? 0;
+  const remain   = PITY_MAX - pity;
+  const rareRemain = RARE_PITY_MAX - rarePity;
+  const fillPct  = (pity / PITY_MAX) * 100;
   document.getElementById('pity-fill').style.width  = `${fillPct}%`;
-  document.getElementById('pity-count').textContent = `距保底還有 ${remain} 抽`;
+  document.getElementById('pity-count').textContent =
+    `距普通保底 ${remain} 抽 ／ 距⭐稀有保底 ${rareRemain} 抽`;
 }
 
 function renderFragments() {
   const grid = document.getElementById('fragments-grid');
   grid.innerHTML = '';
 
-  GACHA_POOL.forEach(heroId => {
-    const meta    = HERO_META[heroId];
+  const allPoolHeroes = [...GACHA_POOL.common, ...GACHA_POOL.rare];
+  allPoolHeroes.forEach(heroId => {
+    const meta     = HERO_META[heroId];
     const heroData = gachaState.heroes[heroId];
     if (!heroData) return; // 未擁有不顯示碎片
 
-    const frags  = heroData.soulFragments ?? 0;
-    const isMax  = heroData.maxUnlocked;
+    const frags = heroData.soulFragments ?? 0;
+    const FRAG_MAX = 10;
 
     const item = document.createElement('div');
     item.className = 'fragment-item';
     item.innerHTML = `
       <div class="fragment-name">${meta.name}碎片</div>
       <div class="fragment-bar-bg">
-        <div class="fragment-bar-fill" style="width:${Math.min(frags/10*100,100)}%"></div>
+        <div class="fragment-bar-fill" style="width:${Math.min(frags / FRAG_MAX * 100, 100)}%"></div>
       </div>
       <div class="fragment-count">
-        ${isMax
-          ? '<span class="fragment-max">✨ MAX 解鎖！</span>'
-          : `${frags} / 10`}
+        ${frags >= FRAG_MAX
+          ? '<span class="fragment-max">⚡ 集滿！升一等</span>'
+          : `${frags} / ${FRAG_MAX}（集滿自動 +1 Lv）`}
       </div>
     `;
     grid.appendChild(item);
@@ -152,7 +173,7 @@ async function doDraw(count) {
   showAnim(true);
 
   try {
-    const txResult = await executeGachaDraw(userId, count, GACHA_POOL, gachaState);
+    const txResult = await executeGachaDraw(userId, count, GACHA_POOL, gachaState);  // pass poolConfig
 
     // Update local state
     gachaState.scrolls   = txResult.newScrolls;
@@ -161,17 +182,25 @@ async function doDraw(count) {
     // Merge newly obtained heroes into local state
     for (const r of txResult.results) {
       if (r.isNew) {
-        gachaState.heroes[r.heroId] = { heroId: r.heroId, soulFragments: 0, maxUnlocked: false };
+        gachaState.heroes[r.heroId] = { heroId: r.heroId, soulFragments: 0, exp: 0 };
       } else {
         if (gachaState.heroes[r.heroId]) {
-          gachaState.heroes[r.heroId].soulFragments =
-            (gachaState.heroes[r.heroId].soulFragments ?? 0) + 1;
+          const h = gachaState.heroes[r.heroId];
+          const newFrag = (h.soulFragments ?? 0) + 1;
+          if (newFrag >= 10) {
+            h.soulFragments = newFrag - 10;
+            h.exp = (h.exp ?? 0) + 1000;
+          } else {
+            h.soulFragments = newFrag;
+          }
         }
       }
     }
+    gachaState.pityCount     = txResult.newPity     ?? 0;
+    gachaState.rarePityCount = txResult.newRarePity ?? (gachaState.rarePityCount ?? 0);
 
     showAnim(false);
-    await showResults(txResult.results, txResult.scrollBack);
+    await showResults(txResult.results);
     renderAll();
   } catch (e) {
     showAnim(false);
@@ -191,7 +220,7 @@ function showAnim(show) {
 }
 
 // ── Result display ────────────────────────────────────────────────────────────
-async function showResults(results, scrollBack) {
+async function showResults(results) {
   const container = document.getElementById('result-cards');
   container.innerHTML = '';
 
@@ -210,12 +239,13 @@ async function showResults(results, scrollBack) {
     card.className = `result-card${r.isNew ? ' is-new' : ''}`;
     card.style.animationDelay = `${i * 0.08}s`;
 
+    const rarityTag = r.rarity === 'rare' ? '<span class="result-card-rarity">⭐ 稀有</span>' : '';
     let tagHTML = '';
-    if (r.isNew)          tagHTML = '<span class="result-card-tag new">✨ 新英雄！</span>';
-    else if (scrollBack)  tagHTML = '<span class="result-card-tag refund">🎴×2 退還</span>';
-    else                  tagHTML = '<span class="result-card-tag frag">💜 碎片</span>';
+    if (r.isNew) tagHTML = '<span class="result-card-tag new">✨ 新英雄！</span>';
+    else         tagHTML = '<span class="result-card-tag frag">💜 碎片 → +EXP</span>';
 
     card.innerHTML = `
+      ${rarityTag}
       <img src="assets/heroes/hero_${r.heroId}_base.png"
            onerror="this.outerHTML='<div style=font-size:2rem>🐱</div>'"
            alt="${meta.name}">
@@ -223,13 +253,6 @@ async function showResults(results, scrollBack) {
       ${tagHTML}
     `;
     container.appendChild(card);
-  }
-
-  if (scrollBack > 0) {
-    const note = document.createElement('div');
-    note.style.cssText = 'width:100%;text-align:center;font-size:.85rem;color:var(--gold);margin-top:4px;';
-    note.textContent = `英雄已達 MAX！退還 🎴 × ${scrollBack} 卷`;
-    container.appendChild(note);
   }
 
   document.getElementById('result-overlay').classList.remove('hidden');

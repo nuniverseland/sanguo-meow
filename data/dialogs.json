@@ -86,5 +86,94 @@
         "hint": "速度 +30%，但答錯傷害 ×2"
       }
     ]
+  },
+
+  {
+    "id": "japan_1_intro",
+    "speaker": "zhuge",
+    "speakerName": "諸葛亮喵",
+    "chengyu": "以逸待勞",
+    "chengyuMeaning": "讓敵人疲憊，自己以逸制勞。出自《孫子兵法》，是以靜制動的謀略。",
+    "text": "主公，日本的狸貓忍者精通幻術，能變化成喵喵軍的模樣迷惑我們。\n兵法有云：「以逸待勞」——讓敵人先消耗體力，我們蓄勢待發再出擊！\n但要怎麼準備，還請主公定奪。",
+    "choices": [
+      {
+        "text": "等待時機，以快制慢！",
+        "effect": "speed_boost",
+        "value": 0.25,
+        "hint": "本關速度 +25%"
+      },
+      {
+        "text": "鞏固陣地，以守為攻",
+        "effect": "hp_boost",
+        "value": 0.30,
+        "hint": "全軍 HP +30%"
+      },
+      {
+        "text": "多備糧草，以金攻城",
+        "effect": "gold_boost",
+        "value": 0.35,
+        "hint": "金幣速率 +35%，但基地初始 HP -2"
+      }
+    ]
+  },
+  {
+    "id": "japan_2_intro",
+    "speaker": "zhaoyu",
+    "speakerName": "趙雲喵",
+    "chengyu": "單槍匹馬",
+    "chengyuMeaning": "一個人單獨應戰，形容獨立奮鬥、毫無畏懼。出自趙子龍長坂坡獨戰的故事。",
+    "text": "哼！天狗以為在天上就能為所欲為？\n當年我趙雲單槍匹馬衝入曹軍百萬之中，救出阿斗！\n這幾隻鴉天狗算什麼！告訴我，要怎麼打？",
+    "choices": [
+      {
+        "text": "趙雲你去最前面，全力進攻！",
+        "effect": "all_atk",
+        "value": 0.30,
+        "hint": "全軍攻擊 +30%"
+      },
+      {
+        "text": "先穩住陣腳，不能讓牠們靠近基地",
+        "effect": "hp_boost",
+        "value": 0.25,
+        "hint": "全軍 HP +25%"
+      },
+      {
+        "text": "集中火力，先把 Boss 打趴",
+        "effect": "boss_atk_boost",
+        "value": 0.40,
+        "hint": "對 Boss 傷害 +40%"
+      }
+    ]
+  },
+  {
+    "id": "japan_boss_intro",
+    "speaker": "zhuge",
+    "speakerName": "諸葛亮喵",
+    "chengyu": "知己知彼",
+    "chengyuMeaning": "了解自己，也了解對手，才能百戰百勝。出自《孫子兵法》。",
+    "bossLine": {
+      "speaker": "河童王",
+      "text": "呱呱呱……喵喵軍，你們一路殺到我的領土，還真有幾分膽識。\n我是統領日本水域千年的河童之王。\n頭頂這盤水，是我不敗的秘密——你們破得了嗎？"
+    },
+    "text": "主公，河童王頭頂水盤永遠盛滿神秘之水，是牠力量的源泉。\n兵法有云：「知己知彼，百戰百勝」——我已分析出牠的弱點，請主公選擇策略！",
+    "choices": [
+      {
+        "text": "直攻水盤，打掉牠的弱點！",
+        "effect": "boss_atk_boost",
+        "value": 0.50,
+        "hint": "對 Boss 傷害 +50%"
+      },
+      {
+        "text": "全軍壓上，以人數取勝",
+        "effect": "hp_boost",
+        "value": 0.30,
+        "hint": "全軍 HP +30%"
+      },
+      {
+        "text": "速戰速決，趁牠反應不及！",
+        "effect": "speed_boost",
+        "value": 0.35,
+        "hint": "速度 +35%，但答錯傷害 ×2"
+      }
+    ]
   }
 ]

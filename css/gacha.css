@@ -366,3 +366,39 @@
 .result-card-tag.new    { background: #f5c842; color: #1a0d00; }
 .result-card-tag.frag   { background: rgba(123,47,247,.5); color: #fff; }
 .result-card-tag.refund { background: rgba(80,180,80,.5); color: #fff; }
+
+/* ── Rarity styles ───────────────────────────────────────────────────────────── */
+.hero-card-rarity {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: .62rem;
+  padding: 2px 5px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.hero-card-rarity.common {
+  background: rgba(150,150,150,.3);
+  color: #ccc;
+}
+.hero-card-rarity.rare {
+  background: linear-gradient(135deg, #7b2ff7, #f5c842);
+  color: #fff;
+}
+.hero-card.rarity-rare {
+  border-color: rgba(180, 100, 255, 0.6);
+}
+.hero-card.rarity-rare.owned {
+  box-shadow: 0 0 14px rgba(123, 47, 247, 0.4);
+}
+
+/* Rarity tag on result cards */
+.result-card-rarity {
+  font-size: .62rem;
+  padding: 2px 5px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #7b2ff7, #f5c842);
+  color: #fff;
+  font-weight: bold;
+  align-self: center;
+}

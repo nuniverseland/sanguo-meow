@@ -176,71 +176,104 @@ export async function loadGachaState(userId) {
   };
 }
 
+// ── Gacha rarity config ───────────────────────────────────────────────────────
+// poolConfig: { common: string[], rare: string[] }
+// 普通英雄: 70% chance, 稀有英雄: 30% chance
+// Regular pity: every 20 draws guaranteed unowned hero
+// Rare pity: every 40 draws guaranteed unowned rare hero (if any remain)
+const FRAG_PER_LEVEL = 10; // 10 碎片 = +1 等級（1000 EXP）
+const EXP_PER_LEVEL  = 1000;
+
+function pickHeroFromPool(poolConfig, ownedList, pity, rarePity) {
+  const allPool    = [...poolConfig.common, ...poolConfig.rare];
+  const unownedAll  = allPool.filter(h => !ownedList.includes(h));
+  const unownedRare = (poolConfig.rare || []).filter(h => !ownedList.includes(h));
+
+  // Rare pity: 40 draws without a rare unowned → guarantee rare unowned
+  if (rarePity >= 39 && unownedRare.length > 0) {
+    return { heroId: unownedRare[Math.floor(Math.random() * unownedRare.length)], rarity: 'rare', resetRarePity: true };
+  }
+
+  // Regular pity: 20 draws → guarantee any unowned hero
+  if (pity >= 19 && unownedAll.length > 0) {
+    return { heroId: unownedAll[Math.floor(Math.random() * unownedAll.length)], rarity: null, resetPity: true };
+  }
+
+  // Normal draw: 30% rare, 70% common
+  const pool = (Math.random() < 0.30 && poolConfig.rare.length > 0)
+    ? poolConfig.rare
+    : poolConfig.common;
+  const heroId = pool[Math.floor(Math.random() * pool.length)];
+  const rarity = poolConfig.rare.includes(heroId) ? 'rare' : 'common';
+  return { heroId, rarity };
+}
+
 // Atomic draw: deduct scrolls + record results in a single transaction
+// pool param can be either string[] (legacy) or { common: string[], rare: string[] }
 export async function executeGachaDraw(userId, drawCount, pool, currentState) {
   const cost    = drawCount === 10 ? 45 : 5;
   const userRef = doc(db, 'sanguo_users', userId);
+
+  // Normalise pool
+  const poolConfig = Array.isArray(pool)
+    ? { common: pool, rare: [] }
+    : pool;
 
   return await runTransaction(db, async tx => {
     const snap = await tx.get(userRef);
     const data = snap.data() || {};
     if ((data.scrolls ?? 0) < cost) throw new Error('卷軸不足');
 
-    // Perform draws
-    const owned    = Object.entries(currentState.heroes)
-      .filter(([, v]) => v.currentForm !== undefined || v.soulFragments !== undefined)
-      .map(([k]) => k);
-    let pity       = data.pityCount ?? 0;
+    const owned    = Object.keys(currentState.heroes);
+    let pity       = data.pityCount    ?? 0;
+    let rarePity   = data.rarePityCount ?? 0;
     const results  = [];
-    let scrollBack = 0;
 
     for (let i = 0; i < drawCount; i++) {
-      let heroId;
-      const unowned = pool.filter(h => !owned.includes(h));
+      const pick   = pickHeroFromPool(poolConfig, owned, pity, rarePity);
+      const heroId = pick.heroId;
+      const isNew  = !owned.includes(heroId);
 
-      // Pity: every 10th draw guarantees a new hero (if available)
-      if (pity >= 9 && unowned.length > 0) {
-        heroId = unowned[Math.floor(Math.random() * unowned.length)];
-        pity   = 0;
-      } else {
-        heroId = pool[Math.floor(Math.random() * pool.length)];
-        if (heroId === heroId) pity++; // always increment; reset below on new
-      }
-
-      const isNew = !owned.includes(heroId);
       if (isNew) {
         owned.push(heroId);
-        pity = 0;
+        pity     = 0;
+        rarePity = pick.rarity === 'rare' ? 0 : rarePity + 1;
+      } else {
+        pity++;
+        rarePity = pick.rarity === 'rare' ? 0 : rarePity + 1;
       }
-      results.push({ heroId, isNew });
+      if (pick.resetPity)     pity     = 0;
+      if (pick.resetRarePity) rarePity = 0;
+
+      results.push({ heroId, isNew, rarity: pick.rarity });
     }
 
-    // Build hero updates
+    // Build hero updates — fragments give EXP (10 frags = 1 level = 1000 EXP)
     const heroUpdates = {};
     const fragCounts  = {};
     for (const r of results) {
       if (r.isNew) {
-        heroUpdates[r.heroId] = { heroId: r.heroId, currentForm: 0, exp: 0, level: 1, soulFragments: 0, maxUnlocked: false };
+        heroUpdates[r.heroId] = { heroId: r.heroId, currentForm: 0, exp: 0, level: 1, soulFragments: 0 };
       } else {
         fragCounts[r.heroId] = (fragCounts[r.heroId] || 0) + 1;
       }
     }
 
-    // Apply frag counts, check MAX unlock
+    // Apply frag counts → convert batches to EXP
     for (const [hId, fragGain] of Object.entries(fragCounts)) {
       const heroRef  = doc(db, 'sanguo_users', userId, 'heroes', hId);
       const heroSnap = await tx.get(heroRef);
-      const hData    = heroSnap.exists() ? heroSnap.data() : { soulFragments: 0, maxUnlocked: false };
+      const hData    = heroSnap.exists() ? heroSnap.data() : { soulFragments: 0, exp: 0 };
       const newFrag  = (hData.soulFragments ?? 0) + fragGain;
+      const levelsGained = Math.floor(newFrag / FRAG_PER_LEVEL);
+      const fragRemainder = newFrag % FRAG_PER_LEVEL;
+      const expGain  = levelsGained * EXP_PER_LEVEL;
 
-      if (hData.maxUnlocked) {
-        scrollBack += fragGain * 2;
-        heroUpdates[hId] = { ...hData };
-      } else if (newFrag >= 10) {
-        heroUpdates[hId] = { ...hData, soulFragments: newFrag, maxUnlocked: true };
-      } else {
-        heroUpdates[hId] = { ...hData, soulFragments: newFrag };
-      }
+      heroUpdates[hId] = {
+        ...hData,
+        soulFragments: fragRemainder,
+        exp: (hData.exp ?? 0) + expGain
+      };
     }
 
     // Write hero docs
@@ -251,11 +284,12 @@ export async function executeGachaDraw(userId, drawCount, pool, currentState) {
 
     // Write user doc
     tx.update(userRef, {
-      scrolls:    increment(-(cost - scrollBack)),
-      pityCount:  pity,
-      totalDraws: increment(drawCount)
+      scrolls:       increment(-cost),
+      pityCount:     pity,
+      rarePityCount: rarePity,
+      totalDraws:    increment(drawCount)
     });
 
-    return { results, scrollBack, newScrolls: (data.scrolls ?? 0) - cost + scrollBack };
+    return { results, scrollBack: 0, newScrolls: (data.scrolls ?? 0) - cost, newPity: pity, newRarePity: rarePity };
   });
 }
