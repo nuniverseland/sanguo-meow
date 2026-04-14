@@ -820,11 +820,12 @@ function buildExpDistributeUI(userId) {
     if (!userId) { finishExpDistribute(); return; }
     document.getElementById('btn-exp-confirm').disabled = true;
     document.getElementById('btn-exp-confirm').textContent = '儲存中…';
-    try {
-      for (const [hid, expGain] of Object.entries(assignments)) {
-        if (expGain > 0) await addHeroExp(userId, hid, expGain);
-      }
-    } catch (e) { console.warn('EXP 儲存失敗', e); }
+    for (const [hid, expGain] of Object.entries(assignments)) {
+      if (expGain <= 0) continue;
+      try {
+        await addHeroExp(userId, hid, expGain);
+      } catch (e) { console.warn(`EXP 儲存失敗 (${hid})`, e); }
+    }
     finishExpDistribute();
   });
 
