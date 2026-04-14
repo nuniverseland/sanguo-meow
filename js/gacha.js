@@ -1,5 +1,6 @@
 // gacha.js — Gacha page logic (redesign v2)
 import { getUserId, loadGachaState, executeGachaDraw } from './firebase.js';
+import { sfxGachaPull, sfxGachaNew, sfxGachaSR, sfxGachaFrag } from './audio.js';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -222,6 +223,7 @@ async function doDraw(count) {
     return;
   }
 
+  sfxGachaPull();
   setDrawDisabled(true);
   showAnim(true);
 
@@ -283,6 +285,10 @@ async function showResults(results) {
     const imgSrc  = getHeroImg(r.heroId, level);
     const name    = getHeroName(r.heroId, level);
     const rarity  = r.rarity ?? RARITY_META[r.heroId];
+
+    if (rarity === 'sr')   sfxGachaSR();
+    else if (r.isNew)      sfxGachaNew();
+    else                   sfxGachaFrag();
 
     const card = document.createElement('div');
     card.className = `result-card${r.isNew ? ' is-new' : ''}`;

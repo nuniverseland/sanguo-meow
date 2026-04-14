@@ -77,3 +77,34 @@ export function sfxDefeat() {
 export function sfxBaseHit() {
   tone(100, 'sawtooth', 0.2, 0.4);
 }
+
+// ── Gacha 專用音效 ────────────────────────────────────────────────────────────
+
+// 按下召喚按鈕：低沉期待感，三音微微上揚
+export function sfxGachaPull() {
+  tone(200, 'sine', 0.12, 0.28);
+  tone(300, 'sine', 0.14, 0.24, 0.09);
+  tone(400, 'sine', 0.18, 0.2,  0.18);
+}
+
+// 新英雄揭曉：亮眼三音上揚
+export function sfxGachaNew() {
+  tone(659,  'sine', 0.14, 0.32);
+  tone(784,  'sine', 0.16, 0.36, 0.1);
+  tone(1047, 'sine', 0.28, 0.42, 0.2);
+}
+
+// SR 英雄揭曉：六音華麗上揚 + 閃爍尾音
+export function sfxGachaSR() {
+  [330, 415, 523, 659, 830, 1047].forEach((f, i) =>
+    tone(f, 'sine', 0.13, 0.28, i * 0.055)
+  );
+  tone(1319, 'sine', 0.38, 0.45, 0.34);
+  tone(1047, 'sine', 0.22, 0.3,  0.44);
+}
+
+// 碎片獲得：輕快短促兩音
+export function sfxGachaFrag() {
+  tone(440, 'triangle', 0.09, 0.2);
+  tone(523, 'triangle', 0.1,  0.2, 0.07);
+}
