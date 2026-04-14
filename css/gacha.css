@@ -478,6 +478,71 @@
   font-weight: bold;
 }
 
+/* ── Hero detail overlay ─────────────────────────────────────────────────────── */
+.hero-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(58, 26, 0, 0.68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.hero-detail-box {
+  background: linear-gradient(160deg, #fffaf0, #f5e8cc);
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  padding: 28px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 220px;
+  box-shadow: 0 8px 36px rgba(58, 26, 0, 0.35);
+  animation: card-appear .22s ease both;
+}
+
+.hero-detail-rarity {
+  font-size: .72rem;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  min-height: 1.4em;
+}
+
+.hero-detail-rarity.normal { background: #87ceeb; color: #0d3a5c; }
+.hero-detail-rarity.rare   { background: linear-gradient(135deg, #9650dc, #c880ff); color: #fff; }
+.hero-detail-rarity.sr     { background: linear-gradient(135deg, #c8960c, #f5d76e); color: #3a1a00; }
+
+.hero-detail-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  border-radius: 12px;
+}
+
+.hero-detail-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3a1a00;
+  letter-spacing: .04em;
+}
+
+.hero-detail-meta {
+  font-size: .82rem;
+  color: #8a1f1f;
+  font-weight: bold;
+}
+
+.hero-detail-close {
+  margin-top: 6px;
+  font-size: .82rem;
+  color: #6b3a1a;
+  padding: 4px 16px;
+}
+
 /* ── Draw animation overlay ──────────────────────────────────────────────────── */
 .draw-anim {
   position: fixed;

@@ -155,6 +155,12 @@ function renderHeroPool() {
       ${levelEl}
       ${evolvedEl}
     `;
+
+    if (isOwned) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => showHeroDetail(heroId));
+    }
+
     grid.appendChild(card);
   });
 }
@@ -214,6 +220,10 @@ function bindButtons() {
   document.getElementById('btn-draw-1').addEventListener('click', () => doDraw(1));
   document.getElementById('btn-draw-10').addEventListener('click', () => doDraw(10));
   document.getElementById('btn-result-close').addEventListener('click', closeResult);
+  document.getElementById('btn-hero-detail-close').addEventListener('click', closeHeroDetail);
+  document.getElementById('hero-detail-overlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeHeroDetail();
+  });
 }
 
 async function doDraw(count) {
@@ -318,6 +328,35 @@ async function showResults(results) {
 
 function closeResult() {
   document.getElementById('result-overlay').classList.add('hidden');
+}
+
+// ── Hero detail overlay ───────────────────────────────────────────────────────
+function showHeroDetail(heroId) {
+  const meta     = HERO_META[heroId];
+  const heroData = gachaState.heroes[heroId];
+  const level    = heroData?.level ?? 1;
+  const rarity   = RARITY_META[heroId];
+  const name     = getHeroName(heroId, level);
+  const imgSrc   = getHeroImg(heroId, level);
+
+  const rarityEl = document.getElementById('hero-detail-rarity');
+  rarityEl.textContent = rarity ? RARITY_LABEL[rarity] : '初始';
+  rarityEl.className   = `hero-detail-rarity${rarity ? ' ' + rarity : ''}`;
+
+  document.getElementById('hero-detail-img').src = imgSrc;
+  document.getElementById('hero-detail-img').alt = name;
+  document.getElementById('hero-detail-name').textContent = name;
+
+  let metaText = `Lv.${level}`;
+  if (level >= 30) metaText += '　MAX進化';
+  else if (level >= 10) metaText += '　進化';
+  document.getElementById('hero-detail-meta').textContent = metaText;
+
+  document.getElementById('hero-detail-overlay').classList.remove('hidden');
+}
+
+function closeHeroDetail() {
+  document.getElementById('hero-detail-overlay').classList.add('hidden');
 }
 
 // ── Start ─────────────────────────────────────────────────────────────────────
