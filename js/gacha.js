@@ -96,8 +96,19 @@ async function init() {
     return;
   }
 
+  // Always hide loading & show main, no matter what happens below
+  const finishLoading = () => {
+    document.getElementById('gacha-loading').classList.add('hidden');
+    document.getElementById('gacha-main').classList.remove('hidden');
+  };
+
   try {
-    gachaState = await loadGachaState(userId);
+    // 10-second timeout so Firebase hang doesn't freeze the page forever
+    const loadPromise = loadGachaState(userId);
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('載入逾時，請重新整理')), 10000)
+    );
+    gachaState = await Promise.race([loadPromise, timeoutPromise]);
     for (const h of INITIAL_HEROES) {
       if (!gachaState.heroes[h]) {
         gachaState.heroes[h] = { heroId: h, level: 1, soulFragments: 0 };
@@ -108,11 +119,14 @@ async function init() {
     gachaState = { scrolls: 0, pityCount: 0, rarePityCount: 0, totalDraws: 0, heroes: {} };
   }
 
-  renderAll();
-  bindButtons();
+  try {
+    renderAll();
+    bindButtons();
+  } catch (e) {
+    console.error('畫面渲染失敗', e);
+  }
 
-  document.getElementById('gacha-loading').classList.add('hidden');
-  document.getElementById('gacha-main').classList.remove('hidden');
+  finishLoading();
 }
 
 // ── Render ───────────────────────────────────────────────────────────────────
