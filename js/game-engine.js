@@ -1,5 +1,5 @@
 // game-engine.js — Core game loop
-import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes } from './firebase.js';
+import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat } from './firebase.js';
 import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
 import { loadQuestions, nextQuestion, checkAnswer, questionText } from './question.js';
@@ -437,6 +437,12 @@ function onEnemyKilled(enemy) {
                   : enemy.type === 'flying' ? state.config.score.killFlying
                   : state.config.score.killNormal;
   state.score += scoreGain;
+
+  // 記錄圖鑑：擊敗敵人解鎖 + 計次（非同步，不影響遊戲）
+  const userId = getUserId();
+  if (userId && enemy.enemyId) {
+    recordBestiaryDefeat(userId, enemy.enemyId).catch(() => {});
+  }
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────

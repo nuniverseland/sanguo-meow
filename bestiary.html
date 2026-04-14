@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, orientation=landscape">
+  <title>敵人圖鑑 — 三國喵喵</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bestiary.css">
+</head>
+<body class="bestiary-page">
+
+  <!-- Navbar -->
+  <header class="top-bar bestiary-topbar">
+    <button class="btn-ghost" onclick="location.href='index.html'">← 返回</button>
+    <span class="bestiary-topbar-title">👾 敵人圖鑑</span>
+    <div class="bestiary-filter" id="bestiary-filter">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="unlocked">已解鎖</button>
+      <button class="filter-btn" data-filter="locked">未解鎖</button>
+    </div>
+  </header>
+
+  <!-- Loading -->
+  <div id="bestiary-loading" class="bestiary-loading">
+    <span>⚙️ 載入中…</span>
+  </div>
+
+  <!-- Main content -->
+  <main id="bestiary-main" class="bestiary-main hidden">
+    <!-- Chapter sections rendered by JS -->
+  </main>
+
+  <!-- Detail panel (slide-in from right) -->
+  <div id="detail-backdrop" class="detail-backdrop hidden"></div>
+  <aside id="detail-panel" class="detail-panel hidden">
+    <button class="detail-close" id="btn-detail-close">✕</button>
+
+    <!-- Enemy image + basic info -->
+    <div class="detail-enemy-header">
+      <div class="detail-img-wrap" id="detail-img-wrap">
+        <img id="detail-img" src="" alt=""
+          onerror="this.outerHTML='<div class=detail-img-fallback>👾</div>'">
+      </div>
+      <div class="detail-enemy-info">
+        <div class="detail-chapter-tag" id="detail-chapter-tag"></div>
+        <div class="detail-enemy-name" id="detail-enemy-name">???</div>
+        <div class="detail-type-tag" id="detail-type-tag"></div>
+        <div class="detail-defeat-status" id="detail-defeat-status"></div>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="detail-stats-row" id="detail-stats-row">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Description -->
+    <div class="detail-section" id="detail-desc-section">
+      <div class="detail-section-title">🔍 關於牠</div>
+      <div class="detail-desc-text" id="detail-desc-text"></div>
+    </div>
+
+    <!-- Fun fact -->
+    <div class="detail-section" id="detail-funfact-section">
+      <div class="detail-section-title">💡 你知道嗎？</div>
+      <div class="detail-funfact-text" id="detail-funfact-text"></div>
+    </div>
+
+    <!-- Defeat record -->
+    <div class="detail-section detail-defeat-record" id="detail-defeat-record">
+      <div class="detail-section-title">📋 擊敗紀錄</div>
+      <div id="detail-defeat-info"></div>
+    </div>
+  </aside>
+
+  <script type="module" src="js/bestiary.js"></script>
+</body>
+</html>

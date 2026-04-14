@@ -3,6 +3,7 @@
     "id": "tw_bear",
     "name": "台灣黑熊",
     "country": "taiwan",
+    "chapterName": "台灣篇",
     "type": "normal",
     "hp": 200,
     "atk": 30,
@@ -15,12 +16,14 @@
     "rewardScore": 100,
     "trait": "nature",
     "imgWalk": "assets/enemies/enemy_tw_bear.png",
-    "description": "胸口有白色V型斑紋的台灣特有種，守護著山林"
+    "description": "台灣黑熊是台灣特有的大型哺乳動物，胸口有白色V型斑紋，是牠獨特的標誌。牠們是台灣山林的守護者，生性溫和，但受到威脅時會奮力反擊。",
+    "funFact": "台灣黑熊的嗅覺是人類的7倍！牠們靠鼻子找食物、辨別方向，甚至能聞出幾公里外的蜂蜜味。"
   },
   {
     "id": "tw_magpie",
     "name": "台灣藍鵲",
     "country": "taiwan",
+    "chapterName": "台灣篇",
     "type": "flying",
     "hp": 120,
     "atk": 20,
@@ -33,12 +36,14 @@
     "rewardScore": 80,
     "trait": "flying",
     "imgWalk": "assets/enemies/enemy_tw_magpie.png",
-    "description": "台灣最美麗的鳥，藍色長尾巴在天空飛翔"
+    "description": "台灣藍鵲是台灣特有種鳥類，被選為「台灣的國鳥」。牠的藍色長尾巴在飛行時優雅地飄動，是台灣最美麗的野鳥之一。",
+    "funFact": "台灣藍鵲有很強的家族意識！哥哥姊姊會幫忙爸媽照顧新生的弟弟妹妹，是動物界少見的「保姆行為」。"
   },
   {
     "id": "tw_leopard_boss",
     "name": "石虎王",
     "country": "taiwan",
+    "chapterName": "台灣篇",
     "type": "boss",
     "hp": 2000,
     "atk": 80,
@@ -51,13 +56,15 @@
     "rewardScore": 1000,
     "trait": "boss",
     "imgWalk": "assets/enemies/enemy_tw_leopard_boss.png",
-    "description": "台灣最珍貴的野生貓科動物，守護台灣的最後防線"
+    "description": "石虎是台灣特有的野生貓科動物，身上有美麗的斑點花紋，模樣像是縮小版的豹。石虎王是其中最古老、最強壯的個體，守護台灣山林千百年。目前全台灣只剩不到600隻石虎。",
+    "funFact": "石虎是夜行性動物，眼睛在黑暗中會發出橙色的光！牠們獨來獨往，每隻石虎都有自己的領地，大約3-5個足球場那麼大。"
   },
 
   {
     "id": "jp_tanuki",
     "name": "狸貓忍者",
     "country": "japan",
+    "chapterName": "日本篇",
     "type": "normal",
     "hp": 300,
     "atk": 45,
@@ -70,12 +77,14 @@
     "rewardScore": 140,
     "trait": "nature",
     "imgWalk": "assets/enemies/enemy_jp_tanuki.png",
-    "description": "精通忍術的狸貓，能幻化成喵喵軍的樣子迷惑敵人"
+    "description": "日本狸貓（貍貓）在日本傳說中是精通幻術的神秘生物，能變化成任何人事物的形狀。這隻狸貓忍者把幻術與忍術結合，能在戰場上製造混亂。",
+    "funFact": "日本人相信狸貓肚子敲起來的聲音可以帶來好運！日本各地都有狸貓雕像，肚子鼓鼓的、拿著酒壺，象徵財富與快樂。"
   },
   {
     "id": "jp_tengu",
     "name": "烏鴉天狗",
     "country": "japan",
+    "chapterName": "日本篇",
     "type": "flying",
     "hp": 180,
     "atk": 32,
@@ -88,12 +97,14 @@
     "rewardScore": 120,
     "trait": "flying",
     "imgWalk": "assets/enemies/enemy_jp_tengu.png",
-    "description": "住在深山的長鼻天狗，振翅時颳起凜冽山風"
+    "description": "天狗是日本神話中住在深山的神秘妖怪，有長長的鼻子和一對翅膀。烏鴉天狗是天狗族中的低階形態，但飛行速度極快，振翅時颳起強烈山風。",
+    "funFact": "日本古代武士傳說他們的劍術是天狗教的！許多武士故事裡，主角都會進山修行，遇見天狗大師學習秘技，然後下山成為超強劍士。"
   },
   {
     "id": "jp_kappa_boss",
     "name": "河童王",
     "country": "japan",
+    "chapterName": "日本篇",
     "type": "boss",
     "hp": 3500,
     "atk": 130,
@@ -106,6 +117,7 @@
     "rewardScore": 1600,
     "trait": "boss",
     "imgWalk": "assets/enemies/enemy_jp_kappa_boss.png",
-    "description": "統領日本水域的河童之王，頭頂水盤永遠盛滿神秘之水"
+    "description": "河童是日本水邊最著名的妖怪，長得像青蛙、頭頂有一個水盤。河童王是河童族中最古老的領袖，頭頂水盤裡盛滿神秘藍光之水，只要水盤不乾，牠就永遠不會倒下。",
+    "funFact": "日本傳說中，河童非常守禮貌！如果你對著河童鞠躬，牠也會回鞠躬——但這樣一來，頭頂的水盤就會傾斜，水一流乾，河童就會失去力量。懂禮貌才是打敗河童的秘訣！"
   }
 ]

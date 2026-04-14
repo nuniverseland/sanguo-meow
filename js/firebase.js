@@ -176,6 +176,32 @@ export async function loadGachaState(userId) {
   };
 }
 
+// ── Bestiary ──────────────────────────────────────────────────────────────────
+/** 讀取玩家已解鎖的敵人圖鑑資料 */
+export async function loadBestiary(userId) {
+  const snap = await getDocs(collection(db, 'sanguo_users', userId, 'bestiary'));
+  const map  = {};
+  snap.forEach(d => { map[d.id] = d.data(); });
+  return map;
+}
+
+/** 玩家第一次擊敗某敵人 → 解鎖圖鑑並記錄次數 */
+export async function recordBestiaryDefeat(userId, enemyId) {
+  if (!userId || !enemyId) return;
+  const ref  = doc(db, 'sanguo_users', userId, 'bestiary', enemyId);
+  const snap = await getDoc(ref);
+  if (!snap.exists()) {
+    // 首次擊敗
+    await setDoc(ref, {
+      unlocked:       true,
+      defeatCount:    1,
+      firstDefeatedAt: serverTimestamp()
+    });
+  } else {
+    await updateDoc(ref, { defeatCount: increment(1) });
+  }
+}
+
 // ── Gacha rarity config ───────────────────────────────────────────────────────
 // poolConfig: { common: string[], rare: string[] }
 // 普通英雄: 70% chance, 稀有英雄: 30% chance
