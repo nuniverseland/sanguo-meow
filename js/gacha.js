@@ -71,6 +71,20 @@ const RARE_PITY_MAX = 40;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
+/**
+ * 取英雄實際等級：
+ * - 遊戲關卡分配 EXP 後，Firebase 只寫 exp 欄位（level 不更新）
+ * - 抽卡碎片系統直接寫 level 欄位
+ * 兩個欄位都要考慮，取較大值才能正確顯示。
+ */
+function getHeroLevel(heroData) {
+  if (!heroData) return 1;
+  const EXP_PER_LEVEL = 1000;
+  const fromExp   = heroData.exp   ? Math.floor(heroData.exp / EXP_PER_LEVEL) + 1 : 1;
+  const fromLevel = heroData.level ?? 1;
+  return Math.max(fromExp, fromLevel);
+}
+
 function getHeroImg(heroId, level = 1) {
   if (level >= 30) return `assets/heroes/hero_${heroId}_max.png`;
   if (level >= 10) return `assets/heroes/hero_${heroId}.png`;
@@ -150,7 +164,7 @@ function renderHeroPool() {
     const heroData = gachaState.heroes[heroId];
     const isOwned  = meta.initial || !!heroData;
     const rarity   = RARITY_META[heroId];
-    const level    = heroData?.level ?? 1;
+    const level    = getHeroLevel(heroData);
 
     const card = document.createElement('div');
     const rarityClass = rarity ? ` rarity-${rarity}` : '';
@@ -224,7 +238,7 @@ function renderFragments() {
 
     const frags   = heroData.soulFragments ?? 0;
     const FRAG_MAX = 10;
-    const level    = heroData.level ?? 1;
+    const level    = getHeroLevel(heroData);
 
     const item = document.createElement('div');
     item.className = 'fragment-item';
@@ -325,7 +339,7 @@ async function showResults(results) {
 
     const r       = results[i];
     const meta    = HERO_META[r.heroId];
-    const level   = gachaState.heroes[r.heroId]?.level ?? 1;
+    const level   = getHeroLevel(gachaState.heroes[r.heroId]);
     const imgSrc  = getHeroImg(r.heroId, level);
     const name    = getHeroName(r.heroId, level);
     const rarity  = r.rarity ?? RARITY_META[r.heroId];
@@ -368,7 +382,7 @@ function closeResult() {
 function showHeroDetail(heroId) {
   const meta     = HERO_META[heroId];
   const heroData = gachaState.heroes[heroId];
-  const level    = heroData?.level ?? 1;
+  const level    = getHeroLevel(heroData);
   const rarity   = RARITY_META[heroId];
   const name     = getHeroName(heroId, level);
   const imgSrc   = getHeroImg(heroId, level);
