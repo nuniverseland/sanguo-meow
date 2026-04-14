@@ -102,16 +102,18 @@ export async function loadHeroData(userId, heroId) {
 
 export async function addHeroExp(userId, heroId, expDelta) {
   const ref = doc(db, 'sanguo_users', userId, 'heroes', heroId);
-  await updateDoc(ref, {
-    exp:          increment(expDelta),
-    totalCorrect: increment(1),
+  // setDoc + merge 確保文件不存在時自動建立（初始英雄 liubei/soldier 沒有預先建立 doc）
+  await setDoc(ref, {
+    heroId,
+    exp:           increment(expDelta),
+    totalCorrect:  increment(1),
     totalAnswered: increment(1)
-  });
+  }, { merge: true });
 }
 
 export async function recordWrongAnswer(userId, heroId) {
   const ref = doc(db, 'sanguo_users', userId, 'heroes', heroId);
-  await updateDoc(ref, { totalAnswered: increment(1) });
+  await setDoc(ref, { heroId, totalAnswered: increment(1) }, { merge: true });
 }
 
 // ── Math Stats ────────────────────────────────────────────────────────────────
