@@ -301,7 +301,8 @@
   box-shadow: 0 0 8px rgba(150, 80, 220, 0.25);
 }
 
-.hero-card.rarity-sr {
+.hero-card.rarity-sr,
+.hero-card.rarity-super_rare {
   border-color: #d4af37;
   animation: sr-shimmer 2.2s ease-in-out infinite;
 }
@@ -375,7 +376,8 @@
   color: #fff;
 }
 
-.hero-card-rarity.sr {
+.hero-card-rarity.sr,
+.hero-card-rarity.super_rare {
   background: linear-gradient(135deg, #c8960c, #f5d76e);
   color: #3a1a00;
 }
@@ -511,9 +513,10 @@
   min-height: 1.4em;
 }
 
-.hero-detail-rarity.normal { background: #87ceeb; color: #0d3a5c; }
-.hero-detail-rarity.rare   { background: linear-gradient(135deg, #9650dc, #c880ff); color: #fff; }
-.hero-detail-rarity.sr     { background: linear-gradient(135deg, #c8960c, #f5d76e); color: #3a1a00; }
+.hero-detail-rarity.normal     { background: #87ceeb; color: #0d3a5c; }
+.hero-detail-rarity.rare       { background: linear-gradient(135deg, #9650dc, #c880ff); color: #fff; }
+.hero-detail-rarity.sr,
+.hero-detail-rarity.super_rare { background: linear-gradient(135deg, #c8960c, #f5d76e); color: #3a1a00; }
 
 .hero-detail-img {
   width: 160px;
@@ -638,9 +641,10 @@
   align-self: center;
 }
 
-.result-card-rarity.normal { background: #87ceeb; color: #0d3a5c; }
-.result-card-rarity.rare   { background: linear-gradient(135deg, #9650dc, #c880ff); color: #fff; }
-.result-card-rarity.sr     { background: linear-gradient(135deg, #c8960c, #f5d76e); color: #3a1a00; }
+.result-card-rarity.normal     { background: #87ceeb; color: #0d3a5c; }
+.result-card-rarity.rare       { background: linear-gradient(135deg, #9650dc, #c880ff); color: #fff; }
+.result-card-rarity.sr,
+.result-card-rarity.super_rare { background: linear-gradient(135deg, #c8960c, #f5d76e); color: #3a1a00; }
 
 .result-card-name {
   font-size: .85rem;

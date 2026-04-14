@@ -7,45 +7,65 @@ import { sfxGachaPull, sfxGachaNew, sfxGachaSR, sfxGachaFrag } from './audio.js'
 const INITIAL_HEROES = ['liubei', 'soldier'];
 
 const GACHA_POOL = {
-  normal: ['zhangjiu', 'zhangfei', 'guanyu'],
-  rare:   ['zhugeliang', 'zhaoyun', 'dongzhuo'],
-  sr:     ['caocao', 'lvbu', 'sunquan']
+  normal:     ['zhoutai'],
+  rare:       ['zhangfei', 'guanyu', 'zhangjiu', 'zhaoyun', 'zhugeliang',
+               'sunquan', 'zhouyu', 'diaochan', 'sunshangxiang'],
+  super_rare: ['caocao', 'lvbu', 'dongzhuo', 'huangyueying', 'simayi']
+};
+
+const GACHA_RATES = {
+  normal:     0.50,
+  rare:       0.38,
+  super_rare: 0.12
 };
 
 const ALL_HEROES = [
   'liubei', 'soldier',
-  'zhangjiu', 'zhangfei', 'guanyu',
-  'zhugeliang', 'zhaoyun', 'dongzhuo',
-  'caocao', 'lvbu', 'sunquan'
+  'zhoutai',
+  'zhangfei', 'guanyu', 'zhangjiu', 'zhaoyun', 'zhugeliang',
+  'sunquan', 'zhouyu', 'diaochan', 'sunshangxiang',
+  'caocao', 'lvbu', 'dongzhuo', 'huangyueying', 'simayi'
 ];
 
 const RARITY_META = {
-  zhangjiu:   'normal',
-  zhangfei:   'normal',
-  guanyu:     'normal',
-  zhugeliang: 'rare',
-  zhaoyun:    'rare',
-  dongzhuo:   'rare',
-  caocao:     'sr',
-  lvbu:       'sr',
-  sunquan:    'sr',
+  zhoutai:       'normal',
+  zhangfei:      'rare',
+  guanyu:        'rare',
+  zhangjiu:      'rare',
+  zhaoyun:       'rare',
+  zhugeliang:    'rare',
+  sunquan:       'super_rare',
+  zhouyu:        'rare',
+  diaochan:      'rare',
+  sunshangxiang: 'rare',
+  caocao:        'super_rare',
+  lvbu:          'super_rare',
+  dongzhuo:      'super_rare',
+  huangyueying:  'super_rare',
+  simayi:        'super_rare',
 };
 
 const HERO_META = {
-  liubei:     { names: ['大耳喵',  '劉備喵',  '劉備喵MAX'],  role: '仁義肉盾', initial: true },
-  soldier:    { names: ['小兵喵',  '士兵喵',  '軍官喵'],     role: '量產基礎',  initial: true },
-  zhangjiu:   { names: ['強壯喵',  '張九喵',  '張九喵MAX'],  role: '鐵壁肉盾', initial: false },
-  zhangfei:   { names: ['重擊喵',  '張飛喵',  '張飛喵MAX'],  role: '近戰暴力', initial: false },
-  guanyu:     { names: ['紳士喵',  '關羽喵',  '關羽喵MAX'],  role: '遠程輸出', initial: false },
-  zhugeliang: { names: ['智慧喵',  '諸葛喵',  '諸葛喵MAX'],  role: '謀略支援', initial: false },
-  zhaoyun:    { names: ['飛腿喵',  '趙雲喵',  '趙雲喵MAX'],  role: '敏捷突擊', initial: false },
-  dongzhuo:   { names: ['胖胖喵',  '董卓喵',  '董卓喵MAX'],  role: '鐵血暴君', initial: false },
-  caocao:     { names: ['狠狠喵',  '曹操喵',  '曹操喵MAX'],  role: '霸道統帥', initial: false },
-  lvbu:       { names: ['自我喵',  '呂布喵',  '呂布喵MAX'],  role: '無雙武將', initial: false },
-  sunquan:    { names: ['心機喵',  '孫權喵',  '孫權喵MAX'],  role: '江東霸主', initial: false },
+  liubei:        { names: ['大耳喵',  '劉備喵',   '劉備喵MAX'],   role: '仁義肉盾', initial: true  },
+  soldier:       { names: ['小兵喵',  '士兵喵',   '軍官喵'],      role: '量產基礎',  initial: true  },
+  zhoutai:       { names: ['忠犬喵',  '周泰喵',   '周泰喵MAX'],   role: '防禦護盾', initial: false },
+  zhangfei:      { names: ['重擊喵',  '張飛喵',   '張飛喵MAX'],   role: '近戰暴力', initial: false },
+  guanyu:        { names: ['紳士喵',  '關羽喵',   '關羽喵MAX'],   role: '遠程輸出', initial: false },
+  zhangjiu:      { names: ['強壯喵',  '張九喵',   '張九喵MAX'],   role: '鐵壁肉盾', initial: false },
+  zhaoyun:       { names: ['飛腿喵',  '趙雲喵',   '趙雲喵MAX'],   role: '敏捷突擊', initial: false },
+  zhugeliang:    { names: ['智慧喵',  '諸葛喵',   '諸葛喵MAX'],   role: '謀略支援', initial: false },
+  sunquan:       { names: ['心機喵',  '孫權喵',   '孫權喵MAX'],   role: '江東霸主', initial: false },
+  zhouyu:        { names: ['優雅喵',  '周瑜喵',   '周瑜喵MAX'],   role: '遠程火攻', initial: false },
+  diaochan:      { names: ['舞娘喵',  '貂蟬喵',   '貂蟬喵MAX'],   role: '迷惑控制', initial: false },
+  sunshangxiang: { names: ['弓手喵',  '孫尚香喵', '孫尚香喵MAX'], role: '遠程速攻', initial: false },
+  caocao:        { names: ['狠狠喵',  '曹操喵',   '曹操喵MAX'],   role: '霸道統帥', initial: false },
+  lvbu:          { names: ['自我喵',  '呂布喵',   '呂布喵MAX'],   role: '無雙武將', initial: false },
+  dongzhuo:      { names: ['胖胖喵',  '董卓喵',   '董卓喵MAX'],   role: '鐵血暴君', initial: false },
+  huangyueying:  { names: ['機關喵',  '黃月英喵', '黃月英喵MAX'], role: '機關輸出', initial: false },
+  simayi:        { names: ['陰謀喵',  '司馬懿喵', '司馬懿喵MAX'], role: '反制削弱', initial: false },
 };
 
-const RARITY_LABEL = { normal: '普通', rare: '⭐ 稀有', sr: '✨ 超稀有' };
+const RARITY_LABEL = { normal: '普通', rare: '⭐ 稀有', super_rare: '✨ 超稀有' };
 const PITY_MAX      = 20;
 const RARE_PITY_MAX = 40;
 

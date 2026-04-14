@@ -2,6 +2,7 @@
   {
     "id": "liubei",
     "nameLine": ["大耳喵", "劉備喵", "劉備喵MAX"],
+    "rarity": "initial",
     "role": "仁義肉盾",
     "chengyu": "臥薪嘗膽",
     "special": "charge",
@@ -15,8 +16,45 @@
     ]
   },
   {
+    "id": "soldier",
+    "nameLine": ["小兵喵", "士兵喵", "軍官喵"],
+    "rarity": "initial",
+    "role": "量產基礎",
+    "chengyu": null,
+    "special": null,
+    "specialDesc": null,
+    "traitBonus": null,
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "attack": 2, "defense": 2, "speed": 2, "cost": 40, "cooldown": 3000, "hp": 150, "atk": 35, "range": 95,  "spd": 1.5, "attackInterval": 2000, "attackType": "single" },
+      { "form": "mid",  "attack": 3, "defense": 3, "speed": 3, "cost": 60, "cooldown": 4000, "hp": 240, "atk": 55, "range": 100, "spd": 1.6, "attackInterval": 1800, "attackType": "single" },
+      { "form": "max",  "attack": 4, "defense": 4, "speed": 4, "cost": 90, "cooldown": 5000, "hp": 360, "atk": 80, "range": 110, "spd": 1.8, "attackInterval": 1600, "attackType": "single" }
+    ]
+  },
+  {
+    "id": "zhoutai",
+    "name": "周泰喵",
+    "nameLine": ["忠犬喵", "周泰喵", "周泰喵MAX"],
+    "rarity": "normal",
+    "role": "防禦護盾",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 500,  "atk": 25, "range": 100, "spd": 8,  "cost": 90,  "cooldown": 6000,  "attackInterval": 2500, "attackType": "single" },
+      { "form": "mid",  "hp": 750,  "atk": 40, "range": 100, "spd": 9,  "cost": 120, "cooldown": 7000,  "attackInterval": 2300, "attackType": "single" },
+      { "form": "max",  "hp": 1200, "atk": 70, "range": 110, "spd": 10, "cost": 160, "cooldown": 8000,  "attackInterval": 2000, "attackType": "single" }
+    ],
+    "specialAbility": {
+      "mid": "捨身護主（HP低於30%時防禦力+50%）",
+      "max": "百傷不死（HP低於20%時40%機率抵消致命攻擊一次）"
+    },
+    "imgBase": "assets/heroes/hero_zhoutai_base.png",
+    "imgMid":  "assets/heroes/hero_zhoutai.png",
+    "imgMax":  "assets/heroes/hero_zhoutai_max.png"
+  },
+  {
     "id": "guanyu",
     "nameLine": ["紳士喵", "關羽喵", "關羽喵MAX"],
+    "rarity": "rare",
     "role": "遠程輸出",
     "chengyu": "過五關斬六將",
     "special": "sweep",
@@ -32,6 +70,7 @@
   {
     "id": "zhangfei",
     "nameLine": ["重擊喵", "張飛喵", "張飛喵MAX"],
+    "rarity": "rare",
     "role": "近戰暴力",
     "chengyu": "當陽橋一聲吼",
     "special": "shockwave",
@@ -47,12 +86,12 @@
   {
     "id": "zhangjiu",
     "nameLine": ["強壯喵", "張九喵", "張九喵MAX"],
+    "rarity": "rare",
     "role": "鐵壁肉盾",
     "chengyu": "負荊請罪",
     "special": "chest_bump",
     "specialDesc": "胸肌彈飛：用胸部撞擊把敵人彈飛（擊退距離×2）",
     "traitBonus": null,
-    "backstory": "小時候欺負劉備，後來被劉備所救，背著荊條道歉，從此死心塌地跟隨。弟弟尚九以後也會出現。",
     "unlockStage": null,
     "forms": [
       { "form": "base", "attack": 1, "defense": 4, "speed": 1, "cost": 70,  "cooldown": 5000, "hp": 500,  "atk": 30, "range": 80, "spd": 0.8, "attackInterval": 2500, "attackType": "single" },
@@ -61,18 +100,175 @@
     ]
   },
   {
-    "id": "soldier",
-    "nameLine": ["小兵喵", "士兵喵", "軍官喵"],
-    "role": "量產基礎",
-    "chengyu": null,
-    "special": null,
-    "specialDesc": null,
-    "traitBonus": null,
+    "id": "zhaoyun",
+    "nameLine": ["飛腿喵", "趙雲喵", "趙雲喵MAX"],
+    "rarity": "rare",
+    "role": "敏捷突擊",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "attack": 2, "defense": 2, "speed": 2, "cost": 40, "cooldown": 3000, "hp": 150, "atk": 35, "range": 95,  "spd": 1.5, "attackInterval": 2000, "attackType": "single" },
-      { "form": "mid",  "attack": 3, "defense": 3, "speed": 3, "cost": 60, "cooldown": 4000, "hp": 240, "atk": 55, "range": 100, "spd": 1.6, "attackInterval": 1800, "attackType": "single" },
-      { "form": "max",  "attack": 4, "defense": 4, "speed": 4, "cost": 90, "cooldown": 5000, "hp": 360, "atk": 80, "range": 110, "spd": 1.8, "attackInterval": 1600, "attackType": "single" }
+      { "form": "base", "hp": 220, "atk": 65,  "range": 120, "spd": 1.6, "cost": 110, "cooldown": 7000,  "attackInterval": 1800, "attackType": "single" },
+      { "form": "mid",  "hp": 340, "atk": 100, "range": 130, "spd": 1.8, "cost": 145, "cooldown": 8000,  "attackInterval": 1600, "attackType": "single" },
+      { "form": "max",  "hp": 560, "atk": 170, "range": 150, "spd": 2.2, "cost": 195, "cooldown": 10000, "attackInterval": 1400, "attackType": "area"   }
     ]
+  },
+  {
+    "id": "zhugeliang",
+    "nameLine": ["智慧喵", "諸葛喵", "諸葛喵MAX"],
+    "rarity": "rare",
+    "role": "謀略支援",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 190, "atk": 55,  "range": 260, "spd": 1.0, "cost": 130, "cooldown": 9000,  "attackInterval": 2600, "attackType": "area" },
+      { "form": "mid",  "hp": 300, "atk": 88,  "range": 300, "spd": 1.1, "cost": 170, "cooldown": 10000, "attackInterval": 2300, "attackType": "area" },
+      { "form": "max",  "hp": 490, "atk": 150, "range": 360, "spd": 1.3, "cost": 220, "cooldown": 12000, "attackInterval": 2000, "attackType": "area" }
+    ]
+  },
+  {
+    "id": "zhouyu",
+    "name": "周瑜喵",
+    "nameLine": ["優雅喵", "周瑜喵", "周瑜喵MAX"],
+    "rarity": "rare",
+    "role": "遠程火攻",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 200, "atk": 80,  "range": 280, "spd": 8,  "cost": 120, "cooldown": 10000, "attackInterval": 2800, "attackType": "area" },
+      { "form": "mid",  "hp": 320, "atk": 120, "range": 320, "spd": 8,  "cost": 160, "cooldown": 11000, "attackInterval": 2500, "attackType": "area" },
+      { "form": "max",  "hp": 520, "atk": 200, "range": 400, "spd": 10, "cost": 210, "cooldown": 13000, "attackInterval": 2200, "attackType": "area" }
+    ],
+    "specialAbility": {
+      "mid": "火攻（攻擊時30%機率使敵人持續扣血3秒）",
+      "max": "赤壁烈焰（必然觸發火攻，範圍內所有敵人持續扣血）"
+    },
+    "imgBase": "assets/heroes/hero_zhouyu_base.png",
+    "imgMid":  "assets/heroes/hero_zhouyu.png",
+    "imgMax":  "assets/heroes/hero_zhouyu_max.png"
+  },
+  {
+    "id": "diaochan",
+    "name": "貂蟬喵",
+    "nameLine": ["舞娘喵", "貂蟬喵", "貂蟬喵MAX"],
+    "rarity": "rare",
+    "role": "迷惑控制",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 180, "atk": 40,  "range": 180, "spd": 14, "cost": 100, "cooldown": 9000,  "attackInterval": 2000, "attackType": "single" },
+      { "form": "mid",  "hp": 280, "atk": 65,  "range": 200, "spd": 15, "cost": 140, "cooldown": 10000, "attackInterval": 1800, "attackType": "single" },
+      { "form": "max",  "hp": 450, "atk": 110, "range": 240, "spd": 17, "cost": 185, "cooldown": 12000, "attackInterval": 1600, "attackType": "area"   }
+    ],
+    "specialAbility": {
+      "mid": "迷惑（攻擊時25%機率使敵人停止移動2秒）",
+      "max": "美人計（必然觸發，停止移動延長至4秒，範圍內所有敵人）"
+    },
+    "imgBase": "assets/heroes/hero_diaochan_base.png",
+    "imgMid":  "assets/heroes/hero_diaochan.png",
+    "imgMax":  "assets/heroes/hero_diaochan_max.png"
+  },
+  {
+    "id": "sunshangxiang",
+    "name": "孫尚香喵",
+    "nameLine": ["弓手喵", "孫尚香喵", "孫尚香喵MAX"],
+    "rarity": "rare",
+    "role": "遠程速攻",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 170, "atk": 70,  "range": 320, "spd": 16, "cost": 110, "cooldown": 8000,  "attackInterval": 1800, "attackType": "single" },
+      { "form": "mid",  "hp": 270, "atk": 110, "range": 360, "spd": 17, "cost": 150, "cooldown": 9000,  "attackInterval": 1600, "attackType": "single" },
+      { "form": "max",  "hp": 440, "atk": 180, "range": 420, "spd": 20, "cost": 195, "cooldown": 11000, "attackInterval": 1400, "attackType": "area"   }
+    ],
+    "specialAbility": {
+      "mid": "連矢（攻擊時35%機率連射第二箭，造成50%額外傷害）",
+      "max": "百步穿楊（必然連射，第二箭貫穿打到後排敵人）"
+    },
+    "imgBase": "assets/heroes/hero_sunshangxiang_base.png",
+    "imgMid":  "assets/heroes/hero_sunshangxiang.png",
+    "imgMax":  "assets/heroes/hero_sunshangxiang_max.png"
+  },
+  {
+    "id": "sunquan",
+    "nameLine": ["心機喵", "孫權喵", "孫權喵MAX"],
+    "rarity": "super_rare",
+    "role": "江東霸主",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 320, "atk": 70,  "range": 200, "spd": 1.2, "cost": 150, "cooldown": 10000, "attackInterval": 2200, "attackType": "area" },
+      { "form": "mid",  "hp": 500, "atk": 110, "range": 230, "spd": 1.3, "cost": 195, "cooldown": 11000, "attackInterval": 2000, "attackType": "area" },
+      { "form": "max",  "hp": 820, "atk": 180, "range": 280, "spd": 1.5, "cost": 250, "cooldown": 13000, "attackInterval": 1800, "attackType": "area" }
+    ]
+  },
+  {
+    "id": "caocao",
+    "nameLine": ["狠狠喵", "曹操喵", "曹操喵MAX"],
+    "rarity": "super_rare",
+    "role": "霸道統帥",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 350, "atk": 80,  "range": 160, "spd": 1.3, "cost": 160, "cooldown": 11000, "attackInterval": 2000, "attackType": "area" },
+      { "form": "mid",  "hp": 550, "atk": 125, "range": 180, "spd": 1.4, "cost": 210, "cooldown": 12000, "attackInterval": 1800, "attackType": "area" },
+      { "form": "max",  "hp": 900, "atk": 210, "range": 200, "spd": 1.6, "cost": 270, "cooldown": 14000, "attackInterval": 1600, "attackType": "area" }
+    ]
+  },
+  {
+    "id": "lvbu",
+    "nameLine": ["自我喵", "呂布喵", "呂布喵MAX"],
+    "rarity": "super_rare",
+    "role": "無雙武將",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 400, "atk": 100, "range": 130, "spd": 1.4, "cost": 170, "cooldown": 12000, "attackInterval": 1800, "attackType": "single" },
+      { "form": "mid",  "hp": 630, "atk": 160, "range": 140, "spd": 1.5, "cost": 220, "cooldown": 13000, "attackInterval": 1600, "attackType": "single" },
+      { "form": "max",  "hp": 1000,"atk": 260, "range": 160, "spd": 1.8, "cost": 280, "cooldown": 15000, "attackInterval": 1400, "attackType": "area"  }
+    ]
+  },
+  {
+    "id": "dongzhuo",
+    "nameLine": ["胖胖喵", "董卓喵", "董卓喵MAX"],
+    "rarity": "super_rare",
+    "role": "鐵血暴君",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 380, "atk": 85,  "range": 140, "spd": 1.1, "cost": 155, "cooldown": 11000, "attackInterval": 2200, "attackType": "area" },
+      { "form": "mid",  "hp": 600, "atk": 135, "range": 155, "spd": 1.2, "cost": 200, "cooldown": 12000, "attackInterval": 2000, "attackType": "area" },
+      { "form": "max",  "hp": 960, "atk": 225, "range": 170, "spd": 1.4, "cost": 260, "cooldown": 14000, "attackInterval": 1800, "attackType": "area" }
+    ]
+  },
+  {
+    "id": "huangyueying",
+    "name": "黃月英喵",
+    "nameLine": ["機關喵", "黃月英喵", "黃月英喵MAX"],
+    "rarity": "super_rare",
+    "role": "機關輸出",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 150, "atk": 50,  "range": 240, "spd": 7, "cost": 150, "cooldown": 14000, "attackInterval": 2500, "attackType": "area" },
+      { "form": "mid",  "hp": 240, "atk": 80,  "range": 260, "spd": 8, "cost": 200, "cooldown": 15000, "attackInterval": 2200, "attackType": "area" },
+      { "form": "max",  "hp": 380, "atk": 130, "range": 300, "spd": 9, "cost": 260, "cooldown": 17000, "attackInterval": 1800, "attackType": "area" }
+    ],
+    "specialAbility": {
+      "mid": "木牛流馬（攻擊時30%機率造成額外50%範圍傷害）",
+      "max": "諸葛連弩（攻擊變三連發，每發各造成80%傷害）"
+    },
+    "imgBase": "assets/heroes/hero_huangyueying_base.png",
+    "imgMid":  "assets/heroes/hero_huangyueying.png",
+    "imgMax":  "assets/heroes/hero_huangyueying_max.png"
+  },
+  {
+    "id": "simayi",
+    "name": "司馬懿喵",
+    "nameLine": ["陰謀喵", "司馬懿喵", "司馬懿喵MAX"],
+    "rarity": "super_rare",
+    "role": "反制削弱",
+    "unlockStage": null,
+    "forms": [
+      { "form": "base", "hp": 300, "atk": 60,  "range": 220, "spd": 9,  "cost": 160, "cooldown": 15000, "attackInterval": 2500, "attackType": "area" },
+      { "form": "mid",  "hp": 480, "atk": 95,  "range": 250, "spd": 10, "cost": 210, "cooldown": 16000, "attackInterval": 2200, "attackType": "area" },
+      { "form": "max",  "hp": 780, "atk": 155, "range": 300, "spd": 11, "cost": 270, "cooldown": 18000, "attackInterval": 2000, "attackType": "area" }
+    ],
+    "specialAbility": {
+      "mid": "忍耐（受到攻擊時20%機率完全無視該次傷害）",
+      "max": "陰謀詭計（攻擊時使敵人攻擊力降低30%，持續5秒）"
+    },
+    "imgBase": "assets/heroes/hero_simayi_base.png",
+    "imgMid":  "assets/heroes/hero_simayi.png",
+    "imgMax":  "assets/heroes/hero_simayi_max.png"
   }
 ]

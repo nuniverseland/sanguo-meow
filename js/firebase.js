@@ -210,35 +210,35 @@ export async function recordBestiaryDefeat(userId, enemyId) {
 const FRAG_PER_LEVEL = 10; // 10 碎片 = +1 等級
 
 function pickHeroFromPool(poolConfig, ownedList, pity, rarePity) {
-  const normalPool = poolConfig.normal || [];
-  const rarePool   = poolConfig.rare   || [];
-  const srPool     = poolConfig.sr     || [];
+  const normalPool = poolConfig.normal     || [];
+  const rarePool   = poolConfig.rare       || [];
+  const srPool     = poolConfig.super_rare || [];
   const rareAndSr  = [...rarePool, ...srPool];
   const allPool    = [...normalPool, ...rareAndSr];
 
   const unownedAll     = allPool.filter(h => !ownedList.includes(h));
   const unownedRareAll = rareAndSr.filter(h => !ownedList.includes(h));
 
-  // Rare pity (shared rare+sr): 40 draws → guarantee unowned rare or sr
+  // Rare pity (shared rare+super_rare): 40 draws → guarantee unowned rare or super_rare
   if (rarePity >= 39 && unownedRareAll.length > 0) {
     const heroId = unownedRareAll[Math.floor(Math.random() * unownedRareAll.length)];
-    const rarity = srPool.includes(heroId) ? 'sr' : 'rare';
+    const rarity = srPool.includes(heroId) ? 'super_rare' : 'rare';
     return { heroId, rarity, resetRarePity: true };
   }
 
   // Regular pity: 20 draws → guarantee any unowned hero
   if (pity >= 19 && unownedAll.length > 0) {
     const heroId = unownedAll[Math.floor(Math.random() * unownedAll.length)];
-    const rarity = srPool.includes(heroId) ? 'sr' : rarePool.includes(heroId) ? 'rare' : 'normal';
+    const rarity = srPool.includes(heroId) ? 'super_rare' : rarePool.includes(heroId) ? 'rare' : 'normal';
     return { heroId, rarity, resetPity: true };
   }
 
-  // Normal draw: 5% SR, 35% Rare, 60% Normal
+  // Normal draw: 12% super_rare, 38% rare, 50% normal
   const rand = Math.random();
   let pool, rarity;
-  if (rand < 0.05 && srPool.length > 0) {
-    pool = srPool; rarity = 'sr';
-  } else if (rand < 0.40 && rarePool.length > 0) {
+  if (rand < 0.12 && srPool.length > 0) {
+    pool = srPool; rarity = 'super_rare';
+  } else if (rand < 0.50 && rarePool.length > 0) {
     pool = rarePool; rarity = 'rare';
   } else {
     pool = normalPool.length > 0 ? normalPool : allPool; rarity = 'normal';
@@ -256,7 +256,7 @@ export async function executeGachaDraw(userId, drawCount, pool, currentState) {
 
   // Normalise pool
   const poolConfig = Array.isArray(pool)
-    ? { normal: pool, rare: [], sr: [] }
+    ? { normal: pool, rare: [], super_rare: [] }
     : pool;
 
   return await runTransaction(db, async tx => {
@@ -274,7 +274,7 @@ export async function executeGachaDraw(userId, drawCount, pool, currentState) {
       const heroId = pick.heroId;
       const isNew  = !owned.includes(heroId);
 
-      const isRareOrSr = pick.rarity === 'rare' || pick.rarity === 'sr';
+      const isRareOrSr = pick.rarity === 'rare' || pick.rarity === 'super_rare';
       if (isNew) {
         owned.push(heroId);
         pity     = 0;
