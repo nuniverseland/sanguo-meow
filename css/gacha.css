@@ -61,39 +61,44 @@
 /* ── Main layout (2-column landscape) ───────────────────────────────────────── */
 .gacha-main {
   flex: 1;
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  display: flex;
   gap: 0;
   overflow: hidden;
+  align-items: stretch;
 }
 
 /* ── Summon panel (left) ─────────────────────────────────────────────────────── */
 .summon-panel {
+  flex: 0 0 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 16px 20px;
+  gap: 18px;
+  padding: 16px 24px;
   border-right: 1px solid rgba(138, 31, 31, 0.15);
   background: rgba(255, 255, 255, 0.25);
 }
 
 .summon-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
   position: relative;
-  width: 150px;
-  height: 150px;
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .summon-circle {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  margin: auto;
+  width: min(320px, 90%);
+  height: min(320px, 90%);
   object-fit: contain;
   opacity: 0.45;
   animation: rotate-slow 24s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(255, 200, 120, 0.45));
 }
 
 @keyframes rotate-slow {
@@ -102,14 +107,11 @@
 }
 
 .summon-scroll {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 58%;
-  height: 58%;
-  object-fit: contain;
+  position: relative;
   z-index: 1;
+  width: 160px;
+  max-width: 48%;
+  object-fit: contain;
 }
 
 /* ── Pity bar ────────────────────────────────────────────────────────────────── */
@@ -155,19 +157,21 @@
 /* ── Draw buttons ────────────────────────────────────────────────────────────── */
 .draw-buttons {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 4px;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 260px;
 }
 
 .draw-btn {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  padding: 10px 8px;
-  border-radius: 12px;
+  gap: 4px;
+  padding: 14px 20px;
+  min-width: 120px;
+  border-radius: 14px;
   cursor: pointer;
   transition: transform .12s, box-shadow .12s;
   font-family: inherit;
@@ -221,11 +225,12 @@
 
 /* ── Collection panel (right) ────────────────────────────────────────────────── */
 .collection-panel {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0;
   overflow-y: auto;
-  padding: 12px 14px 16px;
+  padding: 12px 16px 16px;
 }
 
 .section-title {
@@ -253,8 +258,8 @@
 
 .hero-pool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
-  gap: 7px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
 }
 
 /* ── Hero card ───────────────────────────────────────────────────────────────── */
@@ -308,16 +313,16 @@
 
 /* Hero card image */
 .hero-card-img {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   object-fit: contain;
   image-rendering: pixelated;
   border-radius: 6px;
 }
 
 .hero-card-shadow {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   object-fit: cover;
   border-radius: 6px;
   opacity: .55;
@@ -404,43 +409,52 @@
 }
 
 /* ── Soul fragments ──────────────────────────────────────────────────────────── */
-.fragments-section { }
+.fragments-section {
+  margin-top: 12px;
+  font-size: .9rem;
+}
 
 .fragments-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .fragment-item {
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(4px);
   border-radius: 8px;
-  padding: 7px 10px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .fragment-name {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: .78rem;
+  font-size: .82rem;
   color: #3a1a00;
   font-weight: bold;
 }
 
-.fragment-name img {
-  width: 14px;
-  height: 14px;
+.fragment-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .85rem;
+  color: #6b3a1a;
+  margin-top: 2px;
+}
+
+.fragment-icon {
+  width: 16px;
+  height: 16px;
   object-fit: contain;
 }
 
 .fragment-bar-bg {
-  height: 6px;
+  height: 7px;
   background: rgba(138, 31, 31, 0.1);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
   border: 1px solid rgba(138, 31, 31, 0.15);
 }
@@ -448,17 +462,18 @@
 .fragment-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, #8a1f1f, #d4af37);
-  border-radius: 3px;
+  border-radius: 4px;
   transition: width .4s ease;
 }
 
-.fragment-count {
-  font-size: .7rem;
-  color: #6b3a1a;
+.fragment-tip {
+  font-size: .72rem;
+  color: #9a7a55;
+  margin-top: 2px;
 }
 
 .fragment-max {
-  font-size: .7rem;
+  font-size: .78rem;
   color: #8a1f1f;
   font-weight: bold;
 }

@@ -151,7 +151,6 @@ function renderHeroPool() {
       ${isOwned && !meta.initial ? '<span class="hero-card-badge">已擁有</span>' : ''}
       ${imgEl}
       <div class="hero-card-name">${isOwned ? getHeroName(heroId, level) : '???'}</div>
-      <div class="hero-card-role">${isOwned ? meta.role : '未解鎖'}</div>
       ${levelEl}
       ${evolvedEl}
     `;
@@ -189,18 +188,17 @@ function renderFragments() {
     const item = document.createElement('div');
     item.className = 'fragment-item';
     item.innerHTML = `
-      <div class="fragment-name">
-        <img src="assets/gacha/soul_shard_r.png" alt="">
-        ${getHeroName(heroId, level)}・將魂碎片
+      <div class="fragment-name">${getHeroName(heroId, level)}</div>
+      <div class="fragment-count">
+        <img class="fragment-icon" src="assets/gacha/soul_shard_r.png" alt="">
+        ${frags >= FRAG_MAX
+          ? '<span class="fragment-max">⚡ 集滿！升一等</span>'
+          : `${frags} / ${FRAG_MAX}`}
       </div>
       <div class="fragment-bar-bg">
         <div class="fragment-bar-fill" style="width:${Math.min(frags / FRAG_MAX * 100, 100)}%"></div>
       </div>
-      <div class="fragment-count">
-        ${frags >= FRAG_MAX
-          ? '<span class="fragment-max">⚡ 集滿！升一等</span>'
-          : `${frags} / ${FRAG_MAX}（集滿自動 +1 Lv）`}
-      </div>
+      <div class="fragment-tip">集滿10個自動 +1 Lv</div>
     `;
     grid.appendChild(item);
   });
