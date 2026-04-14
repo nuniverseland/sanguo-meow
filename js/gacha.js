@@ -200,7 +200,7 @@ function renderFragments() {
   const allPoolHeroes = [
     ...GACHA_POOL.normal,
     ...GACHA_POOL.rare,
-    ...GACHA_POOL.sr
+    ...GACHA_POOL.super_rare
   ];
 
   allPoolHeroes.forEach(heroId => {
@@ -316,7 +316,7 @@ async function showResults(results) {
     const name    = getHeroName(r.heroId, level);
     const rarity  = r.rarity ?? RARITY_META[r.heroId];
 
-    if (rarity === 'sr')   sfxGachaSR();
+    if (rarity === 'super_rare') sfxGachaSR();
     else if (r.isNew)      sfxGachaNew();
     else                   sfxGachaFrag();
 
