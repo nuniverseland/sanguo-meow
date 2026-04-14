@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, orientation=landscape">
-  <title>抽卡 — 三國喵喵</title>
+  <title>英雄召喚 — 三國喵喵</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/gacha.css">
 </head>
@@ -12,63 +12,80 @@
   <!-- Navbar -->
   <header class="top-bar gacha-topbar">
     <button class="btn-ghost" onclick="location.href='index.html'">← 返回</button>
-    <span class="gacha-topbar-title">🎴 英雄召喚</span>
-    <span id="g-scrolls" class="scroll-display">🎴 0 卷</span>
+    <span class="gacha-topbar-title">英雄召喚</span>
+    <span class="scroll-display">
+      <img src="assets/gacha/icon_scroll.png" class="scroll-icon" alt="">
+      <span id="g-scrolls">0</span> 卷
+    </span>
   </header>
 
   <!-- Loading state -->
   <div id="gacha-loading" class="gacha-loading">
-    <div class="loading-spinner">⚙️ 載入中…</div>
+    <div class="loading-spinner">載入中…</div>
   </div>
 
-  <!-- Main gacha content -->
+  <!-- Main gacha content (2-column landscape) -->
   <div id="gacha-main" class="gacha-main hidden">
 
-    <!-- Hero cards exhibition -->
-    <section class="hero-pool-section">
-      <h2 class="section-title">英雄圖鑑</h2>
-      <div class="hero-pool-grid" id="hero-pool-grid">
-        <!-- Populated by JS -->
+    <!-- Left: Summon platform -->
+    <aside class="summon-panel">
+      <div class="summon-stage">
+        <img src="assets/gacha/summon_circle.png" class="summon-circle" alt="">
+        <img src="assets/gacha/gacha_scroll.png" class="summon-scroll" alt="">
       </div>
-    </section>
 
-    <!-- Pity + Draw buttons -->
-    <section class="draw-section">
       <div class="pity-bar">
-        <span class="pity-label">保底進度</span>
-        <div class="pity-track">
-          <div class="pity-fill" id="pity-fill"></div>
+        <div class="pity-bar-header">
+          <span class="pity-label">稀有保底進度</span>
+          <span id="pity-count" class="pity-count">距保底 40 抽</span>
         </div>
-        <span class="pity-count" id="pity-count">距保底還有 10 抽</span>
+        <div class="pity-track">
+          <div id="pity-fill" class="pity-fill"></div>
+        </div>
       </div>
 
       <div class="draw-buttons">
         <button class="draw-btn single" id="btn-draw-1">
-          <span class="draw-icon">🎴</span>
           <span class="draw-label">單抽</span>
-          <span class="draw-cost">🎴 × 5</span>
+          <span class="draw-cost">召喚令 × 5</span>
         </button>
         <button class="draw-btn multi" id="btn-draw-10">
-          <span class="draw-icon">🎴✨</span>
-          <span class="draw-label">十連抽</span>
-          <span class="draw-cost">🎴 × 45</span>
+          <span class="draw-badge">省 5 卷</span>
+          <span class="draw-label">十連召喚</span>
+          <span class="draw-cost">召喚令 × 45</span>
         </button>
       </div>
-    </section>
+    </aside>
 
-    <!-- Soul fragments -->
-    <section class="fragments-section">
-      <h2 class="section-title">將魂碎片</h2>
-      <div class="fragments-grid" id="fragments-grid">
-        <!-- Populated by JS -->
-      </div>
-    </section>
+    <!-- Right: Hero collection + fragments -->
+    <main class="collection-panel">
+      <section class="hero-pool-section">
+        <h2 class="section-title">
+          <img src="assets/gacha/icon_hero.png" class="section-icon" alt="">
+          英雄圖鑑
+        </h2>
+        <div id="hero-pool-grid" class="hero-pool-grid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <section class="fragments-section">
+        <h2 class="section-title">
+          <img src="assets/gacha/icon_shard.png" class="section-icon" alt="">
+          將魂碎片
+        </h2>
+        <div id="fragments-grid" class="fragments-grid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+    </main>
+
   </div>
 
   <!-- Draw result overlay -->
   <div id="result-overlay" class="gacha-result-overlay hidden">
     <div class="gacha-result-box">
-      <div class="result-cards" id="result-cards"></div>
+      <div id="result-cards" class="result-cards"></div>
       <button class="btn-primary" id="btn-result-close">確認</button>
     </div>
   </div>
@@ -78,7 +95,6 @@
     <div class="draw-anim-inner">✨ 召喚中… ✨</div>
   </div>
 
-  <script type="module" src="js/firebase.js"></script>
   <script type="module" src="js/gacha.js"></script>
 </body>
 </html>

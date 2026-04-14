@@ -203,34 +203,48 @@ export async function recordBestiaryDefeat(userId, enemyId) {
 }
 
 // ── Gacha rarity config ───────────────────────────────────────────────────────
-// poolConfig: { common: string[], rare: string[] }
-// 普通英雄: 70% chance, 稀有英雄: 30% chance
+// poolConfig: { normal: string[], rare: string[], sr: string[] }
+// 普通: 60%  稀有: 35%  超稀有: 5%
 // Regular pity: every 20 draws guaranteed unowned hero
-// Rare pity: every 40 draws guaranteed unowned rare hero (if any remain)
-const FRAG_PER_LEVEL = 10; // 10 碎片 = +1 等級（1000 EXP）
-const EXP_PER_LEVEL  = 1000;
+// Rare pity (shared rare+sr): every 40 draws guaranteed unowned rare/sr
+const FRAG_PER_LEVEL = 10; // 10 碎片 = +1 等級
 
 function pickHeroFromPool(poolConfig, ownedList, pity, rarePity) {
-  const allPool    = [...poolConfig.common, ...poolConfig.rare];
-  const unownedAll  = allPool.filter(h => !ownedList.includes(h));
-  const unownedRare = (poolConfig.rare || []).filter(h => !ownedList.includes(h));
+  const normalPool = poolConfig.normal || [];
+  const rarePool   = poolConfig.rare   || [];
+  const srPool     = poolConfig.sr     || [];
+  const rareAndSr  = [...rarePool, ...srPool];
+  const allPool    = [...normalPool, ...rareAndSr];
 
-  // Rare pity: 40 draws without a rare unowned → guarantee rare unowned
-  if (rarePity >= 39 && unownedRare.length > 0) {
-    return { heroId: unownedRare[Math.floor(Math.random() * unownedRare.length)], rarity: 'rare', resetRarePity: true };
+  const unownedAll     = allPool.filter(h => !ownedList.includes(h));
+  const unownedRareAll = rareAndSr.filter(h => !ownedList.includes(h));
+
+  // Rare pity (shared rare+sr): 40 draws → guarantee unowned rare or sr
+  if (rarePity >= 39 && unownedRareAll.length > 0) {
+    const heroId = unownedRareAll[Math.floor(Math.random() * unownedRareAll.length)];
+    const rarity = srPool.includes(heroId) ? 'sr' : 'rare';
+    return { heroId, rarity, resetRarePity: true };
   }
 
   // Regular pity: 20 draws → guarantee any unowned hero
   if (pity >= 19 && unownedAll.length > 0) {
-    return { heroId: unownedAll[Math.floor(Math.random() * unownedAll.length)], rarity: null, resetPity: true };
+    const heroId = unownedAll[Math.floor(Math.random() * unownedAll.length)];
+    const rarity = srPool.includes(heroId) ? 'sr' : rarePool.includes(heroId) ? 'rare' : 'normal';
+    return { heroId, rarity, resetPity: true };
   }
 
-  // Normal draw: 30% rare, 70% common
-  const pool = (Math.random() < 0.30 && poolConfig.rare.length > 0)
-    ? poolConfig.rare
-    : poolConfig.common;
+  // Normal draw: 5% SR, 35% Rare, 60% Normal
+  const rand = Math.random();
+  let pool, rarity;
+  if (rand < 0.05 && srPool.length > 0) {
+    pool = srPool; rarity = 'sr';
+  } else if (rand < 0.40 && rarePool.length > 0) {
+    pool = rarePool; rarity = 'rare';
+  } else {
+    pool = normalPool.length > 0 ? normalPool : allPool; rarity = 'normal';
+  }
+
   const heroId = pool[Math.floor(Math.random() * pool.length)];
-  const rarity = poolConfig.rare.includes(heroId) ? 'rare' : 'common';
   return { heroId, rarity };
 }
 
@@ -242,7 +256,7 @@ export async function executeGachaDraw(userId, drawCount, pool, currentState) {
 
   // Normalise pool
   const poolConfig = Array.isArray(pool)
-    ? { common: pool, rare: [] }
+    ? { normal: pool, rare: [], sr: [] }
     : pool;
 
   return await runTransaction(db, async tx => {
@@ -260,13 +274,14 @@ export async function executeGachaDraw(userId, drawCount, pool, currentState) {
       const heroId = pick.heroId;
       const isNew  = !owned.includes(heroId);
 
+      const isRareOrSr = pick.rarity === 'rare' || pick.rarity === 'sr';
       if (isNew) {
         owned.push(heroId);
         pity     = 0;
-        rarePity = pick.rarity === 'rare' ? 0 : rarePity + 1;
+        rarePity = isRareOrSr ? 0 : rarePity + 1;
       } else {
         pity++;
-        rarePity = pick.rarity === 'rare' ? 0 : rarePity + 1;
+        rarePity = isRareOrSr ? 0 : rarePity + 1;
       }
       if (pick.resetPity)     pity     = 0;
       if (pick.resetRarePity) rarePity = 0;
@@ -279,26 +294,25 @@ export async function executeGachaDraw(userId, drawCount, pool, currentState) {
     const fragCounts  = {};
     for (const r of results) {
       if (r.isNew) {
-        heroUpdates[r.heroId] = { heroId: r.heroId, currentForm: 0, exp: 0, level: 1, soulFragments: 0 };
+        heroUpdates[r.heroId] = { heroId: r.heroId, level: 1, soulFragments: 0 };
       } else {
         fragCounts[r.heroId] = (fragCounts[r.heroId] || 0) + 1;
       }
     }
 
-    // Apply frag counts → convert batches to EXP
+    // Apply frag counts → convert batches to level ups
     for (const [hId, fragGain] of Object.entries(fragCounts)) {
       const heroRef  = doc(db, 'sanguo_users', userId, 'heroes', hId);
       const heroSnap = await tx.get(heroRef);
-      const hData    = heroSnap.exists() ? heroSnap.data() : { soulFragments: 0, exp: 0 };
+      const hData    = heroSnap.exists() ? heroSnap.data() : { soulFragments: 0, level: 1 };
       const newFrag  = (hData.soulFragments ?? 0) + fragGain;
-      const levelsGained = Math.floor(newFrag / FRAG_PER_LEVEL);
+      const levelsGained  = Math.floor(newFrag / FRAG_PER_LEVEL);
       const fragRemainder = newFrag % FRAG_PER_LEVEL;
-      const expGain  = levelsGained * EXP_PER_LEVEL;
 
       heroUpdates[hId] = {
         ...hData,
         soulFragments: fragRemainder,
-        exp: (hData.exp ?? 0) + expGain
+        level: (hData.level ?? 1) + levelsGained
       };
     }
 

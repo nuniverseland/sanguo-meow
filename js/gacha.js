@@ -1,35 +1,67 @@
-// gacha.js — Gacha page logic
+// gacha.js — Gacha page logic (redesign v2)
 import { getUserId, loadGachaState, executeGachaDraw } from './firebase.js';
 
-// 抽卡池 — 稀有度分層
-// 普通 (common): 70% 機率；稀有 (rare): 30% 機率
-const GACHA_POOL = {
-  common: ['guanyu'],               // 普通
-  rare:   ['zhangfei', 'zhangjiu'] // 稀有
-};
-// 初始英雄（不進抽卡池，但顯示在圖鑑）
-const INITIAL_HEROES = ['liubei', 'soldier'];
-// 所有英雄（抽卡頁展示順序）
-const ALL_HEROES = ['liubei', 'soldier', 'guanyu', 'zhangfei', 'zhangjiu'];
-// 稀有度標籤
-const RARITY_LABEL = { common: '普通', rare: '⭐ 稀有' };
-const RARITY_META  = {
-  guanyu:   'common',
-  zhangfei: 'rare',
-  zhangjiu: 'rare'
-};
-// 保底說明
-const PITY_MAX      = 20; // 每 20 抽保底未擁有英雄
-const RARE_PITY_MAX = 40; // 每 40 抽保底未擁有稀有英雄
+// ── Constants ─────────────────────────────────────────────────────────────────
 
-// Hero static info（不從 JSON 載就不需 async）
-const HERO_META = {
-  liubei:   { name: '大耳喵',  role: '仁義肉盾',  initial: true },
-  soldier:  { name: '小兵喵',  role: '量產基礎',   initial: true },
-  guanyu:   { name: '紳士喵',  role: '遠程輸出',   initial: false },
-  zhangfei: { name: '重擊喵',  role: '近戰暴力',   initial: false },
-  zhangjiu: { name: '強壯喵',  role: '鐵壁肉盾',   initial: false },
+const INITIAL_HEROES = ['liubei', 'soldier'];
+
+const GACHA_POOL = {
+  normal: ['zhangjiu', 'zhangfei', 'guanyu'],
+  rare:   ['zhugeliang', 'zhaoyun', 'dongzhuo'],
+  sr:     ['caocao', 'lvbu', 'sunquan']
 };
+
+const ALL_HEROES = [
+  'liubei', 'soldier',
+  'zhangjiu', 'zhangfei', 'guanyu',
+  'zhugeliang', 'zhaoyun', 'dongzhuo',
+  'caocao', 'lvbu', 'sunquan'
+];
+
+const RARITY_META = {
+  zhangjiu:   'normal',
+  zhangfei:   'normal',
+  guanyu:     'normal',
+  zhugeliang: 'rare',
+  zhaoyun:    'rare',
+  dongzhuo:   'rare',
+  caocao:     'sr',
+  lvbu:       'sr',
+  sunquan:    'sr',
+};
+
+const HERO_META = {
+  liubei:     { names: ['大耳喵',  '劉備喵',  '劉備喵MAX'],  role: '仁義肉盾', initial: true },
+  soldier:    { names: ['小兵喵',  '士兵喵',  '軍官喵'],     role: '量產基礎',  initial: true },
+  zhangjiu:   { names: ['強壯喵',  '張九喵',  '張九喵MAX'],  role: '鐵壁肉盾', initial: false },
+  zhangfei:   { names: ['重擊喵',  '張飛喵',  '張飛喵MAX'],  role: '近戰暴力', initial: false },
+  guanyu:     { names: ['紳士喵',  '關羽喵',  '關羽喵MAX'],  role: '遠程輸出', initial: false },
+  zhugeliang: { names: ['智慧喵',  '諸葛喵',  '諸葛喵MAX'],  role: '謀略支援', initial: false },
+  zhaoyun:    { names: ['飛腿喵',  '趙雲喵',  '趙雲喵MAX'],  role: '敏捷突擊', initial: false },
+  dongzhuo:   { names: ['胖胖喵',  '董卓喵',  '董卓喵MAX'],  role: '鐵血暴君', initial: false },
+  caocao:     { names: ['狠狠喵',  '曹操喵',  '曹操喵MAX'],  role: '霸道統帥', initial: false },
+  lvbu:       { names: ['自我喵',  '呂布喵',  '呂布喵MAX'],  role: '無雙武將', initial: false },
+  sunquan:    { names: ['心機喵',  '孫權喵',  '孫權喵MAX'],  role: '江東霸主', initial: false },
+};
+
+const RARITY_LABEL = { normal: '普通', rare: '⭐ 稀有', sr: '✨ 超稀有' };
+const PITY_MAX      = 20;
+const RARE_PITY_MAX = 40;
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function getHeroImg(heroId, level = 1) {
+  if (level >= 30) return `assets/heroes/hero_${heroId}_max.png`;
+  if (level >= 10) return `assets/heroes/hero_${heroId}.png`;
+  return `assets/heroes/hero_${heroId}_base.png`;
+}
+
+function getHeroName(heroId, level = 1) {
+  const names = HERO_META[heroId].names;
+  if (level >= 30) return names[2];
+  if (level >= 10) return names[1];
+  return names[0];
+}
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let gachaState = null;
@@ -45,15 +77,14 @@ async function init() {
 
   try {
     gachaState = await loadGachaState(userId);
-    // 初始英雄視為已擁有
     for (const h of INITIAL_HEROES) {
       if (!gachaState.heroes[h]) {
-        gachaState.heroes[h] = { heroId: h, soulFragments: 0, maxUnlocked: false };
+        gachaState.heroes[h] = { heroId: h, level: 1, soulFragments: 0 };
       }
     }
   } catch (e) {
     console.error('載入抽卡資料失敗', e);
-    gachaState = { scrolls: 0, pityCount: 0, totalDraws: 0, heroes: {} };
+    gachaState = { scrolls: 0, pityCount: 0, rarePityCount: 0, totalDraws: 0, heroes: {} };
   }
 
   renderAll();
@@ -72,7 +103,7 @@ function renderAll() {
 }
 
 function updateScrollDisplay() {
-  document.getElementById('g-scrolls').textContent = `🎴 ${gachaState.scrolls} 卷`;
+  document.getElementById('g-scrolls').textContent = gachaState.scrolls;
 }
 
 function renderHeroPool() {
@@ -84,59 +115,84 @@ function renderHeroPool() {
     const heroData = gachaState.heroes[heroId];
     const isOwned  = meta.initial || !!heroData;
     const rarity   = RARITY_META[heroId];
+    const level    = heroData?.level ?? 1;
 
     const card = document.createElement('div');
-    card.className = `hero-card ${isOwned ? 'owned' : 'not-owned'}${rarity === 'rare' ? ' rarity-rare' : ''}`;
+    const rarityClass = rarity ? ` rarity-${rarity}` : '';
+    card.className = `hero-card ${isOwned ? 'owned' : 'not-owned'}${rarityClass}`;
 
-    const imgEl = isOwned
-      ? `<img class="hero-card-img" src="assets/heroes/hero_${heroId}_base.png"
-              onerror="this.outerHTML='<div class=hero-card-shadow>🐱</div>'"
-              alt="${meta.name}">`
-      : `<div class="hero-card-shadow">❓</div>`;
+    let imgEl;
+    if (isOwned) {
+      const imgSrc = getHeroImg(heroId, level);
+      imgEl = `<img class="hero-card-img" src="${imgSrc}"
+        onerror="this.src='assets/gacha/card_back_sanguo.png'"
+        alt="${getHeroName(heroId, level)}">`;
+    } else {
+      imgEl = `<img class="hero-card-shadow" src="assets/gacha/card_back_sanguo.png" alt="未解鎖">`;
+    }
 
     const rarityTag = rarity
       ? `<span class="hero-card-rarity ${rarity}">${RARITY_LABEL[rarity]}</span>`
       : '';
 
+    const levelEl = isOwned
+      ? `<span class="hero-card-level">Lv.${level}</span>`
+      : '';
+
+    let evolvedEl = '';
+    if (isOwned && level >= 30) {
+      evolvedEl = `<span class="hero-card-evolved">MAX進化</span>`;
+    } else if (isOwned && level >= 10) {
+      evolvedEl = `<span class="hero-card-evolved">進化</span>`;
+    }
+
     card.innerHTML = `
       ${meta.initial ? '<span class="hero-card-initial">初始</span>' : rarityTag}
       ${isOwned && !meta.initial ? '<span class="hero-card-badge">已擁有</span>' : ''}
       ${imgEl}
-      <div class="hero-card-name">${isOwned ? meta.name : '???'}</div>
+      <div class="hero-card-name">${isOwned ? getHeroName(heroId, level) : '???'}</div>
       <div class="hero-card-role">${isOwned ? meta.role : '未解鎖'}</div>
+      ${levelEl}
+      ${evolvedEl}
     `;
     grid.appendChild(card);
   });
 }
 
 function renderPity() {
-  const pity     = gachaState.pityCount    ?? 0;
-  const rarePity = gachaState.rarePityCount ?? 0;
-  const remain   = PITY_MAX - pity;
+  const rarePity   = gachaState.rarePityCount ?? 0;
   const rareRemain = RARE_PITY_MAX - rarePity;
-  const fillPct  = (pity / PITY_MAX) * 100;
+  const fillPct    = (rarePity / RARE_PITY_MAX) * 100;
   document.getElementById('pity-fill').style.width  = `${fillPct}%`;
-  document.getElementById('pity-count').textContent =
-    `距普通保底 ${remain} 抽 ／ 距⭐稀有保底 ${rareRemain} 抽`;
+  document.getElementById('pity-count').textContent = `距保底 ${rareRemain} 抽`;
 }
 
 function renderFragments() {
   const grid = document.getElementById('fragments-grid');
   grid.innerHTML = '';
 
-  const allPoolHeroes = [...GACHA_POOL.common, ...GACHA_POOL.rare];
+  const allPoolHeroes = [
+    ...GACHA_POOL.normal,
+    ...GACHA_POOL.rare,
+    ...GACHA_POOL.sr
+  ];
+
   allPoolHeroes.forEach(heroId => {
     const meta     = HERO_META[heroId];
     const heroData = gachaState.heroes[heroId];
-    if (!heroData) return; // 未擁有不顯示碎片
+    if (!heroData) return;
 
-    const frags = heroData.soulFragments ?? 0;
+    const frags   = heroData.soulFragments ?? 0;
     const FRAG_MAX = 10;
+    const level    = heroData.level ?? 1;
 
     const item = document.createElement('div');
     item.className = 'fragment-item';
     item.innerHTML = `
-      <div class="fragment-name">${meta.name}碎片</div>
+      <div class="fragment-name">
+        <img src="assets/gacha/soul_shard_r.png" alt="">
+        ${getHeroName(heroId, level)}・將魂碎片
+      </div>
       <div class="fragment-bar-bg">
         <div class="fragment-bar-fill" style="width:${Math.min(frags / FRAG_MAX * 100, 100)}%"></div>
       </div>
@@ -150,7 +206,7 @@ function renderFragments() {
   });
 
   if (!grid.children.length) {
-    grid.innerHTML = '<div style="color:var(--text-dim);font-size:.85rem">抽到英雄後才會顯示碎片進度</div>';
+    grid.innerHTML = '<div style="font-size:.82rem;color:#7a4a20;padding:4px 0">抽到英雄後才會顯示碎片進度</div>';
   }
 }
 
@@ -168,36 +224,32 @@ async function doDraw(count) {
     return;
   }
 
-  // Disable buttons during draw
   setDrawDisabled(true);
   showAnim(true);
 
   try {
-    const txResult = await executeGachaDraw(userId, count, GACHA_POOL, gachaState);  // pass poolConfig
+    const txResult = await executeGachaDraw(userId, count, GACHA_POOL, gachaState);
 
-    // Update local state
-    gachaState.scrolls   = txResult.newScrolls;
-    gachaState.pityCount = 0; // server handles pity; reset local as approximation
+    gachaState.scrolls       = txResult.newScrolls;
+    gachaState.pityCount     = txResult.newPity     ?? 0;
+    gachaState.rarePityCount = txResult.newRarePity ?? (gachaState.rarePityCount ?? 0);
 
-    // Merge newly obtained heroes into local state
     for (const r of txResult.results) {
       if (r.isNew) {
-        gachaState.heroes[r.heroId] = { heroId: r.heroId, soulFragments: 0, exp: 0 };
+        gachaState.heroes[r.heroId] = { heroId: r.heroId, level: 1, soulFragments: 0 };
       } else {
         if (gachaState.heroes[r.heroId]) {
           const h = gachaState.heroes[r.heroId];
           const newFrag = (h.soulFragments ?? 0) + 1;
           if (newFrag >= 10) {
             h.soulFragments = newFrag - 10;
-            h.exp = (h.exp ?? 0) + 1000;
+            h.level = (h.level ?? 1) + 1;
           } else {
             h.soulFragments = newFrag;
           }
         }
       }
     }
-    gachaState.pityCount     = txResult.newPity     ?? 0;
-    gachaState.rarePityCount = txResult.newRarePity ?? (gachaState.rarePityCount ?? 0);
 
     showAnim(false);
     await showResults(txResult.results);
@@ -224,32 +276,34 @@ async function showResults(results) {
   const container = document.getElementById('result-cards');
   container.innerHTML = '';
 
-  // Track frag count per hero for labelling
-  const fragCount = {};
-  results.forEach(r => {
-    if (!r.isNew) fragCount[r.heroId] = (fragCount[r.heroId] || 0) + 1;
-  });
-
   for (let i = 0; i < results.length; i++) {
-    await new Promise(resolve => setTimeout(resolve, results.length > 1 ? 250 : 0));
+    await new Promise(resolve => setTimeout(resolve, results.length > 1 ? 200 : 0));
 
-    const r    = results[i];
-    const meta = HERO_META[r.heroId];
+    const r       = results[i];
+    const meta    = HERO_META[r.heroId];
+    const level   = gachaState.heroes[r.heroId]?.level ?? 1;
+    const imgSrc  = getHeroImg(r.heroId, level);
+    const name    = getHeroName(r.heroId, level);
+    const rarity  = r.rarity ?? RARITY_META[r.heroId];
+
     const card = document.createElement('div');
     card.className = `result-card${r.isNew ? ' is-new' : ''}`;
-    card.style.animationDelay = `${i * 0.08}s`;
+    card.style.animationDelay = `${i * 0.07}s`;
 
-    const rarityTag = r.rarity === 'rare' ? '<span class="result-card-rarity">⭐ 稀有</span>' : '';
-    let tagHTML = '';
-    if (r.isNew) tagHTML = '<span class="result-card-tag new">✨ 新英雄！</span>';
-    else         tagHTML = '<span class="result-card-tag frag">💜 碎片 → +EXP</span>';
+    const rarityTag = rarity
+      ? `<span class="result-card-rarity ${rarity}">${RARITY_LABEL[rarity]}</span>`
+      : '';
+
+    const tagHTML = r.isNew
+      ? '<span class="result-card-tag new">✨ 新英雄！</span>'
+      : '<span class="result-card-tag frag">碎片 +1</span>';
 
     card.innerHTML = `
       ${rarityTag}
-      <img src="assets/heroes/hero_${r.heroId}_base.png"
-           onerror="this.outerHTML='<div style=font-size:2rem>🐱</div>'"
-           alt="${meta.name}">
-      <div class="result-card-name">${meta.name}</div>
+      <img src="${imgSrc}"
+           onerror="this.src='assets/gacha/card_back_sanguo.png'"
+           alt="${name}">
+      <div class="result-card-name">${name}</div>
       ${tagHTML}
     `;
     container.appendChild(card);
