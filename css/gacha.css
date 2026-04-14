@@ -665,3 +665,135 @@
 
 /* ── Utility ─────────────────────────────────────────────────────────────────── */
 .hidden { display: none !important; }
+
+@media (max-width: 932px) and (orientation: landscape) {
+  .gacha-topbar {
+    gap: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .gacha-topbar-title,
+  .scroll-display {
+    font-size: .82rem;
+  }
+
+  .gacha-main {
+    min-height: 0;
+  }
+
+  .summon-panel {
+    flex-basis: 42%;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .summon-stage {
+    min-height: 150px;
+  }
+
+  .summon-circle {
+    width: min(180px, 78%);
+    height: min(180px, 78%);
+  }
+
+  .summon-scroll {
+    width: 92px;
+    max-width: 40%;
+  }
+
+  .pity-bar {
+    max-width: 220px;
+  }
+
+  .draw-buttons {
+    gap: 10px;
+  }
+
+  .draw-btn {
+    min-width: 96px;
+    padding: 10px 12px;
+  }
+
+  .draw-label {
+    font-size: .78rem;
+  }
+
+  .draw-cost {
+    font-size: .62rem;
+  }
+
+  .collection-panel {
+    padding: 8px 10px 12px;
+  }
+
+  .section-title {
+    font-size: .8rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-pool-grid {
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 8px;
+  }
+
+  .hero-card {
+    padding: 6px 4px;
+  }
+
+  .hero-card-img,
+  .hero-card-shadow {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hero-card-name {
+    font-size: .66rem;
+  }
+
+  .hero-card-role,
+  .hero-card-level,
+  .hero-card-evolved {
+    font-size: .55rem;
+  }
+
+  .fragment-item {
+    padding: 8px 10px;
+    gap: 4px;
+  }
+
+  .fragment-name,
+  .fragment-count {
+    font-size: .72rem;
+  }
+
+  .fragment-tip,
+  .fragment-max {
+    font-size: .64rem;
+  }
+
+  .hero-detail-box,
+  .gacha-result-box {
+    padding: 14px 16px;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+
+  .result-card {
+    width: 96px;
+    padding: 8px 5px;
+  }
+
+  .result-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .result-card-name {
+    font-size: .7rem;
+  }
+
+  .draw-anim-inner {
+    font-size: 1.1rem;
+  }
+}

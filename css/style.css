@@ -834,3 +834,254 @@ img { display: block; }
   .summon-panel { width: 100%; max-width: 100%; flex-direction: row; flex-wrap: wrap; height: 40%; }
   .hero-btn { width: calc(50% - 6px); }
 }
+
+@media (max-width: 932px) and (orientation: landscape) {
+  .top-bar,
+  .game-topbar,
+  .combo-bar {
+    min-height: 30px;
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .top-bar {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .btn-secondary,
+  .btn-ghost,
+  .btn-gacha,
+  .tab-btn {
+    font-size: .72rem;
+    padding: 4px 10px;
+  }
+
+  .player-name,
+  .score-display,
+  .scroll-display,
+  .page-title {
+    font-size: .78rem;
+  }
+
+  .logo-wrap {
+    margin-bottom: 18px;
+  }
+
+  .logo {
+    width: min(68vw, 280px);
+  }
+
+  .login-box {
+    min-width: 0;
+    width: min(92vw, 380px);
+    padding: 18px 20px;
+    gap: 10px;
+  }
+
+  .chapter-tabs,
+  .country-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .chapter-tab,
+  .country-tab {
+    flex: 0 0 auto;
+  }
+
+  .stage-card {
+    top: 33%;
+    height: 44%;
+    padding-top: 4%;
+    gap: 4px;
+  }
+
+  .stage-card .stage-num {
+    font-size: .72rem;
+  }
+
+  .stage-card .stage-title {
+    font-size: .92rem;
+    line-height: 1.15;
+  }
+
+  .stage-card .stage-story,
+  .stage-card .stage-lock,
+  .stage-card .stage-cleared {
+    font-size: .62rem;
+    line-height: 1.3;
+  }
+
+  .game-topbar {
+    height: 8vh;
+  }
+
+  .stage-name {
+    font-size: .82rem;
+  }
+
+  .topbar-stats {
+    gap: 8px;
+    font-size: .72rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .battlefield {
+    height: 48vh;
+  }
+
+  .combo-bar {
+    height: 7vh;
+  }
+
+  .gold-label,
+  #gold-amount,
+  .combo-display {
+    font-size: .72rem;
+  }
+
+  .gold-progress-bg {
+    max-width: 120px;
+    height: 8px;
+  }
+
+  .base-hp-display {
+    width: 180px;
+    padding: 4px 8px;
+    gap: 2px;
+    margin-bottom: 3px;
+  }
+
+  .base-hp-text {
+    font-size: .62rem;
+  }
+
+  .base-hp-bar {
+    width: 160px;
+    height: 7px;
+  }
+
+  .base-img-wrap,
+  .base-img-wrap img {
+    width: 170px;
+  }
+
+  .unit {
+    bottom: 10px;
+  }
+
+  .unit.flying {
+    bottom: 52px;
+  }
+
+  .unit-img {
+    font-size: 1.4rem;
+  }
+
+  .unit-hp-bar {
+    width: 24px;
+  }
+
+  .math-panel,
+  .summon-panel {
+    padding: 8px 6px;
+    gap: 6px;
+  }
+
+  .question-display {
+    padding: 8px 16px;
+    min-width: 96px;
+  }
+
+  .q-num {
+    font-size: 1.4rem;
+  }
+
+  .q-op {
+    font-size: 1.2rem;
+  }
+
+  .choices-grid {
+    gap: 6px;
+    max-width: 240px;
+  }
+
+  .choice-btn {
+    font-size: .95rem;
+    padding: 7px;
+  }
+
+  .answer-feedback {
+    font-size: .72rem;
+    min-height: 1em;
+  }
+
+  .summon-panel {
+    width: 38%;
+    max-width: 220px;
+  }
+
+  .hero-btn {
+    gap: 6px;
+    padding: 5px 8px;
+  }
+
+  .hero-btn-avatar img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero-btn-name {
+    font-size: .72rem;
+  }
+
+  .hero-btn-cost {
+    font-size: .62rem;
+  }
+
+  .dialog-box,
+  .result-box {
+    width: min(94vw, 520px);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 18px 20px;
+  }
+
+  .dialog-text,
+  .result-stats {
+    font-size: .82rem;
+    line-height: 1.5;
+  }
+
+  .result-title {
+    font-size: 1.5rem;
+  }
+
+  .exp-hero-grid {
+    gap: 6px;
+  }
+
+  .exp-hero-item {
+    min-width: 68px;
+    padding: 6px 7px;
+  }
+
+  .leaderboard-wrap {
+    padding: 8px;
+  }
+
+  .leaderboard-table {
+    font-size: .72rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 7px 8px;
+  }
+}
