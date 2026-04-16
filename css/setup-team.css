@@ -2,19 +2,12 @@
    setup-team.css — 隊伍編成頁面
    ============================================ */
 
-/* 覆蓋全域 overflow:hidden，讓此頁面可捲動 */
-.setup-team-page,
-.setup-team-page body {
-  overflow: auto;
-  height: auto;
-  min-height: 100%;
-}
-
+/* 頁面佔滿視窗，header/footer 固定，main 自己捲動 */
 body.setup-team-page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow-y: auto;
+  height: 100%;
+  overflow: hidden;
   background: var(--bg-dark);
 }
 
@@ -48,6 +41,7 @@ body.setup-team-page {
 /* ── Main ───────────────────────────────────────────────────────────────── */
 .st-main {
   flex: 1;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -193,8 +187,7 @@ body.setup-team-page {
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 .st-footer {
-  position: sticky;
-  bottom: 0;
+  flex-shrink: 0;
   padding: 12px 16px;
   background: var(--bg-mid);
   border-top: 2px solid var(--border);
