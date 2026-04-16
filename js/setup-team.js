@@ -134,7 +134,7 @@ async function confirmTeam() {
   try {
     await saveCurrentTeam(userId, currentTeam);
     sessionStorage.setItem('currentTeam', JSON.stringify(currentTeam));
-    location.href = 'game.html';
+    location.href = 'index.html';
   } catch (e) {
     console.error('saveCurrentTeam failed', e);
     btn.disabled    = false;

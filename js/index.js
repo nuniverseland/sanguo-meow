@@ -245,7 +245,7 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
     if (unlocked) {
       card.addEventListener('click', () => {
         sessionStorage.setItem('currentStageId', stage.id);
-        location.href = 'setup-team.html';
+        location.href = 'game.html';
       });
     }
     list.appendChild(card);
