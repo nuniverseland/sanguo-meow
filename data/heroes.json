@@ -10,9 +10,9 @@
     "traitBonus": "tyrant",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "attack": 3, "defense": 3, "speed": 3, "cost": 80,  "cooldown": 6000, "hp": 300, "atk": 60,  "range": 110, "spd": 1.2, "attackInterval": 2000, "attackType": "single" },
-      { "form": "mid",  "attack": 4, "defense": 4, "speed": 4, "cost": 100, "cooldown": 7000, "hp": 450, "atk": 85,  "range": 120, "spd": 1.4, "attackInterval": 1800, "attackType": "single" },
-      { "form": "max",  "attack": 8, "defense": 8, "speed": 8, "cost": 150, "cooldown": 9000, "hp": 800, "atk": 150, "range": 130, "spd": 1.8, "attackInterval": 1600, "attackType": "area"   }
+      { "form": "base", "attack": 3, "defense": 3, "speed": 3, "cost": 140, "cooldown": 7000,  "hp": 310,  "atk": 62,  "range": 110, "spd": 1.2, "attackInterval": 2000, "attackType": "single" },
+      { "form": "mid",  "attack": 4, "defense": 4, "speed": 4, "cost": 190, "cooldown": 8500,  "hp": 435,  "atk": 90,  "range": 120, "spd": 1.4, "attackInterval": 1800, "attackType": "single" },
+      { "form": "max",  "attack": 8, "defense": 8, "speed": 8, "cost": 255, "cooldown": 11000, "hp": 720,  "atk": 95,  "range": 130, "spd": 1.8, "attackInterval": 1700, "attackType": "area"   }
     ]
   },
   {
@@ -26,9 +26,9 @@
     "traitBonus": null,
     "unlockStage": null,
     "forms": [
-      { "form": "base", "attack": 2, "defense": 2, "speed": 2, "cost": 40, "cooldown": 3000, "hp": 150, "atk": 35, "range": 95,  "spd": 1.5, "attackInterval": 2000, "attackType": "single" },
-      { "form": "mid",  "attack": 3, "defense": 3, "speed": 3, "cost": 60, "cooldown": 4000, "hp": 240, "atk": 55, "range": 100, "spd": 1.6, "attackInterval": 1800, "attackType": "single" },
-      { "form": "max",  "attack": 4, "defense": 4, "speed": 4, "cost": 90, "cooldown": 5000, "hp": 360, "atk": 80, "range": 110, "spd": 1.8, "attackInterval": 1600, "attackType": "single" }
+      { "form": "base", "attack": 2, "defense": 2, "speed": 3, "cost": 60,  "cooldown": 3000, "hp": 130,  "atk": 36, "range": 95,  "spd": 1.5, "attackInterval": 1700, "attackType": "single" },
+      { "form": "mid",  "attack": 3, "defense": 3, "speed": 4, "cost": 85,  "cooldown": 4000, "hp": 195,  "atk": 52, "range": 100, "spd": 1.6, "attackInterval": 1600, "attackType": "single" },
+      { "form": "max",  "attack": 4, "defense": 4, "speed": 4, "cost": 120, "cooldown": 5000, "hp": 285,  "atk": 72, "range": 110, "spd": 1.8, "attackInterval": 1500, "attackType": "single" }
     ]
   },
   {
@@ -39,9 +39,9 @@
     "role": "防禦護盾",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 500,  "atk": 25, "range": 100, "spd": 8,  "cost": 90,  "cooldown": 6000,  "attackInterval": 2500, "attackType": "single" },
-      { "form": "mid",  "hp": 750,  "atk": 40, "range": 100, "spd": 9,  "cost": 120, "cooldown": 7000,  "attackInterval": 2300, "attackType": "single" },
-      { "form": "max",  "hp": 1200, "atk": 70, "range": 110, "spd": 10, "cost": 160, "cooldown": 8000,  "attackInterval": 2000, "attackType": "single" }
+      { "form": "base", "attack": 1, "defense": 7, "speed": 1, "cost": 100, "cooldown": 6000, "hp": 600,  "atk": 27, "range": 100, "spd": 8,  "attackInterval": 3000, "attackType": "single" },
+      { "form": "mid",  "attack": 2, "defense": 8, "speed": 2, "cost": 135, "cooldown": 7500, "hp": 850,  "atk": 40, "range": 100, "spd": 9,  "attackInterval": 2800, "attackType": "single" },
+      { "form": "max",  "attack": 3, "defense": 9, "speed": 3, "cost": 180, "cooldown": 9000, "hp": 1300, "atk": 65, "range": 110, "spd": 10, "attackInterval": 2500, "attackType": "single" }
     ],
     "specialAbility": {
       "mid": "捨身護主（HP低於30%時防禦力+50%）",
@@ -62,9 +62,9 @@
     "traitBonus": null,
     "unlockStage": "taiwan_1",
     "forms": [
-      { "form": "base", "attack": 2, "defense": 3, "speed": 2, "cost": 100, "cooldown": 8000,  "hp": 250, "atk": 55,  "range": 200, "spd": 1.0, "attackInterval": 2500, "attackType": "single" },
-      { "form": "mid",  "attack": 3, "defense": 4, "speed": 3, "cost": 130, "cooldown": 9000,  "hp": 380, "atk": 80,  "range": 240, "spd": 1.2, "attackInterval": 2200, "attackType": "single" },
-      { "form": "max",  "attack": 7, "defense": 8, "speed": 7, "cost": 180, "cooldown": 11000, "hp": 700, "atk": 140, "range": 300, "spd": 1.5, "attackInterval": 2000, "attackType": "area"   }
+      { "form": "base", "attack": 2, "defense": 3, "speed": 2, "cost": 150, "cooldown": 8000,  "hp": 270, "atk": 66,  "range": 200, "spd": 1.0, "attackInterval": 2200, "attackType": "single" },
+      { "form": "mid",  "attack": 3, "defense": 4, "speed": 3, "cost": 200, "cooldown": 9500,  "hp": 380, "atk": 96,  "range": 240, "spd": 1.2, "attackInterval": 2000, "attackType": "single" },
+      { "form": "max",  "attack": 7, "defense": 8, "speed": 7, "cost": 265, "cooldown": 12000, "hp": 640, "atk": 110, "range": 300, "spd": 1.5, "attackInterval": 1900, "attackType": "area"   }
     ]
   },
   {
@@ -78,9 +78,9 @@
     "traitBonus": null,
     "unlockStage": "taiwan_1",
     "forms": [
-      { "form": "base", "attack": 4, "defense": 2, "speed": 2, "cost": 90,  "cooldown": 7000,  "hp": 280, "atk": 90,  "range": 90,  "spd": 1.3, "attackInterval": 1500, "attackType": "area" },
-      { "form": "mid",  "attack": 5, "defense": 3, "speed": 3, "cost": 120, "cooldown": 8000,  "hp": 420, "atk": 130, "range": 100, "spd": 1.5, "attackInterval": 1400, "attackType": "area" },
-      { "form": "max",  "attack": 8, "defense": 6, "speed": 6, "cost": 170, "cooldown": 10000, "hp": 750, "atk": 220, "range": 110, "spd": 1.8, "attackInterval": 1200, "attackType": "area" }
+      { "form": "base", "attack": 4, "defense": 2, "speed": 2, "cost": 155, "cooldown": 7500,  "hp": 280, "atk": 46,  "range": 90,  "spd": 1.3, "attackInterval": 1500, "attackType": "area" },
+      { "form": "mid",  "attack": 5, "defense": 3, "speed": 3, "cost": 210, "cooldown": 9000,  "hp": 390, "atk": 66,  "range": 100, "spd": 1.5, "attackInterval": 1400, "attackType": "area" },
+      { "form": "max",  "attack": 8, "defense": 6, "speed": 6, "cost": 275, "cooldown": 11000, "hp": 640, "atk": 78,  "range": 110, "spd": 1.8, "attackInterval": 1350, "attackType": "area" }
     ]
   },
   {
@@ -94,9 +94,9 @@
     "traitBonus": null,
     "unlockStage": null,
     "forms": [
-      { "form": "base", "attack": 1, "defense": 4, "speed": 1, "cost": 70,  "cooldown": 5000, "hp": 500,  "atk": 30, "range": 80, "spd": 0.8, "attackInterval": 2500, "attackType": "single" },
-      { "form": "mid",  "attack": 3, "defense": 6, "speed": 3, "cost": 100, "cooldown": 6000, "hp": 750,  "atk": 55, "range": 85, "spd": 1.0, "attackInterval": 2300, "attackType": "single" },
-      { "form": "max",  "attack": 4, "defense": 9, "speed": 4, "cost": 140, "cooldown": 8000, "hp": 1200, "atk": 90, "range": 90, "spd": 1.2, "attackInterval": 2000, "attackType": "area"   }
+      { "form": "base", "attack": 1, "defense": 4, "speed": 1, "cost": 90,  "cooldown": 5500, "hp": 540,  "atk": 25, "range": 80, "spd": 0.8, "attackInterval": 3000, "attackType": "single" },
+      { "form": "mid",  "attack": 3, "defense": 6, "speed": 3, "cost": 120, "cooldown": 7000, "hp": 760,  "atk": 38, "range": 85, "spd": 1.0, "attackInterval": 2800, "attackType": "single" },
+      { "form": "max",  "attack": 4, "defense": 9, "speed": 4, "cost": 160, "cooldown": 8500, "hp": 1150, "atk": 58, "range": 90, "spd": 1.2, "attackInterval": 2500, "attackType": "area"   }
     ]
   },
   {
@@ -106,9 +106,9 @@
     "role": "敏捷突擊",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 220, "atk": 65,  "range": 120, "spd": 1.6, "cost": 110, "cooldown": 7000,  "attackInterval": 1800, "attackType": "single" },
-      { "form": "mid",  "hp": 340, "atk": 100, "range": 130, "spd": 1.8, "cost": 145, "cooldown": 8000,  "attackInterval": 1600, "attackType": "single" },
-      { "form": "max",  "hp": 560, "atk": 170, "range": 150, "spd": 2.2, "cost": 195, "cooldown": 10000, "attackInterval": 1400, "attackType": "area"   }
+      { "form": "base", "attack": 5, "defense": 2, "speed": 7, "cost": 160, "cooldown": 7500,  "hp": 290, "atk": 59,  "range": 120, "spd": 1.6, "attackInterval": 1600, "attackType": "single" },
+      { "form": "mid",  "attack": 6, "defense": 3, "speed": 8, "cost": 215, "cooldown": 9000,  "hp": 400, "atk": 85,  "range": 130, "spd": 1.8, "attackInterval": 1450, "attackType": "single" },
+      { "form": "max",  "attack": 8, "defense": 5, "speed": 9, "cost": 280, "cooldown": 11000, "hp": 645, "atk": 95,  "range": 150, "spd": 2.2, "attackInterval": 1400, "attackType": "area"   }
     ]
   },
   {
@@ -118,9 +118,9 @@
     "role": "謀略支援",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 190, "atk": 55,  "range": 260, "spd": 1.0, "cost": 130, "cooldown": 9000,  "attackInterval": 2600, "attackType": "area" },
-      { "form": "mid",  "hp": 300, "atk": 88,  "range": 300, "spd": 1.1, "cost": 170, "cooldown": 10000, "attackInterval": 2300, "attackType": "area" },
-      { "form": "max",  "hp": 490, "atk": 150, "range": 360, "spd": 1.3, "cost": 220, "cooldown": 12000, "attackInterval": 2000, "attackType": "area" }
+      { "form": "base", "attack": 4, "defense": 2, "speed": 2, "cost": 250, "cooldown": 10000, "hp": 300, "atk": 78,  "range": 260, "spd": 1.0, "attackInterval": 2400, "attackType": "area" },
+      { "form": "mid",  "attack": 5, "defense": 3, "speed": 3, "cost": 330, "cooldown": 11500, "hp": 420, "atk": 113, "range": 300, "spd": 1.1, "attackInterval": 2200, "attackType": "area" },
+      { "form": "max",  "attack": 8, "defense": 4, "speed": 4, "cost": 430, "cooldown": 13500, "hp": 680, "atk": 155, "range": 360, "spd": 1.3, "attackInterval": 2100, "attackType": "area" }
     ]
   },
   {
@@ -131,9 +131,9 @@
     "role": "遠程火攻",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 200, "atk": 80,  "range": 280, "spd": 8,  "cost": 120, "cooldown": 10000, "attackInterval": 2800, "attackType": "area" },
-      { "form": "mid",  "hp": 320, "atk": 120, "range": 320, "spd": 8,  "cost": 160, "cooldown": 11000, "attackInterval": 2500, "attackType": "area" },
-      { "form": "max",  "hp": 520, "atk": 200, "range": 400, "spd": 10, "cost": 210, "cooldown": 13000, "attackInterval": 2200, "attackType": "area" }
+      { "form": "base", "attack": 6, "defense": 3, "speed": 3, "cost": 200, "cooldown": 10000, "hp": 280, "atk": 70,  "range": 280, "spd": 8,  "attackInterval": 2200, "attackType": "area" },
+      { "form": "mid",  "attack": 7, "defense": 4, "speed": 4, "cost": 265, "cooldown": 11500, "hp": 390, "atk": 100, "range": 320, "spd": 8,  "attackInterval": 2000, "attackType": "area" },
+      { "form": "max",  "attack": 9, "defense": 5, "speed": 5, "cost": 350, "cooldown": 13500, "hp": 640, "atk": 130, "range": 400, "spd": 10, "attackInterval": 1900, "attackType": "area" }
     ],
     "specialAbility": {
       "mid": "火攻（攻擊時30%機率使敵人持續扣血3秒）",
@@ -151,9 +151,9 @@
     "role": "迷惑控制",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 180, "atk": 40,  "range": 180, "spd": 14, "cost": 100, "cooldown": 9000,  "attackInterval": 2000, "attackType": "single" },
-      { "form": "mid",  "hp": 280, "atk": 65,  "range": 200, "spd": 15, "cost": 140, "cooldown": 10000, "attackInterval": 1800, "attackType": "single" },
-      { "form": "max",  "hp": 450, "atk": 110, "range": 240, "spd": 17, "cost": 185, "cooldown": 12000, "attackInterval": 1600, "attackType": "area"   }
+      { "form": "base", "attack": 3, "defense": 2, "speed": 5, "cost": 180, "cooldown": 9500,  "hp": 215, "atk": 47,  "range": 180, "spd": 14, "attackInterval": 2000, "attackType": "single" },
+      { "form": "mid",  "attack": 4, "defense": 3, "speed": 6, "cost": 240, "cooldown": 11000, "hp": 300, "atk": 68,  "range": 200, "spd": 15, "attackInterval": 1800, "attackType": "single" },
+      { "form": "max",  "attack": 6, "defense": 4, "speed": 7, "cost": 315, "cooldown": 13000, "hp": 480, "atk": 105, "range": 240, "spd": 17, "attackInterval": 1700, "attackType": "area"   }
     ],
     "specialAbility": {
       "mid": "迷惑（攻擊時25%機率使敵人停止移動2秒）",
@@ -171,9 +171,9 @@
     "role": "遠程速攻",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 170, "atk": 70,  "range": 320, "spd": 16, "cost": 110, "cooldown": 8000,  "attackInterval": 1800, "attackType": "single" },
-      { "form": "mid",  "hp": 270, "atk": 110, "range": 360, "spd": 17, "cost": 150, "cooldown": 9000,  "attackInterval": 1600, "attackType": "single" },
-      { "form": "max",  "hp": 440, "atk": 180, "range": 420, "spd": 20, "cost": 195, "cooldown": 11000, "attackInterval": 1400, "attackType": "area"   }
+      { "form": "base", "attack": 6, "defense": 2, "speed": 6, "cost": 170, "cooldown": 8500,  "hp": 255, "atk": 60,  "range": 320, "spd": 16, "attackInterval": 1600, "attackType": "single" },
+      { "form": "mid",  "attack": 7, "defense": 3, "speed": 7, "cost": 230, "cooldown": 10000, "hp": 355, "atk": 87,  "range": 360, "spd": 17, "attackInterval": 1450, "attackType": "single" },
+      { "form": "max",  "attack": 9, "defense": 4, "speed": 8, "cost": 300, "cooldown": 12000, "hp": 580, "atk": 105, "range": 420, "spd": 20, "attackInterval": 1450, "attackType": "area"   }
     ],
     "specialAbility": {
       "mid": "連矢（攻擊時35%機率連射第二箭，造成50%額外傷害）",
@@ -190,9 +190,9 @@
     "role": "江東霸主",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 320, "atk": 70,  "range": 200, "spd": 1.2, "cost": 150, "cooldown": 10000, "attackInterval": 2200, "attackType": "area" },
-      { "form": "mid",  "hp": 500, "atk": 110, "range": 230, "spd": 1.3, "cost": 195, "cooldown": 11000, "attackInterval": 2000, "attackType": "area" },
-      { "form": "max",  "hp": 820, "atk": 180, "range": 280, "spd": 1.5, "cost": 250, "cooldown": 13000, "attackInterval": 1800, "attackType": "area" }
+      { "form": "base", "attack": 6, "defense": 5, "speed": 3, "cost": 210, "cooldown": 11000, "hp": 420, "atk": 79,  "range": 200, "spd": 1.2, "attackInterval": 2200, "attackType": "area" },
+      { "form": "mid",  "attack": 7, "defense": 6, "speed": 4, "cost": 280, "cooldown": 12500, "hp": 580, "atk": 115, "range": 230, "spd": 1.3, "attackInterval": 2000, "attackType": "area" },
+      { "form": "max",  "attack": 9, "defense": 7, "speed": 5, "cost": 360, "cooldown": 14500, "hp": 900, "atk": 148, "range": 280, "spd": 1.5, "attackInterval": 1900, "attackType": "area" }
     ]
   },
   {
@@ -202,9 +202,9 @@
     "role": "霸道統帥",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 350, "atk": 80,  "range": 160, "spd": 1.3, "cost": 160, "cooldown": 11000, "attackInterval": 2000, "attackType": "area" },
-      { "form": "mid",  "hp": 550, "atk": 125, "range": 180, "spd": 1.4, "cost": 210, "cooldown": 12000, "attackInterval": 1800, "attackType": "area" },
-      { "form": "max",  "hp": 900, "atk": 210, "range": 200, "spd": 1.6, "cost": 270, "cooldown": 14000, "attackInterval": 1600, "attackType": "area" }
+      { "form": "base", "attack": 7, "defense": 5, "speed": 3, "cost": 230, "cooldown": 11500, "hp": 460, "atk": 79,  "range": 160, "spd": 1.3, "attackInterval": 1900, "attackType": "area" },
+      { "form": "mid",  "attack": 8, "defense": 6, "speed": 4, "cost": 305, "cooldown": 13000, "hp": 640, "atk": 115, "range": 180, "spd": 1.4, "attackInterval": 1750, "attackType": "area" },
+      { "form": "max",  "attack": 9, "defense": 8, "speed": 5, "cost": 350, "cooldown": 15000, "hp": 900, "atk": 128, "range": 200, "spd": 1.6, "attackInterval": 1700, "attackType": "area" }
     ]
   },
   {
@@ -214,9 +214,9 @@
     "role": "無雙武將",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 400, "atk": 100, "range": 130, "spd": 1.4, "cost": 170, "cooldown": 12000, "attackInterval": 1800, "attackType": "single" },
-      { "form": "mid",  "hp": 630, "atk": 160, "range": 140, "spd": 1.5, "cost": 220, "cooldown": 13000, "attackInterval": 1600, "attackType": "single" },
-      { "form": "max",  "hp": 1000,"atk": 260, "range": 160, "spd": 1.8, "cost": 280, "cooldown": 15000, "attackInterval": 1400, "attackType": "area"  }
+      { "form": "base", "attack": 8, "defense": 5, "speed": 4, "cost": 250, "cooldown": 12500, "hp": 500,  "atk": 100, "range": 130, "spd": 1.4, "attackInterval": 1800, "attackType": "single" },
+      { "form": "mid",  "attack": 9, "defense": 6, "speed": 5, "cost": 330, "cooldown": 14000, "hp": 700,  "atk": 148, "range": 140, "spd": 1.5, "attackInterval": 1650, "attackType": "single" },
+      { "form": "max",  "attack": 10,"defense": 7, "speed": 6, "cost": 380, "cooldown": 16000, "hp": 960,  "atk": 130, "range": 160, "spd": 1.8, "attackInterval": 1600, "attackType": "area"  }
     ]
   },
   {
@@ -226,9 +226,9 @@
     "role": "鐵血暴君",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 380, "atk": 85,  "range": 140, "spd": 1.1, "cost": 155, "cooldown": 11000, "attackInterval": 2200, "attackType": "area" },
-      { "form": "mid",  "hp": 600, "atk": 135, "range": 155, "spd": 1.2, "cost": 200, "cooldown": 12000, "attackInterval": 2000, "attackType": "area" },
-      { "form": "max",  "hp": 960, "atk": 225, "range": 170, "spd": 1.4, "cost": 260, "cooldown": 14000, "attackInterval": 1800, "attackType": "area" }
+      { "form": "base", "attack": 7, "defense": 6, "speed": 2, "cost": 220, "cooldown": 11000, "hp": 485, "atk": 79,  "range": 140, "spd": 1.1, "attackInterval": 2000, "attackType": "area" },
+      { "form": "mid",  "attack": 8, "defense": 7, "speed": 3, "cost": 290, "cooldown": 12500, "hp": 680, "atk": 115, "range": 155, "spd": 1.2, "attackInterval": 1850, "attackType": "area" },
+      { "form": "max",  "attack": 9, "defense": 8, "speed": 3, "cost": 355, "cooldown": 14500, "hp": 1000,"atk": 140, "range": 170, "spd": 1.4, "attackInterval": 1750, "attackType": "area" }
     ]
   },
   {
@@ -239,9 +239,9 @@
     "role": "機關輸出",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 150, "atk": 50,  "range": 240, "spd": 7, "cost": 150, "cooldown": 14000, "attackInterval": 2500, "attackType": "area" },
-      { "form": "mid",  "hp": 240, "atk": 80,  "range": 260, "spd": 8, "cost": 200, "cooldown": 15000, "attackInterval": 2200, "attackType": "area" },
-      { "form": "max",  "hp": 380, "atk": 130, "range": 300, "spd": 9, "cost": 260, "cooldown": 17000, "attackInterval": 1800, "attackType": "area" }
+      { "form": "base", "attack": 5, "defense": 2, "speed": 2, "cost": 280, "cooldown": 14000, "hp": 252, "atk": 77,  "range": 240, "spd": 7, "attackInterval": 2500, "attackType": "area" },
+      { "form": "mid",  "attack": 6, "defense": 3, "speed": 3, "cost": 365, "cooldown": 15500, "hp": 355, "atk": 112, "range": 260, "spd": 8, "attackInterval": 2300, "attackType": "area" },
+      { "form": "max",  "attack": 8, "defense": 4, "speed": 4, "cost": 390, "cooldown": 17500, "hp": 540, "atk": 148, "range": 300, "spd": 9, "attackInterval": 2100, "attackType": "area" }
     ],
     "specialAbility": {
       "mid": "木牛流馬（攻擊時30%機率造成額外50%範圍傷害）",
@@ -259,9 +259,9 @@
     "role": "反制削弱",
     "unlockStage": null,
     "forms": [
-      { "form": "base", "hp": 300, "atk": 60,  "range": 220, "spd": 9,  "cost": 160, "cooldown": 15000, "attackInterval": 2500, "attackType": "area" },
-      { "form": "mid",  "hp": 480, "atk": 95,  "range": 250, "spd": 10, "cost": 210, "cooldown": 16000, "attackInterval": 2200, "attackType": "area" },
-      { "form": "max",  "hp": 780, "atk": 155, "range": 300, "spd": 11, "cost": 270, "cooldown": 18000, "attackInterval": 2000, "attackType": "area" }
+      { "form": "base", "attack": 5, "defense": 4, "speed": 3, "cost": 300, "cooldown": 15000, "hp": 390, "atk": 86,  "range": 220, "spd": 9,  "attackInterval": 2400, "attackType": "area" },
+      { "form": "mid",  "attack": 6, "defense": 5, "speed": 4, "cost": 395, "cooldown": 16500, "hp": 545, "atk": 125, "range": 250, "spd": 10, "attackInterval": 2200, "attackType": "area" },
+      { "form": "max",  "attack": 8, "defense": 6, "speed": 5, "cost": 420, "cooldown": 18500, "hp": 800, "atk": 156, "range": 300, "spd": 11, "attackInterval": 2000, "attackType": "area" }
     ],
     "specialAbility": {
       "mid": "忍耐（受到攻擊時20%機率完全無視該次傷害）",

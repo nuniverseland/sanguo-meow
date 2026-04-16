@@ -25,8 +25,8 @@
     "perLevel": 1000
   },
   "levelUp": {
-    "hpRate": 0.10,
-    "atkRate": 0.08,
+    "hpRate": 0.15,
+    "atkRate": 0.15,
     "branchAttack": 0.15,
     "branchDefense": 0.20,
     "branchSpeed": 0.15
