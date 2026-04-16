@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>隊伍編成 — 三國喵喵</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/setup-team.css">
+</head>
+<body class="setup-team-page">
+
+  <header class="st-header">
+    <button id="btn-back" class="btn-ghost">← 返回</button>
+    <h1 class="st-title">隊伍編成</h1>
+    <span class="st-count" id="team-count-label">0 / 6</span>
+  </header>
+
+  <main class="st-main">
+
+    <section class="st-section">
+      <h2 class="st-section-title">出戰隊伍</h2>
+      <div class="team-grid" id="team-grid"></div>
+    </section>
+
+    <section class="st-section">
+      <h2 class="st-section-title">可選英雄</h2>
+      <div class="hero-pool" id="hero-pool"></div>
+    </section>
+
+  </main>
+
+  <footer class="st-footer">
+    <button id="btn-confirm" class="btn-primary btn-confirm">確認出戰 ⚔️</button>
+  </footer>
+
+  <script type="module" src="js/setup-team.js"></script>
+</body>
+</html>

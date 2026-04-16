@@ -1,5 +1,5 @@
 // game-engine.js — Core game loop
-import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat } from './firebase.js';
+import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat, loadCurrentTeam } from './firebase.js';
 import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
 import { loadQuestions, nextQuestion, checkAnswer, questionText } from './question.js';
@@ -115,16 +115,17 @@ async function init() {
     document.getElementById('btn-retry').addEventListener('click', () => location.reload());
     document.getElementById('btn-result-back').addEventListener('click', () => { location.href = 'index.html'; });
 
-    // 初始英雄（大耳喵、小兵喵）不需要抽卡
+    // 初始英雄（大耳喵、小兵喵）不需要抽卡，作為預設隊伍備用
     const INITIAL_HEROES = new Set(['liubei', 'soldier']);
 
     const userId = getUserId();
-    const [stages, heroes, enemies, config, ownedMap] = await Promise.all([
+    const [stages, heroes, enemies, config, ownedMap, savedTeam] = await Promise.all([
       fetch('data/stages.json').then(r => r.json()),
       fetch('data/heroes.json').then(r => r.json()),
       fetch('data/enemies.json').then(r => r.json()),
       fetch('data/config.json').then(r => r.json()),
       userId ? loadOwnedHeroes(userId).catch(() => ({})) : Promise.resolve({}),
+      userId ? loadCurrentTeam(userId).catch(() => null) : Promise.resolve(null),
       loadQuestions(),
       loadDialogs()
     ]);
@@ -164,10 +165,15 @@ async function init() {
       .filter(e => e.time !== undefined)
       .sort((a, b) => a.time - b.time);
 
-    // 只顯示初始英雄 + 已抽到的英雄
-    const availableHeroes = heroes.filter(h =>
-      INITIAL_HEROES.has(h.id) || !!ownedMap[h.id]
-    );
+    // 讀取隊伍編成：sessionStorage（由 setup-team 設定）→ Firebase → 預設
+    const DEFAULT_TEAM = ['liubei', 'soldier'];
+    let teamIds = JSON.parse(sessionStorage.getItem('currentTeam') || 'null');
+    if (!teamIds) teamIds = savedTeam;
+    if (!teamIds || teamIds.length === 0) teamIds = DEFAULT_TEAM;
+
+    const availableHeroes = teamIds
+      .map(id => heroes.find(h => h.id === id))
+      .filter(Boolean);
     buildSummonPanel(availableHeroes);
 
     // Setup math answer buttons
@@ -213,26 +219,24 @@ function buildSummonPanel(heroes) {
   const panel = el.summonPanel();
   panel.innerHTML = '';
   heroes.forEach(h => {
-    const form = h.forms[0]; // always show current form (simplified for Phase 1)
+    const form = h.forms[0];
     const btn  = document.createElement('button');
     btn.className    = 'hero-btn';
     btn.dataset.heroId = h.id;
     btn.innerHTML = `
       <div class="hero-btn-avatar">
         <img src="assets/heroes/hero_${h.id}_base.png"
-             onerror="this.outerHTML='<span>${require_emoji(h.id)}</span>'"
-             width="40" height="40" alt="${h.nameLine[0]}">
+             onerror="this.style.display='none'"
+             width="52" height="52" alt="${h.nameLine[0]}">
+        <div class="hero-cd-overlay" id="cd_${h.id}"></div>
       </div>
-      <div class="hero-btn-info">
-        <div class="hero-btn-name">${h.nameLine[0]}</div>
-        <div class="hero-btn-cost">💰 ${form.cost}</div>
-      </div>
-      <div class="cooldown-bar-bg"><div class="cooldown-bar-fill" id="cd_${h.id}"></div></div>
+      <div class="hero-btn-name">${h.nameLine[0]}</div>
+      <div class="hero-btn-cost">💰${form.cost}</div>
     `;
     btn.addEventListener('click', () => summonHero(h.id));
     panel.appendChild(btn);
-    state.cooldowns[h.id]  = 0;
-    state.heroCount[h.id]  = 0;
+    state.cooldowns[h.id] = 0;
+    state.heroCount[h.id] = 0;
   });
 }
 
@@ -681,18 +685,25 @@ function updateUI() {
   if (pText) pText.textContent = `🏯 ${state.playerBaseHp} / ${state.playerBaseHpMax}`;
   if (eText) eText.textContent = `🗼 ${state.enemyBaseHp}  / ${state.enemyBaseHpMax}`;
 
-  // Cooldown bars
+  // Cooldown overlays + visual states
   const now = Date.now();
   state.heroesData.forEach(h => {
-    const fill = document.getElementById(`cd_${h.id}`);
-    if (!fill) return;
+    const overlay = document.getElementById(`cd_${h.id}`);
+    if (!overlay) return;
     const ready = state.cooldowns[h.id] || 0;
     const cd    = h.forms[0].cooldown;
-    const pct   = ready <= now ? 100 : Math.round((1 - (ready - now) / cd) * 100);
-    fill.style.width = `${pct}%`;
+    const cdPct = ready <= now ? 0 : Math.round(((ready - now) / cd) * 100);
+    overlay.style.setProperty('--cd-pct', `${cdPct}%`);
 
     const btn = document.querySelector(`[data-hero-id="${h.id}"]`);
-    if (btn) btn.disabled = (state.gold < h.forms[0].cost || now < ready || state.heroCount[h.id] >= state.MAX_HERO_COUNT);
+    if (!btn) return;
+    const onCooldown     = now < ready;
+    const notEnoughGold  = state.gold < h.forms[0].cost;
+    const maxed          = state.heroCount[h.id] >= state.MAX_HERO_COUNT;
+    btn.disabled = onCooldown || notEnoughGold || maxed;
+    btn.classList.toggle('hero-btn--cooldown', onCooldown && !maxed);
+    btn.classList.toggle('hero-btn--broke',    !onCooldown && notEnoughGold && !maxed);
+    btn.classList.toggle('hero-btn--ready',    !onCooldown && !notEnoughGold && !maxed);
   });
 }
 

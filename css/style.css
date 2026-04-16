@@ -556,57 +556,73 @@ img { display: block; }
 .answer-feedback.correct { color: var(--green); }
 .answer-feedback.wrong   { color: var(--red); }
 
-/* Summon Panel */
+/* Summon Panel — 3×2 grid */
 .summon-panel {
   width: 42%;
   max-width: 340px;
   background: var(--bg-panel);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-content: start;
   gap: 6px;
-  padding: 10px 8px;
+  padding: 8px;
   overflow-y: auto;
 }
 
 .hero-btn {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   background: rgba(255,255,255,.06);
   border: 2px solid var(--border);
   border-radius: var(--radius);
-  padding: 6px 10px;
+  padding: 8px 4px 6px;
   cursor: pointer;
-  transition: border-color .12s, background .12s;
   position: relative;
+  transition: border-color .12s, background .12s, box-shadow .3s;
 }
-.hero-btn:hover:not(:disabled)  { border-color: var(--gold); background: rgba(245,200,66,.12); }
-.hero-btn:disabled { opacity: .45; cursor: not-allowed; }
+.hero-btn:hover:not(:disabled) { border-color: var(--gold); background: rgba(245,200,66,.12); }
+.hero-btn:disabled { cursor: not-allowed; }
 
-.hero-btn-avatar { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+/* Avatar with circular cooldown overlay */
+.hero-btn-avatar {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
 .hero-btn-avatar img {
-  width: 40px; height: 40px;
+  width: 52px; height: 52px;
   image-rendering: pixelated;
   object-fit: contain;
 }
-.hero-btn-info { flex: 1; text-align: left; }
-.hero-btn-name { font-size: .85rem; font-weight: bold; }
-.hero-btn-cost { font-size: .75rem; color: var(--gold); }
-
-.cooldown-bar-bg {
+.hero-cd-overlay {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: #333;
-  border-radius: 0 0 var(--radius) var(--radius);
-  overflow: hidden;
+  inset: 0;
+  background: conic-gradient(rgba(0,0,0,.65) var(--cd-pct, 0%), transparent var(--cd-pct, 0%));
+  pointer-events: none;
+  opacity: 0;
 }
-.cooldown-bar-fill {
-  height: 100%;
-  background: var(--blue);
-  width: 0%;
-  transition: width .1s linear;
+
+.hero-btn-name { font-size: .68rem; font-weight: bold; text-align: center; line-height: 1.2; }
+.hero-btn-cost { font-size: .68rem; color: var(--gold); }
+
+/* ── Visual States ─────────────────────────────────────────────────────── */
+@keyframes hero-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,200,66,.5); }
+  50%       { box-shadow: 0 0 0 5px rgba(245,200,66,0); }
 }
+.hero-btn--ready {
+  border-color: var(--gold);
+  animation: hero-pulse 1.8s infinite;
+}
+.hero-btn--cooldown .hero-cd-overlay { opacity: 1; }
+.hero-btn--cooldown { border-color: var(--border); }
+.hero-btn--broke { opacity: .55; }
+.hero-btn--broke .hero-btn-cost { color: var(--red); }
 
 /* ============================================
    RPG Dialog Overlay
@@ -831,6 +847,5 @@ img { display: block; }
    ============================================ */
 @media (max-width: 767px) {
   .bottom-panel { flex-direction: column; }
-  .summon-panel { width: 100%; max-width: 100%; flex-direction: row; flex-wrap: wrap; height: 40%; }
-  .hero-btn { width: calc(50% - 6px); }
+  .summon-panel { width: 100%; max-width: 100%; height: 40%; }
 }

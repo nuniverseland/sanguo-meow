@@ -148,6 +148,18 @@ export async function loadOwnedHeroes(userId) {
   return map;
 }
 
+// ── Current Team ─────────────────────────────────────────────────────────────
+export async function loadCurrentTeam(userId) {
+  if (!userId) return null;
+  const snap = await getDoc(doc(db, 'sanguo_users', userId));
+  return snap.exists() ? (snap.data().currentTeam || null) : null;
+}
+
+export async function saveCurrentTeam(userId, team) {
+  if (!userId) return;
+  await updateDoc(doc(db, 'sanguo_users', userId), { currentTeam: team });
+}
+
 // ── Scrolls ───────────────────────────────────────────────────────────────────
 export async function loadUserScrolls(userId) {
   const ref  = doc(db, 'sanguo_users', userId);
