@@ -109,7 +109,7 @@ async function enterGame(userId) {
 
   // 背景設在 world-map（讓 tabs 有獨立背景不被蓋掉）
   document.getElementById('world-map').style.cssText +=
-    ';background:url("assets/backgrounds/bg_main.jpg") center 20% / cover no-repeat;';
+    ';background:url("assets/backgrounds/bg_main.jpg?v=2") center 20% / cover no-repeat;';
 
   buildChapterTabs();
   buildCountryTabs(currentChapter);
