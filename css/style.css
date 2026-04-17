@@ -266,7 +266,7 @@ img { display: block; }
 .stage-card .stage-num   { display: none; }
 .stage-card .stage-country {
   position: absolute;
-  top: 8%;
+  top: 11.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 55%;
@@ -283,7 +283,7 @@ img { display: block; }
 /* 底部標題橫匾：關卡名稱 */
 .stage-card .stage-title {
   position: absolute;
-  bottom: 20%;
+  bottom: 17%;
   left: 9%;
   right: 22%;
   text-align: center;
@@ -294,7 +294,7 @@ img { display: block; }
   text-shadow: 0 2px 4px rgba(0,0,0,0.95), 0 0 6px rgba(0,0,0,0.6);
 }
 .stage-card.boss .stage-title {
-  bottom: 19%;
+  bottom: 16%;
   color: #fff;
 }
 
