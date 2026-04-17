@@ -249,10 +249,11 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
 
     const card = document.createElement('div');
     card.className = `stage-card${unlocked ? '' : ' locked'}${isBoss ? ' boss' : ''}`;
+    const countryName = (stage.country || '').toUpperCase();
     card.innerHTML = `
       ${enemyImg}
+      ${!isBoss ? `<div class="stage-country">${countryName}</div>` : ''}
       <div class="stage-title">${stage.name}</div>
-      <div class="stage-story">${stage.storyText}</div>
       ${cleared   ? `<div class="stage-cleared">✅</div>` : ''}
       ${!unlocked ? `<div class="stage-lock">🔒 先完成上一關</div>` : ''}
     `;
