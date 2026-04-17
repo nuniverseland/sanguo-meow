@@ -321,8 +321,14 @@ function spawnEnemies(enemyId, count) {
   const eData = state.enemiesData.find(e => e.id === enemyId);
   if (!eData) return;
   if (eData.type === 'boss') sfxBossAppear();
+  const mult = state.stageData.enemyMultiplier ?? 1;
+  const scaledData = mult === 1 ? eData : {
+    ...eData,
+    hp:  Math.round(eData.hp  * mult),
+    atk: Math.round(eData.atk * mult)
+  };
   for (let i = 0; i < count; i++) {
-    const enemy  = new Enemy(eData, {});
+    const enemy  = new Enemy(scaledData, {});
     enemy.x      = state.enemyBaseX - 90 - i * 110;
     const eEl    = enemy.createElement();
     el.units().appendChild(eEl);

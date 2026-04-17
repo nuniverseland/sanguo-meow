@@ -45,7 +45,7 @@
     "country": "taiwan",
     "chapterName": "台灣篇",
     "type": "boss",
-    "hp": 2000,
+    "hp": 3000,
     "atk": 80,
     "speed": 0.5,
     "range": 120,
