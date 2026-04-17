@@ -228,43 +228,109 @@ img { display: block; }
   padding: 16px 24px;
 }
 
-/* 每張卡片：半透明深色背景，三國風 */
+/* 每張卡片：使用插畫背景框 */
 .stage-card {
   position: relative;
-  width: 20%;
-  min-height: 280px;
-  background: rgba(26, 14, 4, 0.52);
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(245,200,66,0.1);
-  padding: 20px 16px;
+  width: 22%;
+  aspect-ratio: 23 / 30;
+  background: url('../assets/backgrounds/stage_card_asia_normal.png?v=1') center/100% 100% no-repeat;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-  transition: transform .15s, box-shadow .15s;
-  backdrop-filter: blur(3px);
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6));
+  transition: transform .15s, filter .15s;
+}
+.stage-card.boss {
+  background-image: url('../assets/backgrounds/stage_card_asia_boss.png?v=1');
 }
 
-.stage-card:hover:not(.locked)   { transform: translateY(-6px); box-shadow: 0 8px 32px rgba(0,0,0,0.75), 0 0 14px rgba(245,200,66,0.25); }
-.stage-card.locked                { opacity: .45; cursor: not-allowed; }
+.stage-card:hover:not(.locked)   { transform: translateY(-6px); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7)) drop-shadow(0 0 10px rgba(245,200,66,0.35)); }
+.stage-card.locked                { opacity: .55; cursor: not-allowed; filter: grayscale(0.5) drop-shadow(0 4px 10px rgba(0,0,0,0.5)); }
 .stage-card.locked:hover          { transform: none; }
 
+/* 敵人圖：置中於中間景色區 */
 .stage-card .stage-enemy-img {
-  width: 200px;
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62%;
+  max-height: 46%;
   height: auto;
-  max-height: 200px;
   object-fit: contain;
   image-rendering: pixelated;
-  margin-bottom: 4px;
 }
-.stage-card .stage-num     { font-size: .88rem;  color: var(--text-dim); font-weight: 600; }
-.stage-card .stage-title   { font-size: 1.35rem; color: var(--gold);     font-weight: bold; text-align: center; line-height: 1.4; }
-.stage-card .stage-story   { font-size: .95rem;  color: var(--text-dim); text-align: center; line-height: 1.6; }
-.stage-card .stage-cleared { font-size: .85rem;  color: var(--green);    margin-top: 8px; }
-.stage-card .stage-lock    { font-size: .88rem;  color: var(--text-dim); margin-top: 8px; }
+.stage-card.boss .stage-enemy-img { top: 27%; }
+
+/* 頂部標題橫匾 */
+.stage-card .stage-num   { display: none; }
+.stage-card .stage-title {
+  position: absolute;
+  top: 7.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff8e8;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.85);
+}
+.stage-card.boss .stage-title {
+  top: 9%;
+  width: 58%;
+  font-size: 0.95rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+/* 底部故事橫匾 */
+.stage-card .stage-story {
+  position: absolute;
+  bottom: 11%;
+  left: 10%;
+  right: 22%;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #fff8e8;
+  line-height: 1.45;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+  max-height: 14%;
+  overflow: hidden;
+}
+.stage-card.boss .stage-story { color: #f5e8c8; }
+
+/* 右下徽章：通關打勾 */
+.stage-card .stage-cleared {
+  position: absolute;
+  bottom: 5.5%;
+  right: 5%;
+  width: 16%;
+  height: 16%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #7eff9e;
+  text-shadow: 0 0 6px #000, 0 0 3px #000;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* 鎖住提示 */
+.stage-card .stage-lock {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.95rem;
+  color: #fff;
+  background: rgba(0,0,0,0.7);
+  padding: 6px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
 
 /* ============================================
    Game Page Layout

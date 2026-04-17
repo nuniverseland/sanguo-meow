@@ -242,18 +242,18 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
     const unlocked = !stage.unlockRequire || progress[stage.unlockRequire]?.completed;
     const cleared  = progress[stage.id]?.completed;
     const repEnemy = getStageRepEnemy(stage);
+    const isBoss   = repEnemy?.type === 'boss';
     const enemyImg = repEnemy
       ? `<img class="stage-enemy-img" src="${repEnemy.imgWalk}" alt="${repEnemy.name}" onerror="this.style.display='none'">`
       : '';
 
     const card = document.createElement('div');
-    card.className = `stage-card${unlocked ? '' : ' locked'}`;
+    card.className = `stage-card${unlocked ? '' : ' locked'}${isBoss ? ' boss' : ''}`;
     card.innerHTML = `
       ${enemyImg}
-      <div class="stage-num">${stage.chapterName}</div>
       <div class="stage-title">${stage.name}</div>
       <div class="stage-story">${stage.storyText}</div>
-      ${cleared   ? `<div class="stage-cleared">✅ 最高分：${progress[stage.id].bestScore}</div>` : ''}
+      ${cleared   ? `<div class="stage-cleared">✅</div>` : ''}
       ${!unlocked ? `<div class="stage-lock">🔒 先完成上一關</div>` : ''}
     `;
 
