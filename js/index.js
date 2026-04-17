@@ -24,6 +24,7 @@ const COUNTRY_LABELS = {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let stagesData     = null;
+let enemiesData    = null;
 let progress       = {};
 let userData       = null;
 let currentChapter = 'asia';
@@ -69,14 +70,16 @@ async function onLogin() {
 
 async function enterGame(userId) {
   try {
-    const [stages, prog, user] = await Promise.all([
+    const [stages, enemies, prog, user] = await Promise.all([
       fetch('data/stages.json').then(r => r.json()),
+      fetch('data/enemies.json').then(r => r.json()),
       getProgress(userId).catch(() => ({})),
       loadUserScrolls(userId).catch(() => ({}))
     ]);
-    stagesData = stages;
-    progress   = prog;
-    userData   = { ...(userData || {}), ...user };
+    stagesData  = stages;
+    enemiesData = enemies;
+    progress    = prog;
+    userData    = { ...(userData || {}), ...user };
   } catch (e) {
     stagesData = stagesData || [];
     progress   = {};
@@ -220,6 +223,13 @@ function switchCountry(country) {
   }, 250);
 }
 
+function getStageRepEnemy(stage) {
+  const schedule = stage.spawnSchedule || [];
+  const bossEntry = schedule.find(e => enemiesData?.find(en => en.id === e.enemy && en.type === 'boss'));
+  const entry     = bossEntry || schedule[schedule.length - 1];
+  return enemiesData?.find(en => en.id === entry?.enemy);
+}
+
 function renderStages(chapter = currentChapter, country = currentCountry) {
   const list     = document.getElementById('stage-list');
   list.innerHTML = '';
@@ -231,10 +241,15 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
   filtered.forEach(stage => {
     const unlocked = !stage.unlockRequire || progress[stage.unlockRequire]?.completed;
     const cleared  = progress[stage.id]?.completed;
+    const repEnemy = getStageRepEnemy(stage);
+    const enemyImg = repEnemy
+      ? `<img class="stage-enemy-img" src="${repEnemy.imgWalk}" alt="${repEnemy.name}" onerror="this.style.display='none'">`
+      : '';
 
     const card = document.createElement('div');
     card.className = `stage-card${unlocked ? '' : ' locked'}`;
     card.innerHTML = `
+      ${enemyImg}
       <div class="stage-num">${stage.chapterName}</div>
       <div class="stage-title">${stage.name}</div>
       <div class="stage-story">${stage.storyText}</div>

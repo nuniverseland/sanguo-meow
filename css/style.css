@@ -233,10 +233,10 @@ img { display: block; }
   position: relative;
   width: 26%;
   min-height: 220px;
-  background: rgba(26, 14, 4, 0.78);
+  background: rgba(26, 14, 4, 0.52);
   border: 2px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.7), inset 0 1px 0 rgba(245,200,66,0.1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(245,200,66,0.1);
   padding: 20px 16px;
   cursor: pointer;
   display: flex;
@@ -245,18 +245,25 @@ img { display: block; }
   justify-content: flex-start;
   gap: 8px;
   transition: transform .15s, box-shadow .15s;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 }
 
-.stage-card:hover:not(.locked)   { transform: translateY(-6px); box-shadow: 0 8px 32px rgba(0,0,0,0.8), 0 0 12px rgba(245,200,66,0.2); }
-.stage-card.locked                { opacity: .5; cursor: not-allowed; }
+.stage-card:hover:not(.locked)   { transform: translateY(-6px); box-shadow: 0 8px 32px rgba(0,0,0,0.75), 0 0 14px rgba(245,200,66,0.25); }
+.stage-card.locked                { opacity: .45; cursor: not-allowed; }
 .stage-card.locked:hover          { transform: none; }
 
-.stage-card .stage-num     { font-size: .85rem;  color: var(--text-dim); font-weight: 600; }
-.stage-card .stage-title   { font-size: 1.15rem; color: var(--gold);     font-weight: bold; text-align: center; line-height: 1.4; }
-.stage-card .stage-story   { font-size: .82rem;  color: var(--text-dim); text-align: center; line-height: 1.6; }
-.stage-card .stage-cleared { font-size: .8rem;   color: var(--green);    margin-top: 8px; }
-.stage-card .stage-lock    { font-size: .82rem;  color: var(--text-dim); margin-top: 8px; }
+.stage-card .stage-enemy-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-bottom: 4px;
+}
+.stage-card .stage-num     { font-size: .88rem;  color: var(--text-dim); font-weight: 600; }
+.stage-card .stage-title   { font-size: 1.35rem; color: var(--gold);     font-weight: bold; text-align: center; line-height: 1.4; }
+.stage-card .stage-story   { font-size: .95rem;  color: var(--text-dim); text-align: center; line-height: 1.6; }
+.stage-card .stage-cleared { font-size: .85rem;  color: var(--green);    margin-top: 8px; }
+.stage-card .stage-lock    { font-size: .88rem;  color: var(--text-dim); margin-top: 8px; }
 
 /* ============================================
    Game Page Layout
