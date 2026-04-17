@@ -231,8 +231,8 @@ img { display: block; }
 /* 每張卡片：半透明深色背景，三國風 */
 .stage-card {
   position: relative;
-  width: 22%;
-  min-height: 240px;
+  width: 20%;
+  min-height: 280px;
   background: rgba(26, 14, 4, 0.52);
   border: 2px solid var(--border);
   border-radius: 12px;
@@ -253,8 +253,8 @@ img { display: block; }
 .stage-card.locked:hover          { transform: none; }
 
 .stage-card .stage-enemy-img {
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   image-rendering: pixelated;
   margin-bottom: 4px;
