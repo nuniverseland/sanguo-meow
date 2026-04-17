@@ -254,7 +254,6 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
       ${enemyImg}
       ${!isBoss ? `<div class="stage-country">${countryName}</div>` : ''}
       <div class="stage-title">${stage.name}</div>
-      ${cleared   ? `<div class="stage-cleared">✅</div>` : ''}
       ${!unlocked ? `<div class="stage-lock">🔒 先完成上一關</div>` : ''}
     `;
 
