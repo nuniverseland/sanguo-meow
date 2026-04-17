@@ -216,43 +216,47 @@ img { display: block; }
   background-color: #1a0d00;
 }
 
-/* 卡片容器佔滿整個 world-map */
+/* 卡片容器：水平置中排列 */
 .stage-list {
   position: absolute;
   inset: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5%;
+  padding: 16px 24px;
 }
 
-/* 每張卡片絕對定位對齊 bg_main.jpg 的金色框 */
+/* 每張卡片：半透明深色背景，三國風 */
 .stage-card {
-  position: absolute;
-  top: 30%;
-  height: 48%;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  border-radius: 8px;
-  padding: 6% 5% 0;
+  position: relative;
+  width: 26%;
+  min-height: 220px;
+  background: rgba(26, 14, 4, 0.78);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.7), inset 0 1px 0 rgba(245,200,66,0.1);
+  padding: 20px 16px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 6px;
-  transition: transform .15s;
+  gap: 8px;
+  transition: transform .15s, box-shadow .15s;
+  backdrop-filter: blur(2px);
 }
-.stage-card:nth-child(1) { left: 11%; width: 18%; }
-.stage-card:nth-child(2) { left: 40%; width: 18%; }
-.stage-card:nth-child(3) { left: 71%; width: 18%; }
 
-.stage-card:hover:not(.locked)   { transform: translateY(-4px); }
-.stage-card.locked                { opacity: .6; cursor: not-allowed; }
+.stage-card:hover:not(.locked)   { transform: translateY(-6px); box-shadow: 0 8px 32px rgba(0,0,0,0.8), 0 0 12px rgba(245,200,66,0.2); }
+.stage-card.locked                { opacity: .5; cursor: not-allowed; }
 .stage-card.locked:hover          { transform: none; }
 
-.stage-card .stage-num     { font-size: .95rem;  color: #3a2000; font-weight: 600; }
-.stage-card .stage-title   { font-size: 1.25rem; color: #3a2000; font-weight: bold; text-align: center; line-height: 1.3; }
-.stage-card .stage-story   { font-size: .88rem;  color: #5a3510; text-align: center; line-height: 1.6; }
-.stage-card .stage-cleared { font-size: .82rem;  color: #1a6b30; margin-top: 10px; }
-.stage-card .stage-lock    { font-size: .88rem;  color: #3a2000; margin-top: 10px; }
+.stage-card .stage-num     { font-size: .85rem;  color: var(--text-dim); font-weight: 600; }
+.stage-card .stage-title   { font-size: 1.15rem; color: var(--gold);     font-weight: bold; text-align: center; line-height: 1.4; }
+.stage-card .stage-story   { font-size: .82rem;  color: var(--text-dim); text-align: center; line-height: 1.6; }
+.stage-card .stage-cleared { font-size: .8rem;   color: var(--green);    margin-top: 8px; }
+.stage-card .stage-lock    { font-size: .82rem;  color: var(--text-dim); margin-top: 8px; }
 
 /* ============================================
    Game Page Layout
