@@ -1,5 +1,5 @@
 // game-engine.js — Core game loop
-import { getUserId, addScore, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat, loadCurrentTeam } from './firebase.js';
+import { getUserId, addScore, getUserData, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat, loadCurrentTeam } from './firebase.js';
 import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
 import { loadQuestions, nextQuestion, checkAnswer, questionText } from './question.js';
@@ -725,6 +725,7 @@ async function endGame(win) {
 
   // Save to Firebase（失敗不影響遊戲結果顯示）
   const userId = getUserId();
+  let scrollReward = 0;
   if (userId && win) {
     try {
       const prevResult = await saveStageResult(userId, state.stageData.id, {
@@ -732,16 +733,19 @@ async function endGame(win) {
         dialogChoice: state.dialogChoice?.label || null
       });
       await addScore(userId, state.score);
+      const userData = await getUserData(userId);
       const parts = userId.split('_');
       const nick  = parts.slice(0, -1).join('_');
       await updateLeaderboard(userId, {
-        nickname: nick, totalScore: state.score, weeklyScore: state.score,
+        nickname: nick,
+        totalScore: userData?.totalScore ?? state.score,
+        weeklyScore: userData?.weeklyScore ?? state.score,
         farthestStage: state.stageData.id, farthestCountry: state.stageData.country,
         title: '初出茅廬'
       });
       // 卷軸獎勵：首次通關+3、重複通關+1、完美+1
       const isFirst = prevResult?.firstClear ?? false;
-      let scrollReward = isFirst ? 3 : 1;
+      scrollReward = isFirst ? 3 : 1;
       if (perfect) scrollReward += 1;
       await addScrolls(userId, scrollReward).catch(() => {});
     } catch (e) { console.warn('Firebase 存檔失敗', e); }
@@ -756,6 +760,7 @@ async function endGame(win) {
     時間：${elapsed} 秒<br>
     ${perfect ? '✨ 完美通關（不失血）<br>' : ''}
     ${win && elapsed < state.stageData.speedBonusTarget ? '⚡ 速通獎勵！<br>' : ''}
+    ${win && scrollReward > 0 ? `📜 獲得卷軸：+${scrollReward}<br>` : ''}
   `;
 
   if (win) {

@@ -62,6 +62,11 @@ export async function addScore(userId, delta) {
   });
 }
 
+export async function getUserData(userId) {
+  const snap = await getDoc(doc(db, 'sanguo_users', userId));
+  return snap.exists() ? snap.data() : null;
+}
+
 // ── Stage Progress ────────────────────────────────────────────────────────────
 export async function getProgress(userId) {
   const col  = collection(db, 'sanguo_users', userId, 'progress');
