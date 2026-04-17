@@ -266,7 +266,7 @@ img { display: block; }
 .stage-card .stage-num   { display: none; }
 .stage-card .stage-country {
   position: absolute;
-  top: 11.5%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 55%;
@@ -284,8 +284,8 @@ img { display: block; }
 .stage-card .stage-title {
   position: absolute;
   bottom: 17%;
-  left: 9%;
-  right: 22%;
+  left: 13%;
+  right: 20%;
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
@@ -294,7 +294,7 @@ img { display: block; }
   text-shadow: 0 2px 4px rgba(0,0,0,0.95), 0 0 6px rgba(0,0,0,0.6);
 }
 .stage-card.boss .stage-title {
-  bottom: 16%;
+  bottom: 15%;
   color: #fff;
 }
 
