@@ -65,7 +65,7 @@ export class Enemy {
     img.src   = this.imgSrc;
     img.alt   = this.name;
     const w   = this.isBoss() ? 230 : 160;
-    img.style.cssText = `width:${w}px;height:auto;max-height:${w+70}px;object-fit:contain;display:block;image-rendering:pixelated;`;
+    img.style.cssText = `width:${w}px;height:${w+70}px;object-fit:contain;display:block;image-rendering:pixelated;`;
     img.onerror = () => {
       avatar.style.fontSize = '3rem';
       avatar.textContent = ENEMY_EMOJIS[this.enemyId] || '👾';
