@@ -193,7 +193,7 @@ body.profile-page {
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(ellipse at center 75%, rgba(123,168,158,0.35), transparent 55%),
+    url('../assets/profile/bg_avatar_stage.png') center bottom / cover no-repeat,
     linear-gradient(180deg, #f8f4eb 0%, #e8e2d4 100%);
   border: 1.5px solid var(--p-border);
   border-radius: 20px;
@@ -228,6 +228,15 @@ body.profile-page {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+.avatar-figure img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  image-rendering: auto;
+  filter: drop-shadow(0 8px 18px rgba(71,119,106,0.35));
+  transition: opacity .2s;
 }
 .avatar-placeholder {
   position: relative;
@@ -290,15 +299,13 @@ body.profile-page {
 }
 
 .gender-toggle {
-  position: absolute;
-  top: 10px; right: 10px;
-  display: flex; gap: 4px;
+  display: flex;
+  gap: 3px;
   background: rgba(255,255,255,0.7);
   border: 1px solid var(--p-border);
   border-radius: 20px;
-  padding: 3px;
-  z-index: 3;
-  backdrop-filter: blur(6px);
+  padding: 2px;
+  margin-left: 4px;
 }
 .gender-btn {
   width: 28px; height: 28px;

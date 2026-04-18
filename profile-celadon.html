@@ -70,21 +70,9 @@
         <div class="avatar-glow"></div>
         <div class="avatar-platform"></div>
 
-        <!-- 立繪占位（堆疊式，服裝變更時重疊） -->
+        <!-- 玩家立繪 -->
         <div class="avatar-figure" id="avatar-figure">
-          <div class="avatar-placeholder">
-            <div class="ph-head"></div>
-            <div class="ph-body" id="ph-body"></div>
-            <div class="ph-legs"></div>
-            <div class="ph-label">玩家立繪</div>
-            <div class="ph-sublabel" id="ph-outfit-label">布衣 · 基本款</div>
-          </div>
-        </div>
-
-        <!-- 性別切換（假設玩家可選） -->
-        <div class="gender-toggle">
-          <button class="gender-btn active" data-gender="f">♀</button>
-          <button class="gender-btn" data-gender="m">♂</button>
+          <img id="avatar-img" src="assets/profile/avatar_m_buyi.png" alt="玩家立繪">
         </div>
 
         <!-- 試衣間狀態條 -->
@@ -102,6 +90,10 @@
           <div class="info-nickname">
             <span class="nickname-text">Keenu</span>
             <span class="nickname-badge">Lv.12</span>
+            <div class="gender-toggle">
+              <button class="gender-btn" data-gender="m">♂</button>
+              <button class="gender-btn active" data-gender="f">♀</button>
+            </div>
           </div>
           <div class="info-exp-row">
             <div class="exp-bar-bg">

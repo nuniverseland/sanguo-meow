@@ -3,13 +3,14 @@ import { getUserId, getUserData, loadOwnedHeroes, getProgress } from './firebase
 
 // ── 服裝資料 ─────────────────────────────────────────────────────────────────
 const OUTFITS = [
-  { id: 'buyi',    name: '布衣',     rarity: 'N',  icon: '👕', note: '初心者贈品' },
-  { id: 'qinglong',name: '青龍甲',   rarity: 'R',  icon: '🐉', note: '東方之鎧'   },
-  { id: 'zhuque',  name: '朱雀袍',   rarity: 'R',  icon: '🔥', note: '南方之袍'   },
-  { id: 'baihu',   name: '白虎鎧',   rarity: 'R',  icon: '🐯', note: '西方之鎧'   },
-  { id: 'xuanwu',  name: '玄武袈裟', rarity: 'SR', icon: '🐢', note: '北方神袈'   },
-  { id: 'jinsi',   name: '金絲錦袍', rarity: 'SR', icon: '👑', note: '帝王之服'   },
-  { id: 'maoer',   name: '貓耳便服', rarity: 'R',  icon: '🐾', note: '限定活動'   }
+  { id: 'buyi',    name: '布衣',     rarity: 'N',  icon: '👕', note: '初心者贈品', hasImg: true  },
+  { id: 'blue',    name: '青衫',     rarity: 'R',  icon: '🥷', note: '江湖俠客',   hasImg: true  },
+  { id: 'qinglong',name: '青龍甲',   rarity: 'R',  icon: '🐉', note: '東方之鎧',   hasImg: false },
+  { id: 'zhuque',  name: '朱雀袍',   rarity: 'R',  icon: '🔥', note: '南方之袍',   hasImg: false },
+  { id: 'baihu',   name: '白虎鎧',   rarity: 'R',  icon: '🐯', note: '西方之鎧',   hasImg: false },
+  { id: 'xuanwu',  name: '玄武袈裟', rarity: 'SR', icon: '🐢', note: '北方神袈',   hasImg: false },
+  { id: 'jinsi',   name: '金絲錦袍', rarity: 'SR', icon: '👑', note: '帝王之服',   hasImg: false },
+  { id: 'maoer',   name: '貓耳便服', rarity: 'R',  icon: '🐾', note: '限定活動',   hasImg: false }
 ];
 
 const TOTAL_STAGES = 6;
@@ -19,7 +20,7 @@ const TOTAL_HEROES = 17;
 const st = {
   equippedId:   localStorage.getItem('equippedOutfit') || 'buyi',
   previewingId: null,
-  gender:       'f'
+  gender:       localStorage.getItem('playerGender')   || 'm'
 };
 
 // ── Firebase 資料載入 ─────────────────────────────────────────────────────────
@@ -88,6 +89,22 @@ function fillUserData(userData, ownedHeroes, progress) {
   if (bar) bar.style.width = `${Math.round(heroCount / TOTAL_HEROES * 100)}%`;
 }
 
+// ── 立繪切換 ─────────────────────────────────────────────────────────────────
+function updateAvatar() {
+  const activeId = st.previewingId || st.equippedId;
+  const outfit   = OUTFITS.find(o => o.id === activeId);
+  const img      = document.getElementById('avatar-img');
+  if (!img || !outfit) return;
+
+  if (outfit.hasImg) {
+    const src = `assets/profile/avatar_${st.gender}_${activeId}.png`;
+    img.style.opacity = '0';
+    img.onload = () => { img.style.opacity = '1'; };
+    img.src = src;
+  }
+  // 沒有立繪圖的服裝保持現有立繪不換
+}
+
 // ── 衣櫃渲染 ─────────────────────────────────────────────────────────────────
 function renderWardrobe() {
   const grid = document.getElementById('wardrobe-grid');
@@ -116,14 +133,7 @@ function renderWardrobe() {
   });
 
   // 立繪更新
-  const activeId     = st.previewingId || st.equippedId;
-  const activeOutfit = OUTFITS.find(o => o.id === activeId);
-  if (activeOutfit) {
-    const body = document.getElementById('ph-body');
-    if (body) body.dataset.outfit = activeOutfit.name;
-    const label = document.getElementById('ph-outfit-label');
-    if (label) label.textContent = `${activeOutfit.name} · ${activeOutfit.note}`;
-  }
+  updateAvatar();
 
   // fitting bar
   const bar = document.getElementById('fitting-bar');
@@ -168,10 +178,14 @@ function bindEvents() {
 
   // 性別切換
   document.querySelectorAll('.gender-btn').forEach(btn => {
+    if (btn.dataset.gender === st.gender) btn.classList.add('active');
+    else btn.classList.remove('active');
     btn.addEventListener('click', () => {
       document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       st.gender = btn.dataset.gender;
+      localStorage.setItem('playerGender', st.gender);
+      updateAvatar();
     });
   });
 
