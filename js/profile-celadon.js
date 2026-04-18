@@ -3,14 +3,8 @@ import { getUserId, getUserData, loadOwnedHeroes, getProgress } from './firebase
 
 // ── 服裝資料 ─────────────────────────────────────────────────────────────────
 const OUTFITS = [
-  { id: 'buyi',    name: '布衣',     rarity: 'N',  icon: '👕', note: '初心者贈品', hasImg: true  },
-  { id: 'blue',    name: '青衫',     rarity: 'R',  icon: '🥷', note: '江湖俠客',   hasImg: true  },
-  { id: 'qinglong',name: '青龍甲',   rarity: 'R',  icon: '🐉', note: '東方之鎧',   hasImg: false },
-  { id: 'zhuque',  name: '朱雀袍',   rarity: 'R',  icon: '🔥', note: '南方之袍',   hasImg: false },
-  { id: 'baihu',   name: '白虎鎧',   rarity: 'R',  icon: '🐯', note: '西方之鎧',   hasImg: false },
-  { id: 'xuanwu',  name: '玄武袈裟', rarity: 'SR', icon: '🐢', note: '北方神袈',   hasImg: false },
-  { id: 'jinsi',   name: '金絲錦袍', rarity: 'SR', icon: '👑', note: '帝王之服',   hasImg: false },
-  { id: 'maoer',   name: '貓耳便服', rarity: 'R',  icon: '🐾', note: '限定活動',   hasImg: false }
+  { id: 'buyi', name: '布衣', rarity: 'N', thumb: 'assets/profile/thumb_buyi.png', note: '初心者贈品', hasImg: true },
+  { id: 'blue', name: '青衫', rarity: 'R', thumb: 'assets/profile/thumb_blue.png', note: '江湖俠客',   hasImg: true },
 ];
 
 const TOTAL_STAGES = 6;
@@ -121,7 +115,9 @@ function renderWardrobe() {
     card.dataset.id = o.id;
 
     card.innerHTML = `
-      <div class="outfit-thumb ${o.name}">${o.icon}</div>
+      <div class="outfit-thumb ${o.name}">
+        <img src="${o.thumb}" alt="${o.name}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+      </div>
       <div class="outfit-name">${o.name}</div>
       <div class="outfit-rarity ${o.rarity}">${o.rarity}</div>
       ${isEquipped ? '<div class="equipped-stamp">穿著中</div>' : ''}

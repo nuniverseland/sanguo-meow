@@ -193,7 +193,7 @@ body.profile-page {
   align-items: center;
   justify-content: center;
   background:
-    url('../assets/profile/bg_avatar_stage.png') center bottom / cover no-repeat,
+    url('../assets/profile/bg_avatar_stage.png') center 85% / cover no-repeat,
     linear-gradient(180deg, #f8f4eb 0%, #e8e2d4 100%);
   border: 1.5px solid var(--p-border);
   border-radius: 20px;
