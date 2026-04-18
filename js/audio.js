@@ -47,10 +47,11 @@ export function sfxKill() {
   tone(220, 'triangle', 0.1,  0.2, 0.06);
 }
 
-// Boss 登場：低沉轟鳴
+// Boss 登場：下行警示音
 export function sfxBossAppear() {
-  tone(80,  'sawtooth', 0.5, 0.35);
-  tone(120, 'sawtooth', 0.4, 0.25, 0.1);
+  tone(400, 'sine',     0.3, 0.3);
+  tone(300, 'sine',     0.3, 0.3, 0.2);
+  tone(180, 'sawtooth', 0.6, 0.4, 0.4);
 }
 
 // 連答獎勵：閃爍音效
