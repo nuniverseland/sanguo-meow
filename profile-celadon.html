@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, orientation=landscape">
+  <title>個人檔案 — 三國喵喵</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile-celadon.css?v=1">
+  <style>
+    html, body { background: #f2efe6 !important; }
+  </style>
+</head>
+<body class="profile-page">
+
+  <!-- ═══════════════════════════════════════════════════════
+       設計說明（之後會移除）
+       ───────────────────────────────────────────────────────
+       設計假設：
+       • 主角是「人類」（可選男/女）→ 暫以立繪占位框呈現，後續可替換
+       • 玩家角色 ≠ 三國英雄（英雄是召喚的戰鬥單位）
+       • 衣櫃僅顯示「已擁有」的服裝；未擁有需去商店買（尚未製作）
+       • 即時預覽：點服裝立刻換上，需按「確認換裝」才儲存；「取消」還原
+       • 稱號組合：形容詞（如：稱霸亞洲的）＋ 名詞（如：數學喵王）
+       • Inbox / 商店按鈕為 placeholder，跳轉頁面尚未製作（alert 提示）
+
+       待下一步：
+       • 正式人物立繪 + 服裝配件圖片
+       • 商店頁（shop.html）+ 信箱頁（inbox.html）
+       • 串接 Firebase 讀取玩家資料
+       ═══════════════════════════════════════════════════════ -->
+
+  <!-- Top Bar -->
+  <header class="top-bar profile-topbar">
+    <button class="btn-ghost" onclick="location.href='index.html'">← 返回</button>
+
+    <span class="profile-topbar-title">
+      <span class="paw">🐾</span>
+      個人檔案
+    </span>
+
+    <div class="topbar-right">
+      <span class="currency-chip scroll-chip">
+        <img src="assets/gacha/icon_scroll.png" class="currency-icon" alt="">
+        <span id="t-scrolls">128</span>
+        <span class="currency-label">卷</span>
+      </span>
+
+      <span class="currency-chip jade-chip" title="喵喵寶玉 — 答題獲得">
+        <span class="jade-gem">💎</span>
+        <span id="t-jade">0</span>
+        <span class="currency-label">寶玉</span>
+      </span>
+
+      <button class="inbox-btn" id="btn-inbox" title="信箱">
+        <span class="inbox-icon">📬</span>
+        <span class="inbox-label">信箱 (<span id="inbox-count">3</span>)</span>
+        <span class="inbox-dot"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="profile-main">
+
+    <!-- ═══ LEFT: 玩家立繪 + 資料 ═══ -->
+    <section class="profile-left">
+
+      <!-- 角色立繪區 -->
+      <div class="avatar-stage">
+        <div class="avatar-glow"></div>
+        <div class="avatar-platform"></div>
+
+        <!-- 立繪占位（堆疊式，服裝變更時重疊） -->
+        <div class="avatar-figure" id="avatar-figure">
+          <div class="avatar-placeholder">
+            <div class="ph-head"></div>
+            <div class="ph-body" id="ph-body"></div>
+            <div class="ph-legs"></div>
+            <div class="ph-label">玩家立繪</div>
+            <div class="ph-sublabel" id="ph-outfit-label">布衣 · 基本款</div>
+          </div>
+        </div>
+
+        <!-- 性別切換（假設玩家可選） -->
+        <div class="gender-toggle">
+          <button class="gender-btn active" data-gender="f">♀</button>
+          <button class="gender-btn" data-gender="m">♂</button>
+        </div>
+
+        <!-- 試衣間狀態條 -->
+        <div class="fitting-bar hidden" id="fitting-bar">
+          <span class="fitting-hint">✨ 預覽中 — 尚未儲存</span>
+          <button class="btn-primary fitting-confirm" id="btn-confirm-outfit">✓ 確認換裝</button>
+          <button class="btn-ghost fitting-cancel" id="btn-cancel-outfit">取消</button>
+        </div>
+      </div>
+
+      <!-- 玩家基本資訊 -->
+      <div class="player-info-card">
+        <!-- 暱稱 + 等級 -->
+        <div class="info-header">
+          <div class="info-nickname">
+            <span class="nickname-text">Keenu</span>
+            <span class="nickname-badge">Lv.12</span>
+          </div>
+          <div class="info-exp-row">
+            <div class="exp-bar-bg">
+              <div class="exp-bar-fill" style="width: 64%"></div>
+            </div>
+            <span class="exp-text">經驗值 6,400 / 10,000</span>
+          </div>
+        </div>
+
+        <!-- 稱號組合器 -->
+        <div class="title-composer">
+          <div class="title-label">稱號</div>
+          <div class="title-combo">
+            <div class="title-pill" id="title-display">
+              <span class="title-adj" id="title-adj-display">稱霸亞洲</span><span class="title-of">的</span><span class="title-noun" id="title-noun-display">數學喵王</span>
+            </div>
+          </div>
+          <div class="title-editors">
+            <div class="title-editor">
+              <label>形容詞</label>
+              <select id="title-adj-select" class="title-select">
+                <option value="稱霸亞洲">稱霸亞洲</option>
+                <option value="智勇雙全">智勇雙全</option>
+                <option value="運籌帷幄">運籌帷幄</option>
+                <option value="百戰百勝">百戰百勝</option>
+                <option value="初出茅廬">初出茅廬</option>
+                <option value="風流倜儻">風流倜儻</option>
+                <option value="神機妙算">神機妙算</option>
+              </select>
+            </div>
+            <span class="title-connector">的</span>
+            <div class="title-editor">
+              <label>名詞</label>
+              <select id="title-noun-select" class="title-select">
+                <option value="數學喵王">數學喵王</option>
+                <option value="三國貓仙">三國貓仙</option>
+                <option value="亂世軍師">亂世軍師</option>
+                <option value="沙場老貓">沙場老貓</option>
+                <option value="小小召喚師">小小召喚師</option>
+                <option value="鏟屎官剋星">鏟屎官剋星</option>
+                <option value="夜行貓將">夜行貓將</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- 戰績 stats -->
+        <div class="stats-grid">
+          <div class="stat-chip">
+            <div class="stat-chip-label">總分</div>
+            <div class="stat-chip-val">45,820</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">勝場</div>
+            <div class="stat-chip-val">87</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">通關數</div>
+            <div class="stat-chip-val">12 <span class="stat-chip-sub">/ 24</span></div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">英雄收集</div>
+            <div class="stat-chip-val">8 <span class="stat-chip-sub">/ 15</span></div>
+            <div class="stat-chip-bar"><div class="stat-chip-bar-fill" style="width:53%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RIGHT: 衣櫃卷軸 ═══ -->
+    <section class="profile-right">
+
+      <!-- 卷軸 header（上軸） -->
+      <div class="scroll-top-rod"></div>
+
+      <div class="wardrobe-scroll">
+        <div class="wardrobe-header">
+          <h2 class="wardrobe-title">
+            <span class="paw-sm">🐾</span>
+            衣櫃
+            <span class="paw-sm flip">🐾</span>
+          </h2>
+          <button class="btn-shop" id="btn-shop">
+            <span class="jade-gem-sm">💎</span> 前往商店
+          </button>
+        </div>
+
+        <div class="wardrobe-sub">
+          已擁有服裝 · 點選即時預覽 · 新服裝可用 <span class="jade-inline">💎 喵喵寶玉</span> 到商店購買
+        </div>
+
+        <!-- 服裝格子 -->
+        <div class="wardrobe-grid" id="wardrobe-grid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- 小提示 -->
+        <div class="wardrobe-footer">
+          <span class="footer-hint">💡 答對題目可獲得 <span class="jade-inline">💎 喵喵寶玉</span>，到商店購買更多服裝</span>
+        </div>
+      </div>
+
+      <!-- 卷軸 footer（下軸） -->
+      <div class="scroll-bot-rod"></div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/profile-celadon.js"></script>
+</body>
+</html>
