@@ -42,6 +42,8 @@ export async function loadOrCreateUser(userId, nickname, birthday) {
     const match = results.docs.find(d => d.data().nickname.toLowerCase() === nicknameLower);
 
     if (match) {
+      // 用舊文件的真實 ID 覆蓋 session，讓後續操作指向正確文件
+      sessionStorage.setItem('nunuUserId', match.id);
       await updateDoc(match.ref, { lastLoginAt: serverTimestamp() });
       return (await getDoc(match.ref)).data();
     }
