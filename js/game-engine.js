@@ -352,9 +352,14 @@ function moveUnits(dt) {
     if (blocked && dist(h, blocked) <= (h.range + blocked.range) / 2) {
       h.attacking = true;
       h.target    = blocked;
-    } else if (h.x + 48 >= state.enemyBaseX) {
-      h.attacking = true;
-      h.target    = null; // attacking base
+    } else if (h.x + 48 >= state.enemyBaseX - 180) {
+      if (state.enemies.some(e => e.alive)) {
+        h.attacking = false;
+        h.target    = null; // 有敵兵時停在極限線等待
+      } else {
+        h.attacking = true;
+        h.target    = null; // 無敵兵才打砲台
+      }
     } else {
       h.attacking = false;
       h.target    = null;

@@ -2,7 +2,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import {
   getFirestore, doc, getDoc, setDoc, updateDoc, increment,
-  collection, getDocs, orderBy, query, limit, serverTimestamp,
+  collection, getDocs, orderBy, query, limit, where, serverTimestamp,
   runTransaction
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
@@ -31,9 +31,21 @@ export function setUserId(nickname, birthday) {
 
 // ── User document ─────────────────────────────────────────────────────────────
 export async function loadOrCreateUser(userId, nickname, birthday) {
+  const nicknameLower = nickname.toLowerCase();
   const ref = doc(db, 'sanguo_users', userId);
   const snap = await getDoc(ref);
+
   if (!snap.exists()) {
+    // 找不到 lowercase ID，查同生日的帳號做大小寫相容
+    const q = query(collection(db, 'sanguo_users'), where('birthday', '==', birthday));
+    const results = await getDocs(q);
+    const match = results.docs.find(d => d.data().nickname.toLowerCase() === nicknameLower);
+
+    if (match) {
+      await updateDoc(match.ref, { lastLoginAt: serverTimestamp() });
+      return (await getDoc(match.ref)).data();
+    }
+
     await setDoc(ref, {
       nickname,
       birthday,
