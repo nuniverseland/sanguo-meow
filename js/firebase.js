@@ -24,7 +24,7 @@ export function getUserId() {
 }
 
 export function setUserId(nickname, birthday) {
-  const id = `${nickname}_${birthday}`;
+  const id = `${nickname.toLowerCase()}_${birthday}`;
   sessionStorage.setItem('nunuUserId', id);
   return id;
 }
