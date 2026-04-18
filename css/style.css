@@ -501,6 +501,17 @@ img { display: block; }
 }
 .shake { animation: shake .4s ease; }
 
+@keyframes atk-punch {
+  0%   { transform: translateX(8px) scale(1.08); }
+  100% { transform: translateX(0)   scale(1); }
+}
+.atk-punch { animation: atk-punch .18s ease-out forwards; }
+.unit.enemy .atk-punch { animation-name: atk-punch-left; }
+@keyframes atk-punch-left {
+  0%   { transform: translateX(-8px) scale(1.08); }
+  100% { transform: translateX(0)    scale(1); }
+}
+
 /* ============================================
    Combo Bar
    ============================================ */

@@ -28,6 +28,9 @@ export class Hero {
       : formIndex === 2
         ? `assets/heroes/hero_${data.id}_max.png`
         : `assets/heroes/hero_${data.id}.png`;
+    this.atkImgSrc = formIndex === 0
+      ? `assets/heroes/hero_${data.id}_base_atk.png`
+      : this.imgSrc;
 
     // 等級加成
     const lvBonus = Math.max(0, level - 1);
@@ -107,9 +110,9 @@ export class Hero {
   updateDOM() {
     if (!this.el) return;
     this.el.style.left = `${this.x}px`;
-    if (this.hpFillEl) {
-      this.hpFillEl.style.width = `${this.hpPercent() * 100}%`;
-    }
+    if (this.hpFillEl) this.hpFillEl.style.width = `${this.hpPercent() * 100}%`;
+    const img = this.el.querySelector('img');
+    if (img) img.src = this.attacking ? this.atkImgSrc : this.imgSrc;
   }
 
   remove() {

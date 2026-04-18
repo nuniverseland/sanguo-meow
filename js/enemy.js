@@ -15,7 +15,8 @@ export class Enemy {
     this.name    = data.name;
     this.type    = data.type;   // 'normal' | 'flying' | 'boss'
     this.trait   = data.trait;
-    this.imgSrc  = data.imgWalk;
+    this.imgSrc    = data.imgWalk;
+    this.atkImgSrc = data.imgWalk.replace('.png', '_atk.png');
 
     this.maxHp          = data.hp;
     this.hp             = data.hp;
@@ -89,9 +90,9 @@ export class Enemy {
   updateDOM() {
     if (!this.el) return;
     this.el.style.left = `${this.x}px`;
-    if (this.hpFillEl) {
-      this.hpFillEl.style.width = `${this.hpPercent() * 100}%`;
-    }
+    if (this.hpFillEl) this.hpFillEl.style.width = `${this.hpPercent() * 100}%`;
+    const img = this.el.querySelector('img');
+    if (img) img.src = this.attacking ? this.atkImgSrc : this.imgSrc;
   }
 
   remove() {

@@ -393,6 +393,8 @@ function resolveAttacks(now) {
     if (!h.alive || !h.attacking) return;
     if (now - h.lastAttackAt < h.attackInterval) return;
     h.lastAttackAt = now;
+    h.el?.classList.remove('atk-punch');
+    requestAnimationFrame(() => h.el?.classList.add('atk-punch'));
 
     if (!h.target) {
       // Hit enemy base
@@ -412,6 +414,8 @@ function resolveAttacks(now) {
     if (!e.alive || !e.attacking) return;
     if (now - e.lastAttackAt < e.attackInterval) return;
     e.lastAttackAt = now;
+    e.el?.classList.remove('atk-punch');
+    requestAnimationFrame(() => e.el?.classList.add('atk-punch'));
 
     if (!e.target) {
       // Hit player base
