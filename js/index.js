@@ -45,6 +45,16 @@ async function init() {
   }
 }
 
+// 給 Firebase 請求加上 timeout，避免行動網路卡住
+function withTimeout(promise, ms = 12000) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('連線逾時，請確認網路後再試')), ms)
+    )
+  ]);
+}
+
 async function onLogin() {
   const btn      = document.getElementById('btn-login');
   const nickname = document.getElementById('input-nickname').value.trim();
@@ -57,13 +67,16 @@ async function onLogin() {
   btn.disabled    = true;
   try {
     const userId = setUserId(nickname, birthday);
-    userData     = await loadOrCreateUser(userId, nickname, birthday);
+    // loadOrCreateUser 可能會把 sessionStorage 更新成舊文件的真實 ID
+    // 所以之後一定要用 getUserId() 取得實際 ID，不能繼續用 userId 變數
+    userData = await withTimeout(loadOrCreateUser(userId, nickname, birthday));
+    const actualUserId = getUserId(); // 取得（可能已更新的）真實文件 ID
     showScreen('stage-screen');
-    await enterGame(userId);
+    await enterGame(actualUserId);
   } catch (e) {
     btn.textContent = '出發！🐾';
     btn.disabled    = false;
-    alert('登入失敗，請確認網路連線');
+    alert(e.message || '登入失敗，請確認網路連線');
     console.error(e);
   }
 }
