@@ -936,69 +936,9 @@ img { display: block; }
 .loading-row { text-align: center; color: var(--text-dim); padding: 32px; }
 
 /* ============================================
-   旋轉提示 overlay（豎式手機專用）
+   Responsive — 768px+
    ============================================ */
-.rotate-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #1a0d00;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  color: var(--gold);
-  text-align: center;
-  font-size: 1rem;
-}
-.rotate-overlay .rotate-icon { font-size: 3.5rem; animation: rotate-hint 1.5s ease-in-out infinite; }
-@keyframes rotate-hint {
-  0%, 100% { transform: rotate(0deg); }
-  50%       { transform: rotate(90deg); }
-}
-
-/* 豎式手機 → 只顯示旋轉提示 */
-@media (max-width: 767px) and (orientation: portrait) {
-  .rotate-overlay { display: flex; }
-  body > *:not(.rotate-overlay) { display: none !important; }
-}
-
-/* ============================================
-   橫式手機（高度 <= 500px）
-   ============================================ */
-@media (max-height: 500px) and (orientation: landscape) {
-
-  /* 頂欄縮小 */
-  .game-topbar, .top-bar {
-    height: 32px !important;
-    min-height: 32px !important;
-    font-size: 0.75rem;
-    padding: 0 8px !important;
-    gap: 6px !important;
-  }
-  .topbar-stats { gap: 6px; font-size: 0.72rem; }
-  .btn-ghost, .btn-secondary { padding: 3px 8px !important; font-size: 0.72rem !important; }
-
-  /* 戰場縮小，底部放大 */
-  .battlefield  { height: 42vh !important; }
-  .combo-bar    { height: 4vh  !important; min-height: 20px; }
-  .bottom-panel { height: 44vh !important; }
-
-  /* 數學面板 */
-  .math-panel   { padding: 6px !important; gap: 6px !important; }
-  .question-display { padding: 6px 12px !important; font-size: 0.85rem; }
-  .choices-grid { gap: 5px !important; }
-  .choice-btn   { padding: 6px 10px !important; font-size: 0.82rem !important; min-height: 36px; }
-
-  /* 英雄召喚面板 */
-  .summon-panel { padding: 4px 6px !important; gap: 5px !important; overflow-x: auto; }
-  .hero-btn     { min-width: 62px !important; padding: 4px !important; }
-  .hero-btn-avatar { width: 40px !important; height: 40px !important; }
-  .hero-btn-avatar img { width: 36px !important; }
-  .hero-btn-name { font-size: 0.6rem !important; }
-  .hero-btn-cost { font-size: 0.6rem !important; }
-
-  /* index 選關頁頂欄按鈕縮小 */
-  .btn-gacha    { padding: 4px 10px !important; font-size: 0.75rem !important; }
+@media (max-width: 767px) {
+  .bottom-panel { flex-direction: column; }
+  .summon-panel { width: 100%; max-width: 100%; height: 40%; }
 }
