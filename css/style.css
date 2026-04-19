@@ -1002,10 +1002,8 @@ img { display: block; }
   /* index 選關頁頂欄按鈕縮小 */
   .btn-gacha    { padding: 4px 10px !important; font-size: 0.75rem !important; }
 
-  /* 登入頁：橫式手機改為左右排版 */
-  #login-screen .screen-inner,
-  #login-screen {
-    display: flex !important;
+  /* 登入頁：橫式手機改為左右排版（只有 active 才套，避免蓋掉畫面切換） */
+  #login-screen.active {
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
