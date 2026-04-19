@@ -57,11 +57,9 @@ async function onLogin() {
   btn.disabled    = true;
   try {
     const userId = setUserId(nickname, birthday);
-    userData = await loadOrCreateUser(userId, nickname, birthday);
-    // loadOrCreateUser 可能把 sessionStorage 改成原始大小寫 ID，用 getUserId() 取最新值
-    const actualUserId = getUserId();
+    userData     = await loadOrCreateUser(userId, nickname, birthday);
     showScreen('stage-screen');
-    await enterGame(actualUserId);
+    await enterGame(userId);
   } catch (e) {
     btn.textContent = '出發！🐾';
     btn.disabled    = false;

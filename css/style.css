@@ -1001,27 +1001,4 @@ img { display: block; }
 
   /* index 選關頁頂欄按鈕縮小 */
   .btn-gacha    { padding: 4px 10px !important; font-size: 0.75rem !important; }
-
-  /* 登入頁：橫式手機改為左右排版（只有 active 才套，避免蓋掉畫面切換） */
-  #login-screen.active {
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 24px !important;
-    padding: 12px !important;
-    overflow: hidden !important;
-  }
-  .logo-wrap {
-    margin-bottom: 0 !important;
-    flex-shrink: 0;
-  }
-  .logo { width: 30vw !important; max-width: 180px !important; }
-  .login-box {
-    padding: 16px 24px !important;
-    gap: 8px !important;
-    min-width: 260px !important;
-  }
-  .login-box h2 { font-size: 1rem !important; margin-bottom: 0 !important; }
-  .login-box input { padding: 7px 10px !important; font-size: 0.88rem !important; }
-  .login-hint { font-size: 0.7rem !important; }
 }
