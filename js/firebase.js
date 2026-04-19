@@ -31,29 +31,30 @@ export function setUserId(nickname, birthday) {
 
 // ── User document ─────────────────────────────────────────────────────────────
 export async function loadOrCreateUser(userId, nickname, birthday) {
-  const nicknameLower = nickname.toLowerCase();
-  const ref = doc(db, 'sanguo_users', userId);
+  // userId 已是小寫（vivian_0822）；先直接讀
+  const ref  = doc(db, 'sanguo_users', userId);
   const snap = await getDoc(ref);
 
   if (!snap.exists()) {
-    // 找不到 lowercase ID，查同生日的帳號做大小寫相容
-    const q = query(collection(db, 'sanguo_users'), where('birthday', '==', birthday));
-    const results = await getDocs(q);
-    const match = results.docs.find(d => d.data().nickname.toLowerCase() === nicknameLower);
-
-    if (match) {
-      // 用舊文件的真實 ID 覆蓋 session，讓後續操作指向正確文件
-      sessionStorage.setItem('nunuUserId', match.id);
-      await updateDoc(match.ref, { lastLoginAt: serverTimestamp() });
-      return (await getDoc(match.ref)).data();
+    // 試原始大小寫（例：Vivian_0822），避免掃整個 collection
+    const originalId  = `${nickname}_${birthday}`;
+    if (originalId !== userId) {
+      const origRef  = doc(db, 'sanguo_users', originalId);
+      const origSnap = await getDoc(origRef);
+      if (origSnap.exists()) {
+        sessionStorage.setItem('nunuUserId', originalId);
+        await updateDoc(origRef, { lastLoginAt: serverTimestamp() });
+        return origSnap.data();
+      }
     }
 
+    // 真的找不到 → 建新帳
     await setDoc(ref, {
       nickname,
       birthday,
       totalScore:    0,
       weeklyScore:   0,
-      scrolls:       5,   // 新用戶初始 5 卷，讓努努一進來就能抽
+      scrolls:       5,
       pityCount:     0,
       totalDraws:    0,
       milestoneQ100: false,
