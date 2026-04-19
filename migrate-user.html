@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>User Migration</title>
+  <style>
+    body { font-family: monospace; padding: 40px; background: #1a1a1a; color: #eee; }
+    button { padding: 12px 24px; font-size: 16px; cursor: pointer; background: #c8a84b; border: none; border-radius: 8px; }
+    #log { margin-top: 24px; white-space: pre-wrap; line-height: 1.8; }
+    .ok  { color: #6f6; }
+    .err { color: #f66; }
+    .info { color: #8cf; }
+  </style>
+</head>
+<body>
+  <h2>用戶資料遷移工具（大小寫）</h2>
+  <p style="color:#aaa">選擇要遷移的帳號，或手動輸入舊→新 ID：</p>
+  <div style="margin-bottom:12px;display:flex;gap:12px;flex-wrap:wrap">
+    <button onclick="setIds('Keenu_0904','keenu_0904')">Keenu → keenu</button>
+    <button onclick="setIds('Vivian_0822','vivian_0822')">Vivian → vivian</button>
+  </div>
+  <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center">
+    <input id="old-id" placeholder="舊 ID（例：Vivian_0822）" style="padding:8px;font-size:14px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;width:200px">
+    <span style="color:#aaa">→</span>
+    <input id="new-id" placeholder="新 ID（例：vivian_0822）" style="padding:8px;font-size:14px;background:#333;color:#eee;border:1px solid #555;border-radius:4px;width:200px">
+    <button onclick="migrate()">開始搬移</button>
+  </div>
+  <div id="log"></div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getFirestore, doc, getDoc, setDoc, deleteDoc,
+      collection, getDocs
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    const firebaseConfig = {
+      apiKey:            'AIzaSyA-E-IN6185ruhUb-TB9LkDyK5xJayLBxU',
+      authDomain:        'nunuquest.firebaseapp.com',
+      projectId:         'nunuquest',
+      storageBucket:     'nunuquest.firebasestorage.app',
+      messagingSenderId: '374919361286',
+      appId:             '1:374919361286:web:64108f0715eaa69f956487'
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+
+    const SUB_COLLECTIONS = ['bestiary', 'heroes', 'math_stats', 'progress'];
+    function log(msg, cls = '') {
+      document.getElementById('log').innerHTML += `<span class="${cls}">${msg}</span>\n`;
+    }
+
+    window.setIds = function(oldId, newId) {
+      document.getElementById('old-id').value = oldId;
+      document.getElementById('new-id').value = newId;
+    };
+
+    window.migrate = async function() {
+      const OLD_ID = document.getElementById('old-id').value.trim();
+      const NEW_ID = document.getElementById('new-id').value.trim();
+      if (!OLD_ID || !NEW_ID) { alert('請填寫舊ID和新ID'); return; }
+      if (OLD_ID === NEW_ID) { alert('舊ID和新ID相同'); return; }
+      document.getElementById('log').innerHTML = '';
+      log(`開始遷移 ${OLD_ID} → ${NEW_ID}`, 'info');
+      // 1. 搬主文件（若存在）
+      log('\n── 主文件 ──', 'info');
+      const oldRef = doc(db, 'sanguo_users', OLD_ID);
+      const snap   = await getDoc(oldRef);
+      if (snap.exists()) {
+        const newRef = doc(db, 'sanguo_users', NEW_ID);
+        await setDoc(newRef, snap.data());
+        log(`主文件複製完成`, 'ok');
+      } else {
+        log(`主文件不存在（跳過）`, 'info');
+      }
+
+      // 2. 搬每個子集合
+      for (const colName of SUB_COLLECTIONS) {
+        log(`\n── 子集合：${colName} ──`, 'info');
+        const oldColRef = collection(db, 'sanguo_users', OLD_ID, colName);
+        const docs = await getDocs(oldColRef);
+
+        if (docs.empty) {
+          log(`  （空）`);
+          continue;
+        }
+
+        for (const d of docs.docs) {
+          const newDocRef = doc(db, 'sanguo_users', NEW_ID, colName, d.id);
+          await setDoc(newDocRef, d.data());
+          log(`  複製 ${colName}/${d.id}`, 'ok');
+        }
+      }
+
+      // 3. 刪舊子集合文件
+      log(`\n── 刪除舊資料 ──`, 'info');
+      for (const colName of SUB_COLLECTIONS) {
+        const oldColRef = collection(db, 'sanguo_users', OLD_ID, colName);
+        const docs = await getDocs(oldColRef);
+        for (const d of docs.docs) {
+          await deleteDoc(d.ref);
+          log(`  刪除 ${colName}/${d.id}`, 'ok');
+        }
+      }
+
+      // 4. 刪舊主文件
+      await deleteDoc(oldRef);
+      log(`刪除舊主文件完成`, 'ok');
+
+      log(`\n✅ 全部遷移完成！可以關閉此頁面。`, 'ok');
+    };
+  </script>
+</body>
+</html>
