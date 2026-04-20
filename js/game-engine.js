@@ -1,5 +1,6 @@
 // game-engine.js — Core game loop
 import { getUserId, addScore, getUserData, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat, loadCurrentTeam } from './firebase.js';
+import { isTutorialDone, runTutorial } from './tutorial.js';
 import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
 import { loadQuestions, nextQuestion, checkAnswer, questionText } from './question.js';
@@ -188,6 +189,15 @@ async function init() {
 
     startGame();
 
+    if (!isTutorialDone('battle')) {
+      state.paused = true;
+      runTutorial('battle', [
+        { targetId: 'choices-grid', text: '答對數學題就能賺金幣！💰' },
+        { targetId: 'summon-panel', text: '用金幣召喚英雄攻打敵人！👇' },
+        { targetId: 'enemy-base',   text: '把敵人血量打到 0 就贏了！⚔️' },
+      ], () => { state.paused = false; });
+    }
+
   } catch (err) {
     console.error('[game-engine] init() 失敗：', err);
     showError(err.message + '\n\n' + err.stack);
@@ -294,6 +304,7 @@ function startGame() {
 // ── Game Loop ─────────────────────────────────────────────────────────────────
 function gameLoop(timestamp) {
   if (!state.running) return;
+  if (state.paused) { state.rafId = requestAnimationFrame(gameLoop); return; }
 
   const dt = (timestamp - state.lastFrameTime) / 1000; // seconds
   state.lastFrameTime = timestamp;

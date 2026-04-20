@@ -1,5 +1,6 @@
 // gacha.js — Gacha page logic (redesign v2)
 import { getUserId, loadGachaState, executeGachaDraw } from './firebase.js';
+import { isTutorialDone, runTutorial } from './tutorial.js';
 import { sfxGachaPull, sfxGachaNew, sfxGachaSR, sfxGachaFrag } from './audio.js';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -141,6 +142,12 @@ async function init() {
   }
 
   finishLoading();
+
+  if (!isTutorialDone('gacha')) {
+    runTutorial('gacha', [
+      { targetId: 'btn-draw-1', text: '點這裡召喚英雄！✨' },
+    ]);
+  }
 }
 
 // ── Render ───────────────────────────────────────────────────────────────────

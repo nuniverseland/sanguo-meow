@@ -1,5 +1,6 @@
 // index.js — Login + Stage Select + Chapter/Country Tab navigation
 import { getUserId, setUserId, loadOrCreateUser, getProgress, loadUserScrolls } from './firebase.js';
+import { isTutorialDone, runTutorial } from './tutorial.js';
 
 // ── Static config ─────────────────────────────────────────────────────────────
 const CHAPTER_ORDER = ['asia', 'europe', 'america', 'space', 'final'];
@@ -114,6 +115,13 @@ async function enterGame(userId) {
   buildChapterTabs();
   buildCountryTabs(currentChapter);
   renderStages();
+
+  if (!isTutorialDone('index')) {
+    runTutorial('index', [
+      { targetId: 'btn-gacha',                      text: '先去抽英雄吧！🎴' },
+      { targetQuery: '.stage-card:not(.locked)',     text: '準備好後，點第一關出發！⚔️' },
+    ]);
+  }
 }
 
 // ── Unlock logic ──────────────────────────────────────────────────────────────
