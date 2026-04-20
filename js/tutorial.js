@@ -4,19 +4,24 @@
 //   'gacha'  → gacha.html draw page
 //   'battle' → game.html first battle
 
-const STORAGE_KEY = 'nunuTutorialDone';
+function storageKey() {
+  // Per-user key so switching accounts shows tutorial again
+  const uid = sessionStorage.getItem('nunuUserId') || 'guest';
+  return `nunuTutorialDone_${uid}`;
+}
 
 export function isTutorialDone(phase) {
   try {
-    return !!JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')[phase];
+    return !!JSON.parse(localStorage.getItem(storageKey()) || '{}')[phase];
   } catch { return false; }
 }
 
 function markDone(phase) {
   try {
-    const done = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    const key  = storageKey();
+    const done = JSON.parse(localStorage.getItem(key) || '{}');
     done[phase] = true;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(done));
+    localStorage.setItem(key, JSON.stringify(done));
   } catch {}
 }
 
