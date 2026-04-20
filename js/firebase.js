@@ -49,7 +49,7 @@ export async function loadOrCreateUser(userId, nickname, birthday) {
     }
 
     await setDoc(ref, {
-      nickname,
+      nickname: nicknameLower,
       birthday,
       totalScore:    0,
       weeklyScore:   0,
@@ -63,7 +63,7 @@ export async function loadOrCreateUser(userId, nickname, birthday) {
       lastLoginAt:   serverTimestamp()
     });
   } else {
-    await updateDoc(ref, { lastLoginAt: serverTimestamp() });
+    await updateDoc(ref, { nickname: nicknameLower, lastLoginAt: serverTimestamp() });
   }
   return (await getDoc(ref)).data();
 }
