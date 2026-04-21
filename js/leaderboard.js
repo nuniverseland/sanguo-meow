@@ -5,7 +5,7 @@ const tbody      = document.getElementById('leaderboard-body');
 const scoreHeader = document.getElementById('score-col-header');
 const tabBtns    = document.querySelectorAll('.tab-btn');
 
-let currentTab = 'daily';
+let currentTab = 'alltime';
 
 async function render(tab) {
   tbody.innerHTML = '<tr><td colspan="3" class="loading-row">載入中…</td></tr>';
@@ -14,7 +14,7 @@ async function render(tab) {
       ? await fetchDailyLeaderboard()
       : await fetchAllTimeLeaderboard();
 
-    scoreHeader.textContent = tab === 'daily' ? '今日得分' : '總戰功';
+    scoreHeader.textContent = '總戰功';
 
     if (!rows.length) {
       const msg = tab === 'daily' ? '今天還沒有人上榜，快去破關！🐾' : '還沒有紀錄，快去破關！🐾';
