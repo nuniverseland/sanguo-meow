@@ -147,13 +147,48 @@ export async function recordMathStat(userId, type, correct) {
 }
 
 // ── Leaderboard ───────────────────────────────────────────────────────────────
-export async function updateLeaderboard(userId, { nickname, totalScore, weeklyScore, farthestStage, farthestCountry, title }) {
-  const ref = doc(db, 'sanguo_leaderboard', userId);
-  await setDoc(ref, { nickname, totalScore, weeklyScore, farthestStage, farthestCountry, title, updatedAt: serverTimestamp() }, { merge: true });
+export async function updateLeaderboard(userId, { nickname, totalScore, score }) {
+  const ref   = doc(db, 'sanguo_leaderboard', userId);
+  const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
+
+  await runTransaction(db, async tx => {
+    const snap    = await tx.get(ref);
+    const existed = snap.exists();
+    const data    = existed ? snap.data() : {};
+
+    const dailyScore = data.dailyDate === today ? (data.dailyScore ?? 0) + score : score;
+
+    const update = { nickname, totalScore, dailyScore, dailyDate: today, updatedAt: serverTimestamp() };
+    if (existed) {
+      if (!data.createdAt) update.createdAt = serverTimestamp();
+      tx.update(ref, update);
+    } else {
+      tx.set(ref, { ...update, createdAt: serverTimestamp() });
+    }
+  });
 }
 
-export async function fetchLeaderboard(scoreField = 'totalScore', count = 50) {
-  const q    = query(collection(db, 'sanguo_leaderboard'), orderBy(scoreField, 'desc'), limit(count));
+// Requires Firestore composite index: dailyDate ASC + dailyScore DESC
+export async function fetchDailyLeaderboard(count = 50) {
+  const today = new Date().toISOString().slice(0, 10);
+  const q     = query(
+    collection(db, 'sanguo_leaderboard'),
+    where('dailyDate', '==', today),
+    orderBy('dailyScore', 'desc'),
+    limit(count)
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map((d, i) => ({ rank: i + 1, id: d.id, ...d.data() }));
+}
+
+// Requires Firestore composite index: totalScore DESC + createdAt ASC
+export async function fetchAllTimeLeaderboard(count = 50) {
+  const q = query(
+    collection(db, 'sanguo_leaderboard'),
+    orderBy('totalScore', 'desc'),
+    orderBy('createdAt', 'asc'),
+    limit(count)
+  );
   const snap = await getDocs(q);
   return snap.docs.map((d, i) => ({ rank: i + 1, id: d.id, ...d.data() }));
 }

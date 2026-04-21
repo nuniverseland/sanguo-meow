@@ -12,8 +12,8 @@
     <button onclick="history.back()" class="btn-ghost">← 返回</button>
     <h1 class="page-title">🏆 排行榜</h1>
     <div class="tab-group">
-      <button class="tab-btn active" data-tab="weekly">本週榜</button>
-      <button class="tab-btn" data-tab="total">總榜</button>
+      <button class="tab-btn active" data-tab="daily">今日戰神</button>
+      <button class="tab-btn" data-tab="alltime">總戰功榜</button>
     </div>
   </header>
 
@@ -23,13 +23,11 @@
         <tr>
           <th>排名</th>
           <th>暱稱</th>
-          <th>分數</th>
-          <th>最遠關卡</th>
-          <th>稱號</th>
+          <th id="score-col-header">今日得分</th>
         </tr>
       </thead>
       <tbody id="leaderboard-body">
-        <tr><td colspan="5" class="loading-row">載入中…</td></tr>
+        <tr><td colspan="3" class="loading-row">載入中…</td></tr>
       </tbody>
     </table>
   </div>

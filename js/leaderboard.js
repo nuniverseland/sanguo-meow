@@ -1,30 +1,37 @@
 // leaderboard.js — Leaderboard page logic
-import { fetchLeaderboard } from './firebase.js';
+import { fetchDailyLeaderboard, fetchAllTimeLeaderboard } from './firebase.js';
 
-const tbody   = document.getElementById('leaderboard-body');
-const tabBtns = document.querySelectorAll('.tab-btn');
+const tbody      = document.getElementById('leaderboard-body');
+const scoreHeader = document.getElementById('score-col-header');
+const tabBtns    = document.querySelectorAll('.tab-btn');
 
-let currentTab = 'weekly';
+let currentTab = 'daily';
 
-async function render(field) {
-  tbody.innerHTML = '<tr><td colspan="5" class="loading-row">載入中…</td></tr>';
+async function render(tab) {
+  tbody.innerHTML = '<tr><td colspan="3" class="loading-row">載入中…</td></tr>';
   try {
-    const rows = await fetchLeaderboard(field === 'weekly' ? 'weeklyScore' : 'totalScore');
+    const rows = tab === 'daily'
+      ? await fetchDailyLeaderboard()
+      : await fetchAllTimeLeaderboard();
+
+    scoreHeader.textContent = tab === 'daily' ? '今日得分' : '總戰功';
+
     if (!rows.length) {
-      tbody.innerHTML = '<tr><td colspan="5" class="loading-row">還沒有紀錄，快去破關！🐾</td></tr>';
+      const msg = tab === 'daily' ? '今天還沒有人上榜，快去破關！🐾' : '還沒有紀錄，快去破關！🐾';
+      tbody.innerHTML = `<tr><td colspan="3" class="loading-row">${msg}</td></tr>`;
       return;
     }
+
+    const scoreField = tab === 'daily' ? 'dailyScore' : 'totalScore';
     tbody.innerHTML = rows.map(r => `
       <tr class="${r.rank <= 3 ? `rank-${r.rank}` : ''}">
         <td>${r.rank <= 3 ? ['🥇','🥈','🥉'][r.rank-1] : r.rank}</td>
         <td>${escHtml(r.nickname || r.id)}</td>
-        <td>${field === 'weekly' ? r.weeklyScore : r.totalScore}</td>
-        <td>${escHtml(r.farthestStage || '—')}</td>
-        <td>${escHtml(r.title || '—')}</td>
+        <td>${r[scoreField] ?? 0}</td>
       </tr>
     `).join('');
   } catch (e) {
-    tbody.innerHTML = '<tr><td colspan="5" class="loading-row">載入失敗，請稍後再試</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="3" class="loading-row">載入失敗，請稍後再試</td></tr>';
     console.error(e);
   }
 }

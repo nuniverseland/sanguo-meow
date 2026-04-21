@@ -765,9 +765,7 @@ async function endGame(win) {
       await updateLeaderboard(userId, {
         nickname: nick,
         totalScore: userData?.totalScore ?? state.score,
-        weeklyScore: userData?.weeklyScore ?? state.score,
-        farthestStage: state.stageData.id, farthestCountry: state.stageData.country,
-        title: '初出茅廬'
+        score: state.score
       });
       // 卷軸獎勵：首次通關+3、重複通關+1、完美+1
       const isFirst = prevResult?.firstClear ?? false;
