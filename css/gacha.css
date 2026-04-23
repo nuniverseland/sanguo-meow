@@ -258,8 +258,8 @@
 
 .hero-pool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
 }
 
 /* ── Hero card ───────────────────────────────────────────────────────────────── */
@@ -314,16 +314,16 @@
 
 /* Hero card image */
 .hero-card-img {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
   image-rendering: pixelated;
   border-radius: 6px;
 }
 
 .hero-card-shadow {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   object-fit: cover;
   border-radius: 6px;
   opacity: .55;
@@ -384,7 +384,7 @@
 
 /* Text */
 .hero-card-name {
-  font-size: .75rem;
+  font-size: .85rem;
   font-weight: bold;
   color: #3a1a00;
   text-align: center;
@@ -398,7 +398,7 @@
 }
 
 .hero-card-level {
-  font-size: .62rem;
+  font-size: .72rem;
   color: #8a1f1f;
   font-weight: bold;
 }
@@ -411,7 +411,7 @@
 }
 
 .hero-card-frags {
-  font-size: .6rem;
+  font-size: .7rem;
   color: #7a4a20;
   opacity: .85;
 }
