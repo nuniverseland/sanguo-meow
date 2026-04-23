@@ -410,6 +410,12 @@
   letter-spacing: .05em;
 }
 
+.hero-card-frags {
+  font-size: .6rem;
+  color: #7a4a20;
+  opacity: .85;
+}
+
 /* ── Soul fragments ──────────────────────────────────────────────────────────── */
 .fragments-section {
   margin-top: 12px;

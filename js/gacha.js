@@ -8,7 +8,7 @@ import { sfxGachaPull, sfxGachaNew, sfxGachaSR, sfxGachaFrag } from './audio.js'
 const INITIAL_HEROES = ['liubei', 'soldier'];
 
 const GACHA_POOL = {
-  normal:     ['zhoutai'],
+  normal:     ['liubei', 'soldier', 'zhoutai'],
   rare:       ['zhangfei', 'guanyu', 'zhangjiu', 'zhaoyun', 'zhugeliang',
                'sunquan', 'zhouyu', 'diaochan', 'sunshangxiang'],
   super_rare: ['caocao', 'lvbu', 'dongzhuo', 'huangyueying', 'simayi']
@@ -29,6 +29,8 @@ const ALL_HEROES = [
 ];
 
 const RARITY_META = {
+  liubei:        'normal',
+  soldier:       'normal',
   zhoutai:       'normal',
   zhangfei:      'rare',
   guanyu:        'rare',
@@ -155,12 +157,17 @@ function renderAll() {
   updateScrollDisplay();
   renderHeroPool();
   renderPity();
-  renderFragments();
 }
 
 function updateScrollDisplay() {
   document.getElementById('g-scrolls').textContent = gachaState.scrolls;
 }
+
+const ALL_POOL_HEROES = new Set([
+  ...GACHA_POOL.normal,
+  ...GACHA_POOL.rare,
+  ...GACHA_POOL.super_rare
+]);
 
 function renderHeroPool() {
   const grid = document.getElementById('hero-pool-grid');
@@ -202,6 +209,12 @@ function renderHeroPool() {
       evolvedEl = `<span class="hero-card-evolved">進化</span>`;
     }
 
+    const FRAG_MAX = 10;
+    const frags    = heroData?.soulFragments ?? 0;
+    const fragEl   = (isOwned && ALL_POOL_HEROES.has(heroId))
+      ? `<div class="hero-card-frags">碎片 ${frags}/${FRAG_MAX}</div>`
+      : '';
+
     card.innerHTML = `
       ${meta.initial ? '<span class="hero-card-initial">初始</span>' : rarityTag}
       ${isOwned && !meta.initial ? '<span class="hero-card-badge">已擁有</span>' : ''}
@@ -209,6 +222,7 @@ function renderHeroPool() {
       <div class="hero-card-name">${isOwned ? getHeroName(heroId, level) : '???'}</div>
       ${levelEl}
       ${evolvedEl}
+      ${fragEl}
     `;
 
     if (isOwned) {
@@ -228,47 +242,6 @@ function renderPity() {
   document.getElementById('pity-count').textContent = `距保底 ${rareRemain} 抽`;
 }
 
-function renderFragments() {
-  const grid = document.getElementById('fragments-grid');
-  grid.innerHTML = '';
-
-  const allPoolHeroes = [
-    ...GACHA_POOL.normal,
-    ...GACHA_POOL.rare,
-    ...GACHA_POOL.super_rare
-  ];
-
-  allPoolHeroes.forEach(heroId => {
-    const meta     = HERO_META[heroId];
-    const heroData = gachaState.heroes[heroId];
-    if (!heroData) return;
-
-    const frags   = heroData.soulFragments ?? 0;
-    const FRAG_MAX = 10;
-    const level    = getHeroLevel(heroData);
-
-    const item = document.createElement('div');
-    item.className = 'fragment-item';
-    item.innerHTML = `
-      <div class="fragment-name">${getHeroName(heroId, level)}</div>
-      <div class="fragment-count">
-        <img class="fragment-icon" src="assets/gacha/soul_shard_r.png" alt="">
-        ${frags >= FRAG_MAX
-          ? '<span class="fragment-max">⚡ 集滿！升一等</span>'
-          : `${frags} / ${FRAG_MAX}`}
-      </div>
-      <div class="fragment-bar-bg">
-        <div class="fragment-bar-fill" style="width:${Math.min(frags / FRAG_MAX * 100, 100)}%"></div>
-      </div>
-      <div class="fragment-tip">集滿10個自動 +1 Lv</div>
-    `;
-    grid.appendChild(item);
-  });
-
-  if (!grid.children.length) {
-    grid.innerHTML = '<div style="font-size:.82rem;color:#7a4a20;padding:4px 0">抽到英雄後才會顯示碎片進度</div>';
-  }
-}
 
 // ── Draw buttons ──────────────────────────────────────────────────────────────
 function bindButtons() {
