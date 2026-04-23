@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, orientation=landscape">
+  <title>三國喵喵 — 寶玉殿</title>
+  <link rel="stylesheet" href="css/jade-hall.css">
+</head>
+<body>
+<div class="jh-page">
+
+  <!-- ── Topbar ── -->
+  <header class="jh-topbar">
+    <button class="jh-back-btn" onclick="location.href='index.html'">←</button>
+    <div class="jh-brand-title">寶玉殿</div>
+    <div class="jh-topbar-spacer"></div>
+    <div class="jh-resource-list">
+      <div class="jh-resource-chip">
+        <span class="jh-resource-icon jh-ri-jade">G</span>
+        <span id="topbar-frags">0</span>
+        喵喵寶玉
+      </div>
+      <div class="jh-resource-chip">
+        <span class="jh-resource-icon jh-ri-scroll">卷</span>
+        <span id="topbar-scrolls">0</span>
+        卷軸
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Body ── -->
+  <section class="jh-layout">
+
+    <!-- Left sidebar -->
+    <aside class="jh-sidebar">
+
+      <!-- 天下氣運 -->
+      <section class="jh-card jh-fortune-card">
+        <div class="jh-fortune-head">
+          <span>天下氣運</span>
+          <span style="opacity:.6;font-size:13px;">ⓘ</span>
+        </div>
+        <div class="jh-fortune-ring" id="fortune-ring">
+          <div class="jh-fortune-center">
+            <div class="jh-fortune-lv" id="fortune-lv">Lv.1</div>
+            <div class="jh-fortune-pts" id="fortune-pts">0</div>
+          </div>
+        </div>
+        <div class="jh-fortune-rows" id="fortune-rows">
+          <!-- filled by JS -->
+        </div>
+      </section>
+
+      <!-- 今日建議 -->
+      <section class="jh-card jh-today-card">
+        <div>
+          <div class="jh-today-title">今日建議</div>
+          <div class="jh-today-text" id="today-tip">點選左側節點開始強化吧！</div>
+        </div>
+        <div class="jh-guide-cat">🐱</div>
+      </section>
+
+    </aside>
+
+    <!-- Center main -->
+    <main class="jh-main">
+      <div class="jh-main-top">
+        <div class="jh-banner">五脈寶玉</div>
+      </div>
+
+      <!-- 空的 core-area 只佔 grid 1fr 空間 -->
+      <div class="jh-core-area" id="core-area"></div>
+
+      <!-- ── 節點 overlay：蓋在整個 jh-main 上，用 % 定位（每脈 1 顆）── -->
+      <div class="jh-nodes-overlay">
+
+        <!-- 脈標籤（緊靠各自節點） -->
+        <div class="jh-branch-tag jh-bt-red"    style="left:50%;  top:13%;" id="bt-wuli">武力脈</div>
+        <div class="jh-branch-tag jh-bt-green"  style="left:5%;   top:42%;" id="bt-shengji">生機脈</div>
+        <div class="jh-branch-tag jh-bt-blue"   style="left:95%;  top:42%;" id="bt-junlue">軍略脈</div>
+        <div class="jh-branch-tag jh-bt-purple" style="left:17%;  top:90%;" id="bt-caifu">財富脈</div>
+        <div class="jh-branch-tag jh-bt-yellow" style="left:83%;  top:90%;" id="bt-jifeng">疾風脈</div>
+
+        <!-- 武力脈（頂部圓圈） -->
+        <div class="jh-node-group" style="left:50%;top:22%;" data-vein="wuli" id="vein-wuli">
+          <div class="jh-node jh-node--lg jh-node--red"><img src="assets/jadehall/mai_red.png" class="jh-mai-img"></div>
+          <div class="jh-node-label" id="lbl-wuli">0/15</div>
+        </div>
+
+        <!-- 生機脈（左側圓圈） -->
+        <div class="jh-node-group" style="left:13%;top:50%;" data-vein="shengji" id="vein-shengji">
+          <div class="jh-node jh-node--lg jh-node--green"><img src="assets/jadehall/mai_green.png" class="jh-mai-img"></div>
+          <div class="jh-node-label" id="lbl-shengji">0/15</div>
+        </div>
+
+        <!-- 軍略脈（右側圓圈） -->
+        <div class="jh-node-group" style="left:87%;top:50%;" data-vein="junlue" id="vein-junlue">
+          <div class="jh-node jh-node--lg jh-node--blue"><img src="assets/jadehall/mai_blue.png" class="jh-mai-img"></div>
+          <div class="jh-node-label" id="lbl-junlue">0/15</div>
+        </div>
+
+        <!-- 財富脈（左下圓圈） -->
+        <div class="jh-node-group" style="left:27%;top:83%;" data-vein="caifu" id="vein-caifu">
+          <div class="jh-node jh-node--lg jh-node--purple"><img src="assets/jadehall/mai_purple.png" class="jh-mai-img"></div>
+          <div class="jh-node-label" id="lbl-caifu">0/15</div>
+        </div>
+
+        <!-- 疾風脈（右下圓圈） -->
+        <div class="jh-node-group" style="left:73%;top:83%;" data-vein="jifeng" id="vein-jifeng">
+          <div class="jh-node jh-node--lg jh-node--yellow"><img src="assets/jadehall/mai_gold.png" class="jh-mai-img"></div>
+          <div class="jh-node-label" id="lbl-jifeng">0/15</div>
+        </div>
+
+        <!-- 核心寶玉 -->
+        <div class="jh-core-shell" id="core-shell" style="left:50%;top:51%;">
+          <div class="jh-core-img-wrap">
+            <img src="assets/jadehall/jade_core_glow.png"  class="jh-core-img-glow"  alt="">
+            <img src="assets/jadehall/jade_core.png"        class="jh-core-img-base"  alt="">
+            <img src="assets/jadehall/jade_core_frame.png"  class="jh-core-img-frame" alt="">
+          </div>
+          <div class="jh-core-content">
+            <div class="jh-core-name">核心寶玉</div>
+            <div class="jh-core-level" id="core-status">五脈全滿後解鎖</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Summary bar -->
+      <section class="jh-summary-bar">
+        <div class="jh-summary-title">總加成</div>
+        <div class="jh-summary-list" id="summary-list">
+          <span class="jh-summary-pill">⚔ 攻擊 <b id="sum-atk">+0%</b></span>
+          <span class="jh-summary-pill">❤ 生命 <b id="sum-hp">+0%</b></span>
+          <span class="jh-summary-pill">◎ 金幣 <b id="sum-gold">+0%</b></span>
+          <span class="jh-summary-pill">◔ 冷卻 <b id="sum-cd">-0%</b></span>
+          <span class="jh-summary-pill">👥 速度 <b id="sum-spd">+0%</b></span>
+        </div>
+      </section>
+    </main>
+
+    <!-- Right detail panel -->
+    <aside class="jh-detail" id="detail-panel">
+      <div class="jh-no-select">
+        <div class="jh-no-select-icon">🪬</div>
+        <div class="jh-no-select-text">點選一個節點<br>查看詳情與升級</div>
+      </div>
+    </aside>
+
+  </section>
+
+  <!-- ── Bottom nav ── -->
+  <footer class="jh-bottom-nav">
+    <a href="index.html"       class="jh-nav-item">🏠 主城</a>
+    <a href="setup-team.html"  class="jh-nav-item">⚔ 隊伍</a>
+    <a href="heroes.html"      class="jh-nav-item">🐾 英雄</a>
+    <a href="gacha.html"       class="jh-nav-item">🎴 抽卡</a>
+    <a href="jade-hall.html"   class="jh-nav-item is-active">G 寶玉殿</a>
+    <a href="leaderboard.html" class="jh-nav-item">🏆 排行</a>
+  </footer>
+
+</div>
+
+<script type="module">
+import { getUserId, loadJadeData, saveJadeData, upgradeJadeNode, loadUserScrolls } from './js/firebase.js';
+import {
+  jadeCfg, defaultJadeData, computeJadeBonuses,
+  canUpgrade, fortuneLevel, isAllMaxed
+} from './js/jade.js';
+
+const userId = getUserId();
+if (!userId) { location.href = 'index.html'; }
+
+let jadeData = null;
+let selectedVein = null; // veinId string
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+async function init() {
+  const raw = await loadJadeData(userId);
+  jadeData = raw ?? defaultJadeData();
+  if (!raw) await saveJadeData(userId, jadeData);
+
+  loadUserScrolls(userId).then(d => {
+    document.getElementById('topbar-scrolls').textContent = d?.scrolls ?? 0;
+  }).catch(() => {});
+
+  render();
+}
+
+// ── Render all ────────────────────────────────────────────────────────────────
+function render() {
+  renderNodes();
+  renderSummary();
+  renderFortune();
+  if (selectedVein) renderDetail(selectedVein);
+  document.getElementById('topbar-frags').textContent = (jadeData.frags ?? 0).toLocaleString();
+}
+
+// ── Render nodes（每脈 1 顆，顯示總等級 x/15）────────────────────────────────
+function renderNodes() {
+  for (const v of jadeCfg.veins) {
+    const total = jadeCfg.qualities.reduce((s, q) => s + (jadeData.nodes?.[`${v.id}_${q}`] ?? 0), 0);
+    const lbl = document.getElementById(`lbl-${v.id}`);
+    if (lbl) lbl.textContent = `${total}/15`;
+    const group = document.getElementById(`vein-${v.id}`);
+    if (group) group.classList.toggle('is-selected', selectedVein === v.id);
+  }
+  // Core
+  if (isAllMaxed(jadeData) && !jadeData.coreUnlocked) {
+    jadeData.coreUnlocked = true;
+    saveJadeData(userId, jadeData).catch(() => {});
+    showToast('🌟 天命大成解鎖！五脈圓滿，氣運大增！');
+  }
+  const coreStatus = document.getElementById('core-status');
+  if (coreStatus) coreStatus.textContent = jadeData.coreUnlocked ? '天命大成 已解鎖' : '五脈全滿後解鎖';
+  document.getElementById('core-shell')?.classList.toggle('jh-core--unlocked', !!jadeData.coreUnlocked);
+}
+
+// ── Summary bar ───────────────────────────────────────────────────────────────
+function renderSummary() {
+  const b = computeJadeBonuses(jadeData);
+  const pct = v => `${v >= 0 ? '+' : ''}${Math.round(v * 100)}%`;
+  document.getElementById('sum-atk').textContent  = pct((b.atk_boost  ?? 1) - 1);
+  document.getElementById('sum-hp').textContent   = pct((b.hp_boost   ?? 1) - 1);
+  document.getElementById('sum-gold').textContent = pct((b.gold_rate  ?? 1) - 1);
+  document.getElementById('sum-cd').textContent   = `-${Math.round((b.cooldown_reduce ?? 0) * 100)}%`;
+  document.getElementById('sum-spd').textContent  = pct((b.spd_boost  ?? 1) - 1);
+}
+
+// ── Fortune ring ──────────────────────────────────────────────────────────────
+function renderFortune() {
+  const { lv, progress } = fortuneLevel(jadeData);
+  document.getElementById('fortune-lv').textContent  = `Lv.${lv}`;
+  document.getElementById('fortune-pts').textContent = progress;
+  const maxPts = jadeCfg.veins.length * jadeCfg.qualities.length * jadeCfg.maxLevel;
+  const ring = document.getElementById('fortune-ring');
+  ring.style.setProperty('--ring-pct', `${Math.round(Math.min(1, progress / maxPts) * 100)}%`);
+
+  const b = computeJadeBonuses(jadeData);
+  document.getElementById('fortune-rows').innerHTML = [
+    ['⚔ 攻擊', (b.atk_boost  ?? 1) - 1],
+    ['❤ 生命', (b.hp_boost   ?? 1) - 1],
+    ['◎ 金幣', (b.gold_rate  ?? 1) - 1],
+    ['◔ 冷卻', -(b.cooldown_reduce ?? 0)],
+    ['👥 速度', (b.spd_boost  ?? 1) - 1],
+  ].map(([label, val]) =>
+    `<div class="jh-fortune-row"><span>${label}</span><b>${val >= 0 ? '+' : ''}${Math.round(val * 100)}%</b></div>`
+  ).join('');
+}
+
+// ── Detail panel（點一脈，顯示三品升級）────────────────────────────────────────
+function renderDetail(veinId) {
+  const v = jadeCfg.veins.find(x => x.id === veinId);
+  const effectLabel = effectLabel_for(v.effect);
+  const colorClass  = `jh-node--${v.color}`;
+  const frags       = jadeData.frags ?? 0;
+  const totalLv     = jadeCfg.qualities.reduce((s, q) => s + (jadeData.nodes?.[`${veinId}_${q}`] ?? 0), 0);
+
+  const qualityRows = jadeCfg.qualities.map(q => {
+    const qName      = jadeCfg.qualityNames[q];
+    const lv         = jadeData.nodes?.[`${veinId}_${q}`] ?? 0;
+    const check      = canUpgrade(jadeData, veinId, q);
+    const effectNow  = Math.round(jadeCfg.effectValues[q][lv] * 100);
+    const effectNext = lv < jadeCfg.maxLevel ? Math.round(jadeCfg.effectValues[q][lv + 1] * 100) : null;
+
+    let btnTxt, btnOff;
+    if (lv >= jadeCfg.maxLevel)   { btnTxt = '已滿';              btnOff = true; }
+    else if (check.ok)             { btnTxt = `升 ${check.jadeReq}G`; btnOff = false; }
+    else                           { btnTxt = '玉不足';            btnOff = true; }
+
+    return `
+      <div class="jh-qrow">
+        <div class="jh-qbadge jh-qbadge--${q}">${qName}</div>
+        <div class="jh-qinfo">
+          <span class="jh-qlv">Lv.${lv}/5</span>
+          <span class="jh-qeff">${effectLabel} +${effectNow}%${effectNext !== null ? ` → +${effectNext}%` : ''}</span>
+        </div>
+        <button class="jh-qbtn" data-uv="${veinId}" data-uq="${q}" ${btnOff ? 'disabled' : ''}>${btnTxt}</button>
+      </div>`;
+  }).join('');
+
+  document.getElementById('detail-panel').innerHTML = `
+    <section class="jh-detail-card">
+      <div class="jh-detail-badge ${colorClass}">${v.char}</div>
+      <div>
+        <div class="jh-detail-title">${v.name}</div>
+        <div class="jh-detail-level" style="font-size:15px;margin:4px 0 6px;">${effectLabel} 強化</div>
+        <div class="jh-status-pill">合計 Lv.${totalLv} / 15</div>
+      </div>
+    </section>
+
+    <section class="jh-panel-card">
+      <div class="jh-panel-head">◇ 三品升級</div>
+      <div class="jh-qlist">${qualityRows}</div>
+    </section>
+
+    <section class="jh-panel-card">
+      <div class="jh-panel-head">◇ 持有寶玉</div>
+      <div class="jh-effect-list">
+        <div class="jh-effect-row">
+          <span>喵喵寶玉</span>
+          <b>${frags.toLocaleString()} G</b>
+        </div>
+      </div>
+    </section>
+  `;
+
+  document.getElementById('detail-panel').querySelectorAll('.jh-qbtn:not([disabled])').forEach(btn => {
+    btn.addEventListener('click', () => doUpgrade(btn.dataset.uv, btn.dataset.uq));
+  });
+}
+
+function effectLabel_for(effect) {
+  return { atk_boost:'攻擊', hp_boost:'生命', cooldown_reduce:'冷卻', gold_rate:'金幣', spd_boost:'速度' }[effect] ?? effect;
+}
+
+// ── Upgrade ───────────────────────────────────────────────────────────────────
+async function doUpgrade(veinId, quality) {
+  const check = canUpgrade(jadeData, veinId, quality);
+  if (!check.ok) return;
+
+  // 找到並鎖定該按鈕
+  const btn = document.querySelector(`.jh-qbtn[data-uv="${veinId}"][data-uq="${quality}"]`);
+  if (btn) { btn.disabled = true; btn.textContent = '…'; }
+
+  try {
+    const result = await upgradeJadeNode(userId, veinId, quality, check.jadeReq);
+    jadeData.frags = result.newFrags;
+    jadeData.nodes[`${veinId}_${quality}`] = result.newLevel;
+    showToast(`✨ ${jadeCfg.qualityNames[quality]}玉升級 Lv.${result.newLevel}！`);
+    render();
+  } catch (e) {
+    showToast(`⚠ ${e.message}`);
+    if (btn) { btn.disabled = false; btn.textContent = `升 ${check.jadeReq}G`; }
+  }
+}
+
+// ── Node click（點一脈節點）──────────────────────────────────────────────────
+document.addEventListener('click', e => {
+  const group = e.target.closest('[data-vein]');
+  if (!group) return;
+  selectedVein = group.dataset.vein;
+  renderNodes();
+  renderDetail(selectedVein);
+});
+
+// ── Toast ─────────────────────────────────────────────────────────────────────
+function showToast(msg) {
+  const el = Object.assign(document.createElement('div'), { className: 'jh-toast', textContent: msg });
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 2800);
+}
+
+init();
+</script>
+</body>
+</html>
