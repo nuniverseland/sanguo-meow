@@ -1,0 +1,39 @@
+{
+  "veins": [
+    { "id": "wuli",    "name": "武力脈", "char": "戰", "effect": "atk_boost",       "color": "red",    "region": "taiwan"   },
+    { "id": "shengji", "name": "生機脈", "char": "生", "effect": "hp_boost",        "color": "green",  "region": "europe"   },
+    { "id": "junlue",  "name": "軍略脈", "char": "略", "effect": "cooldown_reduce", "color": "blue",   "region": "japan"    },
+    { "id": "caifu",   "name": "財富脈", "char": "財", "effect": "gold_rate",       "color": "purple", "region": "americas" },
+    { "id": "jifeng",  "name": "疾風脈", "char": "疾", "effect": "spd_boost",       "color": "yellow", "region": "cosmos"   }
+  ],
+  "qualities": ["bronze", "silver", "gold"],
+  "qualityNames": { "bronze": "銅", "silver": "銀", "gold": "金" },
+  "maxLevel": 5,
+  "effectValues": {
+    "bronze": [0, 0.01, 0.02, 0.03, 0.04, 0.05],
+    "silver": [0, 0.02, 0.04, 0.05, 0.07, 0.08],
+    "gold":   [0, 0.03, 0.05, 0.07, 0.09, 0.12]
+  },
+  "upgradeCosts": {
+    "bronze": { "jade": [10, 20, 35, 55],  "gold": [5000,  10000,  20000,  40000]  },
+    "silver": { "jade": [25, 50, 80, 130], "gold": [15000, 30000,  60000, 120000]  },
+    "gold":   { "jade": [60, 120, 200, 320],"gold": [50000, 100000, 200000, 400000] }
+  },
+  "dropAmounts": { "bronze": 10, "silver": 30, "gold": 100 },
+  "dropRates": {
+    "normal": { "bronze": 0.70, "silver": 0.25, "gold": 0.05 },
+    "boss":   { "bronze": 0.00, "silver": 0.60, "gold": 0.40 }
+  },
+  "regionBonus": {
+    "taiwan":   { "vein": "wuli",    "bonus": 0.30 },
+    "japan":    { "vein": "junlue",  "bonus": 0.30 },
+    "europe":   { "vein": "shengji", "bonus": 0.30 },
+    "americas": { "vein": "caifu",   "bonus": 0.30 },
+    "cosmos":   { "vein": "jifeng",  "bonus": 0.30 }
+  },
+  "coreReward": {
+    "name": "天命大成",
+    "titleName": "天命喵王",
+    "bonusAll": 0.05
+  }
+}

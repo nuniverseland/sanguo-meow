@@ -1,5 +1,6 @@
 // game-engine.js — Core game loop
-import { getUserId, addScore, getUserData, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat, loadCurrentTeam } from './firebase.js';
+import { getUserId, addScore, getUserData, saveStageResult, loadHeroData, addHeroExp, recordWrongAnswer, recordMathStat, updateLeaderboard, addScrolls, loadOwnedHeroes, recordBestiaryDefeat, loadCurrentTeam, loadJadeData, addJadeFrags } from './firebase.js';
+import { defaultJadeData, computeJadeBonuses, rollJadeDrop } from './jade.js';
 import { isTutorialDone, runTutorial } from './tutorial.js';
 import { Hero }     from './hero.js';
 import { Enemy }    from './enemy.js';
@@ -120,16 +121,19 @@ async function init() {
     const INITIAL_HEROES = new Set(['liubei', 'soldier']);
 
     const userId = getUserId();
-    const [stages, heroes, enemies, config, ownedMap, savedTeam] = await Promise.all([
+    const [stages, heroes, enemies, config, ownedMap, savedTeam, jadeData] = await Promise.all([
       fetch('data/stages.json').then(r => r.json()),
       fetch('data/heroes.json').then(r => r.json()),
       fetch('data/enemies.json').then(r => r.json()),
       fetch('data/config.json').then(r => r.json()),
       userId ? loadOwnedHeroes(userId).catch(() => ({})) : Promise.resolve({}),
       userId ? loadCurrentTeam(userId).catch(() => null) : Promise.resolve(null),
+      userId ? loadJadeData(userId).catch(() => null) : Promise.resolve(null),
       loadQuestions(),
       loadDialogs()
     ]);
+    state.jadeBonuses = computeJadeBonuses(jadeData ?? defaultJadeData());
+    state.stageCountry = null; // set below after stageData loads
 
     state.stageData   = stages.find(s => s.id === stageId);
     state.heroesData  = heroes;
@@ -138,6 +142,7 @@ async function init() {
     state.ownedMap    = ownedMap;
 
     if (!state.stageData) { showError(`找不到關卡：${stageId}`); return; }
+    state.stageCountry = state.stageData.country ?? null;
 
     el.stageName().textContent = state.stageData.name;
 
@@ -221,6 +226,14 @@ function applyDialogBuff(choice) {
     state.playerBaseHp    = Math.max(1, state.playerBaseHp - 2);
     state.playerBaseHpMax = state.playerBaseHp;
   }
+  // 疊加寶玉被動加成（乘數型直接相加，冷卻另存）
+  const jb = state.jadeBonuses ?? {};
+  if (jb.atk_boost)       buff.atk_boost       = (buff.atk_boost       ?? 1) - 1 + jb.atk_boost;
+  if (jb.hp_boost)        buff.hp_boost        = (buff.hp_boost        ?? 1) - 1 + jb.hp_boost;
+  if (jb.gold_rate)       buff.gold_rate       = (buff.gold_rate       ?? 1) - 1 + jb.gold_rate;
+  if (jb.spd_boost)       buff.spd_boost       = (buff.spd_boost       ?? 1) - 1 + jb.spd_boost;
+  if (jb.cooldown_reduce) buff.cooldown_reduce = jb.cooldown_reduce;
+
   state.buff = buff;
 }
 
@@ -265,7 +278,8 @@ function summonHero(heroId) {
   if (now < state.cooldowns[heroId]) return;
 
   state.gold -= form.cost;
-  state.cooldowns[heroId] = now + form.cooldown;
+  const cdReduce = state.buff.cooldown_reduce ?? 0;
+  state.cooldowns[heroId] = now + form.cooldown * (1 - Math.min(cdReduce, 0.6));
   state.heroCount[heroId]++;
   sfxSummon();
 
@@ -772,6 +786,12 @@ async function endGame(win) {
       scrollReward = isFirst ? 3 : 1;
       if (perfect) scrollReward += 1;
       await addScrolls(userId, scrollReward).catch(() => {});
+
+      // 寶玉掉落
+      const isBoss = state.stageData.id?.includes('boss') ?? false;
+      const jadeDrop = rollJadeDrop(state.stageCountry, isBoss);
+      await addJadeFrags(userId, jadeDrop.amount).catch(() => {});
+      state._jadeDrop = jadeDrop;
     } catch (e) { console.warn('Firebase 存檔失敗', e); }
   }
 
@@ -779,12 +799,14 @@ async function endGame(win) {
   win ? sfxVictory() : sfxDefeat();
   el.resultTitle().textContent = win ? '🎉 勝利！' : '💀 失敗';
   el.resultTitle().className   = `result-title ${win ? 'win' : 'lose'}`;
+  const jd = state._jadeDrop;
   el.resultStats().innerHTML   = `
     得分：${state.score}<br>
     時間：${elapsed} 秒<br>
     ${perfect ? '✨ 完美通關（不失血）<br>' : ''}
     ${win && elapsed < state.stageData.speedBonusTarget ? '⚡ 速通獎勵！<br>' : ''}
     ${win && scrollReward > 0 ? `📜 獲得卷軸：+${scrollReward}<br>` : ''}
+    ${win && jd ? `🪬 喵喵寶玉：+${jd.amount}（${{'bronze':'銅','silver':'銀','gold':'金'}[jd.quality]}品）<br>` : ''}
   `;
 
   if (win) {

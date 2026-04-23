@@ -401,3 +401,44 @@ export async function executeGachaDraw(userId, drawCount, pool, currentState) {
     return { results, scrollBack: 0, newScrolls: (data.scrolls ?? 0) - cost, newPity: pity, newRarePity: rarePity };
   });
 }
+
+// ── 喵喵寶玉系統 ─────────────────────────────────────────────────────────────
+export async function loadJadeData(userId) {
+  const ref  = doc(db, 'sanguo_users', userId);
+  const snap = await getDoc(ref);
+  return snap.exists() ? (snap.data().jade ?? null) : null;
+}
+
+export async function saveJadeData(userId, jadeData) {
+  const ref = doc(db, 'sanguo_users', userId);
+  await updateDoc(ref, { jade: jadeData });
+}
+
+export async function addJadeFrags(userId, amount) {
+  const ref = doc(db, 'sanguo_users', userId);
+  await updateDoc(ref, { 'jade.frags': increment(amount) });
+}
+
+// 升級寶玉節點（atomic，只消耗喵喵寶玉）
+export async function upgradeJadeNode(userId, veinId, quality, jadeCost) {
+  const userRef = doc(db, 'sanguo_users', userId);
+  return await runTransaction(db, async tx => {
+    const snap = await tx.get(userRef);
+    const data = snap.data() || {};
+    const jade = data.jade || {};
+    const frags = jade.frags ?? 0;
+
+    if (frags < jadeCost) throw new Error('喵喵寶玉不足');
+
+    const key   = `${veinId}_${quality}`;
+    const nodes = jade.nodes ?? {};
+    const newLv = (nodes[key] ?? 0) + 1;
+
+    tx.update(userRef, {
+      'jade.frags':          increment(-jadeCost),
+      [`jade.nodes.${key}`]: newLv
+    });
+
+    return { newLevel: newLv, newFrags: frags - jadeCost };
+  });
+}
