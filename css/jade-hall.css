@@ -612,8 +612,15 @@ body {
 }
 .jh-nodes-overlay .jh-branch-tag {
   position: absolute;
+  /* reset base CSS positional values that would conflict with inline left/top */
+  right: auto;
+  bottom: auto;
   transform: translate(-50%, -50%);
   pointer-events: auto;
+  width: 80px;
+  height: 30px;
+  padding: 0;
+  font-size: 16px;
 }
 .jh-nodes-overlay .jh-core-shell {
   transform: translate(-50%, -50%);
