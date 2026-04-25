@@ -1,0 +1,463 @@
+/* ============================================
+   書院 — Academy Page Styles
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&display=swap');
+
+:root {
+  --ac-bg:       oklch(0.96 0.015 80);
+  --ac-bg2:      oklch(0.93 0.018 78);
+  --ac-ink:      oklch(0.18 0.022 60);
+  --ac-ink-mid:  oklch(0.38 0.018 60);
+  --ac-ink-soft: oklch(0.58 0.014 65);
+  --ac-jade:     oklch(0.52 0.13 165);
+  --ac-jade-dim: oklch(0.72 0.07 165);
+  --ac-gold:     oklch(0.70 0.10 80);
+  --ac-paper:    oklch(0.975 0.012 82);
+  --ac-shadow:   oklch(0.18 0.022 60 / 0.08);
+}
+
+/* ── Page shell ── */
+.academy-page {
+  height: 100%;
+  background: var(--ac-bg);
+  color: var(--ac-ink);
+  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Top bar ── */
+.academy-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid oklch(0.18 0.022 60 / 0.10);
+  background: var(--ac-paper);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.academy-topbar .btn-ghost {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  color: var(--ac-ink-mid);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+  min-width: 60px;
+}
+.academy-topbar .btn-ghost:hover { color: var(--ac-jade); }
+
+.academy-page-title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ac-ink);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── Main area ── */
+.academy-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Paper texture lines */
+.academy-bg {
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 28px,
+    oklch(0.18 0.022 60 / 0.025) 28px,
+    oklch(0.18 0.022 60 / 0.025) 29px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scene wrapper ── */
+.scene-wrapper {
+  width: 100%;
+  max-width: 480px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Content container (fade target) ── */
+.academy-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.academy-content.fading {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* ── Cover image (intro) ── */
+.academy-cover-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  max-height: 360px;
+  flex-shrink: 0;
+}
+.academy-cover-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ── Character area ── */
+.academy-character {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 180px;
+  max-height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.character-silhouette {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: opacity 0.5s;
+}
+.character-silhouette.entering {
+  animation: charEnter 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+@keyframes charEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.character-img {
+  height: 220px;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+}
+
+/* ── Atmosphere label ── */
+.scene-atmosphere {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ac-ink-soft);
+  padding: 6px 0 10px;
+  font-weight: 300;
+}
+
+/* ── Dialog card ── */
+.academy-dialog {
+  margin: 0 16px;
+  background: var(--ac-paper);
+  border: 1px solid oklch(0.18 0.022 60 / 0.12);
+  border-radius: 4px;
+  padding: 20px 22px 18px;
+  box-shadow: 0 2px 12px var(--ac-shadow), 0 0 0 1px var(--ac-paper) inset;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Corner marks */
+.academy-dialog::before,
+.academy-dialog::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--ac-jade-dim);
+  border-style: solid;
+}
+.academy-dialog::before {
+  top: -1px; left: -1px;
+  border-width: 2px 0 0 2px;
+  border-radius: 2px 0 0 0;
+}
+.academy-dialog::after {
+  bottom: -1px; right: -1px;
+  border-width: 0 2px 2px 0;
+  border-radius: 0 0 2px 0;
+}
+
+/* ── Speaker header ── */
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.speaker-name {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+.speaker-line {
+  flex: 1;
+  height: 1px;
+}
+
+/* ── Dialog text ── */
+.dialog-text {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ac-ink);
+  letter-spacing: 0.04em;
+  min-height: 56px;
+}
+.dialog-text.is-typing { cursor: pointer; }
+
+/* Typewriter cursor */
+.tw-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--ac-jade);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: twBlink 0.8s step-end infinite;
+}
+@keyframes twBlink { 50% { opacity: 0; } }
+
+/* ── Progress dots ── */
+.story-progress {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.progress-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: oklch(0.18 0.022 60 / 0.15);
+  transition: background 0.3s;
+}
+.progress-dot.visited { background: var(--ac-jade-dim); }
+.progress-dot.current { background: var(--ac-jade); }
+
+/* ── Choices ── */
+.dialog-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.choice-btn {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--ac-ink-mid);
+  background: transparent;
+  border: 1px solid oklch(0.18 0.022 60 / 0.18);
+  border-radius: 2px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.choice-btn::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--ac-jade);
+  transform: scaleY(0);
+  transition: transform 0.18s;
+  border-radius: 0 2px 2px 0;
+}
+.choice-btn:hover {
+  background: oklch(0.52 0.13 165 / 0.04);
+  border-color: oklch(0.52 0.13 165 / 0.35);
+  color: var(--ac-ink);
+  padding-left: 18px;
+}
+.choice-btn:hover::before { transform: scaleY(1); }
+
+.choice-index {
+  font-size: 10px;
+  color: var(--ac-jade-dim);
+  letter-spacing: 0.04em;
+  width: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Next button ── */
+.next-btn {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ac-jade);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+.next-btn:hover { gap: 10px; }
+
+/* ── Enter button (intro) ── */
+.intro-enter-btn {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: var(--ac-paper);
+  background: var(--ac-jade);
+  border: none;
+  border-radius: 3px;
+  padding: 11px 26px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: block;
+  width: 100%;
+}
+.intro-enter-btn:hover {
+  background: oklch(0.45 0.13 165);
+  transform: translateY(-1px);
+}
+.intro-enter-btn:active { transform: translateY(0); }
+
+/* ── Story selector ── */
+.story-select-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ac-ink-soft);
+  margin-bottom: 10px;
+  display: block;
+}
+.story-card {
+  border: 1px solid oklch(0.18 0.022 60 / 0.15);
+  border-radius: 3px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.18s;
+  background: transparent;
+  font-family: 'Noto Serif TC', serif;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+.story-card:hover {
+  background: oklch(0.52 0.13 165 / 0.04);
+  border-color: oklch(0.52 0.13 165 / 0.3);
+}
+.story-card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ac-ink);
+  letter-spacing: 0.08em;
+}
+.story-card-sub {
+  font-size: 11px;
+  color: var(--ac-ink-soft);
+  letter-spacing: 0.1em;
+}
+
+/* ── Ending ── */
+.ending-card {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: oklch(0.52 0.13 165 / 0.05);
+  border: 1px solid oklch(0.52 0.13 165 / 0.20);
+  border-radius: 4px;
+  text-align: center;
+}
+.ending-symbol {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ac-ink);
+  margin-bottom: 4px;
+}
+.ending-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--ac-jade);
+  margin-bottom: 8px;
+}
+.ending-idiom {
+  font-size: 20px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--ac-ink);
+  margin-bottom: 6px;
+}
+.ending-meaning {
+  font-size: 12px;
+  color: var(--ac-ink-mid);
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+
+.restart-btn {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ac-ink-soft);
+  background: transparent;
+  border: 1px solid oklch(0.18 0.022 60 / 0.2);
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.18s;
+  display: block;
+  width: 100%;
+}
+.restart-btn:hover {
+  border-color: var(--ac-jade-dim);
+  color: var(--ac-jade);
+}
+
+/* ── Mobile ── */
+@media (max-height: 700px) {
+  .academy-character { min-height: 120px; max-height: 180px; }
+  .character-img { height: 160px; }
+  .academy-cover-wrap { max-height: 220px; }
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "sangu_maolu",
+    "title": "三顧茅廬",
+    "subtitle": "誠意·堅持",
+    "idiom": "三顧茅廬",
+    "idiom_meaning": "比喻誠心誠意、一再邀請或拜訪有才德的人。",
+    "nodes": {
+      "start": {
+        "speaker": "zhugeliang",
+        "speakerName": "諸葛亮",
+        "text": "劉備三顧茅廬，方才請動了我。你若是劉備，面對第三次登門，你會怎麼做？",
+        "choices": [
+          { "text": "不顧風雪，立刻再訪", "next": "visit_again" },
+          { "text": "改換他人輔佐", "next": "give_up" },
+          { "text": "等待時機，再作打算", "next": "observe" }
+        ]
+      },
+      "visit_again": {
+        "speaker": "player",
+        "speakerName": "你",
+        "text": "天下未定，我豈能因一時寒冷而退縮？縱使再難，也要親登草廬。",
+        "next": "visit_again_2"
+      },
+      "visit_again_2": {
+        "speaker": "narrator",
+        "speakerName": "旁白",
+        "text": "你在風雪中靜候，終於感動了諸葛亮，成就了這段千古佳話。",
+        "next": "ending_true"
+      },
+      "give_up": {
+        "speaker": "narrator",
+        "speakerName": "旁白",
+        "text": "你選擇了效率，但錯過了改變天下的人。機會，往往藏在最後一次嘗試之中。",
+        "next": "ending_alt"
+      },
+      "observe": {
+        "speaker": "narrator",
+        "speakerName": "旁白",
+        "text": "猶豫與等待，常常讓機會溜走。諸葛亮終究投入了另一主公麾下。",
+        "next": "ending_alt"
+      },
+      "ending_true": {
+        "speaker": "zhugeliang",
+        "speakerName": "諸葛亮",
+        "text": "這便是「三顧茅廬」——誠意能感動天地，堅持方能成就大業。",
+        "ending": true,
+        "ending_type": "true"
+      },
+      "ending_alt": {
+        "speaker": "zhugeliang",
+        "speakerName": "諸葛亮",
+        "text": "機會，往往只給願意堅持的人。若少了那一顧，天下便是另一番光景。",
+        "ending": true,
+        "ending_type": "alt"
+      }
+    }
+  },
+  {
+    "id": "wangmei_zhike",
+    "title": "望梅止渴",
+    "subtitle": "機智·激勵",
+    "idiom": "望梅止渴",
+    "idiom_meaning": "比喻以空想或虛構之物來安慰自己，或用語言來激勵他人。",
+    "nodes": {
+      "start": {
+        "speaker": "narrator",
+        "speakerName": "旁白",
+        "text": "大軍在酷熱中行軍，將士們口渴難耐，士氣低落。身為統帥，你會如何激勵眾人？",
+        "choices": [
+          { "text": "告訴士兵前方有梅林", "next": "plum_trick" },
+          { "text": "下令原地休息找水", "next": "rest" },
+          { "text": "嚴令繼續前行，不許抱怨", "next": "strict" }
+        ]
+      },
+      "plum_trick": {
+        "speaker": "player",
+        "speakerName": "你",
+        "text": "前方不遠，有一大片梅林，梅子又酸又甜——想到酸梅，士兵們頓時口中生津，腳步加快。",
+        "next": "plum_result"
+      },
+      "plum_result": {
+        "speaker": "narrator",
+        "speakerName": "旁白",
+        "text": "雖無梅林，但士兵們的精神因此振奮，順利抵達了有水源的地方。",
+        "next": "ending_true"
+      },
+      "rest": {
+        "speaker": "narrator",
+        "speakerName": "旁白",
+        "text": "找水耗費了大量時間，軍隊行程延誤，錯失了戰機。",
+        "next": "ending_alt"
+      },
+      "strict": {
+        "speaker": "narrator",
+        "speakerName": "旁白",
+        "text": "士氣大落，不少將士中暑倒下，隊伍一片混亂。",
+        "next": "ending_alt"
+      },
+      "ending_true": {
+        "speaker": "zhugeliang",
+        "speakerName": "諸葛亮",
+        "text": "這便是「望梅止渴」——善用語言與想象，能在絕境中激發人的潛能。",
+        "ending": true,
+        "ending_type": "true"
+      },
+      "ending_alt": {
+        "speaker": "zhugeliang",
+        "speakerName": "諸葛亮",
+        "text": "統帥之道，在於洞察人心。曹操以一句話解決了問題，這便是「望梅止渴」的智慧。",
+        "ending": true,
+        "ending_type": "alt"
+      }
+    }
+  }
+]
