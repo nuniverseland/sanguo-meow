@@ -123,17 +123,10 @@
 /* ── Cover image (intro) ── */
 .academy-cover-wrap {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  overflow: hidden;
-  max-height: 360px;
   flex-shrink: 0;
 }
 .academy-cover-img {
   width: 100%;
-  object-fit: cover;
-  object-position: top;
   display: block;
 }
 
