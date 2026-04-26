@@ -13,26 +13,48 @@ let nodeHistory    = [];
 let twTimer        = null;
 
 // ── Speaker config ────────────────────────────────────────────────────────────
+// 支援英文 ID 或中文名稱，統一 normalize 成英文 ID
+const ZH_TO_ID = {
+  '諸葛亮': 'zhugeliang', '諸葛喵': 'zhugeliang',
+  '劉備':   'liubei',     '劉備喵': 'liubei',
+  '曹操':   'caocao',     '曹操喵': 'caocao',
+  '關羽':   'guanyu',     '關羽喵': 'guanyu',
+  '張飛':   'zhangfei',   '張飛喵': 'zhangfei',
+  '趙雲':   'zhaoyun',    '趙雲喵': 'zhaoyun',
+  '司馬懿': 'simayi',
+  '周瑜':   'zhouyu',
+  '旁白':   'narrator',
+  '玩家':   'player',     '你':     'player',
+};
+
+function normalizeSpeaker(raw) {
+  return ZH_TO_ID[raw] || raw;
+}
+
 const SPEAKER_COLOR = {
   zhugeliang: 'oklch(0.52 0.13 165)',
   liubei:     'oklch(0.50 0.10 250)',
   caocao:     'oklch(0.40 0.08 30)',
   zhangfei:   'oklch(0.45 0.10 20)',
   guanyu:     'oklch(0.42 0.09 160)',
+  zhaoyun:    'oklch(0.48 0.09 200)',
+  simayi:     'oklch(0.38 0.07 280)',
+  zhouyu:     'oklch(0.46 0.08 240)',
   narrator:   'oklch(0.58 0.014 65)',
   player:     'oklch(0.65 0.10 80)',
 };
 
-function speakerColor(id) {
-  return SPEAKER_COLOR[id] || 'oklch(0.52 0.13 165)';
+function speakerColor(raw) {
+  return SPEAKER_COLOR[normalizeSpeaker(raw)] || 'oklch(0.52 0.13 165)';
 }
 
-function speakerDisplayName(id, jsonName) {
-  if (id === 'player') return `你（${playerNickname}）`;
-  return jsonName || id;
+function speakerDisplayName(raw, jsonName) {
+  if (normalizeSpeaker(raw) === 'player') return `你（${playerNickname}）`;
+  return jsonName || raw;
 }
 
-function speakerImgSrc(id) {
+function speakerImgSrc(raw) {
+  const id = normalizeSpeaker(raw);
   if (id === 'narrator') return null;
   const heroId = id === 'player' ? playerHeroId : id;
   return `assets/heroes/hero_${heroId}_base.png`;
