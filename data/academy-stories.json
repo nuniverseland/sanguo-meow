@@ -1,113 +1,939 @@
 [
   {
-    "id": "sangu_maolu",
-    "title": "三顧茅廬",
-    "subtitle": "誠意·堅持",
-    "idiom": "三顧茅廬",
-    "idiom_meaning": "比喻誠心誠意、一再邀請或拜訪有才德的人。",
+    "id": "taoyuan_jieyi",
+    "title": "桃園結義",
+    "subtitle": "溫暖・選擇的羈絆",
+    "idiom": "桃園結義",
+    "idiom_meaning": "指志同道合的人結為兄弟，彼此扶持、共同承擔責任。",
+    "emotion": "溫暖",
+    "core_question": "你會為誰站在一起？",
+    "insight": "關係可以被選擇",
     "nodes": {
       "start": {
-        "speaker": "zhugeliang",
-        "speakerName": "諸葛亮",
-        "text": "劉備三顧茅廬，方才請動了我。你若是劉備，面對第三次登門，你會怎麼做？",
+        "speaker": "旁白",
+        "text": "東漢末年，天下大亂。黃巾軍四起，百姓驚慌奔逃。涿郡市集中，有三個素未相識的人，卻同時停在了一張招兵榜前。",
+        "next": "meet_market"
+      },
+      "meet_market": {
+        "speaker": "劉備",
+        "text": "我力量不大，也沒有自己的軍隊。可是看著百姓受苦，我心裡總覺得……不能只是站在旁邊看。",
         "choices": [
-          { "text": "不顧風雪，立刻再訪", "next": "visit_again" },
-          { "text": "改換他人輔佐", "next": "give_up" },
-          { "text": "等待時機，再作打算", "next": "observe" }
+          {
+            "text": "靠近劉備，聽聽他的想法",
+            "next": "listen_liubei"
+          },
+          {
+            "text": "先觀察關羽與張飛的反應",
+            "next": "observe_others"
+          },
+          {
+            "text": "覺得亂世太危險，想先離開",
+            "next": "want_leave"
+          }
         ]
       },
-      "visit_again": {
-        "speaker": "player",
-        "speakerName": "你",
-        "text": "天下未定，我豈能因一時寒冷而退縮？縱使再難，也要親登草廬。",
-        "next": "visit_again_2"
+      "listen_liubei": {
+        "speaker": "玩家",
+        "text": "你看見劉備的手握得很緊。他不是不害怕，只是害怕之中，還有一點不願放下的念頭。",
+        "next": "zhangfei_question"
       },
-      "visit_again_2": {
-        "speaker": "narrator",
-        "speakerName": "旁白",
-        "text": "你在風雪中靜候，終於感動了諸葛亮，成就了這段千古佳話。",
-        "next": "ending_true"
+      "observe_others": {
+        "speaker": "旁白",
+        "text": "關羽沉默地看著榜文，眼神像一把收在鞘裡的刀。張飛則皺著眉，像是早就忍不住想衝出去做點什麼。",
+        "next": "zhangfei_question"
       },
-      "give_up": {
-        "speaker": "narrator",
-        "speakerName": "旁白",
-        "text": "你選擇了效率，但錯過了改變天下的人。機會，往往藏在最後一次嘗試之中。",
-        "next": "ending_alt"
+      "want_leave": {
+        "speaker": "玩家",
+        "text": "你退了一步。亂世太大，自己太小，這樣想並不可笑。可是就在你轉身時，聽見張飛大聲說話。",
+        "next": "zhangfei_question"
       },
-      "observe": {
-        "speaker": "narrator",
-        "speakerName": "旁白",
-        "text": "猶豫與等待，常常讓機會溜走。諸葛亮終究投入了另一主公麾下。",
-        "next": "ending_alt"
+      "zhangfei_question": {
+        "speaker": "張飛",
+        "text": "天下亂成這樣，光會嘆氣有什麼用？若真想救人，就該有人一起站出來！你們敢不敢？",
+        "choices": [
+          {
+            "text": "立刻答應，覺得熱血就是答案",
+            "next": "hot_blood"
+          },
+          {
+            "text": "先問清楚：一起站出來，要承擔什麼？",
+            "next": "ask_cost"
+          },
+          {
+            "text": "提醒大家：只靠衝動可能會害了更多人",
+            "next": "careful_voice"
+          }
+        ]
       },
-      "ending_true": {
-        "speaker": "zhugeliang",
-        "speakerName": "諸葛亮",
-        "text": "這便是「三顧茅廬」——誠意能感動天地，堅持方能成就大業。",
+      "hot_blood": {
+        "speaker": "關羽",
+        "text": "勇氣可貴。但若只是一時熱血，風一吹就散了。真正的同行，是知道危險，仍願意彼此扶持。",
+        "next": "peach_garden"
+      },
+      "ask_cost": {
+        "speaker": "劉備",
+        "text": "你問得好。若結為兄弟，不只是今日一起喝酒說話，而是日後有難同當，有路同走。",
+        "next": "peach_garden"
+      },
+      "careful_voice": {
+        "speaker": "關羽",
+        "text": "謹慎不是退縮。若要為天下做事，更該知道自己為何而戰，也知道身邊的人能不能信。",
+        "next": "peach_garden"
+      },
+      "peach_garden": {
+        "speaker": "旁白",
+        "text": "三人來到桃園。花影搖動，風很輕。劉備、關羽、張飛在天地前立誓：不求同年同月同日生，只願同年同月同日死。",
+        "choices": [
+          {
+            "text": "你覺得這份誓言很溫暖",
+            "next": "ending_warm"
+          },
+          {
+            "text": "你覺得這份誓言也很沉重",
+            "next": "ending_weight"
+          }
+        ]
+      },
+      "ending_warm": {
+        "speaker": "諸葛亮",
+        "text": "這便是「桃園結義」。劉備、關羽、張飛不是因血緣成為兄弟，而是在亂世中選擇彼此。真正的羈絆，不只是喜歡誰，而是願意和誰一起承擔。",
         "ending": true,
         "ending_type": "true"
       },
-      "ending_alt": {
-        "speaker": "zhugeliang",
-        "speakerName": "諸葛亮",
-        "text": "機會，往往只給願意堅持的人。若少了那一顧，天下便是另一番光景。",
+      "ending_weight": {
+        "speaker": "諸葛亮",
+        "text": "你感受到誓言的重量，這很好。桃園結義之所以流傳，不只是因為三人情深，更因為他們明白：選擇一段關係，也是在選擇一份責任。",
         "ending": true,
         "ending_type": "alt"
       }
     }
   },
   {
-    "id": "wangmei_zhike",
-    "title": "望梅止渴",
-    "subtitle": "機智·激勵",
-    "idiom": "望梅止渴",
-    "idiom_meaning": "比喻以空想或虛構之物來安慰自己，或用語言來激勵他人。",
+    "id": "three_heroes_lvbu",
+    "title": "三英戰呂布",
+    "subtitle": "壓力・一個人 vs 一起",
+    "idiom": "三英戰呂布",
+    "idiom_meaning": "指三位英雄聯手對抗強敵，比喻面對極強對手時需合作應對。",
+    "emotion": "壓力",
+    "core_question": "一個人 vs 一起？",
+    "insight": "世界比你強",
     "nodes": {
       "start": {
-        "speaker": "narrator",
-        "speakerName": "旁白",
-        "text": "大軍在酷熱中行軍，將士們口渴難耐，士氣低落。身為統帥，你會如何激勵眾人？",
+        "speaker": "旁白",
+        "text": "虎牢關前，戰鼓震天。呂布騎著赤兔馬，立於陣前，無人能敵。剛剛上場的將領，全都被他一一擊退。",
+        "next": "liubei_tension"
+      },
+      "liubei_tension": {
+        "speaker": "劉備",
+        "text": "這不是普通的敵人……若只靠一人，恐怕難以取勝。",
         "choices": [
-          { "text": "告訴士兵前方有梅林", "next": "plum_trick" },
-          { "text": "下令原地休息找水", "next": "rest" },
-          { "text": "嚴令繼續前行，不許抱怨", "next": "strict" }
+          {
+            "text": "讓關羽先上，試試他的實力",
+            "next": "guan_yu_fight"
+          },
+          {
+            "text": "三人一起上，減少風險",
+            "next": "team_plan"
+          },
+          {
+            "text": "再觀察一下，看看有沒有機會",
+            "next": "hesitate"
+          }
         ]
       },
-      "plum_trick": {
-        "speaker": "player",
-        "speakerName": "你",
-        "text": "前方不遠，有一大片梅林，梅子又酸又甜——想到酸梅，士兵們頓時口中生津，腳步加快。",
-        "next": "plum_result"
+      "guan_yu_fight": {
+        "speaker": "旁白",
+        "text": "關羽策馬而出，青龍偃月刀劃破空氣。兩人交手數十回合，卻始終難分高下。呂布的力道，壓得人幾乎喘不過氣。",
+        "next": "pressure_rise"
       },
-      "plum_result": {
-        "speaker": "narrator",
-        "speakerName": "旁白",
-        "text": "雖無梅林，但士兵們的精神因此振奮，順利抵達了有水源的地方。",
-        "next": "ending_true"
+      "team_plan": {
+        "speaker": "張飛",
+        "text": "好！那就一起上！不信他一個人能擋得住我們三個！",
+        "next": "battle_start"
       },
-      "rest": {
-        "speaker": "narrator",
-        "speakerName": "旁白",
-        "text": "找水耗費了大量時間，軍隊行程延誤，錯失了戰機。",
-        "next": "ending_alt"
+      "hesitate": {
+        "speaker": "旁白",
+        "text": "你選擇觀望。但呂布一擊擊退敵軍，士氣正在快速下降。你開始意識到——拖下去，只會更糟。",
+        "next": "pressure_rise"
       },
-      "strict": {
-        "speaker": "narrator",
-        "speakerName": "旁白",
-        "text": "士氣大落，不少將士中暑倒下，隊伍一片混亂。",
-        "next": "ending_alt"
+      "pressure_rise": {
+        "speaker": "玩家",
+        "text": "你看著場上局勢。關羽雖強，卻無法壓制呂布。那股壓力，像山一樣壓下來——如果只是單打獨鬥，真的撐得住嗎？",
+        "choices": [
+          {
+            "text": "讓張飛加入，一起夾擊",
+            "next": "two_vs_one"
+          },
+          {
+            "text": "還是相信關羽能撐住",
+            "next": "solo_limit"
+          },
+          {
+            "text": "乾脆三人同時上",
+            "next": "battle_start"
+          }
+        ]
       },
-      "ending_true": {
-        "speaker": "zhugeliang",
-        "speakerName": "諸葛亮",
-        "text": "這便是「望梅止渴」——善用語言與想象，能在絕境中激發人的潛能。",
+      "solo_limit": {
+        "speaker": "旁白",
+        "text": "關羽再撐了一會，但呂布的攻勢越來越猛烈。你開始明白，有些對手，不是靠一個人就能解決的。",
+        "next": "battle_start"
+      },
+      "two_vs_one": {
+        "speaker": "旁白",
+        "text": "張飛加入戰局，氣勢瞬間改變。但即使兩人合力，呂布仍然能撐住。這場戰鬥，遠比想像中更難。",
+        "next": "battle_start"
+      },
+      "battle_start": {
+        "speaker": "旁白",
+        "text": "劉備、關羽、張飛三人同時出手，圍戰呂布。刀光與馬影交錯，終於讓呂布無法全力壓制，只能退去。",
+        "next": "ending"
+      },
+      "ending": {
+        "speaker": "諸葛亮",
+        "text": "這便是「三英戰呂布」。呂布之強，非一人可敵。劉備、關羽、張飛三人聯手，方能抗衡。世間並非所有戰鬥，都能靠一己之力完成。有些時候，願意與他人並肩，才是走得更遠的開始。",
+        "ending": true
+      }
+    }
+  },
+  {
+    "id": "hold_emperor_command_lords",
+    "title": "挾天子以令諸侯",
+    "subtitle": "控制・規則的力量",
+    "idiom": "挾天子以令諸侯",
+    "idiom_meaning": "利用皇帝的名義發號施令，以掌控各方勢力。",
+    "emotion": "控制",
+    "core_question": "規則重要嗎？",
+    "insight": "力量不只武力",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "東漢末年，天下動亂。漢獻帝流離失所，各地諸侯各自為政。曹操帶兵迎回皇帝，整個局勢，開始悄悄改變。",
+        "next": "cao_cao_plan"
+      },
+      "cao_cao_plan": {
+        "speaker": "曹操",
+        "text": "若只是靠兵力征戰，天下不會真正安定。可若有皇帝在手……天下的命令，就會變得不一樣。",
+        "choices": [
+          {
+            "text": "支持曹操：用皇帝的名義統一命令",
+            "next": "support_control"
+          },
+          {
+            "text": "質疑：這樣算是幫助，還是利用？",
+            "next": "question_motive"
+          },
+          {
+            "text": "認為還是應該靠實力打天下",
+            "next": "prefer_force"
+          }
+        ]
+      },
+      "support_control": {
+        "speaker": "玩家",
+        "text": "你點頭。若天下需要秩序，也許用皇帝的名義，能讓更多人願意聽從。",
+        "next": "order_effect"
+      },
+      "question_motive": {
+        "speaker": "玩家",
+        "text": "你有些不安。這看起來像是在保護皇帝，但也像是在借用他的力量。",
+        "next": "order_effect"
+      },
+      "prefer_force": {
+        "speaker": "玩家",
+        "text": "你皺眉。若要統一天下，為何不直接用實力？借助皇帝的名義，是否太過間接？",
+        "next": "order_effect"
+      },
+      "order_effect": {
+        "speaker": "旁白",
+        "text": "很快地，命令從皇帝名義發出。各地諸侯收到詔書，不得不回應。原本混亂的局勢，開始出現一種新的秩序。",
+        "next": "tension_point"
+      },
+      "tension_point": {
+        "speaker": "玩家",
+        "text": "你看著局勢改變。沒有大規模戰鬥，卻有人開始服從。這種力量，和刀劍不同，卻一樣有效。你開始猶豫——這算是正確的方式嗎？",
+        "choices": [
+          {
+            "text": "覺得這樣比較好，至少減少戰爭",
+            "next": "ending_order"
+          },
+          {
+            "text": "仍然不安，覺得這種控制太隱蔽",
+            "next": "ending_doubt"
+          }
+        ]
+      },
+      "ending_order": {
+        "speaker": "諸葛亮",
+        "text": "此即「挾天子以令諸侯」。曹操迎奉漢獻帝，以皇帝之名號令天下。你看見了秩序的建立，也看見了力量的另一種形式——不在刀劍，而在規則。",
         "ending": true,
         "ending_type": "true"
       },
-      "ending_alt": {
-        "speaker": "zhugeliang",
-        "speakerName": "諸葛亮",
-        "text": "統帥之道，在於洞察人心。曹操以一句話解決了問題，這便是「望梅止渴」的智慧。",
+      "ending_doubt": {
+        "speaker": "諸葛亮",
+        "text": "此即「挾天子以令諸侯」。曹操迎奉漢獻帝，以皇帝之名號令天下。你心中的不安並非多餘——因為規則既能建立秩序，也能被人利用。力量，從來不只一種樣子。",
+        "ending": true,
+        "ending_type": "alt"
+      }
+    }
+  },
+  {
+    "id": "hidden_strategy_scroll",
+    "title": "錦囊妙計",
+    "subtitle": "安定・事前的準備",
+    "idiom": "錦囊妙計",
+    "idiom_meaning": "事先設計好的計策，在關鍵時刻發揮作用。",
+    "emotion": "安定",
+    "core_question": "你有準備嗎？",
+    "insight": "聰明在事前",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "行軍途中，局勢忽然改變。前方敵軍動向不明，後方補給也開始不穩。劉備一行人停在路口，氣氛漸漸變得緊張。",
+        "next": "liubei_worry"
+      },
+      "liubei_worry": {
+        "speaker": "劉備",
+        "text": "若此時走錯一步，不只是我們，還有跟隨的百姓……都會受影響。",
+        "choices": [
+          {
+            "text": "立刻做決定，不能再拖",
+            "next": "rush_decision"
+          },
+          {
+            "text": "先觀察局勢，再做打算",
+            "next": "wait_and_see"
+          },
+          {
+            "text": "想起諸葛亮是否有留下什麼交代",
+            "next": "remember_scroll"
+          }
+        ]
+      },
+      "rush_decision": {
+        "speaker": "旁白",
+        "text": "你選擇立刻行動，但資訊不足，每一步都像踩在不確定的地面上。壓力反而越來越大。",
+        "next": "tension_build"
+      },
+      "wait_and_see": {
+        "speaker": "旁白",
+        "text": "你選擇觀察。但敵情不明，時間一點一滴過去，焦躁開始在隊伍中蔓延。",
+        "next": "tension_build"
+      },
+      "remember_scroll": {
+        "speaker": "玩家",
+        "text": "你突然想起——出發前，諸葛亮曾交給劉備一個封好的錦囊，叮囑在關鍵時刻再打開。",
+        "next": "open_scroll"
+      },
+      "tension_build": {
+        "speaker": "玩家",
+        "text": "你感覺到那種壓力：不知道對、不知道錯，每個選擇都可能讓事情更糟。這時，你開始想——是不是有什麼你忽略的準備？",
+        "choices": [
+          {
+            "text": "繼續靠自己判斷",
+            "next": "self_try"
+          },
+          {
+            "text": "尋找是否有事先留下的計策",
+            "next": "open_scroll"
+          }
+        ]
+      },
+      "self_try": {
+        "speaker": "旁白",
+        "text": "你努力分析，但資訊不足讓一切都變得模糊。你開始明白，有些局面，不是臨時能想出最好答案的。",
+        "next": "open_scroll"
+      },
+      "open_scroll": {
+        "speaker": "旁白",
+        "text": "劉備打開錦囊。裡面是一段早已寫好的計策，清楚地指出此刻應該採取的行動。",
+        "next": "calm_shift"
+      },
+      "calm_shift": {
+        "speaker": "玩家",
+        "text": "你忽然感覺不一樣了。剛才的混亂還在，但心裡多了一種確定——原來這一步，早就被想過。",
+        "choices": [
+          {
+            "text": "照計策行動",
+            "next": "ending_trust"
+          },
+          {
+            "text": "還是想自己再想一想",
+            "next": "ending_reflect"
+          }
+        ]
+      },
+      "ending_trust": {
+        "speaker": "諸葛亮",
+        "text": "此為「錦囊妙計」。真正的計策，並非臨時靈光一現，而是在事情發生之前，就已經預想。當局勢混亂時，準備，會讓人心安。",
+        "ending": true,
+        "ending_type": "true"
+      },
+      "ending_reflect": {
+        "speaker": "諸葛亮",
+        "text": "此為「錦囊妙計」。你仍想自己判斷，這並沒有錯。但你已經看見——有些安定，來自事前的準備，而不是臨時的聰明。",
+        "ending": true,
+        "ending_type": "alt"
+      }
+    }
+  },
+  {
+    "id": "green_plum_wine",
+    "title": "青梅煮酒論英雄",
+    "subtitle": "試探・你是誰",
+    "idiom": "青梅煮酒論英雄",
+    "idiom_meaning": "指在輕鬆談話中試探對方，判斷其是否為真正的人才或英雄。",
+    "emotion": "試探",
+    "core_question": "你是誰？",
+    "insight": "別人會看見你",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "春雨剛停，庭院裡青梅微酸。曹操邀劉備共飲，火上煮酒，氣氛看似閒適，卻隱隱帶著一種說不出的壓力。",
+        "next": "cao_cao_open"
+      },
+      "cao_cao_open": {
+        "speaker": "曹操",
+        "text": "天下英雄，誰配稱得上？你怎麼看？",
+        "choices": [
+          {
+            "text": "直說自己的看法",
+            "next": "speak_direct"
+          },
+          {
+            "text": "先聽曹操怎麼說",
+            "next": "listen_first"
+          },
+          {
+            "text": "試著把話題帶開",
+            "next": "avoid_answer"
+          }
+        ]
+      },
+      "speak_direct": {
+        "speaker": "劉備",
+        "text": "你感覺到空氣一瞬間變得安靜。這不是隨便的聊天，每一句話，都可能被記住。",
+        "next": "cao_cao_list"
+      },
+      "listen_first": {
+        "speaker": "旁白",
+        "text": "你沒有急著回答。曹操微微一笑，像是早就預料到你的猶豫。",
+        "next": "cao_cao_list"
+      },
+      "avoid_answer": {
+        "speaker": "旁白",
+        "text": "你試圖轉開話題，但曹操的眼神仍停在你身上。這個問題，好像沒那麼容易避開。",
+        "next": "cao_cao_list"
+      },
+      "cao_cao_list": {
+        "speaker": "曹操",
+        "text": "袁紹？名氣有餘。袁術？志大才疏。這些人，都算不上英雄。",
+        "next": "tension_shift"
+      },
+      "tension_shift": {
+        "speaker": "玩家",
+        "text": "你突然明白了——這不是在談別人，而是在看你會怎麼看世界。你說的答案，也是在告訴他，你是什麼樣的人。",
+        "choices": [
+          {
+            "text": "低調回答，不把自己放進去",
+            "next": "low_profile"
+          },
+          {
+            "text": "承認自己也有志向",
+            "next": "reveal_self"
+          },
+          {
+            "text": "模糊帶過，不讓對方看清",
+            "next": "blur_answer"
+          }
+        ]
+      },
+      "low_profile": {
+        "speaker": "劉備",
+        "text": "你選擇收起鋒芒。但那一刻，你仍感覺到——對方似乎已經看見了什麼。",
+        "next": "ending_common"
+      },
+      "reveal_self": {
+        "speaker": "旁白",
+        "text": "你坦然說出心中的志向。空氣變得更安靜，但也更清晰。這一刻，已經沒有退路。",
+        "next": "ending_common"
+      },
+      "blur_answer": {
+        "speaker": "旁白",
+        "text": "你試著模糊回答。但有些問題，不回答，其實也是一種回答。",
+        "next": "ending_common"
+      },
+      "ending_common": {
+        "speaker": "諸葛亮",
+        "text": "此即「青梅煮酒論英雄」。曹操與劉備表面閒談，實則試探對方心志。人或許能隱藏一時，但在選擇與回答之間，真實的自己，終究會被看見。",
+        "ending": true
+      }
+    }
+  },
+  {
+    "id": "first_time_out",
+    "title": "初出茅廬",
+    "subtitle": "緊張・準備夠了嗎",
+    "idiom": "初出茅廬",
+    "idiom_meaning": "第一次踏入世事，開始施展才能。",
+    "emotion": "緊張",
+    "core_question": "準備夠了嗎？",
+    "insight": "踏出去才開始",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "隆中草廬外，風很輕。諸葛亮站在門前，看著遠方的道路。劉備三顧之後，他終於決定出山。",
+        "next": "inner_tension"
+      },
+      "inner_tension": {
+        "speaker": "諸葛亮",
+        "text": "書讀了這麼多年，局也推演過無數次。但真正走進這個世界……會不會完全不一樣？",
+        "choices": [
+          {
+            "text": "相信自己的準備，直接出發",
+            "next": "step_forward"
+          },
+          {
+            "text": "再想一想，確認計策是否完整",
+            "next": "overthink"
+          },
+          {
+            "text": "懷疑自己，覺得可能還不夠",
+            "next": "self_doubt"
+          }
+        ]
+      },
+      "step_forward": {
+        "speaker": "旁白",
+        "text": "你選擇踏出第一步。腳步還不穩，但方向已經確定。",
+        "next": "first_challenge"
+      },
+      "overthink": {
+        "speaker": "旁白",
+        "text": "你在腦中反覆推演。但越想，變數越多，反而開始不確定哪個才是對的。",
+        "next": "first_challenge"
+      },
+      "self_doubt": {
+        "speaker": "旁白",
+        "text": "你停在原地。準備越多，反而越覺得還不夠。世界太大，你開始懷疑自己是否真的能改變什麼。",
+        "next": "first_challenge"
+      },
+      "first_challenge": {
+        "speaker": "旁白",
+        "text": "剛出山不久，第一個局勢就出現變化。敵軍動向不明，時間卻不等人。這不是書裡的問題，而是現在就要做決定的現實。",
+        "next": "decision_point"
+      },
+      "decision_point": {
+        "speaker": "玩家",
+        "text": "你發現，沒有一個答案是完全準備好的。你只能在不確定中選擇。",
+        "choices": [
+          {
+            "text": "依照原本的計畫行動",
+            "next": "follow_plan"
+          },
+          {
+            "text": "臨時調整，應對變化",
+            "next": "adapt"
+          },
+          {
+            "text": "猶豫不決，想再等等",
+            "next": "hesitate"
+          }
+        ]
+      },
+      "follow_plan": {
+        "speaker": "旁白",
+        "text": "計畫順利展開，但你也感覺到——有些細節，書中從未寫過。你開始在行動中學習。",
+        "next": "ending_common"
+      },
+      "adapt": {
+        "speaker": "旁白",
+        "text": "你調整了原本的想法。雖然不完美，但事情開始動起來。你意識到，真正的能力，是邊做邊修正。",
+        "next": "ending_common"
+      },
+      "hesitate": {
+        "speaker": "旁白",
+        "text": "你多等了一步。局勢卻沒有等你。那一刻你明白——再多準備，也無法替你跨出那一步。",
+        "next": "ending_common"
+      },
+      "ending_common": {
+        "speaker": "諸葛亮",
+        "text": "此為「初出茅廬」。我離開草廬之時，並非萬事俱備，而是知道——若不踏出，便永遠只是準備。世間之事，多半是在行動中，才逐漸明白。",
+        "ending": true
+      }
+    }
+  },
+  {
+    "id": "three_visits_zhugeliang",
+    "title": "三顧茅廬",
+    "subtitle": "誠意・值得再試嗎",
+    "idiom": "三顧茅廬",
+    "idiom_meaning": "多次誠心拜訪，表達邀請與重視。",
+    "emotion": "誠意",
+    "core_question": "值得再試嗎？",
+    "insight": "誠意改變人",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "隆中草廬外，山路安靜。劉備帶著關羽、張飛，再次來到這裡。這已經不是第一次了。",
+        "next": "first_visit"
+      },
+      "first_visit": {
+        "speaker": "旁白",
+        "text": "第一次來時，諸葛亮不在。第二次來時，他仍未出現。張飛的耐心已經快用完。",
+        "next": "zhangfei_react"
+      },
+      "zhangfei_react": {
+        "speaker": "張飛",
+        "text": "兩次都撲空！一個人再厲害，也不值得這樣等吧！",
+        "choices": [
+          {
+            "text": "覺得張飛說得對，應該放棄",
+            "next": "consider_leave"
+          },
+          {
+            "text": "覺得再試一次也無妨",
+            "next": "consider_try"
+          },
+          {
+            "text": "想知道劉備為什麼還願意來",
+            "next": "liubei_reason"
+          }
+        ]
+      },
+      "consider_leave": {
+        "speaker": "玩家",
+        "text": "你開始動搖。一次、兩次都見不到人，這樣的等待，好像沒有盡頭。",
+        "next": "inner_conflict"
+      },
+      "consider_try": {
+        "speaker": "玩家",
+        "text": "你覺得再試一次，也許會有不同。但心裡還是忍不住想：如果還是見不到呢？",
+        "next": "inner_conflict"
+      },
+      "liubei_reason": {
+        "speaker": "劉備",
+        "text": "若一個人真有能力，值得我為他多走幾次路。不是為了面子，而是為了天下。",
+        "next": "inner_conflict"
+      },
+      "inner_conflict": {
+        "speaker": "玩家",
+        "text": "你看著這條山路。不是難走，而是——不知道值不值得再走一次。",
+        "choices": [
+          {
+            "text": "選擇再去一次",
+            "next": "third_visit"
+          },
+          {
+            "text": "覺得兩次已經足夠",
+            "next": "almost_leave"
+          }
+        ]
+      },
+      "almost_leave": {
+        "speaker": "旁白",
+        "text": "你轉身準備離開。但就在那一刻，你回頭看了一眼那間草廬——你忽然覺得，這一步如果不走，可能會後悔。",
+        "next": "third_visit"
+      },
+      "third_visit": {
+        "speaker": "旁白",
+        "text": "第三次，門終於開了。諸葛亮出現，靜靜地看著劉備。",
+        "next": "meeting"
+      },
+      "meeting": {
+        "speaker": "諸葛亮",
+        "text": "三次來訪，不為名利。你所求的，並非為自己，而是天下。",
+        "next": "ending"
+      },
+      "ending": {
+        "speaker": "諸葛亮",
+        "text": "此為「三顧茅廬」。劉備三次親訪，誠心邀請我出山。真正的誠意，不在說了多少，而在願意為一件事走多遠。人心，有時正是被這樣改變的。",
+        "ending": true
+      }
+    }
+  },
+  {
+    "id": "fish_in_water",
+    "title": "如魚得水",
+    "subtitle": "放鬆・找對人重要嗎",
+    "idiom": "如魚得水",
+    "idiom_meaning": "得到適合的環境或夥伴，能順利發揮能力。",
+    "emotion": "放鬆",
+    "core_question": "找對人重要嗎？",
+    "insight": "合適比努力重要",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "劉備一路奔走，東奔西走多年。打過仗，也輸過，試過很多方法，但總覺得哪裡不太對。",
+        "next": "liubei_tired"
+      },
+      "liubei_tired": {
+        "speaker": "劉備",
+        "text": "我已經很努力了……為什麼總是差一點？",
+        "choices": [
+          {
+            "text": "再更努力一點，一定可以",
+            "next": "push_harder"
+          },
+          {
+            "text": "開始懷疑自己是不是不夠好",
+            "next": "self_doubt"
+          },
+          {
+            "text": "覺得也許不是努力的問題",
+            "next": "question_direction"
+          }
+        ]
+      },
+      "push_harder": {
+        "speaker": "旁白",
+        "text": "你選擇再加倍努力。但事情沒有明顯改變，反而讓人更疲累。",
+        "next": "meet_zhugeliang"
+      },
+      "self_doubt": {
+        "speaker": "旁白",
+        "text": "你開始懷疑自己。是不是不夠聰明、不夠強？這樣的念頭讓腳步變得更沉。",
+        "next": "meet_zhugeliang"
+      },
+      "question_direction": {
+        "speaker": "玩家",
+        "text": "你開始想，也許不是做得不夠，而是方向有問題。",
+        "next": "meet_zhugeliang"
+      },
+      "meet_zhugeliang": {
+        "speaker": "旁白",
+        "text": "直到有一天，你遇見了諸葛亮。第一次對話，就像一條路突然被看清。",
+        "next": "shift_feeling"
+      },
+      "shift_feeling": {
+        "speaker": "玩家",
+        "text": "你發現一件事：事情沒有變簡單，但好像開始變順了。很多原本卡住的地方，慢慢流動起來。",
+        "choices": [
+          {
+            "text": "覺得是因為他太聰明",
+            "next": "smart_focus"
+          },
+          {
+            "text": "覺得是因為彼此很合",
+            "next": "fit_focus"
+          },
+          {
+            "text": "還不太確定為什麼會變順",
+            "next": "unclear_but_flow"
+          }
+        ]
+      },
+      "smart_focus": {
+        "speaker": "旁白",
+        "text": "他的確很聰明。但你也開始發現——不是只有他在做事，而是你們開始互相配合。",
+        "next": "ending_common"
+      },
+      "fit_focus": {
+        "speaker": "旁白",
+        "text": "你感覺到那種配合——你說一半，他就懂；他提出的方向，你也能接住。",
+        "next": "ending_common"
+      },
+      "unclear_but_flow": {
+        "speaker": "旁白",
+        "text": "你說不清原因，但事情確實在變順。那種感覺，就像水開始流動，而不是卡在石頭間。",
+        "next": "ending_common"
+      },
+      "ending_common": {
+        "speaker": "諸葛亮",
+        "text": "此為「如魚得水」。劉備與我相遇後，彼此相合，才能各展所長。人並非不夠努力，只是有時，尚未在適合的位置。當方向對了，努力，才會真正流動。",
+        "ending": true
+      }
+    }
+  },
+  {
+    "id": "borrow_arrows_boat",
+    "title": "草船借箭",
+    "subtitle": "自信・一定要自己做？",
+    "idiom": "草船借箭",
+    "idiom_meaning": "利用對方的行動達成自己的目的，不必親自完成。",
+    "emotion": "自信",
+    "core_question": "一定要自己做？",
+    "insight": "借力才是強",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "赤壁之戰前夕，軍中箭矢不足。周瑜限諸葛亮三日內準備十萬支箭，否則軍法處置。",
+        "next": "pressure_scene"
+      },
+      "pressure_scene": {
+        "speaker": "周瑜",
+        "text": "三日之內，你做得到嗎？",
+        "choices": [
+          {
+            "text": "答應，想辦法自己造箭",
+            "next": "make_arrow"
+          },
+          {
+            "text": "懷疑這個任務根本做不到",
+            "next": "doubt_task"
+          },
+          {
+            "text": "觀察諸葛亮的反應",
+            "next": "observe_zhuge"
+          }
+        ]
+      },
+      "make_arrow": {
+        "speaker": "旁白",
+        "text": "你開始盤算造箭所需的時間與人力。但越想越發現——三天，根本不夠。",
+        "next": "inner_shift"
+      },
+      "doubt_task": {
+        "speaker": "玩家",
+        "text": "你心裡一沉。這不像任務，更像一個陷阱。",
+        "next": "inner_shift"
+      },
+      "observe_zhuge": {
+        "speaker": "旁白",
+        "text": "諸葛亮只是輕輕一笑，沒有急，也沒有辯解。",
+        "next": "inner_shift"
+      },
+      "inner_shift": {
+        "speaker": "諸葛亮",
+        "text": "三日太多。只需三日之內的一個時機。",
+        "next": "fog_plan"
+      },
+      "fog_plan": {
+        "speaker": "旁白",
+        "text": "夜裡江上起霧。諸葛亮命人駕著草船，船上綁滿草人，緩緩駛向曹軍水寨。",
+        "next": "tension_point"
+      },
+      "tension_point": {
+        "speaker": "玩家",
+        "text": "你站在船上。前方敵軍隱約可見。這不是正面作戰，而是一場賭局——如果對方不射箭呢？",
+        "choices": [
+          {
+            "text": "相信計畫，繼續前進",
+            "next": "trust_plan"
+          },
+          {
+            "text": "覺得風險太高，想撤退",
+            "next": "hesitate_plan"
+          },
+          {
+            "text": "還是覺得應該自己準備比較安心",
+            "next": "self_control"
+          }
+        ]
+      },
+      "trust_plan": {
+        "speaker": "旁白",
+        "text": "曹軍見霧中敵影，果然萬箭齊發。箭矢紛紛射在草人上。",
+        "next": "ending_common"
+      },
+      "hesitate_plan": {
+        "speaker": "旁白",
+        "text": "你一瞬間想後退。但箭已經射出。霧中箭雨如潮，你才發現——局勢早已被引動。",
+        "next": "ending_common"
+      },
+      "self_control": {
+        "speaker": "旁白",
+        "text": "你仍覺得應該自己掌握一切。但眼前這一刻，你看見——不是所有成果，都來自自己的手。",
+        "next": "ending_common"
+      },
+      "ending_common": {
+        "speaker": "諸葛亮",
+        "text": "此為「草船借箭」。我未曾造箭，卻得箭十萬。世間之事，並非樣樣需親力親為。懂得借勢、借人、借力，方為真正的運用。",
+        "ending": true
+      }
+    }
+  },
+  {
+    "id": "bitter_flesh_strategy",
+    "title": "苦肉計",
+    "subtitle": "犧牲・願意付代價嗎",
+    "idiom": "苦肉計",
+    "idiom_meaning": "故意讓自己受苦或受傷，使敵人相信，以達成計策。",
+    "emotion": "犧牲",
+    "core_question": "願意付代價嗎？",
+    "insight": "有些勝利很痛",
+    "nodes": {
+      "start": {
+        "speaker": "旁白",
+        "text": "赤壁之戰前，曹操大軍壓境。周瑜與黃蓋知道，若要用火攻，就必須讓曹操相信有人真心投降。",
+        "next": "huang_gai_propose"
+      },
+      "huang_gai_propose": {
+        "speaker": "黃蓋",
+        "text": "若只是寫信投降，曹操未必會信。若要他相信，我願受軍棍之刑，讓他以為我與周都督決裂。",
+        "choices": [
+          {
+            "text": "覺得這樣太痛了，不值得",
+            "next": "fear_cost"
+          },
+          {
+            "text": "覺得只要能勝利，就該承受",
+            "next": "accept_cost"
+          },
+          {
+            "text": "想先問：一定要用這種方法嗎？",
+            "next": "ask_alternative"
+          }
+        ]
+      },
+      "fear_cost": {
+        "speaker": "玩家",
+        "text": "你心裡一緊。這不是假裝受傷，而是真的會痛。你第一次感覺到，計策不是只有聰明，也可能很殘忍。",
+        "next": "zhouyu_answer"
+      },
+      "accept_cost": {
+        "speaker": "玩家",
+        "text": "你覺得若能救下江東，也許這是必須付出的代價。但說出這句話時，你仍不敢看黃蓋的眼睛。",
+        "next": "zhouyu_answer"
+      },
+      "ask_alternative": {
+        "speaker": "玩家",
+        "text": "你想找別的方法。可是曹操多疑，普通的投降信很可能立刻被識破。局勢像火一樣逼近，選擇越來越少。",
+        "next": "zhouyu_answer"
+      },
+      "zhouyu_answer": {
+        "speaker": "周瑜",
+        "text": "此計若成，可破曹軍；若不成，黃老將軍便白白受苦。你們可知，這一棍一棍，打的不是身體而已。",
+        "next": "punishment_scene"
+      },
+      "punishment_scene": {
+        "speaker": "旁白",
+        "text": "軍帳前，黃蓋被按下。棍聲落下，眾人沉默。有人不忍看，有人握緊拳頭。曹操的探子，正躲在遠處看著這一切。",
+        "next": "inner_turn"
+      },
+      "inner_turn": {
+        "speaker": "玩家",
+        "text": "你忽然明白，這場戲之所以能騙過敵人，是因為痛苦是真的。可是如果勝利必須讓人受苦，這樣的勝利還是勝利嗎？",
+        "choices": [
+          {
+            "text": "覺得這份犧牲太沉重",
+            "next": "ending_weight"
+          },
+          {
+            "text": "覺得黃蓋很勇敢",
+            "next": "ending_courage"
+          },
+          {
+            "text": "覺得勝利不該被看得太輕",
+            "next": "ending_reflect"
+          }
+        ]
+      },
+      "ending_weight": {
+        "speaker": "諸葛亮",
+        "text": "此為「苦肉計」。黃蓋真受責打，使曹操相信他投降，才讓火攻得以成功。你感到沉重，正說明你看見了代價。有些計策能勝，卻不是輕快的勝。",
+        "ending": true,
+        "ending_type": "alt"
+      },
+      "ending_courage": {
+        "speaker": "諸葛亮",
+        "text": "此為「苦肉計」。黃蓋以自身受苦換取曹操信任，最終助成赤壁火攻。勇敢有時不是衝上前線，而是明知會痛，仍願意承擔。",
+        "ending": true,
+        "ending_type": "true"
+      },
+      "ending_reflect": {
+        "speaker": "諸葛亮",
+        "text": "此為「苦肉計」。黃蓋受刑是假意決裂，痛苦卻是真的。勝利若有人替你承受代價，便不能只記得勝利，也要記得那份痛。",
         "ending": true,
         "ending_type": "alt"
       }
