@@ -27,7 +27,7 @@ export function nextQuestion(mathTypes) {
   // English question: has options array in data
   if (Array.isArray(q.options)) {
     const opts = [...q.options];
-    _englishCorrect = opts[0];  // answer is always index 0 in source data
+    _englishCorrect = opts[q.answer ?? 0];  // use answer index (adverbs bank varies; uk_2/uk3 always 0)
     shuffleArray(opts);
     currentChoices = opts;
     return { question: q, choices: opts, isEnglish: true };
