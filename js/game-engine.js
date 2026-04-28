@@ -182,9 +182,9 @@ async function init() {
       .filter(Boolean);
     buildSummonPanel(availableHeroes);
 
-    // Setup math answer buttons
+    // Setup answer buttons (math: number string; English: text string)
     el.choiceBtns().forEach(btn => {
-      btn.addEventListener('click', () => onAnswer(parseInt(btn.textContent)));
+      btn.addEventListener('click', () => onAnswer(btn.dataset.answer ?? btn.textContent));
     });
 
     // Show dialog then start
@@ -530,7 +530,16 @@ function showNextQuestion() {
   if (!result) return;
   _currentChoices = result.choices;
 
-  // 直式格式
+  el.feedback().classList.add('hidden');
+
+  if (result.isEnglish) {
+    showEnglishQuestion(result);
+  } else {
+    showMathQuestion(result);
+  }
+}
+
+function showMathQuestion(result) {
   const q  = result.question;
   const op = q.type === 'multiplication' ? '×'
            : q.type === 'addition'       ? '+'
@@ -546,12 +555,40 @@ function showNextQuestion() {
       </div>
     `;
   }
-
   el.choiceBtns().forEach((btn, i) => {
-    btn.textContent = result.choices[i];
-    btn.className   = 'choice-btn';
+    btn.textContent     = result.choices[i];
+    btn.dataset.answer  = result.choices[i];
+    btn.className       = 'choice-btn';
+    btn.disabled        = false;
   });
-  el.feedback().classList.add('hidden');
+}
+
+function showEnglishQuestion(result) {
+  const q = result.question;
+  const qDisplay = document.getElementById('question-display');
+  if (qDisplay) {
+    let html = '';
+    if (q.question) {
+      // adverbs bank: sentence has {word} highlight + question text below
+      const sentHtml = q.sentence.replace(/\{(\w+)\}/g, (_, w) => `<span class="q-highlight">${w}</span>`);
+      html = `<div class="q-english-sentence">${sentHtml}</div><div class="q-english-q">${q.question}</div>`;
+    } else if (q.word) {
+      // vocabulary bank: show word prominently + sentence with blank
+      const sentHtml = q.sentence.replace(/___/g, '<span class="q-blank">______</span>');
+      html = `<div class="q-vocab-word">${q.word}</div><div class="q-english-sentence">${sentHtml}</div>`;
+    } else {
+      // fill-in-blank bank: sentence with blank only
+      const sentHtml = q.sentence.replace(/___/g, '<span class="q-blank">______</span>');
+      html = `<div class="q-english-sentence">${sentHtml}</div>`;
+    }
+    qDisplay.innerHTML = html;
+  }
+  el.choiceBtns().forEach((btn, i) => {
+    btn.textContent    = result.choices[i] ?? '';
+    btn.dataset.answer = result.choices[i] ?? '';
+    btn.className      = 'choice-btn choice-btn--english';
+    btn.disabled       = false;
+  });
 }
 
 function onAnswer(chosen) {
@@ -561,25 +598,25 @@ function onAnswer(chosen) {
   const fb = el.feedback();
 
   if (result.correct) {
-    // Gold
-    const gain = result.type === 'multiplication'
-      ? state.config.gold.correctMultiplication
-      : state.config.gold.correctAddition;
+    const gain = result.isEnglish
+      ? (state.config.gold.correctEnglish ?? state.config.gold.correctMultiplication)
+      : result.type === 'multiplication'
+        ? state.config.gold.correctMultiplication
+        : state.config.gold.correctAddition;
     addGold(gain);
     state.score += state.config.score.correctAnswer;
 
-    // 記錄數學統計（EXP 改成通關後手動分配）
-    const userId = getUserId();
-    if (userId) {
-      try { recordMathStat(userId, result.type, true); }
-      catch (e) { console.warn('Firebase 統計失敗', e); }
+    if (!result.isEnglish) {
+      const userId = getUserId();
+      if (userId) {
+        try { recordMathStat(userId, result.type, true); }
+        catch (e) { console.warn('Firebase 統計失敗', e); }
+      }
     }
 
-    // Combo
     state.combo++;
     updateComboUI();
 
-    // 卷軸：每答對 10 題 +1 卷
     state.correctTotal++;
     if (state.correctTotal % 10 === 0) {
       const uid = getUserId();
@@ -588,41 +625,49 @@ function onAnswer(chosen) {
     }
 
     sfxCorrect();
-    fb.textContent = `✓ 答對！+${gain} 💰`;
-    fb.className   = 'answer-feedback correct';
+    if (result.isEnglish && result.explain) {
+      fb.textContent = `✓ ${result.explain}`;
+    } else {
+      fb.textContent = `✓ 答對！+${gain} 💰`;
+    }
+    fb.className = 'answer-feedback correct';
     fb.classList.remove('hidden');
     spawnFx(`+${gain}💰`, state.battlefieldW / 2, 60, 'gold');
 
     highlightChoices(chosen, result.correctAnswer, true);
-    setTimeout(showNextQuestion, 600);
+    setTimeout(showNextQuestion, result.isEnglish ? 1200 : 600);
 
   } else {
-    // Wrong: base -1 HP
     state.playerBaseHp = Math.max(0, state.playerBaseHp - state.config.penalty.wrongAnswer);
     shakePlayerBase();
 
-    const userId = getUserId();
-    if (userId) {
-      try {
-        recordMathStat(userId, result.type, false);
-        const mainHero = expHero();
-        if (mainHero) recordWrongAnswer(userId, mainHero.heroId);
-      } catch (e) { console.warn('Firebase 答錯記錄失敗', e); }
+    if (!result.isEnglish) {
+      const userId = getUserId();
+      if (userId) {
+        try {
+          recordMathStat(userId, result.type, false);
+          const mainHero = expHero();
+          if (mainHero) recordWrongAnswer(userId, mainHero.heroId);
+        } catch (e) { console.warn('Firebase 答錯記錄失敗', e); }
+      }
     }
 
-    // Reset combo (but keep streak count if < 3)
     if (state.combo < state.config.combo.level1) state.combo = 0;
     updateComboUI();
 
     sfxWrong();
     sfxBaseHit();
-    fb.textContent = `✗ 答錯！正確答案是 ${result.correctAnswer}　-1 ❤️`;
-    fb.className   = 'answer-feedback wrong';
+    if (result.isEnglish) {
+      fb.textContent = `✗ 答錯！正確答案：${result.correctAnswer}　-1 ❤️`;
+    } else {
+      fb.textContent = `✗ 答錯！正確答案是 ${result.correctAnswer}　-1 ❤️`;
+    }
+    fb.className = 'answer-feedback wrong';
     fb.classList.remove('hidden');
 
     highlightChoices(chosen, result.correctAnswer, false);
     if (state.playerBaseHp <= 0) { endGame(false); return; }
-    setTimeout(showNextQuestion, 1000);
+    setTimeout(showNextQuestion, result.isEnglish ? 1500 : 1000);
   }
 }
 
@@ -634,9 +679,10 @@ function expHero() {
 
 function highlightChoices(chosen, correct, wasCorrect) {
   el.choiceBtns().forEach(btn => {
-    const val = parseInt(btn.textContent);
-    if (val === correct) btn.classList.add('correct');
-    else if (val === chosen && !wasCorrect) btn.classList.add('wrong');
+    const val = btn.dataset.answer ?? btn.textContent;
+    // use == for number/string compat in math mode
+    if (val == correct) btn.classList.add('correct');
+    else if (val == chosen && !wasCorrect) btn.classList.add('wrong');
   });
 }
 

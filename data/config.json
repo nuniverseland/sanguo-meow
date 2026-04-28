@@ -5,6 +5,7 @@
     "correctMultiplication": 80,
     "correctAddition": 200,
     "correctSubtraction": 200,
+    "correctEnglish": 120,
     "comboMultiplier": 1.5,
     "comboDuration": 15000
   },
