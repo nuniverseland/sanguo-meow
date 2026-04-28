@@ -1,0 +1,249 @@
+/* adverbs-quiz.css */
+
+.quiz-page {
+  overflow: auto;
+  background:
+    linear-gradient(rgba(10,6,2,0.72), rgba(10,6,2,0.72)),
+    url('../assets/backgrounds/bg_europe.jpg') center / cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+/* ── Top bar ─────────────────────────────────────────────────────────────────── */
+.quiz-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: rgba(20,12,4,0.85);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.quiz-topbar-title {
+  flex: 1;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+.quiz-progress-text {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+/* ── Progress bar ────────────────────────────────────────────────────────────── */
+.quiz-progress-bar-wrap {
+  width: 100%;
+  height: 5px;
+  background: rgba(255,255,255,0.1);
+}
+
+.quiz-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  transition: width 0.4s ease;
+}
+
+/* ── Main layout ─────────────────────────────────────────────────────────────── */
+.quiz-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 16px 48px;
+  min-height: calc(100vh - 80px);
+}
+
+.quiz-card {
+  background: rgba(30, 18, 6, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  padding: 32px 36px;
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Badge ───────────────────────────────────────────────────────────────────── */
+.quiz-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+}
+
+.badge-how       { background: #1a4d2e; color: #7dffaa; border: 1px solid #3ab85a; }
+.badge-when      { background: #152a50; color: #7dbfff; border: 1px solid #2e7df7; }
+.badge-where     { background: #4d3a00; color: #ffe07d; border: 1px solid #c9a000; }
+.badge-adjective { background: #4d1a2e; color: #ffaacc; border: 1px solid #c05080; }
+
+/* ── Sentence ────────────────────────────────────────────────────────────────── */
+.quiz-sentence {
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--gold);
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+}
+
+.quiz-highlight {
+  color: var(--gold);
+  font-weight: bold;
+  background: rgba(245, 200, 66, 0.15);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* ── Question ────────────────────────────────────────────────────────────────── */
+.quiz-question {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Options ─────────────────────────────────────────────────────────────────── */
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.quiz-option {
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  line-height: 1.3;
+}
+
+.quiz-option:hover:not(:disabled) {
+  background: rgba(245, 200, 66, 0.12);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.quiz-option:disabled { cursor: default; }
+
+.quiz-option.correct {
+  background: rgba(58, 184, 90, 0.22);
+  border-color: var(--green);
+  color: #b0ffc4;
+}
+
+.quiz-option.wrong {
+  background: rgba(224, 48, 48, 0.22);
+  border-color: var(--red);
+  color: #ffb0b0;
+}
+
+/* ── Explanation ─────────────────────────────────────────────────────────────── */
+.quiz-explain {
+  font-size: 0.92rem;
+  padding: 12px 16px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.explain-correct {
+  background: rgba(58, 184, 90, 0.15);
+  border: 1px solid var(--green);
+  color: #c8ffe0;
+}
+
+.explain-wrong {
+  background: rgba(224, 48, 48, 0.15);
+  border: 1px solid var(--red);
+  color: #ffd0d0;
+}
+
+/* ── Next button ─────────────────────────────────────────────────────────────── */
+.quiz-next-btn {
+  align-self: flex-end;
+  min-width: 140px;
+}
+
+/* ── Result overlay ──────────────────────────────────────────────────────────── */
+.quiz-result {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.quiz-result.hidden { display: none; }
+
+.quiz-result-box {
+  background: var(--bg-mid);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 48px 56px;
+  text-align: center;
+  max-width: 460px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 0 60px rgba(245,200,66,0.2);
+}
+
+.quiz-result-emoji  { font-size: 3.5rem; }
+.quiz-result-title  { font-size: 1.8rem; font-weight: bold; color: var(--gold); }
+.quiz-result-score  { font-size: 2rem; font-weight: bold; color: var(--text-main); }
+.quiz-result-msg    { font-size: 1rem; color: var(--text-dim); }
+
+.quiz-result-btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ── Quiz stage card in index.html ───────────────────────────────────────────── */
+.stage-card.quiz-card {
+  background: linear-gradient(160deg, #1a2a4a 0%, #0d1a30 100%);
+  border: 2px solid #2e7df7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.stage-card.quiz-card:hover:not(.locked) {
+  border-color: var(--gold);
+  filter: drop-shadow(0 10px 20px rgba(46,125,247,0.5));
+}
+
+.quiz-card-icon {
+  font-size: 2.5rem;
+  margin-top: 8px;
+}
+
+.quiz-card-sub {
+  font-size: 0.7rem;
+  color: #7dbfff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Utilities ───────────────────────────────────────────────────────────────── */
+.hidden { display: none !important; }

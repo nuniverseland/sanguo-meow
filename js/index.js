@@ -108,9 +108,7 @@ async function enterGame(userId) {
     location.reload();
   });
 
-  // 背景設在 world-map（讓 tabs 有獨立背景不被蓋掉）
-  document.getElementById('world-map').style.cssText +=
-    ';background:url("assets/backgrounds/bg_main.jpg?v=2") center 20% / cover no-repeat;';
+  setWorldMapBg(currentChapter);
 
   buildChapterTabs();
   buildCountryTabs(currentChapter);
@@ -122,6 +120,21 @@ async function enterGame(userId) {
       { targetQuery: '.stage-card:not(.locked)',     text: '準備好後，點第一關出發！⚔️' },
     ]);
   }
+}
+
+// ── Background ────────────────────────────────────────────────────────────────
+const CHAPTER_BG = {
+  asia:    'assets/backgrounds/bg_main.jpg?v=2',
+  europe:  'assets/backgrounds/bg_europe.jpg?v=1',
+  america: 'assets/backgrounds/bg_main.jpg?v=2',
+  space:   'assets/backgrounds/bg_main.jpg?v=2',
+  final:   'assets/backgrounds/bg_main.jpg?v=2',
+};
+
+function setWorldMapBg(chapter) {
+  const bg = CHAPTER_BG[chapter] || CHAPTER_BG.asia;
+  document.getElementById('world-map').style.cssText +=
+    `;background:url("${bg}") center 20% / cover no-repeat;`;
 }
 
 // ── Unlock logic ──────────────────────────────────────────────────────────────
@@ -179,6 +192,7 @@ function buildChapterTabs() {
         if (id === currentChapter) return;
         currentChapter = id;
         currentCountry = CHAPTER_CONFIG[id].countries[0] || '';
+        setWorldMapBg(id);
         buildChapterTabs();
         buildCountryTabs(id);
         switchCountry(currentCountry);
@@ -249,28 +263,49 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
   filtered.forEach(stage => {
     const unlocked = !stage.unlockRequire || progress[stage.unlockRequire]?.completed;
     const cleared  = progress[stage.id]?.completed;
-    const repEnemy = getStageRepEnemy(stage);
-    const isBoss   = repEnemy?.type === 'boss';
-    const enemyImg = repEnemy
-      ? `<img class="stage-enemy-img" src="${repEnemy.imgWalk}" alt="${repEnemy.name}" onerror="this.style.display='none'">`
-      : '';
+    const isQuiz   = stage.type === 'quiz';
 
     const card = document.createElement('div');
-    card.className = `stage-card${unlocked ? '' : ' locked'}${isBoss ? ' boss' : ''}`;
-    const countryName = (stage.country || '').toUpperCase();
-    card.innerHTML = `
-      ${enemyImg}
-      ${!isBoss ? `<div class="stage-country">${countryName}</div>` : ''}
-      <div class="stage-title">${stage.name}</div>
-      ${!unlocked ? `<div class="stage-lock">🔒 先完成上一關</div>` : ''}
-    `;
 
-    if (unlocked) {
-      card.addEventListener('click', () => {
-        sessionStorage.setItem('currentStageId', stage.id);
-        location.href = 'game.html';
-      });
+    if (isQuiz) {
+      card.className = `stage-card quiz-card${unlocked ? '' : ' locked'}`;
+      card.innerHTML = `
+        <div class="stage-country">🇬🇧 UK</div>
+        <div class="quiz-card-icon">📝</div>
+        <div class="stage-title">${stage.name}</div>
+        <div class="quiz-card-sub">Grammar Challenge</div>
+        ${cleared ? '<div class="stage-cleared">✓</div>' : ''}
+        ${!unlocked ? `<div class="stage-lock">🔒 先完成上一關</div>` : ''}
+      `;
+      if (unlocked) {
+        card.addEventListener('click', () => {
+          sessionStorage.setItem('currentStageId', stage.id);
+          location.href = stage.quizUrl;
+        });
+      }
+    } else {
+      const repEnemy = getStageRepEnemy(stage);
+      const isBoss   = repEnemy?.type === 'boss';
+      const enemyImg = repEnemy
+        ? `<img class="stage-enemy-img" src="${repEnemy.imgWalk}" alt="${repEnemy.name}" onerror="this.style.display='none'">`
+        : '';
+      const countryName = (stage.country || '').toUpperCase();
+      card.className = `stage-card${unlocked ? '' : ' locked'}${isBoss ? ' boss' : ''}`;
+      card.innerHTML = `
+        ${enemyImg}
+        ${!isBoss ? `<div class="stage-country">${countryName}</div>` : ''}
+        <div class="stage-title">${stage.name}</div>
+        ${cleared ? '<div class="stage-cleared">✓</div>' : ''}
+        ${!unlocked ? `<div class="stage-lock">🔒 先完成上一關</div>` : ''}
+      `;
+      if (unlocked) {
+        card.addEventListener('click', () => {
+          sessionStorage.setItem('currentStageId', stage.id);
+          location.href = 'game.html';
+        });
+      }
     }
+
     list.appendChild(card);
   });
 }

@@ -178,5 +178,18 @@
     "speedBonusTarget": 260,
     "speedBonus": 300,
     "storyText": "統領日本水域的河童王親臨，頭頂水盤散發出神秘的藍光……"
+  },
+
+  {
+    "id": "uk_adverbs",
+    "name": "副詞大作戰",
+    "country": "uk",
+    "chapter": "europe",
+    "chapterName": "歐洲篇",
+    "unlockRequire": null,
+    "type": "quiz",
+    "quizUrl": "adverbs-quiz.html",
+    "background": "assets/backgrounds/bg_europe.jpg",
+    "storyText": "英文文法挑戰！學會辨別 Adverbs（副詞）的三種類型。"
   }
 ]
