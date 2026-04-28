@@ -296,7 +296,7 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
         ? `<img class="stage-enemy-img" src="${repEnemy.imgWalk}" alt="${repEnemy.name}" onerror="this.style.display='none'">`
         : '';
       const countryName = (stage.country || '').toUpperCase();
-      card.className = `stage-card${unlocked ? '' : ' locked'}${isBoss ? ' boss' : ''}`;
+      card.className = `stage-card chapter-${chapter}${unlocked ? '' : ' locked'}${isBoss ? ' boss' : ''}`;
       card.innerHTML = `
         ${enemyImg}
         ${!isBoss ? `<div class="stage-country">${countryName}</div>` : ''}

@@ -244,11 +244,11 @@ img { display: block; }
   background-image: url('../assets/backgrounds/stage_card_asia_boss.png?v=1');
 }
 
-/* Europe chapter quiz stage cards */
-.stage-card.quiz-card {
+/* Europe chapter stage cards */
+.stage-card.chapter-europe {
   background: url('../assets/backgrounds/stage_card_europe_normal.png') center/100% 100% no-repeat;
 }
-.stage-card.boss-quiz-card {
+.stage-card.chapter-europe.boss {
   background: url('../assets/backgrounds/stage_card_europe_boss.png') center/100% 100% no-repeat;
 }
 
