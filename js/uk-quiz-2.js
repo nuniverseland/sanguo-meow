@@ -1,4 +1,4 @@
-// france-quiz.js — Fill-in-the-blank adverb/adjective quiz for France chapter
+// uk-quiz-2.js — Fill-in-the-blank adverb/adjective quiz for UK chapter (stage 2)
 import { getUserId, addScore, saveStageResult } from './firebase.js';
 
 const TOPIC_BADGE = {
@@ -22,7 +22,7 @@ async function init() {
   const data = await res.json();
 
   // Shuffle question order
-  questions = shuffle([...(data.adverbs_france || [])]);
+  questions = shuffle([...(data.adverbs_uk_2 || [])]);
 
   // Pre-compute per-question shuffled options
   // Data: answer is always 0 (options[0] is correct)
@@ -147,7 +147,7 @@ function showResult() {
   const userId = getUserId();
   if (userId) {
     const perfect = pct === 100;
-    saveStageResult(userId, 'france_adverbs', { score: pct * 10, time: elapsed, perfect, dialogChoice: null })
+    saveStageResult(userId, 'uk_adverbs_2', { score: pct * 10, time: elapsed, perfect, dialogChoice: null })
       .catch(() => {});
     if (score > 0) addScore(userId, score * 5).catch(() => {});
   }

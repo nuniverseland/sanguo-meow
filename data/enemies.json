@@ -61,6 +61,28 @@
   },
 
   {
+    "id": "en_ben",
+    "name": "大笨鐘守衛",
+    "country": "uk",
+    "chapterName": "英國篇",
+    "type": "normal",
+    "hp": 350,
+    "atk": 50,
+    "speed": 0.65,
+    "range": 90,
+    "attackInterval": 2400,
+    "attackType": "single",
+    "knockbackCount": 3,
+    "reward": 70,
+    "rewardScore": 140,
+    "trait": "nature",
+    "imgWalk": "assets/enemies/enemy_en_ben.png",
+    "imgAtk": "assets/enemies/enemy_en_ben_atk.png",
+    "description": "大笨鐘是倫敦最著名的地標，守衛們以大笨鐘為信仰，每到整點鐘聲響起，便發動強力攻擊！",
+    "funFact": "大笨鐘其實是鐘的名字，不是塔！那座塔叫做「伊麗莎白塔」，2012年才正式改名。鐘聲每小時響一次，倫敦人靠它報時超過150年！"
+  },
+
+  {
     "id": "jp_tanuki",
     "name": "狸貓忍者",
     "country": "japan",

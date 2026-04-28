@@ -181,28 +181,56 @@
   },
 
   {
+    "id": "england_1",
+    "name": "倫敦初戰",
+    "country": "uk",
+    "chapter": "europe",
+    "chapterName": "歐洲篇",
+    "unlockRequire": null,
+    "background": "assets/backgrounds/bg_england.jpg",
+    "playerBase": "assets/bases/base_player.png",
+    "enemyBase": "assets/bases/base_enemy_england.png",
+    "enemyMultiplier": 1.0,
+    "enemyBaseHp": 2000,
+    "playerBaseHp": 20,
+    "mathTypes": ["multiplication"],
+    "spawnSchedule": [
+      { "time": 8,  "enemy": "en_ben", "count": 1 },
+      { "time": 18, "enemy": "en_ben", "count": 2 },
+      { "time": 30, "enemy": "en_ben", "count": 2 },
+      { "time": 42, "enemy": "en_ben", "count": 3 },
+      { "trigger": "base_attacked", "enemy": "en_ben", "count": 3 }
+    ],
+    "baseScore": 1200,
+    "perfectBonus": 600,
+    "speedBonusTarget": 200,
+    "speedBonus": 200,
+    "storyText": "喵喵軍踏上英倫之地，大笨鐘守衛從倫敦出發……"
+  },
+
+  {
     "id": "uk_adverbs",
     "name": "副詞大作戰",
     "country": "uk",
     "chapter": "europe",
     "chapterName": "歐洲篇",
-    "unlockRequire": null,
+    "unlockRequire": "england_1",
     "type": "quiz",
     "quizUrl": "adverbs-quiz.html",
-    "background": "assets/backgrounds/bg_europe.jpg",
+    "background": "assets/backgrounds/bg_england.jpg",
     "storyText": "英文文法挑戰！學會辨別 Adverbs（副詞）的三種類型。"
   },
 
   {
-    "id": "france_adverbs",
+    "id": "uk_adverbs_2",
     "name": "填空大挑戰",
-    "country": "france",
+    "country": "uk",
     "chapter": "europe",
     "chapterName": "歐洲篇",
-    "unlockRequire": null,
+    "unlockRequire": "uk_adverbs",
     "type": "quiz",
-    "quizUrl": "france-quiz.html",
-    "background": "assets/backgrounds/bg_europe.jpg",
+    "quizUrl": "uk-quiz-2.html",
+    "background": "assets/backgrounds/bg_england.jpg",
     "storyText": "Adjective 還是 Adverb？看句子結構，填入正確的詞！"
   }
 ]
