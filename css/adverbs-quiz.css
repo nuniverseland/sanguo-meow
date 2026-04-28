@@ -217,6 +217,76 @@
   margin-top: 8px;
 }
 
+/* ── France fill-in-the-blank ────────────────────────────────────────────────── */
+.france-sentence {
+  font-size: 1.55rem;
+  line-height: 1.7;
+}
+
+.france-blank {
+  display: inline-block;
+  color: var(--gold);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--gold);
+  padding: 0 2px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.france-hint {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.france-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.france-option {
+  background: rgba(255,255,255,0.07);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  letter-spacing: 0.03em;
+}
+
+.france-option:hover:not(:disabled) {
+  background: rgba(245, 200, 66, 0.14);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.france-option:disabled { cursor: default; }
+
+.france-option.correct {
+  background: rgba(58, 184, 90, 0.25);
+  border-color: var(--green);
+  color: #b0ffc4;
+}
+
+.france-option.wrong {
+  background: rgba(224, 48, 48, 0.25);
+  border-color: var(--red);
+  color: #ffb0b0;
+}
+
+/* Unit badge */
+.badge-unit {
+  background: #2a1a40;
+  color: #c8a8ff;
+  border: 1px solid #7050c0;
+}
+
 /* ── Quiz stage card in index.html ───────────────────────────────────────────── */
 .stage-card.quiz-card {
   background: linear-gradient(160deg, #1a2a4a 0%, #0d1a30 100%);

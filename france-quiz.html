@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fill-in-the-blank Challenge — 三國喵喵</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/adverbs-quiz.css">
+</head>
+<body class="quiz-page">
+
+  <!-- Top bar -->
+  <header class="quiz-topbar">
+    <button class="btn-ghost" onclick="history.back()">← 返回</button>
+    <span class="quiz-topbar-title">🇫🇷 Grammar Challenge — Adjective or Adverb?</span>
+    <span id="quiz-progress-text" class="quiz-progress-text">1 / 34</span>
+  </header>
+
+  <!-- Progress bar -->
+  <div class="quiz-progress-bar-wrap">
+    <div id="quiz-progress-bar" class="quiz-progress-bar" style="width:0%"></div>
+  </div>
+
+  <!-- Quiz card -->
+  <main class="quiz-main">
+    <div class="quiz-card" id="quiz-card">
+
+      <!-- Unit badge -->
+      <div id="quiz-badge" class="quiz-badge badge-unit">Unit 4.3.1</div>
+
+      <!-- Sentence with blank -->
+      <div id="quiz-sentence" class="quiz-sentence france-sentence"></div>
+
+      <!-- Hint label -->
+      <div class="france-hint">Choose the correct word to fill in the blank:</div>
+
+      <!-- 2-option buttons -->
+      <div class="france-options" id="france-options">
+        <button class="france-option" data-idx="0"></button>
+        <button class="france-option" data-idx="1"></button>
+      </div>
+
+      <!-- Explanation -->
+      <div id="quiz-explain" class="quiz-explain hidden"></div>
+
+      <!-- Next button -->
+      <button id="quiz-next-btn" class="btn-primary quiz-next-btn hidden">Next →</button>
+
+    </div>
+  </main>
+
+  <!-- Result overlay -->
+  <div id="quiz-result" class="quiz-result hidden">
+    <div class="quiz-result-box">
+      <div id="quiz-result-emoji" class="quiz-result-emoji">🎉</div>
+      <div id="quiz-result-title" class="quiz-result-title"></div>
+      <div id="quiz-result-score" class="quiz-result-score"></div>
+      <div id="quiz-result-msg" class="quiz-result-msg"></div>
+      <div class="quiz-result-btns">
+        <button class="btn-primary" id="quiz-retry-btn">再挑戰 🔁</button>
+        <button class="btn-secondary" onclick="history.back()">返回選關</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/france-quiz.js"></script>
+</body>
+</html>
