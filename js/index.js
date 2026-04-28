@@ -280,7 +280,6 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
         ${enemyImg}
         <div class="stage-country">${countryFlag}</div>
         <div class="stage-title">${stage.name}</div>
-        <div class="quiz-card-sub">${sub}</div>
         ${cleared ? '<div class="stage-cleared">✓</div>' : ''}
         ${!unlocked ? `<div class="stage-lock">🔒 先完成上一關</div>` : ''}
       `;
