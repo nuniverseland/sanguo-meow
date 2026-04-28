@@ -244,6 +244,14 @@ img { display: block; }
   background-image: url('../assets/backgrounds/stage_card_asia_boss.png?v=1');
 }
 
+/* Europe chapter quiz stage cards */
+.stage-card.quiz-card {
+  background: url('../assets/backgrounds/stage_card_europe_normal.png') center/100% 100% no-repeat;
+}
+.stage-card.boss-quiz-card {
+  background: url('../assets/backgrounds/stage_card_europe_boss.png') center/100% 100% no-repeat;
+}
+
 .stage-card:hover:not(.locked)   { transform: translateY(-6px); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7)) drop-shadow(0 0 10px rgba(245,200,66,0.35)); }
 .stage-card.locked                { opacity: .55; cursor: not-allowed; filter: grayscale(0.5) drop-shadow(0 4px 10px rgba(0,0,0,0.5)); }
 .stage-card.locked:hover          { transform: none; }
