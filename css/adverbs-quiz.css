@@ -346,7 +346,7 @@
 }
 
 .stage-card.boss-quiz-card {
-  background-image: url('../assets/backgrounds/stage_card_europe_boss.png');
+  background: url('../assets/backgrounds/stage_card_europe_boss.png') center/100% 100% no-repeat;
 }
 
 .quiz-card-sub {
