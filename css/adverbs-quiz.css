@@ -287,6 +287,58 @@
   border: 1px solid #7050c0;
 }
 
+/* ── Vocabulary / Boss quiz ──────────────────────────────────────────────────── */
+.quiz-boss-page {
+  background:
+    linear-gradient(rgba(6,2,16,0.78), rgba(6,2,16,0.78)),
+    url('../assets/backgrounds/bg_england.jpg') center / cover no-repeat fixed;
+}
+
+.boss-topbar {
+  background: rgba(12,4,24,0.92);
+  border-bottom-color: #6030c0;
+}
+
+.boss-card {
+  border-color: #6030c0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 40px rgba(96,48,192,0.25);
+}
+
+.boss-progress-bar {
+  background: linear-gradient(90deg, #6030c0, #c060ff);
+}
+
+.vocab-word-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vocab-word-label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.vocab-word {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #c8a0ff;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 12px rgba(192,96,255,0.4);
+}
+
+.vocab-options {
+  grid-template-columns: 1fr 1fr;
+}
+
+.boss-result-box {
+  border-color: #6030c0;
+  box-shadow: 0 0 60px rgba(96,48,192,0.35);
+}
+
 /* ── Quiz stage card in index.html ───────────────────────────────────────────── */
 .stage-card.quiz-card {
   background: linear-gradient(160deg, #1a2a4a 0%, #0d1a30 100%);
@@ -301,6 +353,16 @@
 .stage-card.quiz-card:hover:not(.locked) {
   border-color: var(--gold);
   filter: drop-shadow(0 10px 20px rgba(46,125,247,0.5));
+}
+
+.stage-card.boss-quiz-card {
+  background: linear-gradient(160deg, #1a0a30 0%, #0d0420 100%);
+  border-color: #6030c0;
+}
+
+.stage-card.boss-quiz-card:hover:not(.locked) {
+  border-color: #c060ff;
+  filter: drop-shadow(0 10px 20px rgba(96,48,192,0.55));
 }
 
 .quiz-card-icon {

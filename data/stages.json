@@ -232,5 +232,19 @@
     "quizUrl": "uk-quiz-2.html",
     "background": "assets/backgrounds/bg_england.jpg",
     "storyText": "Adjective 還是 Adverb？看句子結構，填入正確的詞！"
+  },
+
+  {
+    "id": "uk_vocabulary",
+    "name": "憤怒的古堡",
+    "country": "uk",
+    "chapter": "europe",
+    "chapterName": "歐洲篇",
+    "unlockRequire": "uk_adverbs_2",
+    "type": "quiz",
+    "isBossQuiz": true,
+    "quizUrl": "uk-quiz-3.html",
+    "background": "assets/backgrounds/bg_england.jpg",
+    "storyText": "古堡中的詞彙守衛現身！用單字知識打敗最終 BOSS！"
   }
 ]
