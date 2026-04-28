@@ -182,9 +182,12 @@ async function init() {
       .filter(Boolean);
     buildSummonPanel(availableHeroes);
 
-    // Setup answer buttons (math: number string; English: text string)
+    // Math buttons use parseInt (original behavior); English buttons set data-answer
     el.choiceBtns().forEach(btn => {
-      btn.addEventListener('click', () => onAnswer(btn.dataset.answer ?? btn.textContent));
+      btn.addEventListener('click', () => {
+        const ans = btn.dataset.isEnglish ? btn.dataset.answer : parseInt(btn.textContent);
+        onAnswer(ans);
+      });
     });
 
     // Show dialog then start
@@ -556,10 +559,10 @@ function showMathQuestion(result) {
     `;
   }
   el.choiceBtns().forEach((btn, i) => {
-    btn.textContent     = result.choices[i];
-    btn.dataset.answer  = result.choices[i];
-    btn.className       = 'choice-btn';
-    btn.disabled        = false;
+    btn.textContent       = result.choices[i];
+    btn.dataset.isEnglish = '';
+    btn.className         = 'choice-btn';
+    btn.disabled          = false;
   });
 }
 
@@ -584,10 +587,11 @@ function showEnglishQuestion(result) {
     qDisplay.innerHTML = html;
   }
   el.choiceBtns().forEach((btn, i) => {
-    btn.textContent    = result.choices[i] ?? '';
-    btn.dataset.answer = result.choices[i] ?? '';
-    btn.className      = 'choice-btn choice-btn--english';
-    btn.disabled       = false;
+    btn.textContent        = result.choices[i] ?? '';
+    btn.dataset.answer     = result.choices[i] ?? '';
+    btn.dataset.isEnglish  = '1';
+    btn.className          = 'choice-btn choice-btn--english';
+    btn.disabled           = false;
   });
 }
 
@@ -678,12 +682,16 @@ function expHero() {
 }
 
 function highlightChoices(chosen, correct, wasCorrect) {
-  const cStr = String(correct);
-  const wStr = String(chosen);
   el.choiceBtns().forEach(btn => {
-    const val = String(btn.dataset.answer || btn.textContent);
-    if (val === cStr) btn.classList.add('correct');
-    else if (val === wStr && !wasCorrect) btn.classList.add('wrong');
+    if (btn.dataset.isEnglish) {
+      const val = btn.dataset.answer;
+      if (val === correct) btn.classList.add('correct');
+      else if (val === chosen && !wasCorrect) btn.classList.add('wrong');
+    } else {
+      const val = parseInt(btn.textContent);
+      if (val === correct) btn.classList.add('correct');
+      else if (val === chosen && !wasCorrect) btn.classList.add('wrong');
+    }
   });
 }
 
