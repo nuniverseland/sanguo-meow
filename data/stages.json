@@ -188,6 +188,7 @@
     "chapterName": "歐洲篇",
     "unlockRequire": null,
     "type": "quiz",
+    "repEnemy": "en_ben",
     "quizUrl": "adverbs-quiz.html",
     "background": "assets/backgrounds/bg_england.jpg",
     "storyText": "英文文法挑戰！學會辨別 Adverbs（副詞）的三種類型。"
@@ -201,6 +202,7 @@
     "chapterName": "歐洲篇",
     "unlockRequire": "uk_adverbs",
     "type": "quiz",
+    "repEnemy": "en_stone",
     "quizUrl": "uk-quiz-2.html",
     "background": "assets/backgrounds/bg_england.jpg",
     "storyText": "Adjective 還是 Adverb？看句子結構，填入正確的詞！"
@@ -215,6 +217,7 @@
     "unlockRequire": "uk_adverbs_2",
     "type": "quiz",
     "isBossQuiz": true,
+    "repEnemy": "en_ghost_boss",
     "quizUrl": "uk-quiz-3.html",
     "background": "assets/backgrounds/bg_england.jpg",
     "storyText": "古堡中的詞彙守衛現身！用單字知識打敗最終 BOSS！"

@@ -341,40 +341,25 @@
 
 /* ── Quiz stage card in index.html ───────────────────────────────────────────── */
 .stage-card.quiz-card {
-  background: linear-gradient(160deg, #1a2a4a 0%, #0d1a30 100%);
-  border: 2px solid #2e7df7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.stage-card.quiz-card:hover:not(.locked) {
-  border-color: var(--gold);
-  filter: drop-shadow(0 10px 20px rgba(46,125,247,0.5));
+  background: url('../assets/backgrounds/stage_card_europe_normal.png') center/100% 100% no-repeat;
+  border: none;
 }
 
 .stage-card.boss-quiz-card {
-  background: linear-gradient(160deg, #1a0a30 0%, #0d0420 100%);
-  border-color: #6030c0;
-}
-
-.stage-card.boss-quiz-card:hover:not(.locked) {
-  border-color: #c060ff;
-  filter: drop-shadow(0 10px 20px rgba(96,48,192,0.55));
-}
-
-.quiz-card-icon {
-  font-size: 2.5rem;
-  margin-top: 8px;
+  background-image: url('../assets/backgrounds/stage_card_europe_boss.png');
 }
 
 .quiz-card-sub {
-  font-size: 0.7rem;
-  color: #7dbfff;
+  position: absolute;
+  bottom: 9%;
+  left: 13%;
+  right: 13%;
+  text-align: center;
+  font-size: 0.65rem;
+  color: #aad4ff;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
 }
 
 /* ── Utilities ───────────────────────────────────────────────────────────────── */

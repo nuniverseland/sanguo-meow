@@ -270,12 +270,15 @@ function renderStages(chapter = currentChapter, country = currentCountry) {
     if (isQuiz) {
       const isBossQuiz  = !!stage.isBossQuiz;
       const countryFlag = COUNTRY_LABELS[stage.country]?.split(' ')[0] || '🌍';
-      const icon        = isBossQuiz ? '⚔️' : '📝';
-      const sub         = isBossQuiz ? 'BOSS Challenge' : 'Grammar Challenge';
+      const repEnemy    = stage.repEnemy ? enemiesData?.find(en => en.id === stage.repEnemy) : null;
+      const enemyImg    = repEnemy
+        ? `<img class="stage-enemy-img" src="${repEnemy.imgWalk}" alt="${repEnemy.name}" onerror="this.style.display='none'">`
+        : '';
+      const sub = isBossQuiz ? 'BOSS Challenge' : 'Grammar Challenge';
       card.className = `stage-card quiz-card${isBossQuiz ? ' boss-quiz-card' : ''}${unlocked ? '' : ' locked'}`;
       card.innerHTML = `
+        ${enemyImg}
         <div class="stage-country">${countryFlag}</div>
-        <div class="quiz-card-icon">${icon}</div>
         <div class="stage-title">${stage.name}</div>
         <div class="quiz-card-sub">${sub}</div>
         ${cleared ? '<div class="stage-cleared">✓</div>' : ''}
