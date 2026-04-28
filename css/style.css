@@ -643,15 +643,15 @@ img { display: block; }
 
 /* ── English question display ────────────────────────────────────────────── */
 .q-english-sentence {
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.15rem;
+  line-height: 1.6;
   color: var(--text-main);
   border-left: 3px solid var(--gold);
   padding: 6px 10px;
   margin-bottom: 4px;
 }
 .q-english-q {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--text-dim);
   font-style: italic;
 }
@@ -662,21 +662,12 @@ img { display: block; }
 .q-blank {
   color: var(--gold);
   font-weight: bold;
-  border-bottom: 2px solid var(--gold);
-  padding: 0 2px;
-}
-.q-vocab-word {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #c8a0ff;
   letter-spacing: 0.05em;
-  text-align: center;
-  margin-bottom: 4px;
 }
 
-/* English choice buttons: text wraps, smaller font */
+/* English choice buttons: text wraps, readable size */
 .choice-btn--english {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: normal;
   text-align: left;
   padding: 8px 10px;

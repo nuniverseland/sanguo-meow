@@ -17,6 +17,7 @@ export class Enemy {
     this.trait   = data.trait;
     this.imgSrc    = data.imgWalk;
     this.atkImgSrc = data.imgWalk.replace('.png', '_atk.png');
+    this.noFlip    = !!data.noFlip;
 
     this.maxHp          = data.hp;
     this.hp             = data.hp;
@@ -59,7 +60,7 @@ export class Enemy {
 
     const avatar = document.createElement('div');
     avatar.className = 'unit-img';
-    avatar.style.transform = 'scaleX(-1)'; // face left
+    if (!this.noFlip) avatar.style.transform = 'scaleX(-1)'; // face left
 
     const img = document.createElement('img');
     img.src   = this.imgSrc;

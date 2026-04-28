@@ -63,6 +63,7 @@
   {
     "id": "en_ben",
     "name": "大笨鐘守衛",
+    "noFlip": true,
     "country": "uk",
     "chapterName": "英國篇",
     "type": "normal",
@@ -85,6 +86,7 @@
   {
     "id": "en_stone",
     "name": "巨石陣守衛",
+    "noFlip": true,
     "country": "uk",
     "chapterName": "英國篇",
     "type": "normal",
@@ -107,6 +109,7 @@
   {
     "id": "en_ghost_boss",
     "name": "古堡幽靈王",
+    "noFlip": true,
     "country": "uk",
     "chapterName": "英國篇",
     "type": "boss",

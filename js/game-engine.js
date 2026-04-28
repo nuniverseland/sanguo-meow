@@ -573,9 +573,9 @@ function showEnglishQuestion(result) {
       const sentHtml = q.sentence.replace(/\{(\w+)\}/g, (_, w) => `<span class="q-highlight">${w}</span>`);
       html = `<div class="q-english-sentence">${sentHtml}</div><div class="q-english-q">${q.question}</div>`;
     } else if (q.word) {
-      // vocabulary bank: show word prominently + sentence with blank
+      // vocabulary bank: show sentence with blank (word hidden in options)
       const sentHtml = q.sentence.replace(/___/g, '<span class="q-blank">______</span>');
-      html = `<div class="q-vocab-word">${q.word}</div><div class="q-english-sentence">${sentHtml}</div>`;
+      html = `<div class="q-english-sentence">${sentHtml}</div>`;
     } else {
       // fill-in-blank bank: sentence with blank only
       const sentHtml = q.sentence.replace(/___/g, '<span class="q-blank">______</span>');
@@ -678,11 +678,12 @@ function expHero() {
 }
 
 function highlightChoices(chosen, correct, wasCorrect) {
+  const cStr = String(correct);
+  const wStr = String(chosen);
   el.choiceBtns().forEach(btn => {
-    const val = btn.dataset.answer ?? btn.textContent;
-    // use == for number/string compat in math mode
-    if (val == correct) btn.classList.add('correct');
-    else if (val == chosen && !wasCorrect) btn.classList.add('wrong');
+    const val = String(btn.dataset.answer || btn.textContent);
+    if (val === cStr) btn.classList.add('correct');
+    else if (val === wStr && !wasCorrect) btn.classList.add('wrong');
   });
 }
 
